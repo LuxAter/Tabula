@@ -1,0 +1,150 @@
+\hypertarget{group__CINDEX__LEX}{}\section{Token extraction and manipulation}
+\label{group__CINDEX__LEX}\index{Token extraction and manipulation@{Token extraction and manipulation}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structCXToken}{C\+X\+Token}}
+\begin{DoxyCompactList}\small\item\em Describes a single preprocessing token. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__CINDEX__LEX_ga7271219ef4d52d9733d5a25aa2f49283}\label{group__CINDEX__LEX_ga7271219ef4d52d9733d5a25aa2f49283}} 
+typedef enum \mbox{\hyperlink{group__CINDEX__LEX_gaf63e37eee4280e2c039829af24bbc201}{C\+X\+Token\+Kind}} \mbox{\hyperlink{group__CINDEX__LEX_ga7271219ef4d52d9733d5a25aa2f49283}{C\+X\+Token\+Kind}}
+\begin{DoxyCompactList}\small\item\em Describes a kind of token. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{group__CINDEX__LEX_gaf63e37eee4280e2c039829af24bbc201}{C\+X\+Token\+Kind}} \{ \newline
+\mbox{\hyperlink{group__CINDEX__LEX_ggaf63e37eee4280e2c039829af24bbc201a463897af21adb6706fbfcf22ca4940b7}{C\+X\+Token\+\_\+\+Punctuation}}, 
+\mbox{\hyperlink{group__CINDEX__LEX_ggaf63e37eee4280e2c039829af24bbc201a792baee6b6a166111c89bf542a75c089}{C\+X\+Token\+\_\+\+Keyword}}, 
+\mbox{\hyperlink{group__CINDEX__LEX_ggaf63e37eee4280e2c039829af24bbc201a439a43b4d7a9fb0333c926dabb88d710}{C\+X\+Token\+\_\+\+Identifier}}, 
+\mbox{\hyperlink{group__CINDEX__LEX_ggaf63e37eee4280e2c039829af24bbc201aafb7fbc9035a6523463b52fe69e8a5d6}{C\+X\+Token\+\_\+\+Literal}}, 
+\newline
+\mbox{\hyperlink{group__CINDEX__LEX_ggaf63e37eee4280e2c039829af24bbc201a6a24a53d8d4a4aa6e4bcb4847c9652f3}{C\+X\+Token\+\_\+\+Comment}}
+ \}
+\begin{DoxyCompactList}\small\item\em Describes a kind of token. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__CINDEX__LEX_ga83f692a67fe4dbeea779f37c0a3b7f20}\label{group__CINDEX__LEX_ga83f692a67fe4dbeea779f37c0a3b7f20}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{group__CINDEX__LEX_gaf63e37eee4280e2c039829af24bbc201}{C\+X\+Token\+Kind}} \mbox{\hyperlink{group__CINDEX__LEX_ga83f692a67fe4dbeea779f37c0a3b7f20}{clang\+\_\+get\+Token\+Kind}} (\mbox{\hyperlink{structCXToken}{C\+X\+Token}})
+\begin{DoxyCompactList}\small\item\em Determine the kind of the given token. \end{DoxyCompactList}\item 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{structCXString}{C\+X\+String}} \mbox{\hyperlink{group__CINDEX__LEX_ga1033a25c9d2c59bcbdb23020de0bba2c}{clang\+\_\+get\+Token\+Spelling}} (\mbox{\hyperlink{group__CINDEX_gacdb7815736ca709ce9a5e1ec2b7e16ac}{C\+X\+Translation\+Unit}}, \mbox{\hyperlink{structCXToken}{C\+X\+Token}})
+\begin{DoxyCompactList}\small\item\em Determine the spelling of the given token. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX__LEX_ga76a721514acb4cc523e10a6913d88021}\label{group__CINDEX__LEX_ga76a721514acb4cc523e10a6913d88021}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{structCXSourceLocation}{C\+X\+Source\+Location}} \mbox{\hyperlink{group__CINDEX__LEX_ga76a721514acb4cc523e10a6913d88021}{clang\+\_\+get\+Token\+Location}} (\mbox{\hyperlink{group__CINDEX_gacdb7815736ca709ce9a5e1ec2b7e16ac}{C\+X\+Translation\+Unit}}, \mbox{\hyperlink{structCXToken}{C\+X\+Token}})
+\begin{DoxyCompactList}\small\item\em Retrieve the source location of the given token. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX__LEX_ga5acbc0a2a3c01aa44e1c5c5ccc4e328b}\label{group__CINDEX__LEX_ga5acbc0a2a3c01aa44e1c5c5ccc4e328b}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{structCXSourceRange}{C\+X\+Source\+Range}} \mbox{\hyperlink{group__CINDEX__LEX_ga5acbc0a2a3c01aa44e1c5c5ccc4e328b}{clang\+\_\+get\+Token\+Extent}} (\mbox{\hyperlink{group__CINDEX_gacdb7815736ca709ce9a5e1ec2b7e16ac}{C\+X\+Translation\+Unit}}, \mbox{\hyperlink{structCXToken}{C\+X\+Token}})
+\begin{DoxyCompactList}\small\item\em Retrieve a source range that covers the given token. \end{DoxyCompactList}\item 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE void \mbox{\hyperlink{group__CINDEX__LEX_ga6b315a71102d4f6c95eb68894a3bda8a}{clang\+\_\+tokenize}} (\mbox{\hyperlink{group__CINDEX_gacdb7815736ca709ce9a5e1ec2b7e16ac}{C\+X\+Translation\+Unit}} TU, \mbox{\hyperlink{structCXSourceRange}{C\+X\+Source\+Range}} Range, \mbox{\hyperlink{structCXToken}{C\+X\+Token}} $\ast$$\ast$Tokens, unsigned $\ast$Num\+Tokens)
+\begin{DoxyCompactList}\small\item\em Tokenize the source code described by the given range into raw lexical tokens. \end{DoxyCompactList}\item 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE void \mbox{\hyperlink{group__CINDEX__LEX_gadc0c15904e61902b73e02700af0863a0}{clang\+\_\+annotate\+Tokens}} (\mbox{\hyperlink{group__CINDEX_gacdb7815736ca709ce9a5e1ec2b7e16ac}{C\+X\+Translation\+Unit}} TU, \mbox{\hyperlink{structCXToken}{C\+X\+Token}} $\ast$Tokens, unsigned Num\+Tokens, \mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}} $\ast$Cursors)
+\begin{DoxyCompactList}\small\item\em Annotate the given set of tokens by providing cursors for each token that can be mapped to a specific entity within the abstract syntax tree. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX__LEX_gac5266f6b5fee87c433b696437cab0d13}\label{group__CINDEX__LEX_gac5266f6b5fee87c433b696437cab0d13}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE void \mbox{\hyperlink{group__CINDEX__LEX_gac5266f6b5fee87c433b696437cab0d13}{clang\+\_\+dispose\+Tokens}} (\mbox{\hyperlink{group__CINDEX_gacdb7815736ca709ce9a5e1ec2b7e16ac}{C\+X\+Translation\+Unit}} TU, \mbox{\hyperlink{structCXToken}{C\+X\+Token}} $\ast$Tokens, unsigned Num\+Tokens)
+\begin{DoxyCompactList}\small\item\em Free the given set of tokens. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The routines in this group provide access to the tokens within a translation unit, along with a semantic mapping of those tokens to their corresponding cursors. 
+
+\subsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{group__CINDEX__LEX_gaf63e37eee4280e2c039829af24bbc201}\label{group__CINDEX__LEX_gaf63e37eee4280e2c039829af24bbc201}} 
+\index{Token extraction and manipulation@{Token extraction and manipulation}!C\+X\+Token\+Kind@{C\+X\+Token\+Kind}}
+\index{C\+X\+Token\+Kind@{C\+X\+Token\+Kind}!Token extraction and manipulation@{Token extraction and manipulation}}
+\subsubsection{\texorpdfstring{C\+X\+Token\+Kind}{CXTokenKind}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group__CINDEX__LEX_gaf63e37eee4280e2c039829af24bbc201}{C\+X\+Token\+Kind}}}
+
+
+
+Describes a kind of token. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Token\+\_\+\+Punctuation@{C\+X\+Token\+\_\+\+Punctuation}!Token extraction and manipulation@{Token extraction and manipulation}}\index{Token extraction and manipulation@{Token extraction and manipulation}!C\+X\+Token\+\_\+\+Punctuation@{C\+X\+Token\+\_\+\+Punctuation}}}\mbox{\Hypertarget{group__CINDEX__LEX_ggaf63e37eee4280e2c039829af24bbc201a463897af21adb6706fbfcf22ca4940b7}\label{group__CINDEX__LEX_ggaf63e37eee4280e2c039829af24bbc201a463897af21adb6706fbfcf22ca4940b7}} 
+C\+X\+Token\+\_\+\+Punctuation&A token that contains some kind of punctuation. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Token\+\_\+\+Keyword@{C\+X\+Token\+\_\+\+Keyword}!Token extraction and manipulation@{Token extraction and manipulation}}\index{Token extraction and manipulation@{Token extraction and manipulation}!C\+X\+Token\+\_\+\+Keyword@{C\+X\+Token\+\_\+\+Keyword}}}\mbox{\Hypertarget{group__CINDEX__LEX_ggaf63e37eee4280e2c039829af24bbc201a792baee6b6a166111c89bf542a75c089}\label{group__CINDEX__LEX_ggaf63e37eee4280e2c039829af24bbc201a792baee6b6a166111c89bf542a75c089}} 
+C\+X\+Token\+\_\+\+Keyword&A language keyword. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Token\+\_\+\+Identifier@{C\+X\+Token\+\_\+\+Identifier}!Token extraction and manipulation@{Token extraction and manipulation}}\index{Token extraction and manipulation@{Token extraction and manipulation}!C\+X\+Token\+\_\+\+Identifier@{C\+X\+Token\+\_\+\+Identifier}}}\mbox{\Hypertarget{group__CINDEX__LEX_ggaf63e37eee4280e2c039829af24bbc201a439a43b4d7a9fb0333c926dabb88d710}\label{group__CINDEX__LEX_ggaf63e37eee4280e2c039829af24bbc201a439a43b4d7a9fb0333c926dabb88d710}} 
+C\+X\+Token\+\_\+\+Identifier&An identifier (that is not a keyword). \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Token\+\_\+\+Literal@{C\+X\+Token\+\_\+\+Literal}!Token extraction and manipulation@{Token extraction and manipulation}}\index{Token extraction and manipulation@{Token extraction and manipulation}!C\+X\+Token\+\_\+\+Literal@{C\+X\+Token\+\_\+\+Literal}}}\mbox{\Hypertarget{group__CINDEX__LEX_ggaf63e37eee4280e2c039829af24bbc201aafb7fbc9035a6523463b52fe69e8a5d6}\label{group__CINDEX__LEX_ggaf63e37eee4280e2c039829af24bbc201aafb7fbc9035a6523463b52fe69e8a5d6}} 
+C\+X\+Token\+\_\+\+Literal&A numeric, string, or character literal. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Token\+\_\+\+Comment@{C\+X\+Token\+\_\+\+Comment}!Token extraction and manipulation@{Token extraction and manipulation}}\index{Token extraction and manipulation@{Token extraction and manipulation}!C\+X\+Token\+\_\+\+Comment@{C\+X\+Token\+\_\+\+Comment}}}\mbox{\Hypertarget{group__CINDEX__LEX_ggaf63e37eee4280e2c039829af24bbc201a6a24a53d8d4a4aa6e4bcb4847c9652f3}\label{group__CINDEX__LEX_ggaf63e37eee4280e2c039829af24bbc201a6a24a53d8d4a4aa6e4bcb4847c9652f3}} 
+C\+X\+Token\+\_\+\+Comment&A comment. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{group__CINDEX__LEX_gadc0c15904e61902b73e02700af0863a0}\label{group__CINDEX__LEX_gadc0c15904e61902b73e02700af0863a0}} 
+\index{Token extraction and manipulation@{Token extraction and manipulation}!clang\+\_\+annotate\+Tokens@{clang\+\_\+annotate\+Tokens}}
+\index{clang\+\_\+annotate\+Tokens@{clang\+\_\+annotate\+Tokens}!Token extraction and manipulation@{Token extraction and manipulation}}
+\subsubsection{\texorpdfstring{clang\+\_\+annotate\+Tokens()}{clang\_annotateTokens()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE void clang\+\_\+annotate\+Tokens (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__CINDEX_gacdb7815736ca709ce9a5e1ec2b7e16ac}{C\+X\+Translation\+Unit}}}]{TU,  }\item[{\mbox{\hyperlink{structCXToken}{C\+X\+Token}} $\ast$}]{Tokens,  }\item[{unsigned}]{Num\+Tokens,  }\item[{\mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}} $\ast$}]{Cursors }\end{DoxyParamCaption})}
+
+
+
+Annotate the given set of tokens by providing cursors for each token that can be mapped to a specific entity within the abstract syntax tree. 
+
+This token-\/annotation routine is equivalent to invoking \mbox{\hyperlink{group__CINDEX__CURSOR__SOURCE_ga30a9972c7e099ab2735fa6c45e247ec8}{clang\+\_\+get\+Cursor()}} for the source locations of each of the tokens. The cursors provided are filtered, so that only those cursors that have a direct correspondence to the token are accepted. For example, given a function call {\ttfamily f(x)}, \mbox{\hyperlink{group__CINDEX__CURSOR__SOURCE_ga30a9972c7e099ab2735fa6c45e247ec8}{clang\+\_\+get\+Cursor()}} would provide the following cursors\+:
+
+
+\begin{DoxyItemize}
+\item when the cursor is over the \textquotesingle{}f\textquotesingle{}, a Decl\+Ref\+Expr cursor referring to \textquotesingle{}f\textquotesingle{}.
+\item when the cursor is over the \textquotesingle{}(\textquotesingle{} or the \textquotesingle{})\textquotesingle{}, a Call\+Expr referring to \textquotesingle{}f\textquotesingle{}.
+\item when the cursor is over the \textquotesingle{}x\textquotesingle{}, a Decl\+Ref\+Expr cursor referring to \textquotesingle{}x\textquotesingle{}.
+\end{DoxyItemize}
+
+Only the first and last of these cursors will occur within the annotate, since the tokens \char`\"{}f\char`\"{} and "x\textquotesingle{} directly refer to a function and a variable, respectively, but the parentheses are just a small part of the full syntax of the function call expression, which is not provided as an annotation.
+
+
+\begin{DoxyParams}{Parameters}
+{\em TU} & the translation unit that owns the given tokens.\\
+\hline
+{\em Tokens} & the set of tokens to annotate.\\
+\hline
+{\em Num\+Tokens} & the number of tokens in {\ttfamily Tokens}.\\
+\hline
+{\em Cursors} & an array of {\ttfamily Num\+Tokens} cursors, whose contents will be replaced with the cursors corresponding to each token. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__CINDEX__LEX_ga1033a25c9d2c59bcbdb23020de0bba2c}\label{group__CINDEX__LEX_ga1033a25c9d2c59bcbdb23020de0bba2c}} 
+\index{Token extraction and manipulation@{Token extraction and manipulation}!clang\+\_\+get\+Token\+Spelling@{clang\+\_\+get\+Token\+Spelling}}
+\index{clang\+\_\+get\+Token\+Spelling@{clang\+\_\+get\+Token\+Spelling}!Token extraction and manipulation@{Token extraction and manipulation}}
+\subsubsection{\texorpdfstring{clang\+\_\+get\+Token\+Spelling()}{clang\_getTokenSpelling()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{structCXString}{C\+X\+String}} clang\+\_\+get\+Token\+Spelling (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__CINDEX_gacdb7815736ca709ce9a5e1ec2b7e16ac}{C\+X\+Translation\+Unit}}}]{,  }\item[{\mbox{\hyperlink{structCXToken}{C\+X\+Token}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Determine the spelling of the given token. 
+
+The spelling of a token is the textual representation of that token, e.\+g., the text of an identifier or keyword. \mbox{\Hypertarget{group__CINDEX__LEX_ga6b315a71102d4f6c95eb68894a3bda8a}\label{group__CINDEX__LEX_ga6b315a71102d4f6c95eb68894a3bda8a}} 
+\index{Token extraction and manipulation@{Token extraction and manipulation}!clang\+\_\+tokenize@{clang\+\_\+tokenize}}
+\index{clang\+\_\+tokenize@{clang\+\_\+tokenize}!Token extraction and manipulation@{Token extraction and manipulation}}
+\subsubsection{\texorpdfstring{clang\+\_\+tokenize()}{clang\_tokenize()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE void clang\+\_\+tokenize (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__CINDEX_gacdb7815736ca709ce9a5e1ec2b7e16ac}{C\+X\+Translation\+Unit}}}]{TU,  }\item[{\mbox{\hyperlink{structCXSourceRange}{C\+X\+Source\+Range}}}]{Range,  }\item[{\mbox{\hyperlink{structCXToken}{C\+X\+Token}} $\ast$$\ast$}]{Tokens,  }\item[{unsigned $\ast$}]{Num\+Tokens }\end{DoxyParamCaption})}
+
+
+
+Tokenize the source code described by the given range into raw lexical tokens. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em TU} & the translation unit whose text is being tokenized.\\
+\hline
+{\em Range} & the source range in which text should be tokenized. All of the tokens produced by tokenization will fall within this source range,\\
+\hline
+{\em Tokens} & this pointer will be set to point to the array of tokens that occur within the given source range. The returned pointer must be freed with \mbox{\hyperlink{group__CINDEX__LEX_gac5266f6b5fee87c433b696437cab0d13}{clang\+\_\+dispose\+Tokens()}} before the translation unit is destroyed.\\
+\hline
+{\em Num\+Tokens} & will be set to the number of tokens in the {\ttfamily $\ast$\+Tokens} array. \\
+\hline
+\end{DoxyParams}

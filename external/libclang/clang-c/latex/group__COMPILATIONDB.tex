@@ -1,0 +1,123 @@
+\hypertarget{group__COMPILATIONDB}{}\section{Compilation\+Database functions}
+\label{group__COMPILATIONDB}\index{Compilation\+Database functions@{Compilation\+Database functions}}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef void $\ast$ \mbox{\hyperlink{group__COMPILATIONDB_gaecfc6e98d321bc436061472f4e4f84b2}{C\+X\+Compilation\+Database}}
+\item 
+typedef void $\ast$ \mbox{\hyperlink{group__COMPILATIONDB_gab8bb09eb53b86dbd645dc3ed2b6b7248}{C\+X\+Compile\+Commands}}
+\begin{DoxyCompactList}\small\item\em Contains the results of a search in the compilation database. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__COMPILATIONDB_gae59272595ab7fa4c1ed03348c56264bf}\label{group__COMPILATIONDB_gae59272595ab7fa4c1ed03348c56264bf}} 
+typedef void $\ast$ \mbox{\hyperlink{group__COMPILATIONDB_gae59272595ab7fa4c1ed03348c56264bf}{C\+X\+Compile\+Command}}
+\begin{DoxyCompactList}\small\item\em Represents the command line invocation to compile a specific file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__COMPILATIONDB_gaf3d54e270b01e34f9db65579014255f8}\label{group__COMPILATIONDB_gaf3d54e270b01e34f9db65579014255f8}} 
+enum \mbox{\hyperlink{group__COMPILATIONDB_gaf3d54e270b01e34f9db65579014255f8}{C\+X\+Compilation\+Database\+\_\+\+Error}} \{ {\bfseries C\+X\+Compilation\+Database\+\_\+\+No\+Error} = 0, 
+{\bfseries C\+X\+Compilation\+Database\+\_\+\+Can\+Not\+Load\+Database} = 1
+ \}
+\begin{DoxyCompactList}\small\item\em Error codes for Compilation Database. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{group__COMPILATIONDB_gaecfc6e98d321bc436061472f4e4f84b2}{C\+X\+Compilation\+Database}} \mbox{\hyperlink{group__COMPILATIONDB_gae0822a6a54afaea92bad5d3b3256bf26}{clang\+\_\+\+Compilation\+Database\+\_\+from\+Directory}} (const char $\ast$Build\+Dir, \mbox{\hyperlink{group__COMPILATIONDB_gaf3d54e270b01e34f9db65579014255f8}{C\+X\+Compilation\+Database\+\_\+\+Error}} $\ast$Error\+Code)
+\begin{DoxyCompactList}\small\item\em Creates a compilation database from the database found in directory build\+Dir. For example, C\+Make can output a compile\+\_\+commands.\+json which can be used to build the database. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__COMPILATIONDB_ga9c9a62e39662323d5d88b7f8d22a3129}\label{group__COMPILATIONDB_ga9c9a62e39662323d5d88b7f8d22a3129}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE void \mbox{\hyperlink{group__COMPILATIONDB_ga9c9a62e39662323d5d88b7f8d22a3129}{clang\+\_\+\+Compilation\+Database\+\_\+dispose}} (\mbox{\hyperlink{group__COMPILATIONDB_gaecfc6e98d321bc436061472f4e4f84b2}{C\+X\+Compilation\+Database}})
+\begin{DoxyCompactList}\small\item\em Free the given compilation database. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__COMPILATIONDB_gad6c072a878af02ef344590b96d7613e2}\label{group__COMPILATIONDB_gad6c072a878af02ef344590b96d7613e2}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{group__COMPILATIONDB_gab8bb09eb53b86dbd645dc3ed2b6b7248}{C\+X\+Compile\+Commands}} \mbox{\hyperlink{group__COMPILATIONDB_gad6c072a878af02ef344590b96d7613e2}{clang\+\_\+\+Compilation\+Database\+\_\+get\+Compile\+Commands}} (\mbox{\hyperlink{group__COMPILATIONDB_gaecfc6e98d321bc436061472f4e4f84b2}{C\+X\+Compilation\+Database}}, const char $\ast$Complete\+File\+Name)
+\begin{DoxyCompactList}\small\item\em Find the compile commands used for a file. The compile commands must be freed by {\ttfamily clang\+\_\+\+Compile\+Commands\+\_\+dispose}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__COMPILATIONDB_ga65f9d58b6164f2637a2620cfbfe0fd84}\label{group__COMPILATIONDB_ga65f9d58b6164f2637a2620cfbfe0fd84}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{group__COMPILATIONDB_gab8bb09eb53b86dbd645dc3ed2b6b7248}{C\+X\+Compile\+Commands}} \mbox{\hyperlink{group__COMPILATIONDB_ga65f9d58b6164f2637a2620cfbfe0fd84}{clang\+\_\+\+Compilation\+Database\+\_\+get\+All\+Compile\+Commands}} (\mbox{\hyperlink{group__COMPILATIONDB_gaecfc6e98d321bc436061472f4e4f84b2}{C\+X\+Compilation\+Database}})
+\begin{DoxyCompactList}\small\item\em Get all the compile commands in the given compilation database. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__COMPILATIONDB_ga8955617a7123eae258acacf11b930505}\label{group__COMPILATIONDB_ga8955617a7123eae258acacf11b930505}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE void \mbox{\hyperlink{group__COMPILATIONDB_ga8955617a7123eae258acacf11b930505}{clang\+\_\+\+Compile\+Commands\+\_\+dispose}} (\mbox{\hyperlink{group__COMPILATIONDB_gab8bb09eb53b86dbd645dc3ed2b6b7248}{C\+X\+Compile\+Commands}})
+\begin{DoxyCompactList}\small\item\em Free the given Compile\+Commands. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__COMPILATIONDB_ga276329b9260a0b7d2ed25ccb8da88066}\label{group__COMPILATIONDB_ga276329b9260a0b7d2ed25ccb8da88066}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE unsigned \mbox{\hyperlink{group__COMPILATIONDB_ga276329b9260a0b7d2ed25ccb8da88066}{clang\+\_\+\+Compile\+Commands\+\_\+get\+Size}} (\mbox{\hyperlink{group__COMPILATIONDB_gab8bb09eb53b86dbd645dc3ed2b6b7248}{C\+X\+Compile\+Commands}})
+\begin{DoxyCompactList}\small\item\em Get the number of Compile\+Command we have for a file. \end{DoxyCompactList}\item 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{group__COMPILATIONDB_gae59272595ab7fa4c1ed03348c56264bf}{C\+X\+Compile\+Command}} \mbox{\hyperlink{group__COMPILATIONDB_gae623cfcbfc272851154922ede0ed2b8f}{clang\+\_\+\+Compile\+Commands\+\_\+get\+Command}} (\mbox{\hyperlink{group__COMPILATIONDB_gab8bb09eb53b86dbd645dc3ed2b6b7248}{C\+X\+Compile\+Commands}}, unsigned I)
+\begin{DoxyCompactList}\small\item\em Get the I\textquotesingle{}th Compile\+Command for a file. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__COMPILATIONDB_gaa9bf6d3d4d19b8e32efc58cdc0fe53ad}\label{group__COMPILATIONDB_gaa9bf6d3d4d19b8e32efc58cdc0fe53ad}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{structCXString}{C\+X\+String}} \mbox{\hyperlink{group__COMPILATIONDB_gaa9bf6d3d4d19b8e32efc58cdc0fe53ad}{clang\+\_\+\+Compile\+Command\+\_\+get\+Directory}} (\mbox{\hyperlink{group__COMPILATIONDB_gae59272595ab7fa4c1ed03348c56264bf}{C\+X\+Compile\+Command}})
+\begin{DoxyCompactList}\small\item\em Get the working directory where the Compile\+Command was executed from. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__COMPILATIONDB_gaea64448378c6174e7896a81d26ff454a}\label{group__COMPILATIONDB_gaea64448378c6174e7896a81d26ff454a}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{structCXString}{C\+X\+String}} \mbox{\hyperlink{group__COMPILATIONDB_gaea64448378c6174e7896a81d26ff454a}{clang\+\_\+\+Compile\+Command\+\_\+get\+Filename}} (\mbox{\hyperlink{group__COMPILATIONDB_gae59272595ab7fa4c1ed03348c56264bf}{C\+X\+Compile\+Command}})
+\begin{DoxyCompactList}\small\item\em Get the filename associated with the Compile\+Command. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__COMPILATIONDB_gaebda187f1c1807c3f612df26b20c12b2}\label{group__COMPILATIONDB_gaebda187f1c1807c3f612df26b20c12b2}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE unsigned \mbox{\hyperlink{group__COMPILATIONDB_gaebda187f1c1807c3f612df26b20c12b2}{clang\+\_\+\+Compile\+Command\+\_\+get\+Num\+Args}} (\mbox{\hyperlink{group__COMPILATIONDB_gae59272595ab7fa4c1ed03348c56264bf}{C\+X\+Compile\+Command}})
+\begin{DoxyCompactList}\small\item\em Get the number of arguments in the compiler invocation. \end{DoxyCompactList}\item 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{structCXString}{C\+X\+String}} \mbox{\hyperlink{group__COMPILATIONDB_ga6b19abe9ced14c29cd6720b93b19194b}{clang\+\_\+\+Compile\+Command\+\_\+get\+Arg}} (\mbox{\hyperlink{group__COMPILATIONDB_gae59272595ab7fa4c1ed03348c56264bf}{C\+X\+Compile\+Command}}, unsigned I)
+\begin{DoxyCompactList}\small\item\em Get the I\textquotesingle{}th argument value in the compiler invocations. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__COMPILATIONDB_ga28b373614893bffe6ae3f7c53ef8a851}\label{group__COMPILATIONDB_ga28b373614893bffe6ae3f7c53ef8a851}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE unsigned \mbox{\hyperlink{group__COMPILATIONDB_ga28b373614893bffe6ae3f7c53ef8a851}{clang\+\_\+\+Compile\+Command\+\_\+get\+Num\+Mapped\+Sources}} (\mbox{\hyperlink{group__COMPILATIONDB_gae59272595ab7fa4c1ed03348c56264bf}{C\+X\+Compile\+Command}})
+\begin{DoxyCompactList}\small\item\em Get the number of source mappings for the compiler invocation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__COMPILATIONDB_ga968b688446fb07e3409cbdbf2fe66027}\label{group__COMPILATIONDB_ga968b688446fb07e3409cbdbf2fe66027}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{structCXString}{C\+X\+String}} \mbox{\hyperlink{group__COMPILATIONDB_ga968b688446fb07e3409cbdbf2fe66027}{clang\+\_\+\+Compile\+Command\+\_\+get\+Mapped\+Source\+Path}} (\mbox{\hyperlink{group__COMPILATIONDB_gae59272595ab7fa4c1ed03348c56264bf}{C\+X\+Compile\+Command}}, unsigned I)
+\begin{DoxyCompactList}\small\item\em Get the I\textquotesingle{}th mapped source path for the compiler invocation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__COMPILATIONDB_gae22f9bce5ef1e2bc430218ed85e20e1f}\label{group__COMPILATIONDB_gae22f9bce5ef1e2bc430218ed85e20e1f}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{structCXString}{C\+X\+String}} \mbox{\hyperlink{group__COMPILATIONDB_gae22f9bce5ef1e2bc430218ed85e20e1f}{clang\+\_\+\+Compile\+Command\+\_\+get\+Mapped\+Source\+Content}} (\mbox{\hyperlink{group__COMPILATIONDB_gae59272595ab7fa4c1ed03348c56264bf}{C\+X\+Compile\+Command}}, unsigned I)
+\begin{DoxyCompactList}\small\item\em Get the I\textquotesingle{}th mapped source content for the compiler invocation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+\subsection{Typedef Documentation}
+\mbox{\Hypertarget{group__COMPILATIONDB_gaecfc6e98d321bc436061472f4e4f84b2}\label{group__COMPILATIONDB_gaecfc6e98d321bc436061472f4e4f84b2}} 
+\index{Compilation\+Database functions@{Compilation\+Database functions}!C\+X\+Compilation\+Database@{C\+X\+Compilation\+Database}}
+\index{C\+X\+Compilation\+Database@{C\+X\+Compilation\+Database}!Compilation\+Database functions@{Compilation\+Database functions}}
+\subsubsection{\texorpdfstring{C\+X\+Compilation\+Database}{CXCompilationDatabase}}
+{\footnotesize\ttfamily typedef void$\ast$ \mbox{\hyperlink{group__COMPILATIONDB_gaecfc6e98d321bc436061472f4e4f84b2}{C\+X\+Compilation\+Database}}}
+
+A compilation database holds all information used to compile files in a project. For each file in the database, it can be queried for the working directory or the command line used for the compiler invocation.
+
+Must be freed by {\ttfamily clang\+\_\+\+Compilation\+Database\+\_\+dispose} \mbox{\Hypertarget{group__COMPILATIONDB_gab8bb09eb53b86dbd645dc3ed2b6b7248}\label{group__COMPILATIONDB_gab8bb09eb53b86dbd645dc3ed2b6b7248}} 
+\index{Compilation\+Database functions@{Compilation\+Database functions}!C\+X\+Compile\+Commands@{C\+X\+Compile\+Commands}}
+\index{C\+X\+Compile\+Commands@{C\+X\+Compile\+Commands}!Compilation\+Database functions@{Compilation\+Database functions}}
+\subsubsection{\texorpdfstring{C\+X\+Compile\+Commands}{CXCompileCommands}}
+{\footnotesize\ttfamily typedef void$\ast$ \mbox{\hyperlink{group__COMPILATIONDB_gab8bb09eb53b86dbd645dc3ed2b6b7248}{C\+X\+Compile\+Commands}}}
+
+
+
+Contains the results of a search in the compilation database. 
+
+When searching for the compile command for a file, the compilation db can return several commands, as the file may have been compiled with different options in different places of the project. This choice of compile commands is wrapped in this opaque data structure. It must be freed by {\ttfamily clang\+\_\+\+Compile\+Commands\+\_\+dispose}. 
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{group__COMPILATIONDB_gae0822a6a54afaea92bad5d3b3256bf26}\label{group__COMPILATIONDB_gae0822a6a54afaea92bad5d3b3256bf26}} 
+\index{Compilation\+Database functions@{Compilation\+Database functions}!clang\+\_\+\+Compilation\+Database\+\_\+from\+Directory@{clang\+\_\+\+Compilation\+Database\+\_\+from\+Directory}}
+\index{clang\+\_\+\+Compilation\+Database\+\_\+from\+Directory@{clang\+\_\+\+Compilation\+Database\+\_\+from\+Directory}!Compilation\+Database functions@{Compilation\+Database functions}}
+\subsubsection{\texorpdfstring{clang\+\_\+\+Compilation\+Database\+\_\+from\+Directory()}{clang\_CompilationDatabase\_fromDirectory()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{group__COMPILATIONDB_gaecfc6e98d321bc436061472f4e4f84b2}{C\+X\+Compilation\+Database}} clang\+\_\+\+Compilation\+Database\+\_\+from\+Directory (\begin{DoxyParamCaption}\item[{const char $\ast$}]{Build\+Dir,  }\item[{\mbox{\hyperlink{group__COMPILATIONDB_gaf3d54e270b01e34f9db65579014255f8}{C\+X\+Compilation\+Database\+\_\+\+Error}} $\ast$}]{Error\+Code }\end{DoxyParamCaption})}
+
+
+
+Creates a compilation database from the database found in directory build\+Dir. For example, C\+Make can output a compile\+\_\+commands.\+json which can be used to build the database. 
+
+It must be freed by {\ttfamily clang\+\_\+\+Compilation\+Database\+\_\+dispose}. \mbox{\Hypertarget{group__COMPILATIONDB_ga6b19abe9ced14c29cd6720b93b19194b}\label{group__COMPILATIONDB_ga6b19abe9ced14c29cd6720b93b19194b}} 
+\index{Compilation\+Database functions@{Compilation\+Database functions}!clang\+\_\+\+Compile\+Command\+\_\+get\+Arg@{clang\+\_\+\+Compile\+Command\+\_\+get\+Arg}}
+\index{clang\+\_\+\+Compile\+Command\+\_\+get\+Arg@{clang\+\_\+\+Compile\+Command\+\_\+get\+Arg}!Compilation\+Database functions@{Compilation\+Database functions}}
+\subsubsection{\texorpdfstring{clang\+\_\+\+Compile\+Command\+\_\+get\+Arg()}{clang\_CompileCommand\_getArg()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{structCXString}{C\+X\+String}} clang\+\_\+\+Compile\+Command\+\_\+get\+Arg (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__COMPILATIONDB_gae59272595ab7fa4c1ed03348c56264bf}{C\+X\+Compile\+Command}}}]{,  }\item[{unsigned}]{I }\end{DoxyParamCaption})}
+
+
+
+Get the I\textquotesingle{}th argument value in the compiler invocations. 
+
+Invariant \+:
+\begin{DoxyItemize}
+\item argument 0 is the compiler executable 
+\end{DoxyItemize}\mbox{\Hypertarget{group__COMPILATIONDB_gae623cfcbfc272851154922ede0ed2b8f}\label{group__COMPILATIONDB_gae623cfcbfc272851154922ede0ed2b8f}} 
+\index{Compilation\+Database functions@{Compilation\+Database functions}!clang\+\_\+\+Compile\+Commands\+\_\+get\+Command@{clang\+\_\+\+Compile\+Commands\+\_\+get\+Command}}
+\index{clang\+\_\+\+Compile\+Commands\+\_\+get\+Command@{clang\+\_\+\+Compile\+Commands\+\_\+get\+Command}!Compilation\+Database functions@{Compilation\+Database functions}}
+\subsubsection{\texorpdfstring{clang\+\_\+\+Compile\+Commands\+\_\+get\+Command()}{clang\_CompileCommands\_getCommand()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{group__COMPILATIONDB_gae59272595ab7fa4c1ed03348c56264bf}{C\+X\+Compile\+Command}} clang\+\_\+\+Compile\+Commands\+\_\+get\+Command (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__COMPILATIONDB_gab8bb09eb53b86dbd645dc3ed2b6b7248}{C\+X\+Compile\+Commands}}}]{,  }\item[{unsigned}]{I }\end{DoxyParamCaption})}
+
+
+
+Get the I\textquotesingle{}th Compile\+Command for a file. 
+
+Note \+: 0 $<$= i $<$ \mbox{\hyperlink{group__COMPILATIONDB_ga276329b9260a0b7d2ed25ccb8da88066}{clang\+\_\+\+Compile\+Commands\+\_\+get\+Size(\+C\+X\+Compile\+Commands)}} 

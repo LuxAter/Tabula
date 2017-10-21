@@ -1,0 +1,251 @@
+\hypertarget{group__CINDEX__CURSOR__XREF}{}\section{Cross-\/referencing in the A\+ST}
+\label{group__CINDEX__CURSOR__XREF}\index{Cross-\/referencing in the A\+ST@{Cross-\/referencing in the A\+ST}}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__CINDEX__CURSOR__XREF_ga7bb83a8c353185d13641f001a4c4b6c7}\label{group__CINDEX__CURSOR__XREF_ga7bb83a8c353185d13641f001a4c4b6c7}} 
+enum \mbox{\hyperlink{group__CINDEX__CURSOR__XREF_ga7bb83a8c353185d13641f001a4c4b6c7}{C\+X\+Obj\+C\+Property\+Attr\+Kind}} \{ \newline
+{\bfseries C\+X\+Obj\+C\+Property\+Attr\+\_\+noattr} = 0x00, 
+{\bfseries C\+X\+Obj\+C\+Property\+Attr\+\_\+readonly} = 0x01, 
+{\bfseries C\+X\+Obj\+C\+Property\+Attr\+\_\+getter} = 0x02, 
+{\bfseries C\+X\+Obj\+C\+Property\+Attr\+\_\+assign} = 0x04, 
+\newline
+{\bfseries C\+X\+Obj\+C\+Property\+Attr\+\_\+readwrite} = 0x08, 
+{\bfseries C\+X\+Obj\+C\+Property\+Attr\+\_\+retain} = 0x10, 
+{\bfseries C\+X\+Obj\+C\+Property\+Attr\+\_\+copy} = 0x20, 
+{\bfseries C\+X\+Obj\+C\+Property\+Attr\+\_\+nonatomic} = 0x40, 
+\newline
+{\bfseries C\+X\+Obj\+C\+Property\+Attr\+\_\+setter} = 0x80, 
+{\bfseries C\+X\+Obj\+C\+Property\+Attr\+\_\+atomic} = 0x100, 
+{\bfseries C\+X\+Obj\+C\+Property\+Attr\+\_\+weak} = 0x200, 
+{\bfseries C\+X\+Obj\+C\+Property\+Attr\+\_\+strong} = 0x400, 
+\newline
+{\bfseries C\+X\+Obj\+C\+Property\+Attr\+\_\+unsafe\+\_\+unretained} = 0x800, 
+{\bfseries C\+X\+Obj\+C\+Property\+Attr\+\_\+class} = 0x1000
+ \}
+\begin{DoxyCompactList}\small\item\em Property attributes for a {\ttfamily C\+X\+Cursor\+\_\+\+Obj\+C\+Property\+Decl}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX__CURSOR__XREF_ga1267244d5761be84f8680e455199bac2}\label{group__CINDEX__CURSOR__XREF_ga1267244d5761be84f8680e455199bac2}} 
+enum \mbox{\hyperlink{group__CINDEX__CURSOR__XREF_ga1267244d5761be84f8680e455199bac2}{C\+X\+Obj\+C\+Decl\+Qualifier\+Kind}} \{ \newline
+{\bfseries C\+X\+Obj\+C\+Decl\+Qualifier\+\_\+\+None} = 0x0, 
+{\bfseries C\+X\+Obj\+C\+Decl\+Qualifier\+\_\+\+In} = 0x1, 
+{\bfseries C\+X\+Obj\+C\+Decl\+Qualifier\+\_\+\+Inout} = 0x2, 
+{\bfseries C\+X\+Obj\+C\+Decl\+Qualifier\+\_\+\+Out} = 0x4, 
+\newline
+{\bfseries C\+X\+Obj\+C\+Decl\+Qualifier\+\_\+\+Bycopy} = 0x8, 
+{\bfseries C\+X\+Obj\+C\+Decl\+Qualifier\+\_\+\+Byref} = 0x10, 
+{\bfseries C\+X\+Obj\+C\+Decl\+Qualifier\+\_\+\+Oneway} = 0x20
+ \}
+\begin{DoxyCompactList}\small\item\em \textquotesingle{}Qualifiers\textquotesingle{} written next to the return and parameter types in Objective-\/C method declarations. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{structCXString}{C\+X\+String}} \mbox{\hyperlink{group__CINDEX__CURSOR__XREF_ga51679cb755bbd94cc5e9476c685f2df3}{clang\+\_\+get\+Cursor\+U\+SR}} (\mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}})
+\begin{DoxyCompactList}\small\item\em Retrieve a Unified Symbol Resolution (U\+SR) for the entity referenced by the given cursor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX__CURSOR__XREF_ga1ca1d94cdcb4d435c5e2e02d888b8e98}\label{group__CINDEX__CURSOR__XREF_ga1ca1d94cdcb4d435c5e2e02d888b8e98}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{structCXString}{C\+X\+String}} \mbox{\hyperlink{group__CINDEX__CURSOR__XREF_ga1ca1d94cdcb4d435c5e2e02d888b8e98}{clang\+\_\+construct\+U\+S\+R\+\_\+\+Obj\+C\+Class}} (const char $\ast$class\+\_\+name)
+\begin{DoxyCompactList}\small\item\em Construct a U\+SR for a specified Objective-\/C class. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX__CURSOR__XREF_gabeb36e25f86fc061c0367145fab6e291}\label{group__CINDEX__CURSOR__XREF_gabeb36e25f86fc061c0367145fab6e291}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{structCXString}{C\+X\+String}} \mbox{\hyperlink{group__CINDEX__CURSOR__XREF_gabeb36e25f86fc061c0367145fab6e291}{clang\+\_\+construct\+U\+S\+R\+\_\+\+Obj\+C\+Category}} (const char $\ast$class\+\_\+name, const char $\ast$category\+\_\+name)
+\begin{DoxyCompactList}\small\item\em Construct a U\+SR for a specified Objective-\/C category. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX__CURSOR__XREF_ga69236bf8ac3dadbb553ab6db463ad3d0}\label{group__CINDEX__CURSOR__XREF_ga69236bf8ac3dadbb553ab6db463ad3d0}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{structCXString}{C\+X\+String}} \mbox{\hyperlink{group__CINDEX__CURSOR__XREF_ga69236bf8ac3dadbb553ab6db463ad3d0}{clang\+\_\+construct\+U\+S\+R\+\_\+\+Obj\+C\+Protocol}} (const char $\ast$protocol\+\_\+name)
+\begin{DoxyCompactList}\small\item\em Construct a U\+SR for a specified Objective-\/C protocol. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX__CURSOR__XREF_ga91dcb69a0378fcef6d21ac0be6c0038a}\label{group__CINDEX__CURSOR__XREF_ga91dcb69a0378fcef6d21ac0be6c0038a}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{structCXString}{C\+X\+String}} \mbox{\hyperlink{group__CINDEX__CURSOR__XREF_ga91dcb69a0378fcef6d21ac0be6c0038a}{clang\+\_\+construct\+U\+S\+R\+\_\+\+Obj\+C\+Ivar}} (const char $\ast$name, \mbox{\hyperlink{structCXString}{C\+X\+String}} class\+U\+SR)
+\begin{DoxyCompactList}\small\item\em Construct a U\+SR for a specified Objective-\/C instance variable and the U\+SR for its containing class. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX__CURSOR__XREF_ga8f3065868eb56e24a6467703fa28a054}\label{group__CINDEX__CURSOR__XREF_ga8f3065868eb56e24a6467703fa28a054}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{structCXString}{C\+X\+String}} \mbox{\hyperlink{group__CINDEX__CURSOR__XREF_ga8f3065868eb56e24a6467703fa28a054}{clang\+\_\+construct\+U\+S\+R\+\_\+\+Obj\+C\+Method}} (const char $\ast$name, unsigned is\+Instance\+Method, \mbox{\hyperlink{structCXString}{C\+X\+String}} class\+U\+SR)
+\begin{DoxyCompactList}\small\item\em Construct a U\+SR for a specified Objective-\/C method and the U\+SR for its containing class. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX__CURSOR__XREF_gac19f0c8de7e33a98723b336472e67e0c}\label{group__CINDEX__CURSOR__XREF_gac19f0c8de7e33a98723b336472e67e0c}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{structCXString}{C\+X\+String}} \mbox{\hyperlink{group__CINDEX__CURSOR__XREF_gac19f0c8de7e33a98723b336472e67e0c}{clang\+\_\+construct\+U\+S\+R\+\_\+\+Obj\+C\+Property}} (const char $\ast$property, \mbox{\hyperlink{structCXString}{C\+X\+String}} class\+U\+SR)
+\begin{DoxyCompactList}\small\item\em Construct a U\+SR for a specified Objective-\/C property and the U\+SR for its containing class. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX__CURSOR__XREF_gaad1c9b2a1c5ef96cebdbc62f1671c763}\label{group__CINDEX__CURSOR__XREF_gaad1c9b2a1c5ef96cebdbc62f1671c763}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{structCXString}{C\+X\+String}} \mbox{\hyperlink{group__CINDEX__CURSOR__XREF_gaad1c9b2a1c5ef96cebdbc62f1671c763}{clang\+\_\+get\+Cursor\+Spelling}} (\mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}})
+\begin{DoxyCompactList}\small\item\em Retrieve a name for the entity referenced by this cursor. \end{DoxyCompactList}\item 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{structCXSourceRange}{C\+X\+Source\+Range}} \mbox{\hyperlink{group__CINDEX__CURSOR__XREF_ga251b31de80fd14681edf46f43b0bd03b}{clang\+\_\+\+Cursor\+\_\+get\+Spelling\+Name\+Range}} (\mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}}, unsigned piece\+Index, unsigned options)
+\begin{DoxyCompactList}\small\item\em Retrieve a range for a piece that forms the cursors spelling name. Most of the times there is only one range for the complete spelling but for Objective-\/C methods and Objective-\/C message expressions, there are multiple pieces for each selector identifier. \end{DoxyCompactList}\item 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{structCXString}{C\+X\+String}} \mbox{\hyperlink{group__CINDEX__CURSOR__XREF_gac3eba3224d109a956f9ef96fd4fe5c83}{clang\+\_\+get\+Cursor\+Display\+Name}} (\mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}})
+\begin{DoxyCompactList}\small\item\em Retrieve the display name for the entity referenced by this cursor. \end{DoxyCompactList}\item 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}} \mbox{\hyperlink{group__CINDEX__CURSOR__XREF_gabf059155921552e19fc2abed5b4ff73a}{clang\+\_\+get\+Cursor\+Referenced}} (\mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}})
+\begin{DoxyCompactList}\small\item\em For a cursor that is a reference, retrieve a cursor representing the entity that it references. \end{DoxyCompactList}\item 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}} \mbox{\hyperlink{group__CINDEX__CURSOR__XREF_gafcfbec461e561bf13f1e8540bbbd655b}{clang\+\_\+get\+Cursor\+Definition}} (\mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}})
+\begin{DoxyCompactList}\small\item\em For a cursor that is either a reference to or a declaration of some entity, retrieve a cursor that describes the definition of that entity. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX__CURSOR__XREF_ga6ad05634a73e693217088eaa693f0010}\label{group__CINDEX__CURSOR__XREF_ga6ad05634a73e693217088eaa693f0010}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE unsigned \mbox{\hyperlink{group__CINDEX__CURSOR__XREF_ga6ad05634a73e693217088eaa693f0010}{clang\+\_\+is\+Cursor\+Definition}} (\mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}})
+\begin{DoxyCompactList}\small\item\em Determine whether the declaration pointed to by this cursor is also a definition of that entity. \end{DoxyCompactList}\item 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}} \mbox{\hyperlink{group__CINDEX__CURSOR__XREF_gac802826668be9fd40a017523cc7d24fe}{clang\+\_\+get\+Canonical\+Cursor}} (\mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}})
+\begin{DoxyCompactList}\small\item\em Retrieve the canonical cursor corresponding to the given cursor. \end{DoxyCompactList}\item 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE int \mbox{\hyperlink{group__CINDEX__CURSOR__XREF_ga3ea92edf682a5a734e5f4d0c2217f0b8}{clang\+\_\+\+Cursor\+\_\+get\+Obj\+C\+Selector\+Index}} (\mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}})
+\begin{DoxyCompactList}\small\item\em If the cursor points to a selector identifier in an Objective-\/C method or message expression, this returns the selector index. \end{DoxyCompactList}\item 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE int \mbox{\hyperlink{group__CINDEX__CURSOR__XREF_gad1e793914af7b7bf286d58a34e90ab6c}{clang\+\_\+\+Cursor\+\_\+is\+Dynamic\+Call}} (\mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}} C)
+\begin{DoxyCompactList}\small\item\em Given a cursor pointing to a C++ method call or an Objective-\/C message, returns non-\/zero if the method/message is \char`\"{}dynamic\char`\"{}, meaning\+: \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX__CURSOR__XREF_ga252a679781181d3a6dbd680a215c9594}\label{group__CINDEX__CURSOR__XREF_ga252a679781181d3a6dbd680a215c9594}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{structCXType}{C\+X\+Type}} \mbox{\hyperlink{group__CINDEX__CURSOR__XREF_ga252a679781181d3a6dbd680a215c9594}{clang\+\_\+\+Cursor\+\_\+get\+Receiver\+Type}} (\mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}} C)
+\begin{DoxyCompactList}\small\item\em Given a cursor pointing to an Objective-\/C message, returns the \mbox{\hyperlink{structCXType}{C\+X\+Type}} of the receiver. \end{DoxyCompactList}\item 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE unsigned \mbox{\hyperlink{group__CINDEX__CURSOR__XREF_ga3a964b4c56f8bfb8229a9a08114e2567}{clang\+\_\+\+Cursor\+\_\+get\+Obj\+C\+Property\+Attributes}} (\mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}} C, unsigned reserved)
+\begin{DoxyCompactList}\small\item\em Given a cursor that represents a property declaration, return the associated property attributes. The bits are formed from {\ttfamily C\+X\+Obj\+C\+Property\+Attr\+Kind}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX__CURSOR__XREF_ga551d4dd1d81d7a818b68cf3811546671}\label{group__CINDEX__CURSOR__XREF_ga551d4dd1d81d7a818b68cf3811546671}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE unsigned \mbox{\hyperlink{group__CINDEX__CURSOR__XREF_ga551d4dd1d81d7a818b68cf3811546671}{clang\+\_\+\+Cursor\+\_\+get\+Obj\+C\+Decl\+Qualifiers}} (\mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}} C)
+\begin{DoxyCompactList}\small\item\em Given a cursor that represents an Objective-\/C method or parameter declaration, return the associated Objective-\/C qualifiers for the return type or the parameter respectively. The bits are formed from C\+X\+Obj\+C\+Decl\+Qualifier\+Kind. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX__CURSOR__XREF_ga1dcb3b9d9471aebb2167c93b47c018b8}\label{group__CINDEX__CURSOR__XREF_ga1dcb3b9d9471aebb2167c93b47c018b8}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE unsigned \mbox{\hyperlink{group__CINDEX__CURSOR__XREF_ga1dcb3b9d9471aebb2167c93b47c018b8}{clang\+\_\+\+Cursor\+\_\+is\+Obj\+C\+Optional}} (\mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}} C)
+\begin{DoxyCompactList}\small\item\em Given a cursor that represents an Objective-\/C method or property declaration, return non-\/zero if the declaration was affected by \char`\"{}@optional\char`\"{}. Returns zero if the cursor is not such a declaration or it is \char`\"{}@required\char`\"{}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX__CURSOR__XREF_ga3a9a5766db391fa5ca88b347651e5b8e}\label{group__CINDEX__CURSOR__XREF_ga3a9a5766db391fa5ca88b347651e5b8e}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE unsigned \mbox{\hyperlink{group__CINDEX__CURSOR__XREF_ga3a9a5766db391fa5ca88b347651e5b8e}{clang\+\_\+\+Cursor\+\_\+is\+Variadic}} (\mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}} C)
+\begin{DoxyCompactList}\small\item\em Returns non-\/zero if the given cursor is a variadic function or method. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX__CURSOR__XREF_gab5e05b0cc042fbd91ecaf1790ece0ecc}\label{group__CINDEX__CURSOR__XREF_gab5e05b0cc042fbd91ecaf1790ece0ecc}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{structCXSourceRange}{C\+X\+Source\+Range}} \mbox{\hyperlink{group__CINDEX__CURSOR__XREF_gab5e05b0cc042fbd91ecaf1790ece0ecc}{clang\+\_\+\+Cursor\+\_\+get\+Comment\+Range}} (\mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}} C)
+\begin{DoxyCompactList}\small\item\em Given a cursor that represents a declaration, return the associated comment\textquotesingle{}s source range. The range may include multiple consecutive comments with whitespace in between. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX__CURSOR__XREF_ga32905a8b1858e67cf5d28b7ad7150779}\label{group__CINDEX__CURSOR__XREF_ga32905a8b1858e67cf5d28b7ad7150779}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{structCXString}{C\+X\+String}} \mbox{\hyperlink{group__CINDEX__CURSOR__XREF_ga32905a8b1858e67cf5d28b7ad7150779}{clang\+\_\+\+Cursor\+\_\+get\+Raw\+Comment\+Text}} (\mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}} C)
+\begin{DoxyCompactList}\small\item\em Given a cursor that represents a declaration, return the associated comment text, including comment markers. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX__CURSOR__XREF_ga6b5282b915d457d728434c0651ea0b8b}\label{group__CINDEX__CURSOR__XREF_ga6b5282b915d457d728434c0651ea0b8b}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{structCXString}{C\+X\+String}} \mbox{\hyperlink{group__CINDEX__CURSOR__XREF_ga6b5282b915d457d728434c0651ea0b8b}{clang\+\_\+\+Cursor\+\_\+get\+Brief\+Comment\+Text}} (\mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}} C)
+\begin{DoxyCompactList}\small\item\em Given a cursor that represents a documentable entity (e.\+g., declaration), return the associated \textbackslash{}brief paragraph; otherwise return the first paragraph. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+These routines provide the ability to determine references within and across translation units, by providing the names of the entities referenced by cursors, follow reference cursors to the declarations they reference, and associate declarations with their definitions. 
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{group__CINDEX__CURSOR__XREF_ga3a964b4c56f8bfb8229a9a08114e2567}\label{group__CINDEX__CURSOR__XREF_ga3a964b4c56f8bfb8229a9a08114e2567}} 
+\index{Cross-\/referencing in the A\+ST@{Cross-\/referencing in the A\+ST}!clang\+\_\+\+Cursor\+\_\+get\+Obj\+C\+Property\+Attributes@{clang\+\_\+\+Cursor\+\_\+get\+Obj\+C\+Property\+Attributes}}
+\index{clang\+\_\+\+Cursor\+\_\+get\+Obj\+C\+Property\+Attributes@{clang\+\_\+\+Cursor\+\_\+get\+Obj\+C\+Property\+Attributes}!Cross-\/referencing in the A\+ST@{Cross-\/referencing in the A\+ST}}
+\subsubsection{\texorpdfstring{clang\+\_\+\+Cursor\+\_\+get\+Obj\+C\+Property\+Attributes()}{clang\_Cursor\_getObjCPropertyAttributes()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE unsigned clang\+\_\+\+Cursor\+\_\+get\+Obj\+C\+Property\+Attributes (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}}}]{C,  }\item[{unsigned}]{reserved }\end{DoxyParamCaption})}
+
+
+
+Given a cursor that represents a property declaration, return the associated property attributes. The bits are formed from {\ttfamily C\+X\+Obj\+C\+Property\+Attr\+Kind}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em reserved} & Reserved for future use, pass 0. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__CINDEX__CURSOR__XREF_ga3ea92edf682a5a734e5f4d0c2217f0b8}\label{group__CINDEX__CURSOR__XREF_ga3ea92edf682a5a734e5f4d0c2217f0b8}} 
+\index{Cross-\/referencing in the A\+ST@{Cross-\/referencing in the A\+ST}!clang\+\_\+\+Cursor\+\_\+get\+Obj\+C\+Selector\+Index@{clang\+\_\+\+Cursor\+\_\+get\+Obj\+C\+Selector\+Index}}
+\index{clang\+\_\+\+Cursor\+\_\+get\+Obj\+C\+Selector\+Index@{clang\+\_\+\+Cursor\+\_\+get\+Obj\+C\+Selector\+Index}!Cross-\/referencing in the A\+ST@{Cross-\/referencing in the A\+ST}}
+\subsubsection{\texorpdfstring{clang\+\_\+\+Cursor\+\_\+get\+Obj\+C\+Selector\+Index()}{clang\_Cursor\_getObjCSelectorIndex()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE int clang\+\_\+\+Cursor\+\_\+get\+Obj\+C\+Selector\+Index (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}}}]{ }\end{DoxyParamCaption})}
+
+
+
+If the cursor points to a selector identifier in an Objective-\/C method or message expression, this returns the selector index. 
+
+After getting a cursor with \mbox{\hyperlink{group__CINDEX__CURSOR__SOURCE_ga30a9972c7e099ab2735fa6c45e247ec8}{clang\+\_\+get\+Cursor}}, this can be called to determine if the location points to a selector identifier.
+
+\begin{DoxyReturn}{Returns}
+The selector index if the cursor is an Objective-\/C method or message expression and the cursor is pointing to a selector identifier, or -\/1 otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__CINDEX__CURSOR__XREF_ga251b31de80fd14681edf46f43b0bd03b}\label{group__CINDEX__CURSOR__XREF_ga251b31de80fd14681edf46f43b0bd03b}} 
+\index{Cross-\/referencing in the A\+ST@{Cross-\/referencing in the A\+ST}!clang\+\_\+\+Cursor\+\_\+get\+Spelling\+Name\+Range@{clang\+\_\+\+Cursor\+\_\+get\+Spelling\+Name\+Range}}
+\index{clang\+\_\+\+Cursor\+\_\+get\+Spelling\+Name\+Range@{clang\+\_\+\+Cursor\+\_\+get\+Spelling\+Name\+Range}!Cross-\/referencing in the A\+ST@{Cross-\/referencing in the A\+ST}}
+\subsubsection{\texorpdfstring{clang\+\_\+\+Cursor\+\_\+get\+Spelling\+Name\+Range()}{clang\_Cursor\_getSpellingNameRange()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{structCXSourceRange}{C\+X\+Source\+Range}} clang\+\_\+\+Cursor\+\_\+get\+Spelling\+Name\+Range (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}}}]{,  }\item[{unsigned}]{piece\+Index,  }\item[{unsigned}]{options }\end{DoxyParamCaption})}
+
+
+
+Retrieve a range for a piece that forms the cursors spelling name. Most of the times there is only one range for the complete spelling but for Objective-\/C methods and Objective-\/C message expressions, there are multiple pieces for each selector identifier. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em piece\+Index} & the index of the spelling name piece. If this is greater than the actual number of pieces, it will return a N\+U\+LL (invalid) range.\\
+\hline
+{\em options} & Reserved. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__CINDEX__CURSOR__XREF_gad1e793914af7b7bf286d58a34e90ab6c}\label{group__CINDEX__CURSOR__XREF_gad1e793914af7b7bf286d58a34e90ab6c}} 
+\index{Cross-\/referencing in the A\+ST@{Cross-\/referencing in the A\+ST}!clang\+\_\+\+Cursor\+\_\+is\+Dynamic\+Call@{clang\+\_\+\+Cursor\+\_\+is\+Dynamic\+Call}}
+\index{clang\+\_\+\+Cursor\+\_\+is\+Dynamic\+Call@{clang\+\_\+\+Cursor\+\_\+is\+Dynamic\+Call}!Cross-\/referencing in the A\+ST@{Cross-\/referencing in the A\+ST}}
+\subsubsection{\texorpdfstring{clang\+\_\+\+Cursor\+\_\+is\+Dynamic\+Call()}{clang\_Cursor\_isDynamicCall()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE int clang\+\_\+\+Cursor\+\_\+is\+Dynamic\+Call (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}}}]{C }\end{DoxyParamCaption})}
+
+
+
+Given a cursor pointing to a C++ method call or an Objective-\/C message, returns non-\/zero if the method/message is \char`\"{}dynamic\char`\"{}, meaning\+: 
+
+For a C++ method\+: the call is virtual. For an Objective-\/C message\+: the receiver is an object instance, not \textquotesingle{}super\textquotesingle{} or a specific class.
+
+If the method/message is \char`\"{}static\char`\"{} or the cursor does not point to a method/message, it will return zero. \mbox{\Hypertarget{group__CINDEX__CURSOR__XREF_gac802826668be9fd40a017523cc7d24fe}\label{group__CINDEX__CURSOR__XREF_gac802826668be9fd40a017523cc7d24fe}} 
+\index{Cross-\/referencing in the A\+ST@{Cross-\/referencing in the A\+ST}!clang\+\_\+get\+Canonical\+Cursor@{clang\+\_\+get\+Canonical\+Cursor}}
+\index{clang\+\_\+get\+Canonical\+Cursor@{clang\+\_\+get\+Canonical\+Cursor}!Cross-\/referencing in the A\+ST@{Cross-\/referencing in the A\+ST}}
+\subsubsection{\texorpdfstring{clang\+\_\+get\+Canonical\+Cursor()}{clang\_getCanonicalCursor()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}} clang\+\_\+get\+Canonical\+Cursor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Retrieve the canonical cursor corresponding to the given cursor. 
+
+In the C family of languages, many kinds of entities can be declared several times within a single translation unit. For example, a structure type can be forward-\/declared (possibly multiple times) and later defined\+:
+
+
+\begin{DoxyCode}
+\textcolor{keyword}{struct }X;
+\textcolor{keyword}{struct }X;
+\textcolor{keyword}{struct }X \{
+  \textcolor{keywordtype}{int} member;
+\};
+\end{DoxyCode}
+
+
+The declarations and the definition of {\ttfamily X} are represented by three different cursors, all of which are declarations of the same underlying entity. One of these cursor is considered the \char`\"{}canonical\char`\"{} cursor, which is effectively the representative for the underlying entity. One can determine if two cursors are declarations of the same underlying entity by comparing their canonical cursors.
+
+\begin{DoxyReturn}{Returns}
+The canonical cursor for the entity referred to by the given cursor. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__CINDEX__CURSOR__XREF_gafcfbec461e561bf13f1e8540bbbd655b}\label{group__CINDEX__CURSOR__XREF_gafcfbec461e561bf13f1e8540bbbd655b}} 
+\index{Cross-\/referencing in the A\+ST@{Cross-\/referencing in the A\+ST}!clang\+\_\+get\+Cursor\+Definition@{clang\+\_\+get\+Cursor\+Definition}}
+\index{clang\+\_\+get\+Cursor\+Definition@{clang\+\_\+get\+Cursor\+Definition}!Cross-\/referencing in the A\+ST@{Cross-\/referencing in the A\+ST}}
+\subsubsection{\texorpdfstring{clang\+\_\+get\+Cursor\+Definition()}{clang\_getCursorDefinition()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}} clang\+\_\+get\+Cursor\+Definition (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}}}]{ }\end{DoxyParamCaption})}
+
+
+
+For a cursor that is either a reference to or a declaration of some entity, retrieve a cursor that describes the definition of that entity. 
+
+Some entities can be declared multiple times within a translation unit, but only one of those declarations can also be a definition. For example, given\+:
+
+
+\begin{DoxyCode}
+\textcolor{keywordtype}{int} f(\textcolor{keywordtype}{int}, \textcolor{keywordtype}{int});
+\textcolor{keywordtype}{int} g(\textcolor{keywordtype}{int} x, \textcolor{keywordtype}{int} y) \{ \textcolor{keywordflow}{return} f(x, y); \}
+\textcolor{keywordtype}{int} f(\textcolor{keywordtype}{int} a, \textcolor{keywordtype}{int} b) \{ \textcolor{keywordflow}{return} a + b; \}
+\textcolor{keywordtype}{int} f(\textcolor{keywordtype}{int}, \textcolor{keywordtype}{int});
+\end{DoxyCode}
+
+
+there are three declarations of the function \char`\"{}f\char`\"{}, but only the second one is a definition. The \mbox{\hyperlink{group__CINDEX__CURSOR__XREF_gafcfbec461e561bf13f1e8540bbbd655b}{clang\+\_\+get\+Cursor\+Definition()}} function will take any cursor pointing to a declaration of \char`\"{}f\char`\"{} (the first or fourth lines of the example) or a cursor referenced that uses \char`\"{}f\char`\"{} (the call to \char`\"{}f\textquotesingle{} inside \char`\"{}g\char`\"{}) and will return a
+declaration cursor pointing to the definition (the second \char`\"{}f" declaration).
+
+If given a cursor for which there is no corresponding definition, e.\+g., because there is no definition of that entity within this translation unit, returns a N\+U\+LL cursor. \mbox{\Hypertarget{group__CINDEX__CURSOR__XREF_gac3eba3224d109a956f9ef96fd4fe5c83}\label{group__CINDEX__CURSOR__XREF_gac3eba3224d109a956f9ef96fd4fe5c83}} 
+\index{Cross-\/referencing in the A\+ST@{Cross-\/referencing in the A\+ST}!clang\+\_\+get\+Cursor\+Display\+Name@{clang\+\_\+get\+Cursor\+Display\+Name}}
+\index{clang\+\_\+get\+Cursor\+Display\+Name@{clang\+\_\+get\+Cursor\+Display\+Name}!Cross-\/referencing in the A\+ST@{Cross-\/referencing in the A\+ST}}
+\subsubsection{\texorpdfstring{clang\+\_\+get\+Cursor\+Display\+Name()}{clang\_getCursorDisplayName()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{structCXString}{C\+X\+String}} clang\+\_\+get\+Cursor\+Display\+Name (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Retrieve the display name for the entity referenced by this cursor. 
+
+The display name contains extra information that helps identify the cursor, such as the parameters of a function or template or the arguments of a class template specialization. \mbox{\Hypertarget{group__CINDEX__CURSOR__XREF_gabf059155921552e19fc2abed5b4ff73a}\label{group__CINDEX__CURSOR__XREF_gabf059155921552e19fc2abed5b4ff73a}} 
+\index{Cross-\/referencing in the A\+ST@{Cross-\/referencing in the A\+ST}!clang\+\_\+get\+Cursor\+Referenced@{clang\+\_\+get\+Cursor\+Referenced}}
+\index{clang\+\_\+get\+Cursor\+Referenced@{clang\+\_\+get\+Cursor\+Referenced}!Cross-\/referencing in the A\+ST@{Cross-\/referencing in the A\+ST}}
+\subsubsection{\texorpdfstring{clang\+\_\+get\+Cursor\+Referenced()}{clang\_getCursorReferenced()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}} clang\+\_\+get\+Cursor\+Referenced (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}}}]{ }\end{DoxyParamCaption})}
+
+
+
+For a cursor that is a reference, retrieve a cursor representing the entity that it references. 
+
+Reference cursors refer to other entities in the A\+ST. For example, an Objective-\/C superclass reference cursor refers to an Objective-\/C class. This function produces the cursor for the Objective-\/C class from the cursor for the superclass reference. If the input cursor is a declaration or definition, it returns that declaration or definition unchanged. Otherwise, returns the N\+U\+LL cursor. \mbox{\Hypertarget{group__CINDEX__CURSOR__XREF_ga51679cb755bbd94cc5e9476c685f2df3}\label{group__CINDEX__CURSOR__XREF_ga51679cb755bbd94cc5e9476c685f2df3}} 
+\index{Cross-\/referencing in the A\+ST@{Cross-\/referencing in the A\+ST}!clang\+\_\+get\+Cursor\+U\+SR@{clang\+\_\+get\+Cursor\+U\+SR}}
+\index{clang\+\_\+get\+Cursor\+U\+SR@{clang\+\_\+get\+Cursor\+U\+SR}!Cross-\/referencing in the A\+ST@{Cross-\/referencing in the A\+ST}}
+\subsubsection{\texorpdfstring{clang\+\_\+get\+Cursor\+U\+S\+R()}{clang\_getCursorUSR()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{structCXString}{C\+X\+String}} clang\+\_\+get\+Cursor\+U\+SR (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Retrieve a Unified Symbol Resolution (U\+SR) for the entity referenced by the given cursor. 
+
+A Unified Symbol Resolution (U\+SR) is a string that identifies a particular entity (function, class, variable, etc.) within a program. U\+S\+Rs can be compared across translation units to determine, e.\+g., when references in one translation refer to an entity defined in another translation unit. 

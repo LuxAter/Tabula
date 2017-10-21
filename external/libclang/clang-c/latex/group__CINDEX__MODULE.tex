@@ -1,0 +1,137 @@
+\hypertarget{group__CINDEX__MODULE}{}\section{Module introspection}
+\label{group__CINDEX__MODULE}\index{Module introspection@{Module introspection}}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__CINDEX__MODULE_ga8b7b9a4a5faa82fdf95aebdfebc5859c}\label{group__CINDEX__MODULE_ga8b7b9a4a5faa82fdf95aebdfebc5859c}} 
+typedef void $\ast$ {\bfseries C\+X\+Module}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__CINDEX__MODULE_gab69ab0bc94760b2c93d63efa8cb6a6dd}\label{group__CINDEX__MODULE_gab69ab0bc94760b2c93d63efa8cb6a6dd}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE C\+X\+Module \mbox{\hyperlink{group__CINDEX__MODULE_gab69ab0bc94760b2c93d63efa8cb6a6dd}{clang\+\_\+\+Cursor\+\_\+get\+Module}} (\mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}} C)
+\begin{DoxyCompactList}\small\item\em Given a C\+X\+Cursor\+\_\+\+Module\+Import\+Decl cursor, return the associated module. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX__MODULE_ga22aa52a86a00c1af80f4858c0d5f00a6}\label{group__CINDEX__MODULE_ga22aa52a86a00c1af80f4858c0d5f00a6}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE C\+X\+Module \mbox{\hyperlink{group__CINDEX__MODULE_ga22aa52a86a00c1af80f4858c0d5f00a6}{clang\+\_\+get\+Module\+For\+File}} (\mbox{\hyperlink{group__CINDEX_gacdb7815736ca709ce9a5e1ec2b7e16ac}{C\+X\+Translation\+Unit}}, \mbox{\hyperlink{group__CINDEX__FILES_gacfcea9c1239c916597e2e5b3e109215a}{C\+X\+File}})
+\begin{DoxyCompactList}\small\item\em Given a C\+X\+File header file, return the module that contains it, if one exists. \end{DoxyCompactList}\item 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{group__CINDEX__FILES_gacfcea9c1239c916597e2e5b3e109215a}{C\+X\+File}} \mbox{\hyperlink{group__CINDEX__MODULE_gaa5095dd877556655d096d3165e86b0e1}{clang\+\_\+\+Module\+\_\+get\+A\+S\+T\+File}} (C\+X\+Module Module)
+\item 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE C\+X\+Module \mbox{\hyperlink{group__CINDEX__MODULE_ga62e149a28d71b719b11aefee3d36df53}{clang\+\_\+\+Module\+\_\+get\+Parent}} (C\+X\+Module Module)
+\item 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{structCXString}{C\+X\+String}} \mbox{\hyperlink{group__CINDEX__MODULE_ga39896de675e90c4fb2de55e109d376a8}{clang\+\_\+\+Module\+\_\+get\+Name}} (C\+X\+Module Module)
+\item 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{structCXString}{C\+X\+String}} \mbox{\hyperlink{group__CINDEX__MODULE_ga09d2da739b4bbac05fa2c1ad6695095a}{clang\+\_\+\+Module\+\_\+get\+Full\+Name}} (C\+X\+Module Module)
+\item 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE int \mbox{\hyperlink{group__CINDEX__MODULE_ga1e4ad74c404b5f3bcd30cec4dc12fa34}{clang\+\_\+\+Module\+\_\+is\+System}} (C\+X\+Module Module)
+\item 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE unsigned \mbox{\hyperlink{group__CINDEX__MODULE_gaee667293d56a18d3e8c17e37ce77cb0d}{clang\+\_\+\+Module\+\_\+get\+Num\+Top\+Level\+Headers}} (\mbox{\hyperlink{group__CINDEX_gacdb7815736ca709ce9a5e1ec2b7e16ac}{C\+X\+Translation\+Unit}}, C\+X\+Module Module)
+\item 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{group__CINDEX__FILES_gacfcea9c1239c916597e2e5b3e109215a}{C\+X\+File}} \mbox{\hyperlink{group__CINDEX__MODULE_ga08aa0746251ca2e8eee69c8fe7c15e2b}{clang\+\_\+\+Module\+\_\+get\+Top\+Level\+Header}} (\mbox{\hyperlink{group__CINDEX_gacdb7815736ca709ce9a5e1ec2b7e16ac}{C\+X\+Translation\+Unit}}, C\+X\+Module Module, unsigned Index)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The functions in this group provide access to information about modules. 
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{group__CINDEX__MODULE_gaa5095dd877556655d096d3165e86b0e1}\label{group__CINDEX__MODULE_gaa5095dd877556655d096d3165e86b0e1}} 
+\index{Module introspection@{Module introspection}!clang\+\_\+\+Module\+\_\+get\+A\+S\+T\+File@{clang\+\_\+\+Module\+\_\+get\+A\+S\+T\+File}}
+\index{clang\+\_\+\+Module\+\_\+get\+A\+S\+T\+File@{clang\+\_\+\+Module\+\_\+get\+A\+S\+T\+File}!Module introspection@{Module introspection}}
+\subsubsection{\texorpdfstring{clang\+\_\+\+Module\+\_\+get\+A\+S\+T\+File()}{clang\_Module\_getASTFile()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{group__CINDEX__FILES_gacfcea9c1239c916597e2e5b3e109215a}{C\+X\+File}} clang\+\_\+\+Module\+\_\+get\+A\+S\+T\+File (\begin{DoxyParamCaption}\item[{C\+X\+Module}]{Module }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em Module} & a module object.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the module file where the provided module object came from. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__CINDEX__MODULE_ga09d2da739b4bbac05fa2c1ad6695095a}\label{group__CINDEX__MODULE_ga09d2da739b4bbac05fa2c1ad6695095a}} 
+\index{Module introspection@{Module introspection}!clang\+\_\+\+Module\+\_\+get\+Full\+Name@{clang\+\_\+\+Module\+\_\+get\+Full\+Name}}
+\index{clang\+\_\+\+Module\+\_\+get\+Full\+Name@{clang\+\_\+\+Module\+\_\+get\+Full\+Name}!Module introspection@{Module introspection}}
+\subsubsection{\texorpdfstring{clang\+\_\+\+Module\+\_\+get\+Full\+Name()}{clang\_Module\_getFullName()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{structCXString}{C\+X\+String}} clang\+\_\+\+Module\+\_\+get\+Full\+Name (\begin{DoxyParamCaption}\item[{C\+X\+Module}]{Module }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em Module} & a module object.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the full name of the module, e.\+g. \char`\"{}std.\+vector\char`\"{}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__CINDEX__MODULE_ga39896de675e90c4fb2de55e109d376a8}\label{group__CINDEX__MODULE_ga39896de675e90c4fb2de55e109d376a8}} 
+\index{Module introspection@{Module introspection}!clang\+\_\+\+Module\+\_\+get\+Name@{clang\+\_\+\+Module\+\_\+get\+Name}}
+\index{clang\+\_\+\+Module\+\_\+get\+Name@{clang\+\_\+\+Module\+\_\+get\+Name}!Module introspection@{Module introspection}}
+\subsubsection{\texorpdfstring{clang\+\_\+\+Module\+\_\+get\+Name()}{clang\_Module\_getName()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{structCXString}{C\+X\+String}} clang\+\_\+\+Module\+\_\+get\+Name (\begin{DoxyParamCaption}\item[{C\+X\+Module}]{Module }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em Module} & a module object.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the name of the module, e.\+g. for the \textquotesingle{}std.\+vector\textquotesingle{} sub-\/module it will return \char`\"{}vector\char`\"{}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__CINDEX__MODULE_gaee667293d56a18d3e8c17e37ce77cb0d}\label{group__CINDEX__MODULE_gaee667293d56a18d3e8c17e37ce77cb0d}} 
+\index{Module introspection@{Module introspection}!clang\+\_\+\+Module\+\_\+get\+Num\+Top\+Level\+Headers@{clang\+\_\+\+Module\+\_\+get\+Num\+Top\+Level\+Headers}}
+\index{clang\+\_\+\+Module\+\_\+get\+Num\+Top\+Level\+Headers@{clang\+\_\+\+Module\+\_\+get\+Num\+Top\+Level\+Headers}!Module introspection@{Module introspection}}
+\subsubsection{\texorpdfstring{clang\+\_\+\+Module\+\_\+get\+Num\+Top\+Level\+Headers()}{clang\_Module\_getNumTopLevelHeaders()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE unsigned clang\+\_\+\+Module\+\_\+get\+Num\+Top\+Level\+Headers (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__CINDEX_gacdb7815736ca709ce9a5e1ec2b7e16ac}{C\+X\+Translation\+Unit}}}]{,  }\item[{C\+X\+Module}]{Module }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em Module} & a module object.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the number of top level headers associated with this module. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__CINDEX__MODULE_ga62e149a28d71b719b11aefee3d36df53}\label{group__CINDEX__MODULE_ga62e149a28d71b719b11aefee3d36df53}} 
+\index{Module introspection@{Module introspection}!clang\+\_\+\+Module\+\_\+get\+Parent@{clang\+\_\+\+Module\+\_\+get\+Parent}}
+\index{clang\+\_\+\+Module\+\_\+get\+Parent@{clang\+\_\+\+Module\+\_\+get\+Parent}!Module introspection@{Module introspection}}
+\subsubsection{\texorpdfstring{clang\+\_\+\+Module\+\_\+get\+Parent()}{clang\_Module\_getParent()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE C\+X\+Module clang\+\_\+\+Module\+\_\+get\+Parent (\begin{DoxyParamCaption}\item[{C\+X\+Module}]{Module }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em Module} & a module object.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the parent of a sub-\/module or N\+U\+LL if the given module is top-\/level, e.\+g. for \textquotesingle{}std.\+vector\textquotesingle{} it will return the \textquotesingle{}std\textquotesingle{} module. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__CINDEX__MODULE_ga08aa0746251ca2e8eee69c8fe7c15e2b}\label{group__CINDEX__MODULE_ga08aa0746251ca2e8eee69c8fe7c15e2b}} 
+\index{Module introspection@{Module introspection}!clang\+\_\+\+Module\+\_\+get\+Top\+Level\+Header@{clang\+\_\+\+Module\+\_\+get\+Top\+Level\+Header}}
+\index{clang\+\_\+\+Module\+\_\+get\+Top\+Level\+Header@{clang\+\_\+\+Module\+\_\+get\+Top\+Level\+Header}!Module introspection@{Module introspection}}
+\subsubsection{\texorpdfstring{clang\+\_\+\+Module\+\_\+get\+Top\+Level\+Header()}{clang\_Module\_getTopLevelHeader()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{group__CINDEX__FILES_gacfcea9c1239c916597e2e5b3e109215a}{C\+X\+File}} clang\+\_\+\+Module\+\_\+get\+Top\+Level\+Header (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__CINDEX_gacdb7815736ca709ce9a5e1ec2b7e16ac}{C\+X\+Translation\+Unit}}}]{,  }\item[{C\+X\+Module}]{Module,  }\item[{unsigned}]{Index }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em Module} & a module object.\\
+\hline
+{\em Index} & top level header index (zero-\/based).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the specified top level header associated with the module. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__CINDEX__MODULE_ga1e4ad74c404b5f3bcd30cec4dc12fa34}\label{group__CINDEX__MODULE_ga1e4ad74c404b5f3bcd30cec4dc12fa34}} 
+\index{Module introspection@{Module introspection}!clang\+\_\+\+Module\+\_\+is\+System@{clang\+\_\+\+Module\+\_\+is\+System}}
+\index{clang\+\_\+\+Module\+\_\+is\+System@{clang\+\_\+\+Module\+\_\+is\+System}!Module introspection@{Module introspection}}
+\subsubsection{\texorpdfstring{clang\+\_\+\+Module\+\_\+is\+System()}{clang\_Module\_isSystem()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE int clang\+\_\+\+Module\+\_\+is\+System (\begin{DoxyParamCaption}\item[{C\+X\+Module}]{Module }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em Module} & a module object.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+non-\/zero if the module is a system one. 
+\end{DoxyReturn}

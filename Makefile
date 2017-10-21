@@ -1,8 +1,8 @@
 SHELL = /bin/bash
 
 export NAME= tabula
-export LINK=  
-export INCLUDE=
+export LINK= -lclang
+export INCLUDE= -I$(BASE_PATH)/$(EXTERNAL_DIR)/libclang
 export TYPE= project_type
 
 export SOURCE_DIR= source
@@ -13,13 +13,13 @@ export INCLUDE_DIR= include
 
 export BASE_PATH=$(shell pwd)
 
-export COMPILER=g++
+export COMPILER=clang++
 export CXXFLAGS= -MMD -std=c++11 -w -c
 
 export INSTALL_PATH=/usr/local
 
-export GCOV_LINK = -lgcov --coverage
-export GCOV_FLAG = -fprofile-arcs -ftest-coverage
+export GCOV_LINK =
+export GCOV_FLAG =
 
 export COMMON_INCLUDE=-I$(BASE_PATH)/$(INCLUDE_DIR) $(INCLUDE)
 

@@ -1,0 +1,466 @@
+\hypertarget{group__CINDEX__HIGH}{}\section{Higher level A\+PI functions}
+\label{group__CINDEX__HIGH}\index{Higher level A\+P\+I functions@{Higher level A\+P\+I functions}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structCXCursorAndRangeVisitor}{C\+X\+Cursor\+And\+Range\+Visitor}}
+\item 
+struct \mbox{\hyperlink{structCXIdxLoc}{C\+X\+Idx\+Loc}}
+\begin{DoxyCompactList}\small\item\em Source location passed to index callbacks. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structCXIdxIncludedFileInfo}{C\+X\+Idx\+Included\+File\+Info}}
+\begin{DoxyCompactList}\small\item\em Data for pp\+Included\+File callback. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structCXIdxImportedASTFileInfo}{C\+X\+Idx\+Imported\+A\+S\+T\+File\+Info}}
+\begin{DoxyCompactList}\small\item\em Data for \mbox{\hyperlink{structIndexerCallbacks_a75672a9934f69854080bee3fbc0e3994}{Indexer\+Callbacks\+::imported\+A\+S\+T\+File}}. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structCXIdxAttrInfo}{C\+X\+Idx\+Attr\+Info}}
+\item 
+struct \mbox{\hyperlink{structCXIdxEntityInfo}{C\+X\+Idx\+Entity\+Info}}
+\item 
+struct \mbox{\hyperlink{structCXIdxContainerInfo}{C\+X\+Idx\+Container\+Info}}
+\item 
+struct \mbox{\hyperlink{structCXIdxIBOutletCollectionAttrInfo}{C\+X\+Idx\+I\+B\+Outlet\+Collection\+Attr\+Info}}
+\item 
+struct \mbox{\hyperlink{structCXIdxDeclInfo}{C\+X\+Idx\+Decl\+Info}}
+\item 
+struct \mbox{\hyperlink{structCXIdxObjCContainerDeclInfo}{C\+X\+Idx\+Obj\+C\+Container\+Decl\+Info}}
+\item 
+struct \mbox{\hyperlink{structCXIdxBaseClassInfo}{C\+X\+Idx\+Base\+Class\+Info}}
+\item 
+struct \mbox{\hyperlink{structCXIdxObjCProtocolRefInfo}{C\+X\+Idx\+Obj\+C\+Protocol\+Ref\+Info}}
+\item 
+struct \mbox{\hyperlink{structCXIdxObjCProtocolRefListInfo}{C\+X\+Idx\+Obj\+C\+Protocol\+Ref\+List\+Info}}
+\item 
+struct \mbox{\hyperlink{structCXIdxObjCInterfaceDeclInfo}{C\+X\+Idx\+Obj\+C\+Interface\+Decl\+Info}}
+\item 
+struct \mbox{\hyperlink{structCXIdxObjCCategoryDeclInfo}{C\+X\+Idx\+Obj\+C\+Category\+Decl\+Info}}
+\item 
+struct \mbox{\hyperlink{structCXIdxObjCPropertyDeclInfo}{C\+X\+Idx\+Obj\+C\+Property\+Decl\+Info}}
+\item 
+struct \mbox{\hyperlink{structCXIdxCXXClassDeclInfo}{C\+X\+Idx\+C\+X\+X\+Class\+Decl\+Info}}
+\item 
+struct \mbox{\hyperlink{structCXIdxEntityRefInfo}{C\+X\+Idx\+Entity\+Ref\+Info}}
+\begin{DoxyCompactList}\small\item\em Data for \mbox{\hyperlink{structIndexerCallbacks_a6d93809e7743a590beafa0387ac145dc}{Indexer\+Callbacks\+::index\+Entity\+Reference}}. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structIndexerCallbacks}{Indexer\+Callbacks}}
+\begin{DoxyCompactList}\small\item\em A group of callbacks used by \mbox{\hyperlink{group__CINDEX__HIGH_gaa5c2ad8979779c401b91110d444e2be6}{clang\+\_\+index\+Source\+File}} and \mbox{\hyperlink{group__CINDEX__HIGH_gab12a0795c7d7be6e7ec85679faf3f8e9}{clang\+\_\+index\+Translation\+Unit}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__CINDEX__HIGH_ga72188fec58b54e655adf195c93118162}\label{group__CINDEX__HIGH_ga72188fec58b54e655adf195c93118162}} 
+typedef struct \mbox{\hyperlink{structCXCursorAndRangeVisitor}{C\+X\+Cursor\+And\+Range\+Visitor}} {\bfseries C\+X\+Cursor\+And\+Range\+Visitor}
+\item 
+\mbox{\Hypertarget{group__CINDEX__HIGH_ga6fd9c59c0b0a0a21622e5bcfc08156cc}\label{group__CINDEX__HIGH_ga6fd9c59c0b0a0a21622e5bcfc08156cc}} 
+typedef void $\ast$ \mbox{\hyperlink{group__CINDEX__HIGH_ga6fd9c59c0b0a0a21622e5bcfc08156cc}{C\+X\+Idx\+Client\+File}}
+\begin{DoxyCompactList}\small\item\em The client\textquotesingle{}s data object that is associated with a C\+X\+File. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX__HIGH_gaaa7374e63b63b3d14af7cf87af386955}\label{group__CINDEX__HIGH_gaaa7374e63b63b3d14af7cf87af386955}} 
+typedef void $\ast$ \mbox{\hyperlink{group__CINDEX__HIGH_gaaa7374e63b63b3d14af7cf87af386955}{C\+X\+Idx\+Client\+Entity}}
+\begin{DoxyCompactList}\small\item\em The client\textquotesingle{}s data object that is associated with a semantic entity. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX__HIGH_ga0dac2cb977094bbd9d13b9d8abed278f}\label{group__CINDEX__HIGH_ga0dac2cb977094bbd9d13b9d8abed278f}} 
+typedef void $\ast$ \mbox{\hyperlink{group__CINDEX__HIGH_ga0dac2cb977094bbd9d13b9d8abed278f}{C\+X\+Idx\+Client\+Container}}
+\begin{DoxyCompactList}\small\item\em The client\textquotesingle{}s data object that is associated with a semantic container of entities. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX__HIGH_ga802a69b3db636a25c5d434585fce9cbd}\label{group__CINDEX__HIGH_ga802a69b3db636a25c5d434585fce9cbd}} 
+typedef void $\ast$ \mbox{\hyperlink{group__CINDEX__HIGH_ga802a69b3db636a25c5d434585fce9cbd}{C\+X\+Idx\+Client\+A\+S\+T\+File}}
+\begin{DoxyCompactList}\small\item\em The client\textquotesingle{}s data object that is associated with an A\+ST file (P\+CH or module). \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX__HIGH_gac8d30d3e3fb34d887b611e7c6de3afb6}\label{group__CINDEX__HIGH_gac8d30d3e3fb34d887b611e7c6de3afb6}} 
+typedef void $\ast$ \mbox{\hyperlink{group__CINDEX__HIGH_gac8d30d3e3fb34d887b611e7c6de3afb6}{C\+X\+Index\+Action}}
+\begin{DoxyCompactList}\small\item\em An indexing action/session, to be applied to one or multiple translation units. \end{DoxyCompactList}\item 
+typedef enum C\+X\+Visitor\+Result($\ast$ \mbox{\hyperlink{group__CINDEX__HIGH_ga5040863c91d7a720a97569cf869f42a4}{C\+X\+Field\+Visitor}}) (\mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}} C, \mbox{\hyperlink{group__CINDEX_gacfa40c3de26d228c0d898403c2c21612}{C\+X\+Client\+Data}} client\+\_\+data)
+\begin{DoxyCompactList}\small\item\em Visitor invoked for each field found by a traversal. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__CINDEX__HIGH_ga4b763faa98fe78195c06f74745a1e6b4}\label{group__CINDEX__HIGH_ga4b763faa98fe78195c06f74745a1e6b4}} 
+enum {\bfseries C\+X\+Visitor\+Result} \{ {\bfseries C\+X\+Visit\+\_\+\+Break}, 
+{\bfseries C\+X\+Visit\+\_\+\+Continue}
+ \}
+\item 
+enum \mbox{\hyperlink{group__CINDEX__HIGH_ga59185777d9788da5d983cc0c7c8977bf}{C\+X\+Result}} \{ \mbox{\hyperlink{group__CINDEX__HIGH_gga59185777d9788da5d983cc0c7c8977bfadc04f4b21eabbddf3465b4e8cf684b97}{C\+X\+Result\+\_\+\+Success}} = 0, 
+\mbox{\hyperlink{group__CINDEX__HIGH_gga59185777d9788da5d983cc0c7c8977bfafeb3e2b0d7128e99709d10d5ced9470b}{C\+X\+Result\+\_\+\+Invalid}} = 1, 
+\mbox{\hyperlink{group__CINDEX__HIGH_gga59185777d9788da5d983cc0c7c8977bfa1a0d552a23b857cb129e0211bc9fb1dd}{C\+X\+Result\+\_\+\+Visit\+Break}} = 2
+ \}
+\item 
+\mbox{\Hypertarget{group__CINDEX__HIGH_gaeabdc51cf762443531dfdd92b0e15b04}\label{group__CINDEX__HIGH_gaeabdc51cf762443531dfdd92b0e15b04}} 
+enum {\bfseries C\+X\+Idx\+Entity\+Kind} \{ \newline
+{\bfseries C\+X\+Idx\+Entity\+\_\+\+Unexposed} = 0, 
+{\bfseries C\+X\+Idx\+Entity\+\_\+\+Typedef} = 1, 
+{\bfseries C\+X\+Idx\+Entity\+\_\+\+Function} = 2, 
+{\bfseries C\+X\+Idx\+Entity\+\_\+\+Variable} = 3, 
+\newline
+{\bfseries C\+X\+Idx\+Entity\+\_\+\+Field} = 4, 
+{\bfseries C\+X\+Idx\+Entity\+\_\+\+Enum\+Constant} = 5, 
+{\bfseries C\+X\+Idx\+Entity\+\_\+\+Obj\+C\+Class} = 6, 
+{\bfseries C\+X\+Idx\+Entity\+\_\+\+Obj\+C\+Protocol} = 7, 
+\newline
+{\bfseries C\+X\+Idx\+Entity\+\_\+\+Obj\+C\+Category} = 8, 
+{\bfseries C\+X\+Idx\+Entity\+\_\+\+Obj\+C\+Instance\+Method} = 9, 
+{\bfseries C\+X\+Idx\+Entity\+\_\+\+Obj\+C\+Class\+Method} = 10, 
+{\bfseries C\+X\+Idx\+Entity\+\_\+\+Obj\+C\+Property} = 11, 
+\newline
+{\bfseries C\+X\+Idx\+Entity\+\_\+\+Obj\+C\+Ivar} = 12, 
+{\bfseries C\+X\+Idx\+Entity\+\_\+\+Enum} = 13, 
+{\bfseries C\+X\+Idx\+Entity\+\_\+\+Struct} = 14, 
+{\bfseries C\+X\+Idx\+Entity\+\_\+\+Union} = 15, 
+\newline
+{\bfseries C\+X\+Idx\+Entity\+\_\+\+C\+X\+X\+Class} = 16, 
+{\bfseries C\+X\+Idx\+Entity\+\_\+\+C\+X\+X\+Namespace} = 17, 
+{\bfseries C\+X\+Idx\+Entity\+\_\+\+C\+X\+X\+Namespace\+Alias} = 18, 
+{\bfseries C\+X\+Idx\+Entity\+\_\+\+C\+X\+X\+Static\+Variable} = 19, 
+\newline
+{\bfseries C\+X\+Idx\+Entity\+\_\+\+C\+X\+X\+Static\+Method} = 20, 
+{\bfseries C\+X\+Idx\+Entity\+\_\+\+C\+X\+X\+Instance\+Method} = 21, 
+{\bfseries C\+X\+Idx\+Entity\+\_\+\+C\+X\+X\+Constructor} = 22, 
+{\bfseries C\+X\+Idx\+Entity\+\_\+\+C\+X\+X\+Destructor} = 23, 
+\newline
+{\bfseries C\+X\+Idx\+Entity\+\_\+\+C\+X\+X\+Conversion\+Function} = 24, 
+{\bfseries C\+X\+Idx\+Entity\+\_\+\+C\+X\+X\+Type\+Alias} = 25, 
+{\bfseries C\+X\+Idx\+Entity\+\_\+\+C\+X\+X\+Interface} = 26
+ \}
+\item 
+\mbox{\Hypertarget{group__CINDEX__HIGH_ga586068b110ab11094f40eff0b92fc578}\label{group__CINDEX__HIGH_ga586068b110ab11094f40eff0b92fc578}} 
+enum {\bfseries C\+X\+Idx\+Entity\+Language} \{ {\bfseries C\+X\+Idx\+Entity\+Lang\+\_\+\+None} = 0, 
+{\bfseries C\+X\+Idx\+Entity\+Lang\+\_\+C} = 1, 
+{\bfseries C\+X\+Idx\+Entity\+Lang\+\_\+\+ObjC} = 2, 
+{\bfseries C\+X\+Idx\+Entity\+Lang\+\_\+\+C\+XX} = 3
+ \}
+\item 
+\mbox{\Hypertarget{group__CINDEX__HIGH_gaffb304a99b36f147738b3349e7aa22cb}\label{group__CINDEX__HIGH_gaffb304a99b36f147738b3349e7aa22cb}} 
+enum \mbox{\hyperlink{group__CINDEX__HIGH_gaffb304a99b36f147738b3349e7aa22cb}{C\+X\+Idx\+Entity\+C\+X\+X\+Template\+Kind}} \{ {\bfseries C\+X\+Idx\+Entity\+\_\+\+Non\+Template} = 0, 
+{\bfseries C\+X\+Idx\+Entity\+\_\+\+Template} = 1, 
+{\bfseries C\+X\+Idx\+Entity\+\_\+\+Template\+Partial\+Specialization} = 2, 
+{\bfseries C\+X\+Idx\+Entity\+\_\+\+Template\+Specialization} = 3
+ \}
+\begin{DoxyCompactList}\small\item\em Extra C++ template information for an entity. This can apply to\+: C\+X\+Idx\+Entity\+\_\+\+Function C\+X\+Idx\+Entity\+\_\+\+C\+X\+X\+Class C\+X\+Idx\+Entity\+\_\+\+C\+X\+X\+Static\+Method C\+X\+Idx\+Entity\+\_\+\+C\+X\+X\+Instance\+Method C\+X\+Idx\+Entity\+\_\+\+C\+X\+X\+Constructor C\+X\+Idx\+Entity\+\_\+\+C\+X\+X\+Conversion\+Function C\+X\+Idx\+Entity\+\_\+\+C\+X\+X\+Type\+Alias. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX__HIGH_gacafef874c0a53de1d38805ec7ca9790a}\label{group__CINDEX__HIGH_gacafef874c0a53de1d38805ec7ca9790a}} 
+enum {\bfseries C\+X\+Idx\+Attr\+Kind} \{ {\bfseries C\+X\+Idx\+Attr\+\_\+\+Unexposed} = 0, 
+{\bfseries C\+X\+Idx\+Attr\+\_\+\+I\+B\+Action} = 1, 
+{\bfseries C\+X\+Idx\+Attr\+\_\+\+I\+B\+Outlet} = 2, 
+{\bfseries C\+X\+Idx\+Attr\+\_\+\+I\+B\+Outlet\+Collection} = 3
+ \}
+\item 
+\mbox{\Hypertarget{group__CINDEX__HIGH_gac2ab581a399019383ada51a95ad4661c}\label{group__CINDEX__HIGH_gac2ab581a399019383ada51a95ad4661c}} 
+enum {\bfseries C\+X\+Idx\+Decl\+Info\+Flags} \{ {\bfseries C\+X\+Idx\+Decl\+Flag\+\_\+\+Skipped} = 0x1
+ \}
+\item 
+\mbox{\Hypertarget{group__CINDEX__HIGH_ga3a7b134403ae721de4bb61dbaa35ece0}\label{group__CINDEX__HIGH_ga3a7b134403ae721de4bb61dbaa35ece0}} 
+enum {\bfseries C\+X\+Idx\+Obj\+C\+Container\+Kind} \{ {\bfseries C\+X\+Idx\+Obj\+C\+Container\+\_\+\+Forward\+Ref} = 0, 
+{\bfseries C\+X\+Idx\+Obj\+C\+Container\+\_\+\+Interface} = 1, 
+{\bfseries C\+X\+Idx\+Obj\+C\+Container\+\_\+\+Implementation} = 2
+ \}
+\item 
+enum \mbox{\hyperlink{group__CINDEX__HIGH_ga4158d96205b540d3ef4992cf6689c2aa}{C\+X\+Idx\+Entity\+Ref\+Kind}} \{ \mbox{\hyperlink{group__CINDEX__HIGH_gga4158d96205b540d3ef4992cf6689c2aaa480bab642d15b16ba1156566979b8a4c}{C\+X\+Idx\+Entity\+Ref\+\_\+\+Direct}} = 1, 
+\mbox{\hyperlink{group__CINDEX__HIGH_gga4158d96205b540d3ef4992cf6689c2aaa275d2671931e7a53f86372da524b5d61}{C\+X\+Idx\+Entity\+Ref\+\_\+\+Implicit}} = 2
+ \}
+\begin{DoxyCompactList}\small\item\em Data for \mbox{\hyperlink{structIndexerCallbacks_a6d93809e7743a590beafa0387ac145dc}{Indexer\+Callbacks\+::index\+Entity\+Reference}}. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{group__CINDEX__HIGH_ga8c30458ffd9b99a7fcd95a5759c99816}{C\+X\+Index\+Opt\+Flags}} \{ \newline
+\mbox{\hyperlink{group__CINDEX__HIGH_gga8c30458ffd9b99a7fcd95a5759c99816a1f75207a1b25c860d647ffdfab0fa4c9}{C\+X\+Index\+Opt\+\_\+\+None}} = 0x0, 
+\mbox{\hyperlink{group__CINDEX__HIGH_gga8c30458ffd9b99a7fcd95a5759c99816a3d5d796739d08fa05d257421d822a87c}{C\+X\+Index\+Opt\+\_\+\+Suppress\+Redundant\+Refs}} = 0x1, 
+\mbox{\hyperlink{group__CINDEX__HIGH_gga8c30458ffd9b99a7fcd95a5759c99816adb72ccbaf307a330f661e8d9918a5c9c}{C\+X\+Index\+Opt\+\_\+\+Index\+Function\+Local\+Symbols}} = 0x2, 
+\mbox{\hyperlink{group__CINDEX__HIGH_gga8c30458ffd9b99a7fcd95a5759c99816ad1a2aba8a113667f69dfc84a852b026e}{C\+X\+Index\+Opt\+\_\+\+Index\+Implicit\+Template\+Instantiations}} = 0x4, 
+\newline
+\mbox{\hyperlink{group__CINDEX__HIGH_gga8c30458ffd9b99a7fcd95a5759c99816a827daacd70e8610538f7fa0fee0897ff}{C\+X\+Index\+Opt\+\_\+\+Suppress\+Warnings}} = 0x8, 
+\mbox{\hyperlink{group__CINDEX__HIGH_gga8c30458ffd9b99a7fcd95a5759c99816a2c92f2b0443ba766fc00a9d6bb2f25aa}{C\+X\+Index\+Opt\+\_\+\+Skip\+Parsed\+Bodies\+In\+Session}} = 0x10
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{group__CINDEX__HIGH_ga59185777d9788da5d983cc0c7c8977bf}{C\+X\+Result}} \mbox{\hyperlink{group__CINDEX__HIGH_gaa8524d179bc3668d215d326d332df97b}{clang\+\_\+find\+References\+In\+File}} (\mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}} cursor, \mbox{\hyperlink{group__CINDEX__FILES_gacfcea9c1239c916597e2e5b3e109215a}{C\+X\+File}} file, \mbox{\hyperlink{structCXCursorAndRangeVisitor}{C\+X\+Cursor\+And\+Range\+Visitor}} visitor)
+\begin{DoxyCompactList}\small\item\em Find references of a declaration in a specific file. \end{DoxyCompactList}\item 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{group__CINDEX__HIGH_ga59185777d9788da5d983cc0c7c8977bf}{C\+X\+Result}} \mbox{\hyperlink{group__CINDEX__HIGH_ga1c3e49cda9a6e2f9c6930881755e0605}{clang\+\_\+find\+Includes\+In\+File}} (\mbox{\hyperlink{group__CINDEX_gacdb7815736ca709ce9a5e1ec2b7e16ac}{C\+X\+Translation\+Unit}} TU, \mbox{\hyperlink{group__CINDEX__FILES_gacfcea9c1239c916597e2e5b3e109215a}{C\+X\+File}} file, \mbox{\hyperlink{structCXCursorAndRangeVisitor}{C\+X\+Cursor\+And\+Range\+Visitor}} visitor)
+\begin{DoxyCompactList}\small\item\em Find \#import/\#include directives in a specific file. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX__HIGH_gacd31bd2c96a08c185a4d6f63d1133649}\label{group__CINDEX__HIGH_gacd31bd2c96a08c185a4d6f63d1133649}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE int {\bfseries clang\+\_\+index\+\_\+is\+Entity\+Obj\+C\+Container\+Kind} (C\+X\+Idx\+Entity\+Kind)
+\item 
+\mbox{\Hypertarget{group__CINDEX__HIGH_ga78117833cbb1378e373097b4288b8937}\label{group__CINDEX__HIGH_ga78117833cbb1378e373097b4288b8937}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE const \mbox{\hyperlink{structCXIdxObjCContainerDeclInfo}{C\+X\+Idx\+Obj\+C\+Container\+Decl\+Info}} $\ast$ {\bfseries clang\+\_\+index\+\_\+get\+Obj\+C\+Container\+Decl\+Info} (const \mbox{\hyperlink{structCXIdxDeclInfo}{C\+X\+Idx\+Decl\+Info}} $\ast$)
+\item 
+\mbox{\Hypertarget{group__CINDEX__HIGH_ga06efe31085488d05c291d2fb4e09edeb}\label{group__CINDEX__HIGH_ga06efe31085488d05c291d2fb4e09edeb}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE const \mbox{\hyperlink{structCXIdxObjCInterfaceDeclInfo}{C\+X\+Idx\+Obj\+C\+Interface\+Decl\+Info}} $\ast$ {\bfseries clang\+\_\+index\+\_\+get\+Obj\+C\+Interface\+Decl\+Info} (const \mbox{\hyperlink{structCXIdxDeclInfo}{C\+X\+Idx\+Decl\+Info}} $\ast$)
+\item 
+\mbox{\Hypertarget{group__CINDEX__HIGH_gac5301220677a46afd733eb1cffb2909a}\label{group__CINDEX__HIGH_gac5301220677a46afd733eb1cffb2909a}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE const \mbox{\hyperlink{structCXIdxObjCCategoryDeclInfo}{C\+X\+Idx\+Obj\+C\+Category\+Decl\+Info}} $\ast$ {\bfseries clang\+\_\+index\+\_\+get\+Obj\+C\+Category\+Decl\+Info} (const \mbox{\hyperlink{structCXIdxDeclInfo}{C\+X\+Idx\+Decl\+Info}} $\ast$)
+\item 
+\mbox{\Hypertarget{group__CINDEX__HIGH_ga5c39608c859456cbc78109d010765415}\label{group__CINDEX__HIGH_ga5c39608c859456cbc78109d010765415}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE const \mbox{\hyperlink{structCXIdxObjCProtocolRefListInfo}{C\+X\+Idx\+Obj\+C\+Protocol\+Ref\+List\+Info}} $\ast$ {\bfseries clang\+\_\+index\+\_\+get\+Obj\+C\+Protocol\+Ref\+List\+Info} (const \mbox{\hyperlink{structCXIdxDeclInfo}{C\+X\+Idx\+Decl\+Info}} $\ast$)
+\item 
+\mbox{\Hypertarget{group__CINDEX__HIGH_ga6319eecf732286e2d1c59582bccfad07}\label{group__CINDEX__HIGH_ga6319eecf732286e2d1c59582bccfad07}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE const \mbox{\hyperlink{structCXIdxObjCPropertyDeclInfo}{C\+X\+Idx\+Obj\+C\+Property\+Decl\+Info}} $\ast$ {\bfseries clang\+\_\+index\+\_\+get\+Obj\+C\+Property\+Decl\+Info} (const \mbox{\hyperlink{structCXIdxDeclInfo}{C\+X\+Idx\+Decl\+Info}} $\ast$)
+\item 
+\mbox{\Hypertarget{group__CINDEX__HIGH_ga56c79b1bd72e70149706933a3112f871}\label{group__CINDEX__HIGH_ga56c79b1bd72e70149706933a3112f871}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE const \mbox{\hyperlink{structCXIdxIBOutletCollectionAttrInfo}{C\+X\+Idx\+I\+B\+Outlet\+Collection\+Attr\+Info}} $\ast$ {\bfseries clang\+\_\+index\+\_\+get\+I\+B\+Outlet\+Collection\+Attr\+Info} (const \mbox{\hyperlink{structCXIdxAttrInfo}{C\+X\+Idx\+Attr\+Info}} $\ast$)
+\item 
+\mbox{\Hypertarget{group__CINDEX__HIGH_gaeba620227e5d19dbe6d23b801c1753a6}\label{group__CINDEX__HIGH_gaeba620227e5d19dbe6d23b801c1753a6}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE const \mbox{\hyperlink{structCXIdxCXXClassDeclInfo}{C\+X\+Idx\+C\+X\+X\+Class\+Decl\+Info}} $\ast$ {\bfseries clang\+\_\+index\+\_\+get\+C\+X\+X\+Class\+Decl\+Info} (const \mbox{\hyperlink{structCXIdxDeclInfo}{C\+X\+Idx\+Decl\+Info}} $\ast$)
+\item 
+\mbox{\Hypertarget{group__CINDEX__HIGH_gaca430242bc5e6f6faaac3aa39105b5c1}\label{group__CINDEX__HIGH_gaca430242bc5e6f6faaac3aa39105b5c1}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{group__CINDEX__HIGH_ga0dac2cb977094bbd9d13b9d8abed278f}{C\+X\+Idx\+Client\+Container}} \mbox{\hyperlink{group__CINDEX__HIGH_gaca430242bc5e6f6faaac3aa39105b5c1}{clang\+\_\+index\+\_\+get\+Client\+Container}} (const \mbox{\hyperlink{structCXIdxContainerInfo}{C\+X\+Idx\+Container\+Info}} $\ast$)
+\begin{DoxyCompactList}\small\item\em For retrieving a custom C\+X\+Idx\+Client\+Container attached to a container. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX__HIGH_ga85255b4017399b012f9967125a3a36e8}\label{group__CINDEX__HIGH_ga85255b4017399b012f9967125a3a36e8}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE void \mbox{\hyperlink{group__CINDEX__HIGH_ga85255b4017399b012f9967125a3a36e8}{clang\+\_\+index\+\_\+set\+Client\+Container}} (const \mbox{\hyperlink{structCXIdxContainerInfo}{C\+X\+Idx\+Container\+Info}} $\ast$, \mbox{\hyperlink{group__CINDEX__HIGH_ga0dac2cb977094bbd9d13b9d8abed278f}{C\+X\+Idx\+Client\+Container}})
+\begin{DoxyCompactList}\small\item\em For setting a custom C\+X\+Idx\+Client\+Container attached to a container. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX__HIGH_ga1731a531a2a24471cef7288623b9820b}\label{group__CINDEX__HIGH_ga1731a531a2a24471cef7288623b9820b}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{group__CINDEX__HIGH_gaaa7374e63b63b3d14af7cf87af386955}{C\+X\+Idx\+Client\+Entity}} \mbox{\hyperlink{group__CINDEX__HIGH_ga1731a531a2a24471cef7288623b9820b}{clang\+\_\+index\+\_\+get\+Client\+Entity}} (const \mbox{\hyperlink{structCXIdxEntityInfo}{C\+X\+Idx\+Entity\+Info}} $\ast$)
+\begin{DoxyCompactList}\small\item\em For retrieving a custom C\+X\+Idx\+Client\+Entity attached to an entity. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX__HIGH_ga3b68cac914a9bf52ad54467cd5dbfbc7}\label{group__CINDEX__HIGH_ga3b68cac914a9bf52ad54467cd5dbfbc7}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE void \mbox{\hyperlink{group__CINDEX__HIGH_ga3b68cac914a9bf52ad54467cd5dbfbc7}{clang\+\_\+index\+\_\+set\+Client\+Entity}} (const \mbox{\hyperlink{structCXIdxEntityInfo}{C\+X\+Idx\+Entity\+Info}} $\ast$, \mbox{\hyperlink{group__CINDEX__HIGH_gaaa7374e63b63b3d14af7cf87af386955}{C\+X\+Idx\+Client\+Entity}})
+\begin{DoxyCompactList}\small\item\em For setting a custom C\+X\+Idx\+Client\+Entity attached to an entity. \end{DoxyCompactList}\item 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{group__CINDEX__HIGH_gac8d30d3e3fb34d887b611e7c6de3afb6}{C\+X\+Index\+Action}} \mbox{\hyperlink{group__CINDEX__HIGH_gaedee4ab7f093fedd27ed6995b1b7c62a}{clang\+\_\+\+Index\+Action\+\_\+create}} (\mbox{\hyperlink{group__CINDEX_gae039c2574bfd75774ca7a9a3e55910cb}{C\+X\+Index}} C\+Idx)
+\begin{DoxyCompactList}\small\item\em An indexing action/session, to be applied to one or multiple translation units. \end{DoxyCompactList}\item 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE void \mbox{\hyperlink{group__CINDEX__HIGH_ga9b648aa6e87ea8d29dd0d4f0f592ffbb}{clang\+\_\+\+Index\+Action\+\_\+dispose}} (\mbox{\hyperlink{group__CINDEX__HIGH_gac8d30d3e3fb34d887b611e7c6de3afb6}{C\+X\+Index\+Action}})
+\begin{DoxyCompactList}\small\item\em Destroy the given index action. \end{DoxyCompactList}\item 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE int \mbox{\hyperlink{group__CINDEX__HIGH_gaa5c2ad8979779c401b91110d444e2be6}{clang\+\_\+index\+Source\+File}} (\mbox{\hyperlink{group__CINDEX__HIGH_gac8d30d3e3fb34d887b611e7c6de3afb6}{C\+X\+Index\+Action}}, \mbox{\hyperlink{group__CINDEX_gacfa40c3de26d228c0d898403c2c21612}{C\+X\+Client\+Data}} client\+\_\+data, \mbox{\hyperlink{structIndexerCallbacks}{Indexer\+Callbacks}} $\ast$index\+\_\+callbacks, unsigned index\+\_\+callbacks\+\_\+size, unsigned index\+\_\+options, const char $\ast$source\+\_\+filename, const char $\ast$const $\ast$command\+\_\+line\+\_\+args, int num\+\_\+command\+\_\+line\+\_\+args, struct \mbox{\hyperlink{structCXUnsavedFile}{C\+X\+Unsaved\+File}} $\ast$unsaved\+\_\+files, unsigned num\+\_\+unsaved\+\_\+files, \mbox{\hyperlink{group__CINDEX_gacdb7815736ca709ce9a5e1ec2b7e16ac}{C\+X\+Translation\+Unit}} $\ast$out\+\_\+\+TU, unsigned T\+U\+\_\+options)
+\begin{DoxyCompactList}\small\item\em Index the given source file and the translation unit corresponding to that file via callbacks implemented through \mbox{\hyperlink{structIndexerCallbacks}{Indexer\+Callbacks}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX__HIGH_ga3b08166c97a48146a4a0395876332327}\label{group__CINDEX__HIGH_ga3b08166c97a48146a4a0395876332327}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE int \mbox{\hyperlink{group__CINDEX__HIGH_ga3b08166c97a48146a4a0395876332327}{clang\+\_\+index\+Source\+File\+Full\+Argv}} (\mbox{\hyperlink{group__CINDEX__HIGH_gac8d30d3e3fb34d887b611e7c6de3afb6}{C\+X\+Index\+Action}}, \mbox{\hyperlink{group__CINDEX_gacfa40c3de26d228c0d898403c2c21612}{C\+X\+Client\+Data}} client\+\_\+data, \mbox{\hyperlink{structIndexerCallbacks}{Indexer\+Callbacks}} $\ast$index\+\_\+callbacks, unsigned index\+\_\+callbacks\+\_\+size, unsigned index\+\_\+options, const char $\ast$source\+\_\+filename, const char $\ast$const $\ast$command\+\_\+line\+\_\+args, int num\+\_\+command\+\_\+line\+\_\+args, struct \mbox{\hyperlink{structCXUnsavedFile}{C\+X\+Unsaved\+File}} $\ast$unsaved\+\_\+files, unsigned num\+\_\+unsaved\+\_\+files, \mbox{\hyperlink{group__CINDEX_gacdb7815736ca709ce9a5e1ec2b7e16ac}{C\+X\+Translation\+Unit}} $\ast$out\+\_\+\+TU, unsigned T\+U\+\_\+options)
+\begin{DoxyCompactList}\small\item\em Same as clang\+\_\+index\+Source\+File but requires a full command line for {\ttfamily command\+\_\+line\+\_\+args} including argv\mbox{[}0\mbox{]}. This is useful if the standard library paths are relative to the binary. \end{DoxyCompactList}\item 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE int \mbox{\hyperlink{group__CINDEX__HIGH_gab12a0795c7d7be6e7ec85679faf3f8e9}{clang\+\_\+index\+Translation\+Unit}} (\mbox{\hyperlink{group__CINDEX__HIGH_gac8d30d3e3fb34d887b611e7c6de3afb6}{C\+X\+Index\+Action}}, \mbox{\hyperlink{group__CINDEX_gacfa40c3de26d228c0d898403c2c21612}{C\+X\+Client\+Data}} client\+\_\+data, \mbox{\hyperlink{structIndexerCallbacks}{Indexer\+Callbacks}} $\ast$index\+\_\+callbacks, unsigned index\+\_\+callbacks\+\_\+size, unsigned index\+\_\+options, \mbox{\hyperlink{group__CINDEX_gacdb7815736ca709ce9a5e1ec2b7e16ac}{C\+X\+Translation\+Unit}})
+\begin{DoxyCompactList}\small\item\em Index the given translation unit via callbacks implemented through \mbox{\hyperlink{structIndexerCallbacks}{Indexer\+Callbacks}}. \end{DoxyCompactList}\item 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE void \mbox{\hyperlink{group__CINDEX__HIGH_ga340d2dda7a0d3430fe9929034c1b712c}{clang\+\_\+index\+Loc\+\_\+get\+File\+Location}} (\mbox{\hyperlink{structCXIdxLoc}{C\+X\+Idx\+Loc}} loc, \mbox{\hyperlink{group__CINDEX__HIGH_ga6fd9c59c0b0a0a21622e5bcfc08156cc}{C\+X\+Idx\+Client\+File}} $\ast$index\+File, \mbox{\hyperlink{group__CINDEX__FILES_gacfcea9c1239c916597e2e5b3e109215a}{C\+X\+File}} $\ast$file, unsigned $\ast$line, unsigned $\ast$column, unsigned $\ast$offset)
+\begin{DoxyCompactList}\small\item\em Retrieve the C\+X\+Idx\+File, file, line, column, and offset represented by the given \mbox{\hyperlink{structCXIdxLoc}{C\+X\+Idx\+Loc}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX__HIGH_ga89d0ff9816ec25f6d68edc5cbc908c20}\label{group__CINDEX__HIGH_ga89d0ff9816ec25f6d68edc5cbc908c20}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{structCXSourceLocation}{C\+X\+Source\+Location}} \mbox{\hyperlink{group__CINDEX__HIGH_ga89d0ff9816ec25f6d68edc5cbc908c20}{clang\+\_\+index\+Loc\+\_\+get\+C\+X\+Source\+Location}} (\mbox{\hyperlink{structCXIdxLoc}{C\+X\+Idx\+Loc}} loc)
+\begin{DoxyCompactList}\small\item\em Retrieve the \mbox{\hyperlink{structCXSourceLocation}{C\+X\+Source\+Location}} represented by the given \mbox{\hyperlink{structCXIdxLoc}{C\+X\+Idx\+Loc}}. \end{DoxyCompactList}\item 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE unsigned \mbox{\hyperlink{group__CINDEX__HIGH_ga18285a2cefecf5a069c64e675b627273}{clang\+\_\+\+Type\+\_\+visit\+Fields}} (\mbox{\hyperlink{structCXType}{C\+X\+Type}} T, \mbox{\hyperlink{group__CINDEX__HIGH_ga5040863c91d7a720a97569cf869f42a4}{C\+X\+Field\+Visitor}} visitor, \mbox{\hyperlink{group__CINDEX_gacfa40c3de26d228c0d898403c2c21612}{C\+X\+Client\+Data}} client\+\_\+data)
+\begin{DoxyCompactList}\small\item\em Visit the fields of a particular type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+\subsection{Typedef Documentation}
+\mbox{\Hypertarget{group__CINDEX__HIGH_ga5040863c91d7a720a97569cf869f42a4}\label{group__CINDEX__HIGH_ga5040863c91d7a720a97569cf869f42a4}} 
+\index{Higher level A\+P\+I functions@{Higher level A\+P\+I functions}!C\+X\+Field\+Visitor@{C\+X\+Field\+Visitor}}
+\index{C\+X\+Field\+Visitor@{C\+X\+Field\+Visitor}!Higher level A\+P\+I functions@{Higher level A\+P\+I functions}}
+\subsubsection{\texorpdfstring{C\+X\+Field\+Visitor}{CXFieldVisitor}}
+{\footnotesize\ttfamily typedef enum C\+X\+Visitor\+Result($\ast$ C\+X\+Field\+Visitor) (\mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}} C, \mbox{\hyperlink{group__CINDEX_gacfa40c3de26d228c0d898403c2c21612}{C\+X\+Client\+Data}} client\+\_\+data)}
+
+
+
+Visitor invoked for each field found by a traversal. 
+
+This visitor function will be invoked for each field found by {\ttfamily clang\+\_\+\+Type\+\_\+visit\+Fields}. Its first argument is the cursor being visited, its second argument is the client data provided to {\ttfamily clang\+\_\+\+Type\+\_\+visit\+Fields}.
+
+The visitor should return one of the {\ttfamily C\+X\+Visitor\+Result} values to direct {\ttfamily clang\+\_\+\+Type\+\_\+visit\+Fields}. 
+
+\subsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{group__CINDEX__HIGH_ga4158d96205b540d3ef4992cf6689c2aa}\label{group__CINDEX__HIGH_ga4158d96205b540d3ef4992cf6689c2aa}} 
+\index{Higher level A\+P\+I functions@{Higher level A\+P\+I functions}!C\+X\+Idx\+Entity\+Ref\+Kind@{C\+X\+Idx\+Entity\+Ref\+Kind}}
+\index{C\+X\+Idx\+Entity\+Ref\+Kind@{C\+X\+Idx\+Entity\+Ref\+Kind}!Higher level A\+P\+I functions@{Higher level A\+P\+I functions}}
+\subsubsection{\texorpdfstring{C\+X\+Idx\+Entity\+Ref\+Kind}{CXIdxEntityRefKind}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group__CINDEX__HIGH_ga4158d96205b540d3ef4992cf6689c2aa}{C\+X\+Idx\+Entity\+Ref\+Kind}}}
+
+
+
+Data for \mbox{\hyperlink{structIndexerCallbacks_a6d93809e7743a590beafa0387ac145dc}{Indexer\+Callbacks\+::index\+Entity\+Reference}}. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Idx\+Entity\+Ref\+\_\+\+Direct@{C\+X\+Idx\+Entity\+Ref\+\_\+\+Direct}!Higher level A\+P\+I functions@{Higher level A\+P\+I functions}}\index{Higher level A\+P\+I functions@{Higher level A\+P\+I functions}!C\+X\+Idx\+Entity\+Ref\+\_\+\+Direct@{C\+X\+Idx\+Entity\+Ref\+\_\+\+Direct}}}\mbox{\Hypertarget{group__CINDEX__HIGH_gga4158d96205b540d3ef4992cf6689c2aaa480bab642d15b16ba1156566979b8a4c}\label{group__CINDEX__HIGH_gga4158d96205b540d3ef4992cf6689c2aaa480bab642d15b16ba1156566979b8a4c}} 
+C\+X\+Idx\+Entity\+Ref\+\_\+\+Direct&The entity is referenced directly in user\textquotesingle{}s code. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Idx\+Entity\+Ref\+\_\+\+Implicit@{C\+X\+Idx\+Entity\+Ref\+\_\+\+Implicit}!Higher level A\+P\+I functions@{Higher level A\+P\+I functions}}\index{Higher level A\+P\+I functions@{Higher level A\+P\+I functions}!C\+X\+Idx\+Entity\+Ref\+\_\+\+Implicit@{C\+X\+Idx\+Entity\+Ref\+\_\+\+Implicit}}}\mbox{\Hypertarget{group__CINDEX__HIGH_gga4158d96205b540d3ef4992cf6689c2aaa275d2671931e7a53f86372da524b5d61}\label{group__CINDEX__HIGH_gga4158d96205b540d3ef4992cf6689c2aaa275d2671931e7a53f86372da524b5d61}} 
+C\+X\+Idx\+Entity\+Ref\+\_\+\+Implicit&An implicit reference, e.\+g. a reference of an Objective-\/C method via the dot syntax. \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{group__CINDEX__HIGH_ga8c30458ffd9b99a7fcd95a5759c99816}\label{group__CINDEX__HIGH_ga8c30458ffd9b99a7fcd95a5759c99816}} 
+\index{Higher level A\+P\+I functions@{Higher level A\+P\+I functions}!C\+X\+Index\+Opt\+Flags@{C\+X\+Index\+Opt\+Flags}}
+\index{C\+X\+Index\+Opt\+Flags@{C\+X\+Index\+Opt\+Flags}!Higher level A\+P\+I functions@{Higher level A\+P\+I functions}}
+\subsubsection{\texorpdfstring{C\+X\+Index\+Opt\+Flags}{CXIndexOptFlags}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group__CINDEX__HIGH_ga8c30458ffd9b99a7fcd95a5759c99816}{C\+X\+Index\+Opt\+Flags}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Index\+Opt\+\_\+\+None@{C\+X\+Index\+Opt\+\_\+\+None}!Higher level A\+P\+I functions@{Higher level A\+P\+I functions}}\index{Higher level A\+P\+I functions@{Higher level A\+P\+I functions}!C\+X\+Index\+Opt\+\_\+\+None@{C\+X\+Index\+Opt\+\_\+\+None}}}\mbox{\Hypertarget{group__CINDEX__HIGH_gga8c30458ffd9b99a7fcd95a5759c99816a1f75207a1b25c860d647ffdfab0fa4c9}\label{group__CINDEX__HIGH_gga8c30458ffd9b99a7fcd95a5759c99816a1f75207a1b25c860d647ffdfab0fa4c9}} 
+C\+X\+Index\+Opt\+\_\+\+None&Used to indicate that no special indexing options are needed. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Index\+Opt\+\_\+\+Suppress\+Redundant\+Refs@{C\+X\+Index\+Opt\+\_\+\+Suppress\+Redundant\+Refs}!Higher level A\+P\+I functions@{Higher level A\+P\+I functions}}\index{Higher level A\+P\+I functions@{Higher level A\+P\+I functions}!C\+X\+Index\+Opt\+\_\+\+Suppress\+Redundant\+Refs@{C\+X\+Index\+Opt\+\_\+\+Suppress\+Redundant\+Refs}}}\mbox{\Hypertarget{group__CINDEX__HIGH_gga8c30458ffd9b99a7fcd95a5759c99816a3d5d796739d08fa05d257421d822a87c}\label{group__CINDEX__HIGH_gga8c30458ffd9b99a7fcd95a5759c99816a3d5d796739d08fa05d257421d822a87c}} 
+C\+X\+Index\+Opt\+\_\+\+Suppress\+Redundant\+Refs&Used to indicate that \mbox{\hyperlink{structIndexerCallbacks_a6d93809e7743a590beafa0387ac145dc}{Indexer\+Callbacks\+::index\+Entity\+Reference}} should be invoked for only one reference of an entity per source file that does not also include a declaration/definition of the entity. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Index\+Opt\+\_\+\+Index\+Function\+Local\+Symbols@{C\+X\+Index\+Opt\+\_\+\+Index\+Function\+Local\+Symbols}!Higher level A\+P\+I functions@{Higher level A\+P\+I functions}}\index{Higher level A\+P\+I functions@{Higher level A\+P\+I functions}!C\+X\+Index\+Opt\+\_\+\+Index\+Function\+Local\+Symbols@{C\+X\+Index\+Opt\+\_\+\+Index\+Function\+Local\+Symbols}}}\mbox{\Hypertarget{group__CINDEX__HIGH_gga8c30458ffd9b99a7fcd95a5759c99816adb72ccbaf307a330f661e8d9918a5c9c}\label{group__CINDEX__HIGH_gga8c30458ffd9b99a7fcd95a5759c99816adb72ccbaf307a330f661e8d9918a5c9c}} 
+C\+X\+Index\+Opt\+\_\+\+Index\+Function\+Local\+Symbols&Function-\/local symbols should be indexed. If this is not set function-\/local symbols will be ignored. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Index\+Opt\+\_\+\+Index\+Implicit\+Template\+Instantiations@{C\+X\+Index\+Opt\+\_\+\+Index\+Implicit\+Template\+Instantiations}!Higher level A\+P\+I functions@{Higher level A\+P\+I functions}}\index{Higher level A\+P\+I functions@{Higher level A\+P\+I functions}!C\+X\+Index\+Opt\+\_\+\+Index\+Implicit\+Template\+Instantiations@{C\+X\+Index\+Opt\+\_\+\+Index\+Implicit\+Template\+Instantiations}}}\mbox{\Hypertarget{group__CINDEX__HIGH_gga8c30458ffd9b99a7fcd95a5759c99816ad1a2aba8a113667f69dfc84a852b026e}\label{group__CINDEX__HIGH_gga8c30458ffd9b99a7fcd95a5759c99816ad1a2aba8a113667f69dfc84a852b026e}} 
+C\+X\+Index\+Opt\+\_\+\+Index\+Implicit\+Template\+Instantiations&Implicit function/class template instantiations should be indexed. If this is not set, implicit instantiations will be ignored. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Index\+Opt\+\_\+\+Suppress\+Warnings@{C\+X\+Index\+Opt\+\_\+\+Suppress\+Warnings}!Higher level A\+P\+I functions@{Higher level A\+P\+I functions}}\index{Higher level A\+P\+I functions@{Higher level A\+P\+I functions}!C\+X\+Index\+Opt\+\_\+\+Suppress\+Warnings@{C\+X\+Index\+Opt\+\_\+\+Suppress\+Warnings}}}\mbox{\Hypertarget{group__CINDEX__HIGH_gga8c30458ffd9b99a7fcd95a5759c99816a827daacd70e8610538f7fa0fee0897ff}\label{group__CINDEX__HIGH_gga8c30458ffd9b99a7fcd95a5759c99816a827daacd70e8610538f7fa0fee0897ff}} 
+C\+X\+Index\+Opt\+\_\+\+Suppress\+Warnings&Suppress all compiler warnings when parsing for indexing. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Index\+Opt\+\_\+\+Skip\+Parsed\+Bodies\+In\+Session@{C\+X\+Index\+Opt\+\_\+\+Skip\+Parsed\+Bodies\+In\+Session}!Higher level A\+P\+I functions@{Higher level A\+P\+I functions}}\index{Higher level A\+P\+I functions@{Higher level A\+P\+I functions}!C\+X\+Index\+Opt\+\_\+\+Skip\+Parsed\+Bodies\+In\+Session@{C\+X\+Index\+Opt\+\_\+\+Skip\+Parsed\+Bodies\+In\+Session}}}\mbox{\Hypertarget{group__CINDEX__HIGH_gga8c30458ffd9b99a7fcd95a5759c99816a2c92f2b0443ba766fc00a9d6bb2f25aa}\label{group__CINDEX__HIGH_gga8c30458ffd9b99a7fcd95a5759c99816a2c92f2b0443ba766fc00a9d6bb2f25aa}} 
+C\+X\+Index\+Opt\+\_\+\+Skip\+Parsed\+Bodies\+In\+Session&Skip a function/method body that was already parsed during an indexing session associated with a {\ttfamily C\+X\+Index\+Action} object. Bodies in system headers are always skipped. \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{group__CINDEX__HIGH_ga59185777d9788da5d983cc0c7c8977bf}\label{group__CINDEX__HIGH_ga59185777d9788da5d983cc0c7c8977bf}} 
+\index{Higher level A\+P\+I functions@{Higher level A\+P\+I functions}!C\+X\+Result@{C\+X\+Result}}
+\index{C\+X\+Result@{C\+X\+Result}!Higher level A\+P\+I functions@{Higher level A\+P\+I functions}}
+\subsubsection{\texorpdfstring{C\+X\+Result}{CXResult}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group__CINDEX__HIGH_ga59185777d9788da5d983cc0c7c8977bf}{C\+X\+Result}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Result\+\_\+\+Success@{C\+X\+Result\+\_\+\+Success}!Higher level A\+P\+I functions@{Higher level A\+P\+I functions}}\index{Higher level A\+P\+I functions@{Higher level A\+P\+I functions}!C\+X\+Result\+\_\+\+Success@{C\+X\+Result\+\_\+\+Success}}}\mbox{\Hypertarget{group__CINDEX__HIGH_gga59185777d9788da5d983cc0c7c8977bfadc04f4b21eabbddf3465b4e8cf684b97}\label{group__CINDEX__HIGH_gga59185777d9788da5d983cc0c7c8977bfadc04f4b21eabbddf3465b4e8cf684b97}} 
+C\+X\+Result\+\_\+\+Success&Function returned successfully. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Result\+\_\+\+Invalid@{C\+X\+Result\+\_\+\+Invalid}!Higher level A\+P\+I functions@{Higher level A\+P\+I functions}}\index{Higher level A\+P\+I functions@{Higher level A\+P\+I functions}!C\+X\+Result\+\_\+\+Invalid@{C\+X\+Result\+\_\+\+Invalid}}}\mbox{\Hypertarget{group__CINDEX__HIGH_gga59185777d9788da5d983cc0c7c8977bfafeb3e2b0d7128e99709d10d5ced9470b}\label{group__CINDEX__HIGH_gga59185777d9788da5d983cc0c7c8977bfafeb3e2b0d7128e99709d10d5ced9470b}} 
+C\+X\+Result\+\_\+\+Invalid&One of the parameters was invalid for the function. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Result\+\_\+\+Visit\+Break@{C\+X\+Result\+\_\+\+Visit\+Break}!Higher level A\+P\+I functions@{Higher level A\+P\+I functions}}\index{Higher level A\+P\+I functions@{Higher level A\+P\+I functions}!C\+X\+Result\+\_\+\+Visit\+Break@{C\+X\+Result\+\_\+\+Visit\+Break}}}\mbox{\Hypertarget{group__CINDEX__HIGH_gga59185777d9788da5d983cc0c7c8977bfa1a0d552a23b857cb129e0211bc9fb1dd}\label{group__CINDEX__HIGH_gga59185777d9788da5d983cc0c7c8977bfa1a0d552a23b857cb129e0211bc9fb1dd}} 
+C\+X\+Result\+\_\+\+Visit\+Break&The function was terminated by a callback (e.\+g. it returned C\+X\+Visit\+\_\+\+Break) \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{group__CINDEX__HIGH_ga1c3e49cda9a6e2f9c6930881755e0605}\label{group__CINDEX__HIGH_ga1c3e49cda9a6e2f9c6930881755e0605}} 
+\index{Higher level A\+P\+I functions@{Higher level A\+P\+I functions}!clang\+\_\+find\+Includes\+In\+File@{clang\+\_\+find\+Includes\+In\+File}}
+\index{clang\+\_\+find\+Includes\+In\+File@{clang\+\_\+find\+Includes\+In\+File}!Higher level A\+P\+I functions@{Higher level A\+P\+I functions}}
+\subsubsection{\texorpdfstring{clang\+\_\+find\+Includes\+In\+File()}{clang\_findIncludesInFile()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{group__CINDEX__HIGH_ga59185777d9788da5d983cc0c7c8977bf}{C\+X\+Result}} clang\+\_\+find\+Includes\+In\+File (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__CINDEX_gacdb7815736ca709ce9a5e1ec2b7e16ac}{C\+X\+Translation\+Unit}}}]{TU,  }\item[{\mbox{\hyperlink{group__CINDEX__FILES_gacfcea9c1239c916597e2e5b3e109215a}{C\+X\+File}}}]{file,  }\item[{\mbox{\hyperlink{structCXCursorAndRangeVisitor}{C\+X\+Cursor\+And\+Range\+Visitor}}}]{visitor }\end{DoxyParamCaption})}
+
+
+
+Find \#import/\#include directives in a specific file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em TU} & translation unit containing the file to query.\\
+\hline
+{\em file} & to search for \#import/\#include directives.\\
+\hline
+{\em visitor} & callback that will receive pairs of C\+X\+Cursor/\+C\+X\+Source\+Range for each directive found.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+one of the C\+X\+Result enumerators. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__CINDEX__HIGH_gaa8524d179bc3668d215d326d332df97b}\label{group__CINDEX__HIGH_gaa8524d179bc3668d215d326d332df97b}} 
+\index{Higher level A\+P\+I functions@{Higher level A\+P\+I functions}!clang\+\_\+find\+References\+In\+File@{clang\+\_\+find\+References\+In\+File}}
+\index{clang\+\_\+find\+References\+In\+File@{clang\+\_\+find\+References\+In\+File}!Higher level A\+P\+I functions@{Higher level A\+P\+I functions}}
+\subsubsection{\texorpdfstring{clang\+\_\+find\+References\+In\+File()}{clang\_findReferencesInFile()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{group__CINDEX__HIGH_ga59185777d9788da5d983cc0c7c8977bf}{C\+X\+Result}} clang\+\_\+find\+References\+In\+File (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}}}]{cursor,  }\item[{\mbox{\hyperlink{group__CINDEX__FILES_gacfcea9c1239c916597e2e5b3e109215a}{C\+X\+File}}}]{file,  }\item[{\mbox{\hyperlink{structCXCursorAndRangeVisitor}{C\+X\+Cursor\+And\+Range\+Visitor}}}]{visitor }\end{DoxyParamCaption})}
+
+
+
+Find references of a declaration in a specific file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cursor} & pointing to a declaration or a reference of one.\\
+\hline
+{\em file} & to search for references.\\
+\hline
+{\em visitor} & callback that will receive pairs of C\+X\+Cursor/\+C\+X\+Source\+Range for each reference found. The \mbox{\hyperlink{structCXSourceRange}{C\+X\+Source\+Range}} will point inside the file; if the reference is inside a macro (and not a macro argument) the \mbox{\hyperlink{structCXSourceRange}{C\+X\+Source\+Range}} will be invalid.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+one of the C\+X\+Result enumerators. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__CINDEX__HIGH_gaedee4ab7f093fedd27ed6995b1b7c62a}\label{group__CINDEX__HIGH_gaedee4ab7f093fedd27ed6995b1b7c62a}} 
+\index{Higher level A\+P\+I functions@{Higher level A\+P\+I functions}!clang\+\_\+\+Index\+Action\+\_\+create@{clang\+\_\+\+Index\+Action\+\_\+create}}
+\index{clang\+\_\+\+Index\+Action\+\_\+create@{clang\+\_\+\+Index\+Action\+\_\+create}!Higher level A\+P\+I functions@{Higher level A\+P\+I functions}}
+\subsubsection{\texorpdfstring{clang\+\_\+\+Index\+Action\+\_\+create()}{clang\_IndexAction\_create()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{group__CINDEX__HIGH_gac8d30d3e3fb34d887b611e7c6de3afb6}{C\+X\+Index\+Action}} clang\+\_\+\+Index\+Action\+\_\+create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__CINDEX_gae039c2574bfd75774ca7a9a3e55910cb}{C\+X\+Index}}}]{C\+Idx }\end{DoxyParamCaption})}
+
+
+
+An indexing action/session, to be applied to one or multiple translation units. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em C\+Idx} & The index object with which the index action will be associated. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__CINDEX__HIGH_ga9b648aa6e87ea8d29dd0d4f0f592ffbb}\label{group__CINDEX__HIGH_ga9b648aa6e87ea8d29dd0d4f0f592ffbb}} 
+\index{Higher level A\+P\+I functions@{Higher level A\+P\+I functions}!clang\+\_\+\+Index\+Action\+\_\+dispose@{clang\+\_\+\+Index\+Action\+\_\+dispose}}
+\index{clang\+\_\+\+Index\+Action\+\_\+dispose@{clang\+\_\+\+Index\+Action\+\_\+dispose}!Higher level A\+P\+I functions@{Higher level A\+P\+I functions}}
+\subsubsection{\texorpdfstring{clang\+\_\+\+Index\+Action\+\_\+dispose()}{clang\_IndexAction\_dispose()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE void clang\+\_\+\+Index\+Action\+\_\+dispose (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__CINDEX__HIGH_gac8d30d3e3fb34d887b611e7c6de3afb6}{C\+X\+Index\+Action}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Destroy the given index action. 
+
+The index action must not be destroyed until all of the translation units created within that index action have been destroyed. \mbox{\Hypertarget{group__CINDEX__HIGH_ga340d2dda7a0d3430fe9929034c1b712c}\label{group__CINDEX__HIGH_ga340d2dda7a0d3430fe9929034c1b712c}} 
+\index{Higher level A\+P\+I functions@{Higher level A\+P\+I functions}!clang\+\_\+index\+Loc\+\_\+get\+File\+Location@{clang\+\_\+index\+Loc\+\_\+get\+File\+Location}}
+\index{clang\+\_\+index\+Loc\+\_\+get\+File\+Location@{clang\+\_\+index\+Loc\+\_\+get\+File\+Location}!Higher level A\+P\+I functions@{Higher level A\+P\+I functions}}
+\subsubsection{\texorpdfstring{clang\+\_\+index\+Loc\+\_\+get\+File\+Location()}{clang\_indexLoc\_getFileLocation()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE void clang\+\_\+index\+Loc\+\_\+get\+File\+Location (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCXIdxLoc}{C\+X\+Idx\+Loc}}}]{loc,  }\item[{\mbox{\hyperlink{group__CINDEX__HIGH_ga6fd9c59c0b0a0a21622e5bcfc08156cc}{C\+X\+Idx\+Client\+File}} $\ast$}]{index\+File,  }\item[{\mbox{\hyperlink{group__CINDEX__FILES_gacfcea9c1239c916597e2e5b3e109215a}{C\+X\+File}} $\ast$}]{file,  }\item[{unsigned $\ast$}]{line,  }\item[{unsigned $\ast$}]{column,  }\item[{unsigned $\ast$}]{offset }\end{DoxyParamCaption})}
+
+
+
+Retrieve the C\+X\+Idx\+File, file, line, column, and offset represented by the given \mbox{\hyperlink{structCXIdxLoc}{C\+X\+Idx\+Loc}}. 
+
+If the location refers into a macro expansion, retrieves the location of the macro expansion and if it refers into a macro argument retrieves the location of the argument. \mbox{\Hypertarget{group__CINDEX__HIGH_gaa5c2ad8979779c401b91110d444e2be6}\label{group__CINDEX__HIGH_gaa5c2ad8979779c401b91110d444e2be6}} 
+\index{Higher level A\+P\+I functions@{Higher level A\+P\+I functions}!clang\+\_\+index\+Source\+File@{clang\+\_\+index\+Source\+File}}
+\index{clang\+\_\+index\+Source\+File@{clang\+\_\+index\+Source\+File}!Higher level A\+P\+I functions@{Higher level A\+P\+I functions}}
+\subsubsection{\texorpdfstring{clang\+\_\+index\+Source\+File()}{clang\_indexSourceFile()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE int clang\+\_\+index\+Source\+File (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__CINDEX__HIGH_gac8d30d3e3fb34d887b611e7c6de3afb6}{C\+X\+Index\+Action}}}]{,  }\item[{\mbox{\hyperlink{group__CINDEX_gacfa40c3de26d228c0d898403c2c21612}{C\+X\+Client\+Data}}}]{client\+\_\+data,  }\item[{\mbox{\hyperlink{structIndexerCallbacks}{Indexer\+Callbacks}} $\ast$}]{index\+\_\+callbacks,  }\item[{unsigned}]{index\+\_\+callbacks\+\_\+size,  }\item[{unsigned}]{index\+\_\+options,  }\item[{const char $\ast$}]{source\+\_\+filename,  }\item[{const char $\ast$const $\ast$}]{command\+\_\+line\+\_\+args,  }\item[{int}]{num\+\_\+command\+\_\+line\+\_\+args,  }\item[{struct \mbox{\hyperlink{structCXUnsavedFile}{C\+X\+Unsaved\+File}} $\ast$}]{unsaved\+\_\+files,  }\item[{unsigned}]{num\+\_\+unsaved\+\_\+files,  }\item[{\mbox{\hyperlink{group__CINDEX_gacdb7815736ca709ce9a5e1ec2b7e16ac}{C\+X\+Translation\+Unit}} $\ast$}]{out\+\_\+\+TU,  }\item[{unsigned}]{T\+U\+\_\+options }\end{DoxyParamCaption})}
+
+
+
+Index the given source file and the translation unit corresponding to that file via callbacks implemented through \mbox{\hyperlink{structIndexerCallbacks}{Indexer\+Callbacks}}. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em client\+\_\+data} & pointer data supplied by the client, which will be passed to the invoked callbacks.\\
+\hline
+ & {\em index\+\_\+callbacks} & Pointer to indexing callbacks that the client implements.\\
+\hline
+ & {\em index\+\_\+callbacks\+\_\+size} & Size of \mbox{\hyperlink{structIndexerCallbacks}{Indexer\+Callbacks}} structure that gets passed in index\+\_\+callbacks.\\
+\hline
+ & {\em index\+\_\+options} & A bitmask of options that affects how indexing is performed. This should be a bitwise OR of the C\+X\+Index\+Opt\+\_\+\+X\+XX flags.\\
+\hline
+\mbox{\tt out}  & {\em out\+\_\+\+TU} & pointer to store a {\ttfamily C\+X\+Translation\+Unit} that can be reused after indexing is finished. Set to {\ttfamily N\+U\+LL} if you do not require it.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success or if there were errors from which the compiler could recover. If there is a failure from which there is no recovery, returns a non-\/zero {\ttfamily C\+X\+Error\+Code}.
+\end{DoxyReturn}
+The rest of the parameters are the same as \mbox{\hyperlink{group__CINDEX__TRANSLATION__UNIT_ga2baf83f8c3299788234c8bce55e4472e}{clang\+\_\+parse\+Translation\+Unit}}. \mbox{\Hypertarget{group__CINDEX__HIGH_gab12a0795c7d7be6e7ec85679faf3f8e9}\label{group__CINDEX__HIGH_gab12a0795c7d7be6e7ec85679faf3f8e9}} 
+\index{Higher level A\+P\+I functions@{Higher level A\+P\+I functions}!clang\+\_\+index\+Translation\+Unit@{clang\+\_\+index\+Translation\+Unit}}
+\index{clang\+\_\+index\+Translation\+Unit@{clang\+\_\+index\+Translation\+Unit}!Higher level A\+P\+I functions@{Higher level A\+P\+I functions}}
+\subsubsection{\texorpdfstring{clang\+\_\+index\+Translation\+Unit()}{clang\_indexTranslationUnit()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE int clang\+\_\+index\+Translation\+Unit (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__CINDEX__HIGH_gac8d30d3e3fb34d887b611e7c6de3afb6}{C\+X\+Index\+Action}}}]{,  }\item[{\mbox{\hyperlink{group__CINDEX_gacfa40c3de26d228c0d898403c2c21612}{C\+X\+Client\+Data}}}]{client\+\_\+data,  }\item[{\mbox{\hyperlink{structIndexerCallbacks}{Indexer\+Callbacks}} $\ast$}]{index\+\_\+callbacks,  }\item[{unsigned}]{index\+\_\+callbacks\+\_\+size,  }\item[{unsigned}]{index\+\_\+options,  }\item[{\mbox{\hyperlink{group__CINDEX_gacdb7815736ca709ce9a5e1ec2b7e16ac}{C\+X\+Translation\+Unit}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Index the given translation unit via callbacks implemented through \mbox{\hyperlink{structIndexerCallbacks}{Indexer\+Callbacks}}. 
+
+The order of callback invocations is not guaranteed to be the same as when indexing a source file. The high level order will be\+:
+
+-\/\+Preprocessor callbacks invocations -\/\+Declaration/reference callbacks invocations -\/\+Diagnostic callback invocations
+
+The parameters are the same as \mbox{\hyperlink{group__CINDEX__HIGH_gaa5c2ad8979779c401b91110d444e2be6}{clang\+\_\+index\+Source\+File}}.
+
+\begin{DoxyReturn}{Returns}
+If there is a failure from which there is no recovery, returns non-\/zero, otherwise returns 0. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__CINDEX__HIGH_ga18285a2cefecf5a069c64e675b627273}\label{group__CINDEX__HIGH_ga18285a2cefecf5a069c64e675b627273}} 
+\index{Higher level A\+P\+I functions@{Higher level A\+P\+I functions}!clang\+\_\+\+Type\+\_\+visit\+Fields@{clang\+\_\+\+Type\+\_\+visit\+Fields}}
+\index{clang\+\_\+\+Type\+\_\+visit\+Fields@{clang\+\_\+\+Type\+\_\+visit\+Fields}!Higher level A\+P\+I functions@{Higher level A\+P\+I functions}}
+\subsubsection{\texorpdfstring{clang\+\_\+\+Type\+\_\+visit\+Fields()}{clang\_Type\_visitFields()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE unsigned clang\+\_\+\+Type\+\_\+visit\+Fields (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCXType}{C\+X\+Type}}}]{T,  }\item[{\mbox{\hyperlink{group__CINDEX__HIGH_ga5040863c91d7a720a97569cf869f42a4}{C\+X\+Field\+Visitor}}}]{visitor,  }\item[{\mbox{\hyperlink{group__CINDEX_gacfa40c3de26d228c0d898403c2c21612}{C\+X\+Client\+Data}}}]{client\+\_\+data }\end{DoxyParamCaption})}
+
+
+
+Visit the fields of a particular type. 
+
+This function visits all the direct fields of the given cursor, invoking the given {\ttfamily visitor} function with the cursors of each visited field. The traversal may be ended prematurely, if the visitor returns {\ttfamily C\+X\+Field\+Visit\+\_\+\+Break}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em T} & the record type whose field may be visited.\\
+\hline
+{\em visitor} & the visitor function that will be invoked for each field of {\ttfamily T}.\\
+\hline
+{\em client\+\_\+data} & pointer data supplied by the client, which will be passed to the visitor each time it is invoked.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a non-\/zero value if the traversal was terminated prematurely by the visitor returning {\ttfamily C\+X\+Field\+Visit\+\_\+\+Break}. 
+\end{DoxyReturn}

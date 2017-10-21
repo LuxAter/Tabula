@@ -1,0 +1,78 @@
+\hypertarget{group__CINDEX__FILES}{}\section{File manipulation routines}
+\label{group__CINDEX__FILES}\index{File manipulation routines@{File manipulation routines}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structCXFileUniqueID}{C\+X\+File\+Unique\+ID}}
+\begin{DoxyCompactList}\small\item\em Uniquely identifies a C\+X\+File, that refers to the same underlying file, across an indexing session. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__CINDEX__FILES_gacfcea9c1239c916597e2e5b3e109215a}\label{group__CINDEX__FILES_gacfcea9c1239c916597e2e5b3e109215a}} 
+typedef void $\ast$ \mbox{\hyperlink{group__CINDEX__FILES_gacfcea9c1239c916597e2e5b3e109215a}{C\+X\+File}}
+\begin{DoxyCompactList}\small\item\em A particular source file that is part of a translation unit. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__CINDEX__FILES_ga626ff6335ab1e0a2b8c8823301225690}\label{group__CINDEX__FILES_ga626ff6335ab1e0a2b8c8823301225690}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{structCXString}{C\+X\+String}} \mbox{\hyperlink{group__CINDEX__FILES_ga626ff6335ab1e0a2b8c8823301225690}{clang\+\_\+get\+File\+Name}} (\mbox{\hyperlink{group__CINDEX__FILES_gacfcea9c1239c916597e2e5b3e109215a}{C\+X\+File}} S\+File)
+\begin{DoxyCompactList}\small\item\em Retrieve the complete file and path name of the given file. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX__FILES_gac8444d2892e0d24fcf71a9dea8a475cb}\label{group__CINDEX__FILES_gac8444d2892e0d24fcf71a9dea8a475cb}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE time\+\_\+t \mbox{\hyperlink{group__CINDEX__FILES_gac8444d2892e0d24fcf71a9dea8a475cb}{clang\+\_\+get\+File\+Time}} (\mbox{\hyperlink{group__CINDEX__FILES_gacfcea9c1239c916597e2e5b3e109215a}{C\+X\+File}} S\+File)
+\begin{DoxyCompactList}\small\item\em Retrieve the last modification time of the given file. \end{DoxyCompactList}\item 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE int \mbox{\hyperlink{group__CINDEX__FILES_gafeef0a8288de8c14e95e4d6c249aaf1e}{clang\+\_\+get\+File\+Unique\+ID}} (\mbox{\hyperlink{group__CINDEX__FILES_gacfcea9c1239c916597e2e5b3e109215a}{C\+X\+File}} file, \mbox{\hyperlink{structCXFileUniqueID}{C\+X\+File\+Unique\+ID}} $\ast$out\+ID)
+\begin{DoxyCompactList}\small\item\em Retrieve the unique ID for the given {\ttfamily file}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX__FILES_ga1969fe907a40d9469ea68c370d0f602a}\label{group__CINDEX__FILES_ga1969fe907a40d9469ea68c370d0f602a}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE unsigned \mbox{\hyperlink{group__CINDEX__FILES_ga1969fe907a40d9469ea68c370d0f602a}{clang\+\_\+is\+File\+Multiple\+Include\+Guarded}} (\mbox{\hyperlink{group__CINDEX_gacdb7815736ca709ce9a5e1ec2b7e16ac}{C\+X\+Translation\+Unit}} tu, \mbox{\hyperlink{group__CINDEX__FILES_gacfcea9c1239c916597e2e5b3e109215a}{C\+X\+File}} file)
+\begin{DoxyCompactList}\small\item\em Determine whether the given header is guarded against multiple inclusions, either with the conventional \#ifndef/\#define/\#endif macro guards or with \#pragma once. \end{DoxyCompactList}\item 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{group__CINDEX__FILES_gacfcea9c1239c916597e2e5b3e109215a}{C\+X\+File}} \mbox{\hyperlink{group__CINDEX__FILES_gaa0554e2ea48ecd217a29314d3cbd2085}{clang\+\_\+get\+File}} (\mbox{\hyperlink{group__CINDEX_gacdb7815736ca709ce9a5e1ec2b7e16ac}{C\+X\+Translation\+Unit}} tu, const char $\ast$file\+\_\+name)
+\begin{DoxyCompactList}\small\item\em Retrieve a file handle within the given translation unit. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX__FILES_gab78e940d8990228d941a79750a7e4499}\label{group__CINDEX__FILES_gab78e940d8990228d941a79750a7e4499}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE int \mbox{\hyperlink{group__CINDEX__FILES_gab78e940d8990228d941a79750a7e4499}{clang\+\_\+\+File\+\_\+is\+Equal}} (\mbox{\hyperlink{group__CINDEX__FILES_gacfcea9c1239c916597e2e5b3e109215a}{C\+X\+File}} file1, \mbox{\hyperlink{group__CINDEX__FILES_gacfcea9c1239c916597e2e5b3e109215a}{C\+X\+File}} file2)
+\begin{DoxyCompactList}\small\item\em Returns non-\/zero if the {\ttfamily file1} and {\ttfamily file2} point to the same file, or they are both N\+U\+LL. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{group__CINDEX__FILES_gaa0554e2ea48ecd217a29314d3cbd2085}\label{group__CINDEX__FILES_gaa0554e2ea48ecd217a29314d3cbd2085}} 
+\index{File manipulation routines@{File manipulation routines}!clang\+\_\+get\+File@{clang\+\_\+get\+File}}
+\index{clang\+\_\+get\+File@{clang\+\_\+get\+File}!File manipulation routines@{File manipulation routines}}
+\subsubsection{\texorpdfstring{clang\+\_\+get\+File()}{clang\_getFile()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{group__CINDEX__FILES_gacfcea9c1239c916597e2e5b3e109215a}{C\+X\+File}} clang\+\_\+get\+File (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__CINDEX_gacdb7815736ca709ce9a5e1ec2b7e16ac}{C\+X\+Translation\+Unit}}}]{tu,  }\item[{const char $\ast$}]{file\+\_\+name }\end{DoxyParamCaption})}
+
+
+
+Retrieve a file handle within the given translation unit. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tu} & the translation unit\\
+\hline
+{\em file\+\_\+name} & the name of the file.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the file handle for the named file in the translation unit {\ttfamily tu}, or a N\+U\+LL file handle if the file was not a part of this translation unit. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__CINDEX__FILES_gafeef0a8288de8c14e95e4d6c249aaf1e}\label{group__CINDEX__FILES_gafeef0a8288de8c14e95e4d6c249aaf1e}} 
+\index{File manipulation routines@{File manipulation routines}!clang\+\_\+get\+File\+Unique\+ID@{clang\+\_\+get\+File\+Unique\+ID}}
+\index{clang\+\_\+get\+File\+Unique\+ID@{clang\+\_\+get\+File\+Unique\+ID}!File manipulation routines@{File manipulation routines}}
+\subsubsection{\texorpdfstring{clang\+\_\+get\+File\+Unique\+I\+D()}{clang\_getFileUniqueID()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE int clang\+\_\+get\+File\+Unique\+ID (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__CINDEX__FILES_gacfcea9c1239c916597e2e5b3e109215a}{C\+X\+File}}}]{file,  }\item[{\mbox{\hyperlink{structCXFileUniqueID}{C\+X\+File\+Unique\+ID}} $\ast$}]{out\+ID }\end{DoxyParamCaption})}
+
+
+
+Retrieve the unique ID for the given {\ttfamily file}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file} & the file to get the ID for. \\
+\hline
+{\em out\+ID} & stores the returned \mbox{\hyperlink{structCXFileUniqueID}{C\+X\+File\+Unique\+ID}}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+If there was a failure getting the unique ID, returns non-\/zero, otherwise returns 0. 
+\end{DoxyReturn}

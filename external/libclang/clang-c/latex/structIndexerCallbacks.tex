@@ -1,0 +1,58 @@
+\hypertarget{structIndexerCallbacks}{}\section{Indexer\+Callbacks Struct Reference}
+\label{structIndexerCallbacks}\index{Indexer\+Callbacks@{Indexer\+Callbacks}}
+
+
+A group of callbacks used by \mbox{\hyperlink{group__CINDEX__HIGH_gaa5c2ad8979779c401b91110d444e2be6}{clang\+\_\+index\+Source\+File}} and \mbox{\hyperlink{group__CINDEX__HIGH_gab12a0795c7d7be6e7ec85679faf3f8e9}{clang\+\_\+index\+Translation\+Unit}}.  
+
+
+
+
+{\ttfamily \#include $<$Index.\+h$>$}
+
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structIndexerCallbacks_ace0bc034aefe283f15e2993aa8b19c2c}\label{structIndexerCallbacks_ace0bc034aefe283f15e2993aa8b19c2c}} 
+int($\ast$ \mbox{\hyperlink{structIndexerCallbacks_ace0bc034aefe283f15e2993aa8b19c2c}{abort\+Query}} )(\mbox{\hyperlink{group__CINDEX_gacfa40c3de26d228c0d898403c2c21612}{C\+X\+Client\+Data}} client\+\_\+data, void $\ast$reserved)
+\begin{DoxyCompactList}\small\item\em Called periodically to check whether indexing should be aborted. Should return 0 to continue, and non-\/zero to abort. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structIndexerCallbacks_a042adb7450edd0f76d3f715d52c5b7ba}\label{structIndexerCallbacks_a042adb7450edd0f76d3f715d52c5b7ba}} 
+void($\ast$ \mbox{\hyperlink{structIndexerCallbacks_a042adb7450edd0f76d3f715d52c5b7ba}{diagnostic}} )(\mbox{\hyperlink{group__CINDEX_gacfa40c3de26d228c0d898403c2c21612}{C\+X\+Client\+Data}} client\+\_\+data, \mbox{\hyperlink{group__CINDEX__DIAG_ga38dfc0ae45b55bf7fd577eed9148e244}{C\+X\+Diagnostic\+Set}}, void $\ast$reserved)
+\begin{DoxyCompactList}\small\item\em Called at the end of indexing; passes the complete diagnostic set. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structIndexerCallbacks_aaaf536b76953e8880fd5eaeb6182e296}\label{structIndexerCallbacks_aaaf536b76953e8880fd5eaeb6182e296}} 
+\mbox{\hyperlink{group__CINDEX__HIGH_ga6fd9c59c0b0a0a21622e5bcfc08156cc}{C\+X\+Idx\+Client\+File}}($\ast$ {\bfseries entered\+Main\+File} )(\mbox{\hyperlink{group__CINDEX_gacfa40c3de26d228c0d898403c2c21612}{C\+X\+Client\+Data}} client\+\_\+data, \mbox{\hyperlink{group__CINDEX__FILES_gacfcea9c1239c916597e2e5b3e109215a}{C\+X\+File}} main\+File, void $\ast$reserved)
+\item 
+\mbox{\Hypertarget{structIndexerCallbacks_ae102dccc8b906641423c0ac66ec8f3e3}\label{structIndexerCallbacks_ae102dccc8b906641423c0ac66ec8f3e3}} 
+\mbox{\hyperlink{group__CINDEX__HIGH_ga6fd9c59c0b0a0a21622e5bcfc08156cc}{C\+X\+Idx\+Client\+File}}($\ast$ \mbox{\hyperlink{structIndexerCallbacks_ae102dccc8b906641423c0ac66ec8f3e3}{pp\+Included\+File}} )(\mbox{\hyperlink{group__CINDEX_gacfa40c3de26d228c0d898403c2c21612}{C\+X\+Client\+Data}} client\+\_\+data, const \mbox{\hyperlink{structCXIdxIncludedFileInfo}{C\+X\+Idx\+Included\+File\+Info}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Called when a file gets \#included/\#imported. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__CINDEX__HIGH_ga802a69b3db636a25c5d434585fce9cbd}{C\+X\+Idx\+Client\+A\+S\+T\+File}}($\ast$ \mbox{\hyperlink{structIndexerCallbacks_a75672a9934f69854080bee3fbc0e3994}{imported\+A\+S\+T\+File}} )(\mbox{\hyperlink{group__CINDEX_gacfa40c3de26d228c0d898403c2c21612}{C\+X\+Client\+Data}} client\+\_\+data, const \mbox{\hyperlink{structCXIdxImportedASTFileInfo}{C\+X\+Idx\+Imported\+A\+S\+T\+File\+Info}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Called when a A\+ST file (P\+CH or module) gets imported. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structIndexerCallbacks_a11953b566658434afbe6059158a4f8ff}\label{structIndexerCallbacks_a11953b566658434afbe6059158a4f8ff}} 
+\mbox{\hyperlink{group__CINDEX__HIGH_ga0dac2cb977094bbd9d13b9d8abed278f}{C\+X\+Idx\+Client\+Container}}($\ast$ \mbox{\hyperlink{structIndexerCallbacks_a11953b566658434afbe6059158a4f8ff}{started\+Translation\+Unit}} )(\mbox{\hyperlink{group__CINDEX_gacfa40c3de26d228c0d898403c2c21612}{C\+X\+Client\+Data}} client\+\_\+data, void $\ast$reserved)
+\begin{DoxyCompactList}\small\item\em Called at the beginning of indexing a translation unit. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structIndexerCallbacks_a322476a55bf770008d678e74f8da2eef}\label{structIndexerCallbacks_a322476a55bf770008d678e74f8da2eef}} 
+void($\ast$ {\bfseries index\+Declaration} )(\mbox{\hyperlink{group__CINDEX_gacfa40c3de26d228c0d898403c2c21612}{C\+X\+Client\+Data}} client\+\_\+data, const \mbox{\hyperlink{structCXIdxDeclInfo}{C\+X\+Idx\+Decl\+Info}} $\ast$)
+\item 
+\mbox{\Hypertarget{structIndexerCallbacks_a6d93809e7743a590beafa0387ac145dc}\label{structIndexerCallbacks_a6d93809e7743a590beafa0387ac145dc}} 
+void($\ast$ \mbox{\hyperlink{structIndexerCallbacks_a6d93809e7743a590beafa0387ac145dc}{index\+Entity\+Reference}} )(\mbox{\hyperlink{group__CINDEX_gacfa40c3de26d228c0d898403c2c21612}{C\+X\+Client\+Data}} client\+\_\+data, const \mbox{\hyperlink{structCXIdxEntityRefInfo}{C\+X\+Idx\+Entity\+Ref\+Info}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Called to index a reference of an entity. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A group of callbacks used by \mbox{\hyperlink{group__CINDEX__HIGH_gaa5c2ad8979779c401b91110d444e2be6}{clang\+\_\+index\+Source\+File}} and \mbox{\hyperlink{group__CINDEX__HIGH_gab12a0795c7d7be6e7ec85679faf3f8e9}{clang\+\_\+index\+Translation\+Unit}}. 
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{structIndexerCallbacks_a75672a9934f69854080bee3fbc0e3994}\label{structIndexerCallbacks_a75672a9934f69854080bee3fbc0e3994}} 
+\index{Indexer\+Callbacks@{Indexer\+Callbacks}!imported\+A\+S\+T\+File@{imported\+A\+S\+T\+File}}
+\index{imported\+A\+S\+T\+File@{imported\+A\+S\+T\+File}!Indexer\+Callbacks@{Indexer\+Callbacks}}
+\subsubsection{\texorpdfstring{imported\+A\+S\+T\+File}{importedASTFile}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__CINDEX__HIGH_ga802a69b3db636a25c5d434585fce9cbd}{C\+X\+Idx\+Client\+A\+S\+T\+File}}($\ast$ Indexer\+Callbacks\+::imported\+A\+S\+T\+File) (\mbox{\hyperlink{group__CINDEX_gacfa40c3de26d228c0d898403c2c21612}{C\+X\+Client\+Data}} client\+\_\+data, const \mbox{\hyperlink{structCXIdxImportedASTFileInfo}{C\+X\+Idx\+Imported\+A\+S\+T\+File\+Info}} $\ast$)}
+
+
+
+Called when a A\+ST file (P\+CH or module) gets imported. 
+
+A\+ST files will not get indexed (there will not be callbacks to index all the entities in an A\+ST file). The recommended action is that, if the A\+ST file is not already indexed, to initiate a new indexing job specific to the A\+ST file. 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Index.\+h\end{DoxyCompactItemize}

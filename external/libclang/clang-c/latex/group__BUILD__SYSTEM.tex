@@ -1,0 +1,188 @@
+\hypertarget{group__BUILD__SYSTEM}{}\section{Build system utilities}
+\label{group__BUILD__SYSTEM}\index{Build system utilities@{Build system utilities}}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__BUILD__SYSTEM_gae854e36ceb0a02071e557e19f908772d}\label{group__BUILD__SYSTEM_gae854e36ceb0a02071e557e19f908772d}} 
+typedef struct C\+X\+Virtual\+File\+Overlay\+Impl $\ast$ \mbox{\hyperlink{group__BUILD__SYSTEM_gae854e36ceb0a02071e557e19f908772d}{C\+X\+Virtual\+File\+Overlay}}
+\begin{DoxyCompactList}\small\item\em Object encapsulating information about overlaying virtual file/directories over the real file system. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__BUILD__SYSTEM_ga8d7eea7855a8d1118218c7661469b3db}\label{group__BUILD__SYSTEM_ga8d7eea7855a8d1118218c7661469b3db}} 
+typedef struct C\+X\+Module\+Map\+Descriptor\+Impl $\ast$ \mbox{\hyperlink{group__BUILD__SYSTEM_ga8d7eea7855a8d1118218c7661469b3db}{C\+X\+Module\+Map\+Descriptor}}
+\begin{DoxyCompactList}\small\item\em Object encapsulating information about a module.\+map file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__BUILD__SYSTEM_ga49c44b2501c98768d29ad84fdaa3f8f0}\label{group__BUILD__SYSTEM_ga49c44b2501c98768d29ad84fdaa3f8f0}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE unsigned long long \mbox{\hyperlink{group__BUILD__SYSTEM_ga49c44b2501c98768d29ad84fdaa3f8f0}{clang\+\_\+get\+Build\+Session\+Timestamp}} (void)
+\begin{DoxyCompactList}\small\item\em Return the timestamp for use with Clang\textquotesingle{}s {\ttfamily -\/fbuild-\/session-\/timestamp=} option. \end{DoxyCompactList}\item 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{group__BUILD__SYSTEM_gae854e36ceb0a02071e557e19f908772d}{C\+X\+Virtual\+File\+Overlay}} \mbox{\hyperlink{group__BUILD__SYSTEM_gac0fc5753287609c4087155c3bab1ba1b}{clang\+\_\+\+Virtual\+File\+Overlay\+\_\+create}} (unsigned options)
+\begin{DoxyCompactList}\small\item\em Create a {\ttfamily C\+X\+Virtual\+File\+Overlay} object. Must be disposed with {\ttfamily \mbox{\hyperlink{group__BUILD__SYSTEM_ga118f45b2f96f989fc1f39f3f95973deb}{clang\+\_\+\+Virtual\+File\+Overlay\+\_\+dispose()}}}. \end{DoxyCompactList}\item 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE enum C\+X\+Error\+Code \mbox{\hyperlink{group__BUILD__SYSTEM_gab5570468498c950cc25f2746765a9cd7}{clang\+\_\+\+Virtual\+File\+Overlay\+\_\+add\+File\+Mapping}} (\mbox{\hyperlink{group__BUILD__SYSTEM_gae854e36ceb0a02071e557e19f908772d}{C\+X\+Virtual\+File\+Overlay}}, const char $\ast$virtual\+Path, const char $\ast$real\+Path)
+\begin{DoxyCompactList}\small\item\em Map an absolute virtual file path to an absolute real one. The virtual path must be canonicalized (not contain \char`\"{}.\char`\"{}/\char`\"{}..\char`\"{}). \end{DoxyCompactList}\item 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE enum C\+X\+Error\+Code \mbox{\hyperlink{group__BUILD__SYSTEM_ga00ca3247ef5f5e3ac504ce13623939e3}{clang\+\_\+\+Virtual\+File\+Overlay\+\_\+set\+Case\+Sensitivity}} (\mbox{\hyperlink{group__BUILD__SYSTEM_gae854e36ceb0a02071e557e19f908772d}{C\+X\+Virtual\+File\+Overlay}}, int case\+Sensitive)
+\begin{DoxyCompactList}\small\item\em Set the case sensitivity for the {\ttfamily C\+X\+Virtual\+File\+Overlay} object. The {\ttfamily C\+X\+Virtual\+File\+Overlay} object is case-\/sensitive by default, this option can be used to override the default. \end{DoxyCompactList}\item 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE enum C\+X\+Error\+Code \mbox{\hyperlink{group__BUILD__SYSTEM_ga10434b45b006d39f861d7b2a04d3e31e}{clang\+\_\+\+Virtual\+File\+Overlay\+\_\+write\+To\+Buffer}} (\mbox{\hyperlink{group__BUILD__SYSTEM_gae854e36ceb0a02071e557e19f908772d}{C\+X\+Virtual\+File\+Overlay}}, unsigned options, char $\ast$$\ast$out\+\_\+buffer\+\_\+ptr, unsigned $\ast$out\+\_\+buffer\+\_\+size)
+\begin{DoxyCompactList}\small\item\em Write out the {\ttfamily C\+X\+Virtual\+File\+Overlay} object to a char buffer. \end{DoxyCompactList}\item 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE void \mbox{\hyperlink{group__BUILD__SYSTEM_ga3d7fcaba04ff8fcc4882e1bab6dcbee8}{clang\+\_\+free}} (void $\ast$buffer)
+\begin{DoxyCompactList}\small\item\em free memory allocated by libclang, such as the buffer returned by {\ttfamily \mbox{\hyperlink{group__BUILD__SYSTEM_gae854e36ceb0a02071e557e19f908772d}{C\+X\+Virtual\+File\+Overlay()}}} or {\ttfamily \mbox{\hyperlink{group__BUILD__SYSTEM_gacaeaf475a29b16a041641b6ebe9a012d}{clang\+\_\+\+Module\+Map\+Descriptor\+\_\+write\+To\+Buffer()}}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__BUILD__SYSTEM_ga118f45b2f96f989fc1f39f3f95973deb}\label{group__BUILD__SYSTEM_ga118f45b2f96f989fc1f39f3f95973deb}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE void \mbox{\hyperlink{group__BUILD__SYSTEM_ga118f45b2f96f989fc1f39f3f95973deb}{clang\+\_\+\+Virtual\+File\+Overlay\+\_\+dispose}} (\mbox{\hyperlink{group__BUILD__SYSTEM_gae854e36ceb0a02071e557e19f908772d}{C\+X\+Virtual\+File\+Overlay}})
+\begin{DoxyCompactList}\small\item\em Dispose a {\ttfamily C\+X\+Virtual\+File\+Overlay} object. \end{DoxyCompactList}\item 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{group__BUILD__SYSTEM_ga8d7eea7855a8d1118218c7661469b3db}{C\+X\+Module\+Map\+Descriptor}} \mbox{\hyperlink{group__BUILD__SYSTEM_ga41bcb2ce427f6892d48bc21117b22274}{clang\+\_\+\+Module\+Map\+Descriptor\+\_\+create}} (unsigned options)
+\begin{DoxyCompactList}\small\item\em Create a {\ttfamily C\+X\+Module\+Map\+Descriptor} object. Must be disposed with {\ttfamily \mbox{\hyperlink{group__BUILD__SYSTEM_gad905d6dc860716f1a35d2b87f46b81f9}{clang\+\_\+\+Module\+Map\+Descriptor\+\_\+dispose()}}}. \end{DoxyCompactList}\item 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE enum C\+X\+Error\+Code \mbox{\hyperlink{group__BUILD__SYSTEM_gaaad31887de3a3856891a846e96f59802}{clang\+\_\+\+Module\+Map\+Descriptor\+\_\+set\+Framework\+Module\+Name}} (\mbox{\hyperlink{group__BUILD__SYSTEM_ga8d7eea7855a8d1118218c7661469b3db}{C\+X\+Module\+Map\+Descriptor}}, const char $\ast$name)
+\begin{DoxyCompactList}\small\item\em Sets the framework module name that the module.\+map describes. \end{DoxyCompactList}\item 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE enum C\+X\+Error\+Code \mbox{\hyperlink{group__BUILD__SYSTEM_ga63b8b9689c04f6b0c292d1226652a74b}{clang\+\_\+\+Module\+Map\+Descriptor\+\_\+set\+Umbrella\+Header}} (\mbox{\hyperlink{group__BUILD__SYSTEM_ga8d7eea7855a8d1118218c7661469b3db}{C\+X\+Module\+Map\+Descriptor}}, const char $\ast$name)
+\begin{DoxyCompactList}\small\item\em Sets the umbrealla header name that the module.\+map describes. \end{DoxyCompactList}\item 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE enum C\+X\+Error\+Code \mbox{\hyperlink{group__BUILD__SYSTEM_gacaeaf475a29b16a041641b6ebe9a012d}{clang\+\_\+\+Module\+Map\+Descriptor\+\_\+write\+To\+Buffer}} (\mbox{\hyperlink{group__BUILD__SYSTEM_ga8d7eea7855a8d1118218c7661469b3db}{C\+X\+Module\+Map\+Descriptor}}, unsigned options, char $\ast$$\ast$out\+\_\+buffer\+\_\+ptr, unsigned $\ast$out\+\_\+buffer\+\_\+size)
+\begin{DoxyCompactList}\small\item\em Write out the {\ttfamily C\+X\+Module\+Map\+Descriptor} object to a char buffer. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__BUILD__SYSTEM_gad905d6dc860716f1a35d2b87f46b81f9}\label{group__BUILD__SYSTEM_gad905d6dc860716f1a35d2b87f46b81f9}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE void \mbox{\hyperlink{group__BUILD__SYSTEM_gad905d6dc860716f1a35d2b87f46b81f9}{clang\+\_\+\+Module\+Map\+Descriptor\+\_\+dispose}} (\mbox{\hyperlink{group__BUILD__SYSTEM_ga8d7eea7855a8d1118218c7661469b3db}{C\+X\+Module\+Map\+Descriptor}})
+\begin{DoxyCompactList}\small\item\em Dispose a {\ttfamily C\+X\+Module\+Map\+Descriptor} object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{group__BUILD__SYSTEM_ga3d7fcaba04ff8fcc4882e1bab6dcbee8}\label{group__BUILD__SYSTEM_ga3d7fcaba04ff8fcc4882e1bab6dcbee8}} 
+\index{Build system utilities@{Build system utilities}!clang\+\_\+free@{clang\+\_\+free}}
+\index{clang\+\_\+free@{clang\+\_\+free}!Build system utilities@{Build system utilities}}
+\subsubsection{\texorpdfstring{clang\+\_\+free()}{clang\_free()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE void clang\+\_\+free (\begin{DoxyParamCaption}\item[{void $\ast$}]{buffer }\end{DoxyParamCaption})}
+
+
+
+free memory allocated by libclang, such as the buffer returned by {\ttfamily \mbox{\hyperlink{group__BUILD__SYSTEM_gae854e36ceb0a02071e557e19f908772d}{C\+X\+Virtual\+File\+Overlay()}}} or {\ttfamily \mbox{\hyperlink{group__BUILD__SYSTEM_gacaeaf475a29b16a041641b6ebe9a012d}{clang\+\_\+\+Module\+Map\+Descriptor\+\_\+write\+To\+Buffer()}}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & memory pointer to free. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__BUILD__SYSTEM_ga41bcb2ce427f6892d48bc21117b22274}\label{group__BUILD__SYSTEM_ga41bcb2ce427f6892d48bc21117b22274}} 
+\index{Build system utilities@{Build system utilities}!clang\+\_\+\+Module\+Map\+Descriptor\+\_\+create@{clang\+\_\+\+Module\+Map\+Descriptor\+\_\+create}}
+\index{clang\+\_\+\+Module\+Map\+Descriptor\+\_\+create@{clang\+\_\+\+Module\+Map\+Descriptor\+\_\+create}!Build system utilities@{Build system utilities}}
+\subsubsection{\texorpdfstring{clang\+\_\+\+Module\+Map\+Descriptor\+\_\+create()}{clang\_ModuleMapDescriptor\_create()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{group__BUILD__SYSTEM_ga8d7eea7855a8d1118218c7661469b3db}{C\+X\+Module\+Map\+Descriptor}} clang\+\_\+\+Module\+Map\+Descriptor\+\_\+create (\begin{DoxyParamCaption}\item[{unsigned}]{options }\end{DoxyParamCaption})}
+
+
+
+Create a {\ttfamily C\+X\+Module\+Map\+Descriptor} object. Must be disposed with {\ttfamily \mbox{\hyperlink{group__BUILD__SYSTEM_gad905d6dc860716f1a35d2b87f46b81f9}{clang\+\_\+\+Module\+Map\+Descriptor\+\_\+dispose()}}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em options} & is reserved, always pass 0. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__BUILD__SYSTEM_gaaad31887de3a3856891a846e96f59802}\label{group__BUILD__SYSTEM_gaaad31887de3a3856891a846e96f59802}} 
+\index{Build system utilities@{Build system utilities}!clang\+\_\+\+Module\+Map\+Descriptor\+\_\+set\+Framework\+Module\+Name@{clang\+\_\+\+Module\+Map\+Descriptor\+\_\+set\+Framework\+Module\+Name}}
+\index{clang\+\_\+\+Module\+Map\+Descriptor\+\_\+set\+Framework\+Module\+Name@{clang\+\_\+\+Module\+Map\+Descriptor\+\_\+set\+Framework\+Module\+Name}!Build system utilities@{Build system utilities}}
+\subsubsection{\texorpdfstring{clang\+\_\+\+Module\+Map\+Descriptor\+\_\+set\+Framework\+Module\+Name()}{clang\_ModuleMapDescriptor\_setFrameworkModuleName()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE enum C\+X\+Error\+Code clang\+\_\+\+Module\+Map\+Descriptor\+\_\+set\+Framework\+Module\+Name (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__BUILD__SYSTEM_ga8d7eea7855a8d1118218c7661469b3db}{C\+X\+Module\+Map\+Descriptor}}}]{,  }\item[{const char $\ast$}]{name }\end{DoxyParamCaption})}
+
+
+
+Sets the framework module name that the module.\+map describes. 
+
+\begin{DoxyReturn}{Returns}
+0 for success, non-\/zero to indicate an error. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__BUILD__SYSTEM_ga63b8b9689c04f6b0c292d1226652a74b}\label{group__BUILD__SYSTEM_ga63b8b9689c04f6b0c292d1226652a74b}} 
+\index{Build system utilities@{Build system utilities}!clang\+\_\+\+Module\+Map\+Descriptor\+\_\+set\+Umbrella\+Header@{clang\+\_\+\+Module\+Map\+Descriptor\+\_\+set\+Umbrella\+Header}}
+\index{clang\+\_\+\+Module\+Map\+Descriptor\+\_\+set\+Umbrella\+Header@{clang\+\_\+\+Module\+Map\+Descriptor\+\_\+set\+Umbrella\+Header}!Build system utilities@{Build system utilities}}
+\subsubsection{\texorpdfstring{clang\+\_\+\+Module\+Map\+Descriptor\+\_\+set\+Umbrella\+Header()}{clang\_ModuleMapDescriptor\_setUmbrellaHeader()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE enum C\+X\+Error\+Code clang\+\_\+\+Module\+Map\+Descriptor\+\_\+set\+Umbrella\+Header (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__BUILD__SYSTEM_ga8d7eea7855a8d1118218c7661469b3db}{C\+X\+Module\+Map\+Descriptor}}}]{,  }\item[{const char $\ast$}]{name }\end{DoxyParamCaption})}
+
+
+
+Sets the umbrealla header name that the module.\+map describes. 
+
+\begin{DoxyReturn}{Returns}
+0 for success, non-\/zero to indicate an error. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__BUILD__SYSTEM_gacaeaf475a29b16a041641b6ebe9a012d}\label{group__BUILD__SYSTEM_gacaeaf475a29b16a041641b6ebe9a012d}} 
+\index{Build system utilities@{Build system utilities}!clang\+\_\+\+Module\+Map\+Descriptor\+\_\+write\+To\+Buffer@{clang\+\_\+\+Module\+Map\+Descriptor\+\_\+write\+To\+Buffer}}
+\index{clang\+\_\+\+Module\+Map\+Descriptor\+\_\+write\+To\+Buffer@{clang\+\_\+\+Module\+Map\+Descriptor\+\_\+write\+To\+Buffer}!Build system utilities@{Build system utilities}}
+\subsubsection{\texorpdfstring{clang\+\_\+\+Module\+Map\+Descriptor\+\_\+write\+To\+Buffer()}{clang\_ModuleMapDescriptor\_writeToBuffer()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE enum C\+X\+Error\+Code clang\+\_\+\+Module\+Map\+Descriptor\+\_\+write\+To\+Buffer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__BUILD__SYSTEM_ga8d7eea7855a8d1118218c7661469b3db}{C\+X\+Module\+Map\+Descriptor}}}]{,  }\item[{unsigned}]{options,  }\item[{char $\ast$$\ast$}]{out\+\_\+buffer\+\_\+ptr,  }\item[{unsigned $\ast$}]{out\+\_\+buffer\+\_\+size }\end{DoxyParamCaption})}
+
+
+
+Write out the {\ttfamily C\+X\+Module\+Map\+Descriptor} object to a char buffer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em options} & is reserved, always pass 0. \\
+\hline
+{\em out\+\_\+buffer\+\_\+ptr} & pointer to receive the buffer pointer, which should be disposed using {\ttfamily \mbox{\hyperlink{group__BUILD__SYSTEM_ga3d7fcaba04ff8fcc4882e1bab6dcbee8}{clang\+\_\+free()}}}. \\
+\hline
+{\em out\+\_\+buffer\+\_\+size} & pointer to receive the buffer size. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 for success, non-\/zero to indicate an error. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__BUILD__SYSTEM_gab5570468498c950cc25f2746765a9cd7}\label{group__BUILD__SYSTEM_gab5570468498c950cc25f2746765a9cd7}} 
+\index{Build system utilities@{Build system utilities}!clang\+\_\+\+Virtual\+File\+Overlay\+\_\+add\+File\+Mapping@{clang\+\_\+\+Virtual\+File\+Overlay\+\_\+add\+File\+Mapping}}
+\index{clang\+\_\+\+Virtual\+File\+Overlay\+\_\+add\+File\+Mapping@{clang\+\_\+\+Virtual\+File\+Overlay\+\_\+add\+File\+Mapping}!Build system utilities@{Build system utilities}}
+\subsubsection{\texorpdfstring{clang\+\_\+\+Virtual\+File\+Overlay\+\_\+add\+File\+Mapping()}{clang\_VirtualFileOverlay\_addFileMapping()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE enum C\+X\+Error\+Code clang\+\_\+\+Virtual\+File\+Overlay\+\_\+add\+File\+Mapping (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__BUILD__SYSTEM_gae854e36ceb0a02071e557e19f908772d}{C\+X\+Virtual\+File\+Overlay}}}]{,  }\item[{const char $\ast$}]{virtual\+Path,  }\item[{const char $\ast$}]{real\+Path }\end{DoxyParamCaption})}
+
+
+
+Map an absolute virtual file path to an absolute real one. The virtual path must be canonicalized (not contain \char`\"{}.\char`\"{}/\char`\"{}..\char`\"{}). 
+
+\begin{DoxyReturn}{Returns}
+0 for success, non-\/zero to indicate an error. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__BUILD__SYSTEM_gac0fc5753287609c4087155c3bab1ba1b}\label{group__BUILD__SYSTEM_gac0fc5753287609c4087155c3bab1ba1b}} 
+\index{Build system utilities@{Build system utilities}!clang\+\_\+\+Virtual\+File\+Overlay\+\_\+create@{clang\+\_\+\+Virtual\+File\+Overlay\+\_\+create}}
+\index{clang\+\_\+\+Virtual\+File\+Overlay\+\_\+create@{clang\+\_\+\+Virtual\+File\+Overlay\+\_\+create}!Build system utilities@{Build system utilities}}
+\subsubsection{\texorpdfstring{clang\+\_\+\+Virtual\+File\+Overlay\+\_\+create()}{clang\_VirtualFileOverlay\_create()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{group__BUILD__SYSTEM_gae854e36ceb0a02071e557e19f908772d}{C\+X\+Virtual\+File\+Overlay}} clang\+\_\+\+Virtual\+File\+Overlay\+\_\+create (\begin{DoxyParamCaption}\item[{unsigned}]{options }\end{DoxyParamCaption})}
+
+
+
+Create a {\ttfamily C\+X\+Virtual\+File\+Overlay} object. Must be disposed with {\ttfamily \mbox{\hyperlink{group__BUILD__SYSTEM_ga118f45b2f96f989fc1f39f3f95973deb}{clang\+\_\+\+Virtual\+File\+Overlay\+\_\+dispose()}}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em options} & is reserved, always pass 0. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__BUILD__SYSTEM_ga00ca3247ef5f5e3ac504ce13623939e3}\label{group__BUILD__SYSTEM_ga00ca3247ef5f5e3ac504ce13623939e3}} 
+\index{Build system utilities@{Build system utilities}!clang\+\_\+\+Virtual\+File\+Overlay\+\_\+set\+Case\+Sensitivity@{clang\+\_\+\+Virtual\+File\+Overlay\+\_\+set\+Case\+Sensitivity}}
+\index{clang\+\_\+\+Virtual\+File\+Overlay\+\_\+set\+Case\+Sensitivity@{clang\+\_\+\+Virtual\+File\+Overlay\+\_\+set\+Case\+Sensitivity}!Build system utilities@{Build system utilities}}
+\subsubsection{\texorpdfstring{clang\+\_\+\+Virtual\+File\+Overlay\+\_\+set\+Case\+Sensitivity()}{clang\_VirtualFileOverlay\_setCaseSensitivity()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE enum C\+X\+Error\+Code clang\+\_\+\+Virtual\+File\+Overlay\+\_\+set\+Case\+Sensitivity (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__BUILD__SYSTEM_gae854e36ceb0a02071e557e19f908772d}{C\+X\+Virtual\+File\+Overlay}}}]{,  }\item[{int}]{case\+Sensitive }\end{DoxyParamCaption})}
+
+
+
+Set the case sensitivity for the {\ttfamily C\+X\+Virtual\+File\+Overlay} object. The {\ttfamily C\+X\+Virtual\+File\+Overlay} object is case-\/sensitive by default, this option can be used to override the default. 
+
+\begin{DoxyReturn}{Returns}
+0 for success, non-\/zero to indicate an error. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__BUILD__SYSTEM_ga10434b45b006d39f861d7b2a04d3e31e}\label{group__BUILD__SYSTEM_ga10434b45b006d39f861d7b2a04d3e31e}} 
+\index{Build system utilities@{Build system utilities}!clang\+\_\+\+Virtual\+File\+Overlay\+\_\+write\+To\+Buffer@{clang\+\_\+\+Virtual\+File\+Overlay\+\_\+write\+To\+Buffer}}
+\index{clang\+\_\+\+Virtual\+File\+Overlay\+\_\+write\+To\+Buffer@{clang\+\_\+\+Virtual\+File\+Overlay\+\_\+write\+To\+Buffer}!Build system utilities@{Build system utilities}}
+\subsubsection{\texorpdfstring{clang\+\_\+\+Virtual\+File\+Overlay\+\_\+write\+To\+Buffer()}{clang\_VirtualFileOverlay\_writeToBuffer()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE enum C\+X\+Error\+Code clang\+\_\+\+Virtual\+File\+Overlay\+\_\+write\+To\+Buffer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__BUILD__SYSTEM_gae854e36ceb0a02071e557e19f908772d}{C\+X\+Virtual\+File\+Overlay}}}]{,  }\item[{unsigned}]{options,  }\item[{char $\ast$$\ast$}]{out\+\_\+buffer\+\_\+ptr,  }\item[{unsigned $\ast$}]{out\+\_\+buffer\+\_\+size }\end{DoxyParamCaption})}
+
+
+
+Write out the {\ttfamily C\+X\+Virtual\+File\+Overlay} object to a char buffer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em options} & is reserved, always pass 0. \\
+\hline
+{\em out\+\_\+buffer\+\_\+ptr} & pointer to receive the buffer pointer, which should be disposed using {\ttfamily \mbox{\hyperlink{group__BUILD__SYSTEM_ga3d7fcaba04ff8fcc4882e1bab6dcbee8}{clang\+\_\+free()}}}. \\
+\hline
+{\em out\+\_\+buffer\+\_\+size} & pointer to receive the buffer size. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 for success, non-\/zero to indicate an error. 
+\end{DoxyReturn}

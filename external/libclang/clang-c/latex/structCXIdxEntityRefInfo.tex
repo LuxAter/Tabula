@@ -1,0 +1,58 @@
+\hypertarget{structCXIdxEntityRefInfo}{}\section{C\+X\+Idx\+Entity\+Ref\+Info Struct Reference}
+\label{structCXIdxEntityRefInfo}\index{C\+X\+Idx\+Entity\+Ref\+Info@{C\+X\+Idx\+Entity\+Ref\+Info}}
+
+
+Data for \mbox{\hyperlink{structIndexerCallbacks_a6d93809e7743a590beafa0387ac145dc}{Indexer\+Callbacks\+::index\+Entity\+Reference}}.  
+
+
+
+
+{\ttfamily \#include $<$Index.\+h$>$}
+
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structCXIdxEntityRefInfo_a2fe39009e3bf47bcc95ecaa638b88705}\label{structCXIdxEntityRefInfo_a2fe39009e3bf47bcc95ecaa638b88705}} 
+\mbox{\hyperlink{group__CINDEX__HIGH_ga4158d96205b540d3ef4992cf6689c2aa}{C\+X\+Idx\+Entity\+Ref\+Kind}} {\bfseries kind}
+\item 
+\mbox{\Hypertarget{structCXIdxEntityRefInfo_a4ab3eace1d62834dab9eb8dc2be61677}\label{structCXIdxEntityRefInfo_a4ab3eace1d62834dab9eb8dc2be61677}} 
+\mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}} \mbox{\hyperlink{structCXIdxEntityRefInfo_a4ab3eace1d62834dab9eb8dc2be61677}{cursor}}
+\begin{DoxyCompactList}\small\item\em Reference cursor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structCXIdxEntityRefInfo_a7d94b4e276b5834756bedfd3918a1b03}\label{structCXIdxEntityRefInfo_a7d94b4e276b5834756bedfd3918a1b03}} 
+\mbox{\hyperlink{structCXIdxLoc}{C\+X\+Idx\+Loc}} {\bfseries loc}
+\item 
+\mbox{\Hypertarget{structCXIdxEntityRefInfo_a5ce7e39d0504c0ee598cc7e0fc28f00d}\label{structCXIdxEntityRefInfo_a5ce7e39d0504c0ee598cc7e0fc28f00d}} 
+const \mbox{\hyperlink{structCXIdxEntityInfo}{C\+X\+Idx\+Entity\+Info}} $\ast$ \mbox{\hyperlink{structCXIdxEntityRefInfo_a5ce7e39d0504c0ee598cc7e0fc28f00d}{referenced\+Entity}}
+\begin{DoxyCompactList}\small\item\em The entity that gets referenced. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{structCXIdxEntityInfo}{C\+X\+Idx\+Entity\+Info}} $\ast$ \mbox{\hyperlink{structCXIdxEntityRefInfo_aa01a3ce2b823d13984eed3ab0676a3b7}{parent\+Entity}}
+\begin{DoxyCompactList}\small\item\em Immediate \char`\"{}parent\char`\"{} of the reference. For example\+: \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structCXIdxEntityRefInfo_a52b5199fb32f1cf2bac41e2b40f9cc32}\label{structCXIdxEntityRefInfo_a52b5199fb32f1cf2bac41e2b40f9cc32}} 
+const \mbox{\hyperlink{structCXIdxContainerInfo}{C\+X\+Idx\+Container\+Info}} $\ast$ \mbox{\hyperlink{structCXIdxEntityRefInfo_a52b5199fb32f1cf2bac41e2b40f9cc32}{container}}
+\begin{DoxyCompactList}\small\item\em Lexical container context of the reference. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Data for \mbox{\hyperlink{structIndexerCallbacks_a6d93809e7743a590beafa0387ac145dc}{Indexer\+Callbacks\+::index\+Entity\+Reference}}. 
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{structCXIdxEntityRefInfo_aa01a3ce2b823d13984eed3ab0676a3b7}\label{structCXIdxEntityRefInfo_aa01a3ce2b823d13984eed3ab0676a3b7}} 
+\index{C\+X\+Idx\+Entity\+Ref\+Info@{C\+X\+Idx\+Entity\+Ref\+Info}!parent\+Entity@{parent\+Entity}}
+\index{parent\+Entity@{parent\+Entity}!C\+X\+Idx\+Entity\+Ref\+Info@{C\+X\+Idx\+Entity\+Ref\+Info}}
+\subsubsection{\texorpdfstring{parent\+Entity}{parentEntity}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{structCXIdxEntityInfo}{C\+X\+Idx\+Entity\+Info}}$\ast$ C\+X\+Idx\+Entity\+Ref\+Info\+::parent\+Entity}
+
+
+
+Immediate \char`\"{}parent\char`\"{} of the reference. For example\+: 
+
+
+\begin{DoxyCode}
+Foo *var;
+\end{DoxyCode}
+
+
+The parent of reference of type \textquotesingle{}Foo\textquotesingle{} is the variable \textquotesingle{}var\textquotesingle{}. For references inside statement bodies of functions/methods, the parent\+Entity will be the function/method. 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Index.\+h\end{DoxyCompactItemize}

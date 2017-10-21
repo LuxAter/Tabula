@@ -1,0 +1,1353 @@
+\hypertarget{group__CINDEX}{}\section{libclang\+: C Interface to Clang}
+\label{group__CINDEX}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}
+\subsection*{Modules}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__COMPILATIONDB}{Compilation\+Database functions}}
+\item 
+\mbox{\hyperlink{group__CINDEX__STRING}{String manipulation routines}}
+\item 
+\mbox{\hyperlink{group__CINDEX__FILES}{File manipulation routines}}
+\item 
+\mbox{\hyperlink{group__CINDEX__LOCATIONS}{Physical source locations}}
+\item 
+\mbox{\hyperlink{group__CINDEX__DIAG}{Diagnostic reporting}}
+\item 
+\mbox{\hyperlink{group__CINDEX__TRANSLATION__UNIT}{Translation unit manipulation}}
+\item 
+\mbox{\hyperlink{group__CINDEX__CURSOR__MANIP}{Cursor manipulations}}
+\item 
+\mbox{\hyperlink{group__CINDEX__CURSOR__SOURCE}{Mapping between cursors and source code}}
+\item 
+\mbox{\hyperlink{group__CINDEX__TYPES}{Type information for C\+X\+Cursors}}
+\item 
+\mbox{\hyperlink{group__CINDEX__ATTRIBUTES}{Information for attributes}}
+\item 
+\mbox{\hyperlink{group__CINDEX__CURSOR__TRAVERSAL}{Traversing the A\+S\+T with cursors}}
+\item 
+\mbox{\hyperlink{group__CINDEX__CURSOR__XREF}{Cross-\/referencing in the A\+ST}}
+\item 
+\mbox{\hyperlink{group__CINDEX__MANGLE}{Name Mangling A\+P\+I Functions}}
+\item 
+\mbox{\hyperlink{group__CINDEX__MODULE}{Module introspection}}
+\item 
+\mbox{\hyperlink{group__CINDEX__CPP}{C++ A\+S\+T introspection}}
+\item 
+\mbox{\hyperlink{group__CINDEX__LEX}{Token extraction and manipulation}}
+\item 
+\mbox{\hyperlink{group__CINDEX__DEBUG}{Debugging facilities}}
+\item 
+\mbox{\hyperlink{group__CINDEX__CODE__COMPLET}{Code completion}}
+\item 
+\mbox{\hyperlink{group__CINDEX__MISC}{Miscellaneous utility functions}}
+\item 
+\mbox{\hyperlink{group__CINDEX__REMAPPING}{Remapping functions}}
+\item 
+\mbox{\hyperlink{group__CINDEX__HIGH}{Higher level A\+P\+I functions}}
+\end{DoxyCompactItemize}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structCXUnsavedFile}{C\+X\+Unsaved\+File}}
+\begin{DoxyCompactList}\small\item\em Provides the contents of a file that has not yet been saved to disk. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structCXVersion}{C\+X\+Version}}
+\begin{DoxyCompactList}\small\item\em Describes a version number of the form major.\+minor.\+subminor. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}}
+\begin{DoxyCompactList}\small\item\em A cursor representing some element in the abstract syntax tree for a translation unit. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__CINDEX_gae039c2574bfd75774ca7a9a3e55910cb}\label{group__CINDEX_gae039c2574bfd75774ca7a9a3e55910cb}} 
+typedef void $\ast$ \mbox{\hyperlink{group__CINDEX_gae039c2574bfd75774ca7a9a3e55910cb}{C\+X\+Index}}
+\begin{DoxyCompactList}\small\item\em An \char`\"{}index\char`\"{} that consists of a set of translation units that would typically be linked together into an executable or library. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX_gacdb7815736ca709ce9a5e1ec2b7e16ac}\label{group__CINDEX_gacdb7815736ca709ce9a5e1ec2b7e16ac}} 
+typedef struct C\+X\+Translation\+Unit\+Impl $\ast$ \mbox{\hyperlink{group__CINDEX_gacdb7815736ca709ce9a5e1ec2b7e16ac}{C\+X\+Translation\+Unit}}
+\begin{DoxyCompactList}\small\item\em A single translation unit, which resides in an index. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX_gacfa40c3de26d228c0d898403c2c21612}\label{group__CINDEX_gacfa40c3de26d228c0d898403c2c21612}} 
+typedef void $\ast$ \mbox{\hyperlink{group__CINDEX_gacfa40c3de26d228c0d898403c2c21612}{C\+X\+Client\+Data}}
+\begin{DoxyCompactList}\small\item\em Opaque pointer representing client data that will be passed through to various callbacks and visitors. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX_ga7f7575bbf8434fc8ef9e112dc8f156be}\label{group__CINDEX_ga7f7575bbf8434fc8ef9e112dc8f156be}} 
+typedef struct \mbox{\hyperlink{structCXVersion}{C\+X\+Version}} \mbox{\hyperlink{group__CINDEX_ga7f7575bbf8434fc8ef9e112dc8f156be}{C\+X\+Version}}
+\begin{DoxyCompactList}\small\item\em Describes a version number of the form major.\+minor.\+subminor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{group__CINDEX_gada331ea0195e952c8f181ecf15e83d71}{C\+X\+Availability\+Kind}} \{ \mbox{\hyperlink{group__CINDEX_ggada331ea0195e952c8f181ecf15e83d71a6e2a9a033b06aa1ac8ab0b8ad49f8467}{C\+X\+Availability\+\_\+\+Available}}, 
+\mbox{\hyperlink{group__CINDEX_ggada331ea0195e952c8f181ecf15e83d71a8295a994c76ec17e391050da7334e8fc}{C\+X\+Availability\+\_\+\+Deprecated}}, 
+\mbox{\hyperlink{group__CINDEX_ggada331ea0195e952c8f181ecf15e83d71af70fbd074c138cdf81b0286d202b0fa6}{C\+X\+Availability\+\_\+\+Not\+Available}}, 
+\mbox{\hyperlink{group__CINDEX_ggada331ea0195e952c8f181ecf15e83d71af6542f250a1d21e256cd543669a49435}{C\+X\+Availability\+\_\+\+Not\+Accessible}}
+ \}
+\begin{DoxyCompactList}\small\item\em Describes the availability of a particular entity, which indicates whether the use of this entity will result in a warning or error due to it being deprecated or unavailable. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{group__CINDEX_ga1b451634928d6bcc961bf72a40e4d035}{C\+X\+Global\+Opt\+Flags}} \{ \mbox{\hyperlink{group__CINDEX_gga1b451634928d6bcc961bf72a40e4d035a869efb651da9e6d3da10a0fb43941d0d}{C\+X\+Global\+Opt\+\_\+\+None}} = 0x0, 
+\mbox{\hyperlink{group__CINDEX_gga1b451634928d6bcc961bf72a40e4d035aba7b16ae973f035cd4156eeae579e47a}{C\+X\+Global\+Opt\+\_\+\+Thread\+Background\+Priority\+For\+Indexing}} = 0x1, 
+\mbox{\hyperlink{group__CINDEX_gga1b451634928d6bcc961bf72a40e4d035a0da291ff18cccf9fcce2e75d46337a63}{C\+X\+Global\+Opt\+\_\+\+Thread\+Background\+Priority\+For\+Editing}} = 0x2, 
+\mbox{\hyperlink{group__CINDEX_gga1b451634928d6bcc961bf72a40e4d035ad38031ffee9be191b92869bdf0fe82e2}{C\+X\+Global\+Opt\+\_\+\+Thread\+Background\+Priority\+For\+All}}
+ \}
+\item 
+enum \mbox{\hyperlink{group__CINDEX_gaaccc432245b4cd9f2d470913f9ef0013}{C\+X\+Cursor\+Kind}} \{ \newline
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ab6c248d25235d6188a1c56ecba85efaf}{C\+X\+Cursor\+\_\+\+Unexposed\+Decl}} = 1, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013abcdfdbef4602f6b4f23cf05909949a8e}{C\+X\+Cursor\+\_\+\+Struct\+Decl}} = 2, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a3a9bcc720d2250bd42fd9beab97f681a}{C\+X\+Cursor\+\_\+\+Union\+Decl}} = 3, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ac844486f54e1ebe6972890e8f7ffa1d3}{C\+X\+Cursor\+\_\+\+Class\+Decl}} = 4, 
+\newline
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a6911890ff304d2ec7fab732037b68c38}{C\+X\+Cursor\+\_\+\+Enum\+Decl}} = 5, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a5671aee0540df1018f63575f6d244be8}{C\+X\+Cursor\+\_\+\+Field\+Decl}} = 6, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a29187fb3b4e2da8050788cb8f41cb839}{C\+X\+Cursor\+\_\+\+Enum\+Constant\+Decl}} = 7, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a97a968184f82f31b5054384d151d18ea}{C\+X\+Cursor\+\_\+\+Function\+Decl}} = 8, 
+\newline
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ab3cf2171fec9ec0b8064f252645cdf45}{C\+X\+Cursor\+\_\+\+Var\+Decl}} = 9, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a54e9935786d8f22f110f5852d5e134cb}{C\+X\+Cursor\+\_\+\+Parm\+Decl}} = 10, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a0154397418c3777977d1484511805d2b}{C\+X\+Cursor\+\_\+\+Obj\+C\+Interface\+Decl}} = 11, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013acde83a604badb0350c65585d0d391a4d}{C\+X\+Cursor\+\_\+\+Obj\+C\+Category\+Decl}} = 12, 
+\newline
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a8482dcd05b08e11c720cae217cedc02b}{C\+X\+Cursor\+\_\+\+Obj\+C\+Protocol\+Decl}} = 13, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a9a37e731d298eca08335ee8ad6aa1bb5}{C\+X\+Cursor\+\_\+\+Obj\+C\+Property\+Decl}} = 14, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a9e00976503d8b85a1d2ee457058f662c}{C\+X\+Cursor\+\_\+\+Obj\+C\+Ivar\+Decl}} = 15, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013abb8a833b49d17dd21281e59d876adf1c}{C\+X\+Cursor\+\_\+\+Obj\+C\+Instance\+Method\+Decl}} = 16, 
+\newline
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a727d6cc795e30988bff5ce7ac2c10926}{C\+X\+Cursor\+\_\+\+Obj\+C\+Class\+Method\+Decl}} = 17, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a86d2befec8f6ba30e859fb772c6f7f3e}{C\+X\+Cursor\+\_\+\+Obj\+C\+Implementation\+Decl}} = 18, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013aa2650afa6d976d3c54917fc25cb56d00}{C\+X\+Cursor\+\_\+\+Obj\+C\+Category\+Impl\+Decl}} = 19, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a1971a51be1effdfe84d74a56bfbfdd57}{C\+X\+Cursor\+\_\+\+Typedef\+Decl}} = 20, 
+\newline
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a5de0c47c0200894fc3af34793e258d46}{C\+X\+Cursor\+\_\+\+C\+X\+X\+Method}} = 21, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a0d5cc31e4b9b3225f0500205bc56dcb7}{C\+X\+Cursor\+\_\+\+Namespace}} = 22, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ac7372e7b32d662e08200a5e48112f306}{C\+X\+Cursor\+\_\+\+Linkage\+Spec}} = 23, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013add81519f3f5a45e03ff50c90f967c655}{C\+X\+Cursor\+\_\+\+Constructor}} = 24, 
+\newline
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a9def9b621c8ad2d6fe609088b3bd4d9b}{C\+X\+Cursor\+\_\+\+Destructor}} = 25, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a346553389ce63efd7c60e4920d15034d}{C\+X\+Cursor\+\_\+\+Conversion\+Function}} = 26, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ab46e849503cbfa0968621b457cdf7c46}{C\+X\+Cursor\+\_\+\+Template\+Type\+Parameter}} = 27, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a8e6c18f56b1572bf4910c511821f3b02}{C\+X\+Cursor\+\_\+\+Non\+Type\+Template\+Parameter}} = 28, 
+\newline
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ab590cd6b366ef055abe67d9ef1c05108}{C\+X\+Cursor\+\_\+\+Template\+Template\+Parameter}} = 29, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a858affb57379f067abdf5f74c4fe6080}{C\+X\+Cursor\+\_\+\+Function\+Template}} = 30, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a3a8c176648f3e6bae55bbf623dda3b5d}{C\+X\+Cursor\+\_\+\+Class\+Template}} = 31, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a8194b26df1f29852d080bf485723d11f}{C\+X\+Cursor\+\_\+\+Class\+Template\+Partial\+Specialization}} = 32, 
+\newline
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ad96c246b473b1cae548934b41134b912}{C\+X\+Cursor\+\_\+\+Namespace\+Alias}} = 33, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013aed24773de5442e4d21b2592174aa8b6f}{C\+X\+Cursor\+\_\+\+Using\+Directive}} = 34, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ac2eeb298e576afca5face26812bfd374}{C\+X\+Cursor\+\_\+\+Using\+Declaration}} = 35, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ae9720171214417746db405d46d10d29d}{C\+X\+Cursor\+\_\+\+Type\+Alias\+Decl}} = 36, 
+\newline
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a3d4faa898af63cdb556188e9804637a3}{C\+X\+Cursor\+\_\+\+Obj\+C\+Synthesize\+Decl}} = 37, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013aa4e9883af9df6a1526455e9a9ad5bc96}{C\+X\+Cursor\+\_\+\+Obj\+C\+Dynamic\+Decl}} = 38, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a25a689b655871aec95dc68f1506b6833}{C\+X\+Cursor\+\_\+\+C\+X\+X\+Access\+Specifier}} = 39, 
+{\bfseries C\+X\+Cursor\+\_\+\+First\+Decl} = C\+X\+Cursor\+\_\+\+Unexposed\+Decl, 
+\newline
+{\bfseries C\+X\+Cursor\+\_\+\+Last\+Decl} = C\+X\+Cursor\+\_\+\+C\+X\+X\+Access\+Specifier, 
+{\bfseries C\+X\+Cursor\+\_\+\+First\+Ref} = 40, 
+{\bfseries C\+X\+Cursor\+\_\+\+Obj\+C\+Super\+Class\+Ref} = 40, 
+{\bfseries C\+X\+Cursor\+\_\+\+Obj\+C\+Protocol\+Ref} = 41, 
+\newline
+{\bfseries C\+X\+Cursor\+\_\+\+Obj\+C\+Class\+Ref} = 42, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a8ac2a9bf8b26022033c2eeb1f303d308}{C\+X\+Cursor\+\_\+\+Type\+Ref}} = 43, 
+{\bfseries C\+X\+Cursor\+\_\+\+C\+X\+X\+Base\+Specifier} = 44, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013aa175ea592545f4203927db3ecf9930b5}{C\+X\+Cursor\+\_\+\+Template\+Ref}} = 45, 
+\newline
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a8d7a69f91345139c2d48d078448d1d9a}{C\+X\+Cursor\+\_\+\+Namespace\+Ref}} = 46, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ad4ef54b32cb900dfe32c4f582bf3cd61}{C\+X\+Cursor\+\_\+\+Member\+Ref}} = 47, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a2b9b4f16f40168caa64cfe2fc5555584}{C\+X\+Cursor\+\_\+\+Label\+Ref}} = 48, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013adac756905dfd01f29f10732ec475e5df}{C\+X\+Cursor\+\_\+\+Overloaded\+Decl\+Ref}} = 49, 
+\newline
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a486b3ed7778e45331bbc3d32a62ee0da}{C\+X\+Cursor\+\_\+\+Variable\+Ref}} = 50, 
+{\bfseries C\+X\+Cursor\+\_\+\+Last\+Ref} = C\+X\+Cursor\+\_\+\+Variable\+Ref, 
+{\bfseries C\+X\+Cursor\+\_\+\+First\+Invalid} = 70, 
+{\bfseries C\+X\+Cursor\+\_\+\+Invalid\+File} = 70, 
+\newline
+{\bfseries C\+X\+Cursor\+\_\+\+No\+Decl\+Found} = 71, 
+{\bfseries C\+X\+Cursor\+\_\+\+Not\+Implemented} = 72, 
+{\bfseries C\+X\+Cursor\+\_\+\+Invalid\+Code} = 73, 
+{\bfseries C\+X\+Cursor\+\_\+\+Last\+Invalid} = C\+X\+Cursor\+\_\+\+Invalid\+Code, 
+\newline
+{\bfseries C\+X\+Cursor\+\_\+\+First\+Expr} = 100, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013aa4cd2c9319493a279d14815173e528a6}{C\+X\+Cursor\+\_\+\+Unexposed\+Expr}} = 100, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ab2c157796e346c63591c3f29dcbb1abd}{C\+X\+Cursor\+\_\+\+Decl\+Ref\+Expr}} = 101, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a9bf793c799487494c9fc49bb8c71d0cf}{C\+X\+Cursor\+\_\+\+Member\+Ref\+Expr}} = 102, 
+\newline
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ab1d69d8b2c22b45ebb9b58422f339215}{C\+X\+Cursor\+\_\+\+Call\+Expr}} = 103, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a63ddc1d6174c28b14ac76064096f6d5f}{C\+X\+Cursor\+\_\+\+Obj\+C\+Message\+Expr}} = 104, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a604b38262a4dbdb038ea369122b78a51}{C\+X\+Cursor\+\_\+\+Block\+Expr}} = 105, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a946056f72a0903d9d3884cca061bcd5c}{C\+X\+Cursor\+\_\+\+Integer\+Literal}} = 106, 
+\newline
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a9967b897b1fa310742f3a7a400bf70ce}{C\+X\+Cursor\+\_\+\+Floating\+Literal}} = 107, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013aa5018d5ebeefc852389594d4065fb286}{C\+X\+Cursor\+\_\+\+Imaginary\+Literal}} = 108, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a43608032aaa335d2e7b73727ddb7f77c}{C\+X\+Cursor\+\_\+\+String\+Literal}} = 109, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013aab532aab780ff63b83c0c5948301416f}{C\+X\+Cursor\+\_\+\+Character\+Literal}} = 110, 
+\newline
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013aecad70ef7b6c340ff210bdc3174904a3}{C\+X\+Cursor\+\_\+\+Paren\+Expr}} = 111, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ab3b6ddd34a8e5412455d6d71d3651737}{C\+X\+Cursor\+\_\+\+Unary\+Operator}} = 112, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a8495150dd822da8600de122e252c71e5}{C\+X\+Cursor\+\_\+\+Array\+Subscript\+Expr}} = 113, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013aa34dd1dc82c97c7533e15cedbc97887e}{C\+X\+Cursor\+\_\+\+Binary\+Operator}} = 114, 
+\newline
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a6c7ac4cb9a31c9f8632ac534a37d3147}{C\+X\+Cursor\+\_\+\+Compound\+Assign\+Operator}} = 115, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a7a8600b3fc565cf98fc19868ad0e9312}{C\+X\+Cursor\+\_\+\+Conditional\+Operator}} = 116, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a9ed7b3cbaeed7a1f334972734f0d9adc}{C\+X\+Cursor\+\_\+\+C\+Style\+Cast\+Expr}} = 117, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013afd4ae3147181f01e58674becb84ba8e4}{C\+X\+Cursor\+\_\+\+Compound\+Literal\+Expr}} = 118, 
+\newline
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013adc1f459e87f63376f76b586c17d7be3f}{C\+X\+Cursor\+\_\+\+Init\+List\+Expr}} = 119, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ac469d4a2b9b27dbacc7d2bb0e42ac279}{C\+X\+Cursor\+\_\+\+Addr\+Label\+Expr}} = 120, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ac0225f62ae94315626eb119b2d46fe93}{C\+X\+Cursor\+\_\+\+Stmt\+Expr}} = 121, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a4f464b56e9d72d62260a44e91afe0c2d}{C\+X\+Cursor\+\_\+\+Generic\+Selection\+Expr}} = 122, 
+\newline
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a38c6fac77a4c741b91a94b00a7b079f2}{C\+X\+Cursor\+\_\+\+G\+N\+U\+Null\+Expr}} = 123, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a51ca467caab02e5243c859b5e13eda89}{C\+X\+Cursor\+\_\+\+C\+X\+X\+Static\+Cast\+Expr}} = 124, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013acd97fb4396b1623c4c8c756ee2214188}{C\+X\+Cursor\+\_\+\+C\+X\+X\+Dynamic\+Cast\+Expr}} = 125, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a0b2b3cfb02213da0fe772dde2dcbae96}{C\+X\+Cursor\+\_\+\+C\+X\+X\+Reinterpret\+Cast\+Expr}} = 126, 
+\newline
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a6f493001ae96bc89366f2a52c5d02f61}{C\+X\+Cursor\+\_\+\+C\+X\+X\+Const\+Cast\+Expr}} = 127, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013accf6190684dcc68e69873dc96db2c8f5}{C\+X\+Cursor\+\_\+\+C\+X\+X\+Functional\+Cast\+Expr}} = 128, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a1407f2d28fe282e70c39a669b1b41c39}{C\+X\+Cursor\+\_\+\+C\+X\+X\+Typeid\+Expr}} = 129, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ad378ee9b312d762d93fff65c3a9cc0cf}{C\+X\+Cursor\+\_\+\+C\+X\+X\+Bool\+Literal\+Expr}} = 130, 
+\newline
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013aa115e984a6f727186f11fd21c587742e}{C\+X\+Cursor\+\_\+\+C\+X\+X\+Null\+Ptr\+Literal\+Expr}} = 131, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013adcc61c629320506d5821160e7b569536}{C\+X\+Cursor\+\_\+\+C\+X\+X\+This\+Expr}} = 132, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a1aea9bb71640f79f3a4903cceee9a7d2}{C\+X\+Cursor\+\_\+\+C\+X\+X\+Throw\+Expr}} = 133, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013af56fc0fa2f46039c5952f70332f3847a}{C\+X\+Cursor\+\_\+\+C\+X\+X\+New\+Expr}} = 134, 
+\newline
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013af71c9e64150c98a1f48e47d9e0dd3360}{C\+X\+Cursor\+\_\+\+C\+X\+X\+Delete\+Expr}} = 135, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a2313a35a07ae0fc6b1ba588fd80feb80}{C\+X\+Cursor\+\_\+\+Unary\+Expr}} = 136, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ae0487b82734561e91b351d94cab87a07}{C\+X\+Cursor\+\_\+\+Obj\+C\+String\+Literal}} = 137, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a0cdd3dd924e390add2d22ebcd093ac60}{C\+X\+Cursor\+\_\+\+Obj\+C\+Encode\+Expr}} = 138, 
+\newline
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a2552090997270e9bcde22fb6caacd6bd}{C\+X\+Cursor\+\_\+\+Obj\+C\+Selector\+Expr}} = 139, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013af784374daedef605e274f9c79c089170}{C\+X\+Cursor\+\_\+\+Obj\+C\+Protocol\+Expr}} = 140, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a264832cf042add519760f607ca109284}{C\+X\+Cursor\+\_\+\+Obj\+C\+Bridged\+Cast\+Expr}} = 141, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a324ba319efcc36f15f46270e997f4768}{C\+X\+Cursor\+\_\+\+Pack\+Expansion\+Expr}} = 142, 
+\newline
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a4daabb1bf31be952b27220b3b1dde42d}{C\+X\+Cursor\+\_\+\+Size\+Of\+Pack\+Expr}} = 143, 
+{\bfseries C\+X\+Cursor\+\_\+\+Lambda\+Expr} = 144, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a4204fc2996d75629916b2a2ac27e5141}{C\+X\+Cursor\+\_\+\+Obj\+C\+Bool\+Literal\+Expr}} = 145, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a5be42075dea704a991f7f53a61aa23f0}{C\+X\+Cursor\+\_\+\+Obj\+C\+Self\+Expr}} = 146, 
+\newline
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013abfc796d31916b39981a88cec61eef950}{C\+X\+Cursor\+\_\+\+O\+M\+P\+Array\+Section\+Expr}} = 147, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a46a8ec32db046ae930ae806358be8585}{C\+X\+Cursor\+\_\+\+Obj\+C\+Availability\+Check\+Expr}} = 148, 
+{\bfseries C\+X\+Cursor\+\_\+\+Last\+Expr} = C\+X\+Cursor\+\_\+\+Obj\+C\+Availability\+Check\+Expr, 
+{\bfseries C\+X\+Cursor\+\_\+\+First\+Stmt} = 200, 
+\newline
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a3cd008e10ab67d7f793e3ecc4ce9953b}{C\+X\+Cursor\+\_\+\+Unexposed\+Stmt}} = 200, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a3cd4b745869f56b1e2ba5c8c6d053347}{C\+X\+Cursor\+\_\+\+Label\+Stmt}} = 201, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a99bd08d3c3a46bf0afb8439933e38108}{C\+X\+Cursor\+\_\+\+Compound\+Stmt}} = 202, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013aa9891e0fc0c70248f0d2a249199c338d}{C\+X\+Cursor\+\_\+\+Case\+Stmt}} = 203, 
+\newline
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ad3923e3d334b373faa710c0ca59e3681}{C\+X\+Cursor\+\_\+\+Default\+Stmt}} = 204, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a1997bdc80aebe5013ccda2b3626fdcd2}{C\+X\+Cursor\+\_\+\+If\+Stmt}} = 205, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a52e999781cbb23503e43e669e7a0bf96}{C\+X\+Cursor\+\_\+\+Switch\+Stmt}} = 206, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013addcf5bf1f783219842a70bf6e6501281}{C\+X\+Cursor\+\_\+\+While\+Stmt}} = 207, 
+\newline
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a8d7b6c4ae06fccc6e1511a6613602e87}{C\+X\+Cursor\+\_\+\+Do\+Stmt}} = 208, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a7a71e1975f72cd289ef187873bf5dd74}{C\+X\+Cursor\+\_\+\+For\+Stmt}} = 209, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a23d622875628fd57c9144297acfcdac0}{C\+X\+Cursor\+\_\+\+Goto\+Stmt}} = 210, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a7affcfe7c86e14cc95e7cbb989a91d02}{C\+X\+Cursor\+\_\+\+Indirect\+Goto\+Stmt}} = 211, 
+\newline
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a96d8bc12eeda39658b0bc85607608f12}{C\+X\+Cursor\+\_\+\+Continue\+Stmt}} = 212, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ae4f696f3bf5a184ee4bfbf264c45168b}{C\+X\+Cursor\+\_\+\+Break\+Stmt}} = 213, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ad3dae6463eadb68c9cabadd4d07747a1}{C\+X\+Cursor\+\_\+\+Return\+Stmt}} = 214, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a44d904fb3a49e0ef796d37da3ccba856}{C\+X\+Cursor\+\_\+\+G\+C\+C\+Asm\+Stmt}} = 215, 
+\newline
+{\bfseries C\+X\+Cursor\+\_\+\+Asm\+Stmt} = C\+X\+Cursor\+\_\+\+G\+C\+C\+Asm\+Stmt, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013aff57a3d1546a888930695f1246961caa}{C\+X\+Cursor\+\_\+\+Obj\+C\+At\+Try\+Stmt}} = 216, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013affd93272a86359e5ba278c028127c840}{C\+X\+Cursor\+\_\+\+Obj\+C\+At\+Catch\+Stmt}} = 217, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a322e75d2cad1d6b31c1487e90cdc0092}{C\+X\+Cursor\+\_\+\+Obj\+C\+At\+Finally\+Stmt}} = 218, 
+\newline
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a8f7db99081659953ff2b02fdd3b23d56}{C\+X\+Cursor\+\_\+\+Obj\+C\+At\+Throw\+Stmt}} = 219, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a56ca7aeb87bd0472d0f02279aa2b650f}{C\+X\+Cursor\+\_\+\+Obj\+C\+At\+Synchronized\+Stmt}} = 220, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a6b41fdd415d066d7aada475721a321ad}{C\+X\+Cursor\+\_\+\+Obj\+C\+Autorelease\+Pool\+Stmt}} = 221, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013aecde640b75cea8a9b87400e5a185d1c0}{C\+X\+Cursor\+\_\+\+Obj\+C\+For\+Collection\+Stmt}} = 222, 
+\newline
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ad6b3b71b6da4cb7400dbae4257b21fdb}{C\+X\+Cursor\+\_\+\+C\+X\+X\+Catch\+Stmt}} = 223, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ac257ca1c3a83503309e27906ec98fa63}{C\+X\+Cursor\+\_\+\+C\+X\+X\+Try\+Stmt}} = 224, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a68343b6c9f58bac81176426233e0ee44}{C\+X\+Cursor\+\_\+\+C\+X\+X\+For\+Range\+Stmt}} = 225, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ac856f9135a37c301e18cdf991df0dbc4}{C\+X\+Cursor\+\_\+\+S\+E\+H\+Try\+Stmt}} = 226, 
+\newline
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013abe402198c171461aac89931b4cdc9b26}{C\+X\+Cursor\+\_\+\+S\+E\+H\+Except\+Stmt}} = 227, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a21887723b6c14a71c13835d1343bf15d}{C\+X\+Cursor\+\_\+\+S\+E\+H\+Finally\+Stmt}} = 228, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a94e1399541d4818e292a357c59d9dfe9}{C\+X\+Cursor\+\_\+\+M\+S\+Asm\+Stmt}} = 229, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a8579a2a2d62771ebce1dcf84c85bf15d}{C\+X\+Cursor\+\_\+\+Null\+Stmt}} = 230, 
+\newline
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a6598b74e6f047dcdd1adb9becb52545b}{C\+X\+Cursor\+\_\+\+Decl\+Stmt}} = 231, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a15c9cad35ab676ad9d34c1d6858b8216}{C\+X\+Cursor\+\_\+\+O\+M\+P\+Parallel\+Directive}} = 232, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a26cc7e8cf7fc0acebd696b2791780424}{C\+X\+Cursor\+\_\+\+O\+M\+P\+Simd\+Directive}} = 233, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013abb0ca2763f52ea1c3f0375ea79aca6d6}{C\+X\+Cursor\+\_\+\+O\+M\+P\+For\+Directive}} = 234, 
+\newline
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a12436a697bd159df276ca2888e884669}{C\+X\+Cursor\+\_\+\+O\+M\+P\+Sections\+Directive}} = 235, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a51a65e49d807365b879d3577aaa2f0d2}{C\+X\+Cursor\+\_\+\+O\+M\+P\+Section\+Directive}} = 236, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a9761822bd34a77959e3016e5ad05adee}{C\+X\+Cursor\+\_\+\+O\+M\+P\+Single\+Directive}} = 237, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a4986ed95e5aa3e4de8ec4789030effca}{C\+X\+Cursor\+\_\+\+O\+M\+P\+Parallel\+For\+Directive}} = 238, 
+\newline
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a9ec977a91a67342c3d6855bdd591737c}{C\+X\+Cursor\+\_\+\+O\+M\+P\+Parallel\+Sections\+Directive}} = 239, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013aa30c9569303ad8dcae2845b600436044}{C\+X\+Cursor\+\_\+\+O\+M\+P\+Task\+Directive}} = 240, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a0e8110c885d0200e28e2c8c33df0ab11}{C\+X\+Cursor\+\_\+\+O\+M\+P\+Master\+Directive}} = 241, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a00111fe6b015b1c257004bb79a525c50}{C\+X\+Cursor\+\_\+\+O\+M\+P\+Critical\+Directive}} = 242, 
+\newline
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a78e8f07dd5058bf7afca444a1962c6a2}{C\+X\+Cursor\+\_\+\+O\+M\+P\+Taskyield\+Directive}} = 243, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a9675ac34b8aa677c2a3cba6a887cabf7}{C\+X\+Cursor\+\_\+\+O\+M\+P\+Barrier\+Directive}} = 244, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a6a9f14975c75cb1d65b5a58b3552dfd4}{C\+X\+Cursor\+\_\+\+O\+M\+P\+Taskwait\+Directive}} = 245, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a139928c2a8f18982bed05d161f030c6a}{C\+X\+Cursor\+\_\+\+O\+M\+P\+Flush\+Directive}} = 246, 
+\newline
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013adb7c9e1caf311b36d3e0582f58bb8d9f}{C\+X\+Cursor\+\_\+\+S\+E\+H\+Leave\+Stmt}} = 247, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a39814fc9795d7d0032de6a5bcccb7afe}{C\+X\+Cursor\+\_\+\+O\+M\+P\+Ordered\+Directive}} = 248, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a79ba2952971e186ebe85d7974f775af2}{C\+X\+Cursor\+\_\+\+O\+M\+P\+Atomic\+Directive}} = 249, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a9ec1ff379092821572c42d82536dddc8}{C\+X\+Cursor\+\_\+\+O\+M\+P\+For\+Simd\+Directive}} = 250, 
+\newline
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ab9931ac737ce94ff9dd38a24942a15c8}{C\+X\+Cursor\+\_\+\+O\+M\+P\+Parallel\+For\+Simd\+Directive}} = 251, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013aab347e544298e6a7ad7e78b07791fc9d}{C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Directive}} = 252, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ada64e23dfff9ee56942eaf73ea6e5465}{C\+X\+Cursor\+\_\+\+O\+M\+P\+Teams\+Directive}} = 253, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013af07d58e74dbf248cac02369d9f6b1935}{C\+X\+Cursor\+\_\+\+O\+M\+P\+Taskgroup\+Directive}} = 254, 
+\newline
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a43551d6104fb8bd6e548ac05e3328363}{C\+X\+Cursor\+\_\+\+O\+M\+P\+Cancellation\+Point\+Directive}} = 255, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a3cb3ecc4291d07f9013c2f051b885e8b}{C\+X\+Cursor\+\_\+\+O\+M\+P\+Cancel\+Directive}} = 256, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013aba9f40a74db71dad705701d98e92c760}{C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Data\+Directive}} = 257, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a4f48d2ae4bf7a94c5ed7b63597d928cd}{C\+X\+Cursor\+\_\+\+O\+M\+P\+Task\+Loop\+Directive}} = 258, 
+\newline
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a617d304589bfd3ce2ff3e68c3072e726}{C\+X\+Cursor\+\_\+\+O\+M\+P\+Task\+Loop\+Simd\+Directive}} = 259, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a37d7946794504de65cec9fb8eb2dd8ff}{C\+X\+Cursor\+\_\+\+O\+M\+P\+Distribute\+Directive}} = 260, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a149e7d403796d144dc5bd3e203810f3c}{C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Enter\+Data\+Directive}} = 261, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a63441bd563d6e1a5d2a14174a0a8faa4}{C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Exit\+Data\+Directive}} = 262, 
+\newline
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ae955731bfa5030699c6db4cf84b4cf3c}{C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Parallel\+Directive}} = 263, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013aaa76d8a8d66d33f2e685a2559abc6329}{C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Parallel\+For\+Directive}} = 264, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013aea43eee9c4e76120f21652998e9cb0b4}{C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Update\+Directive}} = 265, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a5a3d4be5273be2aa9cdc4c0f032eabf8}{C\+X\+Cursor\+\_\+\+O\+M\+P\+Distribute\+Parallel\+For\+Directive}} = 266, 
+\newline
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a3d36e365eccd6b5d20e7bf4efc30e8ab}{C\+X\+Cursor\+\_\+\+O\+M\+P\+Distribute\+Parallel\+For\+Simd\+Directive}} = 267, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ae5df040bf2d9a2a0dfc9bbaab6c6a8fe}{C\+X\+Cursor\+\_\+\+O\+M\+P\+Distribute\+Simd\+Directive}} = 268, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a2fd50625c4b1d5134e9236326ae129ac}{C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Parallel\+For\+Simd\+Directive}} = 269, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a3111605e87d2c0efd607c59ee3a62e60}{C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Simd\+Directive}} = 270, 
+\newline
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a282658567d279956b63957f942fc4d50}{C\+X\+Cursor\+\_\+\+O\+M\+P\+Teams\+Distribute\+Directive}} = 271, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a44d228ef5c0dbe5d97c41938ec00fba5}{C\+X\+Cursor\+\_\+\+O\+M\+P\+Teams\+Distribute\+Simd\+Directive}} = 272, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a3869e8f3e994c8cce00f66c440c5e220}{C\+X\+Cursor\+\_\+\+O\+M\+P\+Teams\+Distribute\+Parallel\+For\+Simd\+Directive}} = 273, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a5b9a6e448ef56398fa32733b8d044d1c}{C\+X\+Cursor\+\_\+\+O\+M\+P\+Teams\+Distribute\+Parallel\+For\+Directive}} = 274, 
+\newline
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a79d875e2226f195bcd9054bdb00531a7}{C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Teams\+Directive}} = 275, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a440c353a2ae2c6b9473ffce853e42960}{C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Teams\+Distribute\+Directive}} = 276, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ace298c5819d3f70bb479c347a7f9fbd3}{C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Teams\+Distribute\+Parallel\+For\+Directive}} = 277, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013aff552b0c2bb6bc16b8c1414e35a714f7}{C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Teams\+Distribute\+Parallel\+For\+Simd\+Directive}} = 278, 
+\newline
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a1f1a5157898609387a7b5c1085bfb202}{C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Teams\+Distribute\+Simd\+Directive}} = 279, 
+{\bfseries C\+X\+Cursor\+\_\+\+Last\+Stmt} = C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Teams\+Distribute\+Simd\+Directive, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a7b14cc488d53714c4a6ecaa58b0af066}{C\+X\+Cursor\+\_\+\+Translation\+Unit}} = 300, 
+{\bfseries C\+X\+Cursor\+\_\+\+First\+Attr} = 400, 
+\newline
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a56b1a578c3f15052f83d0c316ed1d4bf}{C\+X\+Cursor\+\_\+\+Unexposed\+Attr}} = 400, 
+{\bfseries C\+X\+Cursor\+\_\+\+I\+B\+Action\+Attr} = 401, 
+{\bfseries C\+X\+Cursor\+\_\+\+I\+B\+Outlet\+Attr} = 402, 
+{\bfseries C\+X\+Cursor\+\_\+\+I\+B\+Outlet\+Collection\+Attr} = 403, 
+\newline
+{\bfseries C\+X\+Cursor\+\_\+\+C\+X\+X\+Final\+Attr} = 404, 
+{\bfseries C\+X\+Cursor\+\_\+\+C\+X\+X\+Override\+Attr} = 405, 
+{\bfseries C\+X\+Cursor\+\_\+\+Annotate\+Attr} = 406, 
+{\bfseries C\+X\+Cursor\+\_\+\+Asm\+Label\+Attr} = 407, 
+\newline
+{\bfseries C\+X\+Cursor\+\_\+\+Packed\+Attr} = 408, 
+{\bfseries C\+X\+Cursor\+\_\+\+Pure\+Attr} = 409, 
+{\bfseries C\+X\+Cursor\+\_\+\+Const\+Attr} = 410, 
+{\bfseries C\+X\+Cursor\+\_\+\+No\+Duplicate\+Attr} = 411, 
+\newline
+{\bfseries C\+X\+Cursor\+\_\+\+C\+U\+D\+A\+Constant\+Attr} = 412, 
+{\bfseries C\+X\+Cursor\+\_\+\+C\+U\+D\+A\+Device\+Attr} = 413, 
+{\bfseries C\+X\+Cursor\+\_\+\+C\+U\+D\+A\+Global\+Attr} = 414, 
+{\bfseries C\+X\+Cursor\+\_\+\+C\+U\+D\+A\+Host\+Attr} = 415, 
+\newline
+{\bfseries C\+X\+Cursor\+\_\+\+C\+U\+D\+A\+Shared\+Attr} = 416, 
+{\bfseries C\+X\+Cursor\+\_\+\+Visibility\+Attr} = 417, 
+{\bfseries C\+X\+Cursor\+\_\+\+D\+L\+L\+Export} = 418, 
+{\bfseries C\+X\+Cursor\+\_\+\+D\+L\+L\+Import} = 419, 
+\newline
+{\bfseries C\+X\+Cursor\+\_\+\+Last\+Attr} = C\+X\+Cursor\+\_\+\+D\+L\+L\+Import, 
+{\bfseries C\+X\+Cursor\+\_\+\+Preprocessing\+Directive} = 500, 
+{\bfseries C\+X\+Cursor\+\_\+\+Macro\+Definition} = 501, 
+{\bfseries C\+X\+Cursor\+\_\+\+Macro\+Expansion} = 502, 
+\newline
+{\bfseries C\+X\+Cursor\+\_\+\+Macro\+Instantiation} = C\+X\+Cursor\+\_\+\+Macro\+Expansion, 
+{\bfseries C\+X\+Cursor\+\_\+\+Inclusion\+Directive} = 503, 
+{\bfseries C\+X\+Cursor\+\_\+\+First\+Preprocessing} = C\+X\+Cursor\+\_\+\+Preprocessing\+Directive, 
+{\bfseries C\+X\+Cursor\+\_\+\+Last\+Preprocessing} = C\+X\+Cursor\+\_\+\+Inclusion\+Directive, 
+\newline
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013acf846838dc1c12e560c9dbf43fa97928}{C\+X\+Cursor\+\_\+\+Module\+Import\+Decl}} = 600, 
+{\bfseries C\+X\+Cursor\+\_\+\+Type\+Alias\+Template\+Decl} = 601, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013acf4aa9fce47b10d5d3ff015c671dda45}{C\+X\+Cursor\+\_\+\+Static\+Assert}} = 602, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ae0a01a4768fab70eadb25c755d5d36a6}{C\+X\+Cursor\+\_\+\+Friend\+Decl}} = 603, 
+\newline
+{\bfseries C\+X\+Cursor\+\_\+\+First\+Extra\+Decl} = C\+X\+Cursor\+\_\+\+Module\+Import\+Decl, 
+{\bfseries C\+X\+Cursor\+\_\+\+Last\+Extra\+Decl} = C\+X\+Cursor\+\_\+\+Friend\+Decl, 
+\mbox{\hyperlink{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013adf315bb7bfe68757ae933a8b95b40357}{C\+X\+Cursor\+\_\+\+Overload\+Candidate}} = 700
+ \}
+\begin{DoxyCompactList}\small\item\em Describes the kind of entity that a cursor refers to. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{group__CINDEX_gae039c2574bfd75774ca7a9a3e55910cb}{C\+X\+Index}} \mbox{\hyperlink{group__CINDEX_ga51eb9b38c18743bf2d824c6230e61f93}{clang\+\_\+create\+Index}} (int exclude\+Declarations\+From\+P\+CH, int display\+Diagnostics)
+\begin{DoxyCompactList}\small\item\em Provides a shared context for creating translation units. \end{DoxyCompactList}\item 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE void \mbox{\hyperlink{group__CINDEX_ga166ab73b14be73cbdcae14d62dbab22a}{clang\+\_\+dispose\+Index}} (\mbox{\hyperlink{group__CINDEX_gae039c2574bfd75774ca7a9a3e55910cb}{C\+X\+Index}} index)
+\begin{DoxyCompactList}\small\item\em Destroy the given index. \end{DoxyCompactList}\item 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE void \mbox{\hyperlink{group__CINDEX_ga82c320cc4c21dfd64650b3995cb5e7a6}{clang\+\_\+\+C\+X\+Index\+\_\+set\+Global\+Options}} (\mbox{\hyperlink{group__CINDEX_gae039c2574bfd75774ca7a9a3e55910cb}{C\+X\+Index}}, unsigned options)
+\begin{DoxyCompactList}\small\item\em Sets general options associated with a C\+X\+Index. \end{DoxyCompactList}\item 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE unsigned \mbox{\hyperlink{group__CINDEX_ga21e96379358f2aedc56890f9a35d4125}{clang\+\_\+\+C\+X\+Index\+\_\+get\+Global\+Options}} (\mbox{\hyperlink{group__CINDEX_gae039c2574bfd75774ca7a9a3e55910cb}{C\+X\+Index}})
+\begin{DoxyCompactList}\small\item\em Gets the general options associated with a C\+X\+Index. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The C Interface to Clang provides a relatively small A\+PI that exposes facilities for parsing source code into an abstract syntax tree (A\+ST), loading already-\/parsed A\+S\+Ts, traversing the A\+ST, associating physical source locations with elements within the A\+ST, and other facilities that support Clang-\/based development tools.
+
+This C interface to Clang will never provide all of the information representation stored in Clang\textquotesingle{}s C++ A\+ST, nor should it\+: the intent is to maintain an A\+PI that is relatively stable from one release to the next, providing only the basic functionality needed to support development tools.
+
+To avoid namespace pollution, data types are prefixed with \char`\"{}\+C\+X\char`\"{} and functions are prefixed with \char`\"{}clang\+\_\+\char`\"{}. 
+
+\subsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{group__CINDEX_gada331ea0195e952c8f181ecf15e83d71}\label{group__CINDEX_gada331ea0195e952c8f181ecf15e83d71}} 
+\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Availability\+Kind@{C\+X\+Availability\+Kind}}
+\index{C\+X\+Availability\+Kind@{C\+X\+Availability\+Kind}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}
+\subsubsection{\texorpdfstring{C\+X\+Availability\+Kind}{CXAvailabilityKind}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group__CINDEX_gada331ea0195e952c8f181ecf15e83d71}{C\+X\+Availability\+Kind}}}
+
+
+
+Describes the availability of a particular entity, which indicates whether the use of this entity will result in a warning or error due to it being deprecated or unavailable. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Availability\+\_\+\+Available@{C\+X\+Availability\+\_\+\+Available}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Availability\+\_\+\+Available@{C\+X\+Availability\+\_\+\+Available}}}\mbox{\Hypertarget{group__CINDEX_ggada331ea0195e952c8f181ecf15e83d71a6e2a9a033b06aa1ac8ab0b8ad49f8467}\label{group__CINDEX_ggada331ea0195e952c8f181ecf15e83d71a6e2a9a033b06aa1ac8ab0b8ad49f8467}} 
+C\+X\+Availability\+\_\+\+Available&The entity is available. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Availability\+\_\+\+Deprecated@{C\+X\+Availability\+\_\+\+Deprecated}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Availability\+\_\+\+Deprecated@{C\+X\+Availability\+\_\+\+Deprecated}}}\mbox{\Hypertarget{group__CINDEX_ggada331ea0195e952c8f181ecf15e83d71a8295a994c76ec17e391050da7334e8fc}\label{group__CINDEX_ggada331ea0195e952c8f181ecf15e83d71a8295a994c76ec17e391050da7334e8fc}} 
+C\+X\+Availability\+\_\+\+Deprecated&The entity is available, but has been deprecated (and its use is not recommended). \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Availability\+\_\+\+Not\+Available@{C\+X\+Availability\+\_\+\+Not\+Available}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Availability\+\_\+\+Not\+Available@{C\+X\+Availability\+\_\+\+Not\+Available}}}\mbox{\Hypertarget{group__CINDEX_ggada331ea0195e952c8f181ecf15e83d71af70fbd074c138cdf81b0286d202b0fa6}\label{group__CINDEX_ggada331ea0195e952c8f181ecf15e83d71af70fbd074c138cdf81b0286d202b0fa6}} 
+C\+X\+Availability\+\_\+\+Not\+Available&The entity is not available; any use of it will be an error. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Availability\+\_\+\+Not\+Accessible@{C\+X\+Availability\+\_\+\+Not\+Accessible}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Availability\+\_\+\+Not\+Accessible@{C\+X\+Availability\+\_\+\+Not\+Accessible}}}\mbox{\Hypertarget{group__CINDEX_ggada331ea0195e952c8f181ecf15e83d71af6542f250a1d21e256cd543669a49435}\label{group__CINDEX_ggada331ea0195e952c8f181ecf15e83d71af6542f250a1d21e256cd543669a49435}} 
+C\+X\+Availability\+\_\+\+Not\+Accessible&The entity is available, but not accessible; any use of it will be an error. \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{group__CINDEX_gaaccc432245b4cd9f2d470913f9ef0013}\label{group__CINDEX_gaaccc432245b4cd9f2d470913f9ef0013}} 
+\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+Kind@{C\+X\+Cursor\+Kind}}
+\index{C\+X\+Cursor\+Kind@{C\+X\+Cursor\+Kind}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}
+\subsubsection{\texorpdfstring{C\+X\+Cursor\+Kind}{CXCursorKind}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group__CINDEX_gaaccc432245b4cd9f2d470913f9ef0013}{C\+X\+Cursor\+Kind}}}
+
+
+
+Describes the kind of entity that a cursor refers to. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Unexposed\+Decl@{C\+X\+Cursor\+\_\+\+Unexposed\+Decl}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Unexposed\+Decl@{C\+X\+Cursor\+\_\+\+Unexposed\+Decl}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ab6c248d25235d6188a1c56ecba85efaf}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ab6c248d25235d6188a1c56ecba85efaf}} 
+C\+X\+Cursor\+\_\+\+Unexposed\+Decl&A declaration whose specific kind is not exposed via this interface. Unexposed declarations have the same operations as any other kind of declaration; one can extract their location information, spelling, find their definitions, etc. However, the specific kind of the declaration is not reported. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Struct\+Decl@{C\+X\+Cursor\+\_\+\+Struct\+Decl}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Struct\+Decl@{C\+X\+Cursor\+\_\+\+Struct\+Decl}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013abcdfdbef4602f6b4f23cf05909949a8e}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013abcdfdbef4602f6b4f23cf05909949a8e}} 
+C\+X\+Cursor\+\_\+\+Struct\+Decl&A C or C++ struct. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Union\+Decl@{C\+X\+Cursor\+\_\+\+Union\+Decl}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Union\+Decl@{C\+X\+Cursor\+\_\+\+Union\+Decl}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a3a9bcc720d2250bd42fd9beab97f681a}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a3a9bcc720d2250bd42fd9beab97f681a}} 
+C\+X\+Cursor\+\_\+\+Union\+Decl&A C or C++ union. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Class\+Decl@{C\+X\+Cursor\+\_\+\+Class\+Decl}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Class\+Decl@{C\+X\+Cursor\+\_\+\+Class\+Decl}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ac844486f54e1ebe6972890e8f7ffa1d3}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ac844486f54e1ebe6972890e8f7ffa1d3}} 
+C\+X\+Cursor\+\_\+\+Class\+Decl&A C++ class. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Enum\+Decl@{C\+X\+Cursor\+\_\+\+Enum\+Decl}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Enum\+Decl@{C\+X\+Cursor\+\_\+\+Enum\+Decl}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a6911890ff304d2ec7fab732037b68c38}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a6911890ff304d2ec7fab732037b68c38}} 
+C\+X\+Cursor\+\_\+\+Enum\+Decl&An enumeration. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Field\+Decl@{C\+X\+Cursor\+\_\+\+Field\+Decl}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Field\+Decl@{C\+X\+Cursor\+\_\+\+Field\+Decl}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a5671aee0540df1018f63575f6d244be8}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a5671aee0540df1018f63575f6d244be8}} 
+C\+X\+Cursor\+\_\+\+Field\+Decl&A field (in C) or non-\/static data member (in C++) in a struct, union, or C++ class. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Enum\+Constant\+Decl@{C\+X\+Cursor\+\_\+\+Enum\+Constant\+Decl}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Enum\+Constant\+Decl@{C\+X\+Cursor\+\_\+\+Enum\+Constant\+Decl}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a29187fb3b4e2da8050788cb8f41cb839}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a29187fb3b4e2da8050788cb8f41cb839}} 
+C\+X\+Cursor\+\_\+\+Enum\+Constant\+Decl&An enumerator constant. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Function\+Decl@{C\+X\+Cursor\+\_\+\+Function\+Decl}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Function\+Decl@{C\+X\+Cursor\+\_\+\+Function\+Decl}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a97a968184f82f31b5054384d151d18ea}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a97a968184f82f31b5054384d151d18ea}} 
+C\+X\+Cursor\+\_\+\+Function\+Decl&A function. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Var\+Decl@{C\+X\+Cursor\+\_\+\+Var\+Decl}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Var\+Decl@{C\+X\+Cursor\+\_\+\+Var\+Decl}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ab3cf2171fec9ec0b8064f252645cdf45}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ab3cf2171fec9ec0b8064f252645cdf45}} 
+C\+X\+Cursor\+\_\+\+Var\+Decl&A variable. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Parm\+Decl@{C\+X\+Cursor\+\_\+\+Parm\+Decl}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Parm\+Decl@{C\+X\+Cursor\+\_\+\+Parm\+Decl}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a54e9935786d8f22f110f5852d5e134cb}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a54e9935786d8f22f110f5852d5e134cb}} 
+C\+X\+Cursor\+\_\+\+Parm\+Decl&A function or method parameter. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Obj\+C\+Interface\+Decl@{C\+X\+Cursor\+\_\+\+Obj\+C\+Interface\+Decl}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Obj\+C\+Interface\+Decl@{C\+X\+Cursor\+\_\+\+Obj\+C\+Interface\+Decl}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a0154397418c3777977d1484511805d2b}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a0154397418c3777977d1484511805d2b}} 
+C\+X\+Cursor\+\_\+\+Obj\+C\+Interface\+Decl&An Objective-\/C @interface. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Obj\+C\+Category\+Decl@{C\+X\+Cursor\+\_\+\+Obj\+C\+Category\+Decl}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Obj\+C\+Category\+Decl@{C\+X\+Cursor\+\_\+\+Obj\+C\+Category\+Decl}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013acde83a604badb0350c65585d0d391a4d}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013acde83a604badb0350c65585d0d391a4d}} 
+C\+X\+Cursor\+\_\+\+Obj\+C\+Category\+Decl&An Objective-\/C @interface for a category. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Obj\+C\+Protocol\+Decl@{C\+X\+Cursor\+\_\+\+Obj\+C\+Protocol\+Decl}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Obj\+C\+Protocol\+Decl@{C\+X\+Cursor\+\_\+\+Obj\+C\+Protocol\+Decl}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a8482dcd05b08e11c720cae217cedc02b}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a8482dcd05b08e11c720cae217cedc02b}} 
+C\+X\+Cursor\+\_\+\+Obj\+C\+Protocol\+Decl&An Objective-\/C @protocol declaration. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Obj\+C\+Property\+Decl@{C\+X\+Cursor\+\_\+\+Obj\+C\+Property\+Decl}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Obj\+C\+Property\+Decl@{C\+X\+Cursor\+\_\+\+Obj\+C\+Property\+Decl}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a9a37e731d298eca08335ee8ad6aa1bb5}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a9a37e731d298eca08335ee8ad6aa1bb5}} 
+C\+X\+Cursor\+\_\+\+Obj\+C\+Property\+Decl&An Objective-\/C @property declaration. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Obj\+C\+Ivar\+Decl@{C\+X\+Cursor\+\_\+\+Obj\+C\+Ivar\+Decl}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Obj\+C\+Ivar\+Decl@{C\+X\+Cursor\+\_\+\+Obj\+C\+Ivar\+Decl}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a9e00976503d8b85a1d2ee457058f662c}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a9e00976503d8b85a1d2ee457058f662c}} 
+C\+X\+Cursor\+\_\+\+Obj\+C\+Ivar\+Decl&An Objective-\/C instance variable. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Obj\+C\+Instance\+Method\+Decl@{C\+X\+Cursor\+\_\+\+Obj\+C\+Instance\+Method\+Decl}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Obj\+C\+Instance\+Method\+Decl@{C\+X\+Cursor\+\_\+\+Obj\+C\+Instance\+Method\+Decl}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013abb8a833b49d17dd21281e59d876adf1c}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013abb8a833b49d17dd21281e59d876adf1c}} 
+C\+X\+Cursor\+\_\+\+Obj\+C\+Instance\+Method\+Decl&An Objective-\/C instance method. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Obj\+C\+Class\+Method\+Decl@{C\+X\+Cursor\+\_\+\+Obj\+C\+Class\+Method\+Decl}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Obj\+C\+Class\+Method\+Decl@{C\+X\+Cursor\+\_\+\+Obj\+C\+Class\+Method\+Decl}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a727d6cc795e30988bff5ce7ac2c10926}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a727d6cc795e30988bff5ce7ac2c10926}} 
+C\+X\+Cursor\+\_\+\+Obj\+C\+Class\+Method\+Decl&An Objective-\/C class method. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Obj\+C\+Implementation\+Decl@{C\+X\+Cursor\+\_\+\+Obj\+C\+Implementation\+Decl}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Obj\+C\+Implementation\+Decl@{C\+X\+Cursor\+\_\+\+Obj\+C\+Implementation\+Decl}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a86d2befec8f6ba30e859fb772c6f7f3e}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a86d2befec8f6ba30e859fb772c6f7f3e}} 
+C\+X\+Cursor\+\_\+\+Obj\+C\+Implementation\+Decl&An Objective-\/C @implementation. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Obj\+C\+Category\+Impl\+Decl@{C\+X\+Cursor\+\_\+\+Obj\+C\+Category\+Impl\+Decl}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Obj\+C\+Category\+Impl\+Decl@{C\+X\+Cursor\+\_\+\+Obj\+C\+Category\+Impl\+Decl}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013aa2650afa6d976d3c54917fc25cb56d00}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013aa2650afa6d976d3c54917fc25cb56d00}} 
+C\+X\+Cursor\+\_\+\+Obj\+C\+Category\+Impl\+Decl&An Objective-\/C @implementation for a category. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Typedef\+Decl@{C\+X\+Cursor\+\_\+\+Typedef\+Decl}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Typedef\+Decl@{C\+X\+Cursor\+\_\+\+Typedef\+Decl}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a1971a51be1effdfe84d74a56bfbfdd57}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a1971a51be1effdfe84d74a56bfbfdd57}} 
+C\+X\+Cursor\+\_\+\+Typedef\+Decl&A typedef. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+C\+X\+X\+Method@{C\+X\+Cursor\+\_\+\+C\+X\+X\+Method}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+C\+X\+X\+Method@{C\+X\+Cursor\+\_\+\+C\+X\+X\+Method}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a5de0c47c0200894fc3af34793e258d46}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a5de0c47c0200894fc3af34793e258d46}} 
+C\+X\+Cursor\+\_\+\+C\+X\+X\+Method&A C++ class method. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Namespace@{C\+X\+Cursor\+\_\+\+Namespace}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Namespace@{C\+X\+Cursor\+\_\+\+Namespace}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a0d5cc31e4b9b3225f0500205bc56dcb7}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a0d5cc31e4b9b3225f0500205bc56dcb7}} 
+C\+X\+Cursor\+\_\+\+Namespace&A C++ namespace. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Linkage\+Spec@{C\+X\+Cursor\+\_\+\+Linkage\+Spec}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Linkage\+Spec@{C\+X\+Cursor\+\_\+\+Linkage\+Spec}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ac7372e7b32d662e08200a5e48112f306}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ac7372e7b32d662e08200a5e48112f306}} 
+C\+X\+Cursor\+\_\+\+Linkage\+Spec&A linkage specification, e.\+g. \textquotesingle{}extern \char`\"{}\+C\char`\"{}\textquotesingle{}. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Constructor@{C\+X\+Cursor\+\_\+\+Constructor}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Constructor@{C\+X\+Cursor\+\_\+\+Constructor}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013add81519f3f5a45e03ff50c90f967c655}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013add81519f3f5a45e03ff50c90f967c655}} 
+C\+X\+Cursor\+\_\+\+Constructor&A C++ constructor. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Destructor@{C\+X\+Cursor\+\_\+\+Destructor}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Destructor@{C\+X\+Cursor\+\_\+\+Destructor}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a9def9b621c8ad2d6fe609088b3bd4d9b}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a9def9b621c8ad2d6fe609088b3bd4d9b}} 
+C\+X\+Cursor\+\_\+\+Destructor&A C++ destructor. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Conversion\+Function@{C\+X\+Cursor\+\_\+\+Conversion\+Function}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Conversion\+Function@{C\+X\+Cursor\+\_\+\+Conversion\+Function}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a346553389ce63efd7c60e4920d15034d}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a346553389ce63efd7c60e4920d15034d}} 
+C\+X\+Cursor\+\_\+\+Conversion\+Function&A C++ conversion function. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Template\+Type\+Parameter@{C\+X\+Cursor\+\_\+\+Template\+Type\+Parameter}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Template\+Type\+Parameter@{C\+X\+Cursor\+\_\+\+Template\+Type\+Parameter}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ab46e849503cbfa0968621b457cdf7c46}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ab46e849503cbfa0968621b457cdf7c46}} 
+C\+X\+Cursor\+\_\+\+Template\+Type\+Parameter&A C++ template type parameter. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Non\+Type\+Template\+Parameter@{C\+X\+Cursor\+\_\+\+Non\+Type\+Template\+Parameter}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Non\+Type\+Template\+Parameter@{C\+X\+Cursor\+\_\+\+Non\+Type\+Template\+Parameter}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a8e6c18f56b1572bf4910c511821f3b02}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a8e6c18f56b1572bf4910c511821f3b02}} 
+C\+X\+Cursor\+\_\+\+Non\+Type\+Template\+Parameter&A C++ non-\/type template parameter. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Template\+Template\+Parameter@{C\+X\+Cursor\+\_\+\+Template\+Template\+Parameter}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Template\+Template\+Parameter@{C\+X\+Cursor\+\_\+\+Template\+Template\+Parameter}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ab590cd6b366ef055abe67d9ef1c05108}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ab590cd6b366ef055abe67d9ef1c05108}} 
+C\+X\+Cursor\+\_\+\+Template\+Template\+Parameter&A C++ template template parameter. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Function\+Template@{C\+X\+Cursor\+\_\+\+Function\+Template}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Function\+Template@{C\+X\+Cursor\+\_\+\+Function\+Template}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a858affb57379f067abdf5f74c4fe6080}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a858affb57379f067abdf5f74c4fe6080}} 
+C\+X\+Cursor\+\_\+\+Function\+Template&A C++ function template. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Class\+Template@{C\+X\+Cursor\+\_\+\+Class\+Template}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Class\+Template@{C\+X\+Cursor\+\_\+\+Class\+Template}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a3a8c176648f3e6bae55bbf623dda3b5d}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a3a8c176648f3e6bae55bbf623dda3b5d}} 
+C\+X\+Cursor\+\_\+\+Class\+Template&A C++ class template. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Class\+Template\+Partial\+Specialization@{C\+X\+Cursor\+\_\+\+Class\+Template\+Partial\+Specialization}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Class\+Template\+Partial\+Specialization@{C\+X\+Cursor\+\_\+\+Class\+Template\+Partial\+Specialization}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a8194b26df1f29852d080bf485723d11f}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a8194b26df1f29852d080bf485723d11f}} 
+C\+X\+Cursor\+\_\+\+Class\+Template\+Partial\+Specialization&A C++ class template partial specialization. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Namespace\+Alias@{C\+X\+Cursor\+\_\+\+Namespace\+Alias}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Namespace\+Alias@{C\+X\+Cursor\+\_\+\+Namespace\+Alias}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ad96c246b473b1cae548934b41134b912}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ad96c246b473b1cae548934b41134b912}} 
+C\+X\+Cursor\+\_\+\+Namespace\+Alias&A C++ namespace alias declaration. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Using\+Directive@{C\+X\+Cursor\+\_\+\+Using\+Directive}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Using\+Directive@{C\+X\+Cursor\+\_\+\+Using\+Directive}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013aed24773de5442e4d21b2592174aa8b6f}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013aed24773de5442e4d21b2592174aa8b6f}} 
+C\+X\+Cursor\+\_\+\+Using\+Directive&A C++ using directive. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Using\+Declaration@{C\+X\+Cursor\+\_\+\+Using\+Declaration}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Using\+Declaration@{C\+X\+Cursor\+\_\+\+Using\+Declaration}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ac2eeb298e576afca5face26812bfd374}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ac2eeb298e576afca5face26812bfd374}} 
+C\+X\+Cursor\+\_\+\+Using\+Declaration&A C++ using declaration. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Type\+Alias\+Decl@{C\+X\+Cursor\+\_\+\+Type\+Alias\+Decl}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Type\+Alias\+Decl@{C\+X\+Cursor\+\_\+\+Type\+Alias\+Decl}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ae9720171214417746db405d46d10d29d}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ae9720171214417746db405d46d10d29d}} 
+C\+X\+Cursor\+\_\+\+Type\+Alias\+Decl&A C++ alias declaration. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Obj\+C\+Synthesize\+Decl@{C\+X\+Cursor\+\_\+\+Obj\+C\+Synthesize\+Decl}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Obj\+C\+Synthesize\+Decl@{C\+X\+Cursor\+\_\+\+Obj\+C\+Synthesize\+Decl}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a3d4faa898af63cdb556188e9804637a3}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a3d4faa898af63cdb556188e9804637a3}} 
+C\+X\+Cursor\+\_\+\+Obj\+C\+Synthesize\+Decl&An Objective-\/C @synthesize definition. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Obj\+C\+Dynamic\+Decl@{C\+X\+Cursor\+\_\+\+Obj\+C\+Dynamic\+Decl}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Obj\+C\+Dynamic\+Decl@{C\+X\+Cursor\+\_\+\+Obj\+C\+Dynamic\+Decl}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013aa4e9883af9df6a1526455e9a9ad5bc96}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013aa4e9883af9df6a1526455e9a9ad5bc96}} 
+C\+X\+Cursor\+\_\+\+Obj\+C\+Dynamic\+Decl&An Objective-\/C @dynamic definition. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+C\+X\+X\+Access\+Specifier@{C\+X\+Cursor\+\_\+\+C\+X\+X\+Access\+Specifier}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+C\+X\+X\+Access\+Specifier@{C\+X\+Cursor\+\_\+\+C\+X\+X\+Access\+Specifier}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a25a689b655871aec95dc68f1506b6833}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a25a689b655871aec95dc68f1506b6833}} 
+C\+X\+Cursor\+\_\+\+C\+X\+X\+Access\+Specifier&An access specifier. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Type\+Ref@{C\+X\+Cursor\+\_\+\+Type\+Ref}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Type\+Ref@{C\+X\+Cursor\+\_\+\+Type\+Ref}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a8ac2a9bf8b26022033c2eeb1f303d308}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a8ac2a9bf8b26022033c2eeb1f303d308}} 
+C\+X\+Cursor\+\_\+\+Type\+Ref&A reference to a type declaration. A type reference occurs anywhere where a type is named but not declared. For example, given\+:
+
+
+\begin{DoxyCode}
+typedef unsigned size\_type;
+size\_type size;
+\end{DoxyCode}
+
+
+The typedef is a declaration of size\+\_\+type (C\+X\+Cursor\+\_\+\+Typedef\+Decl), while the type of the variable \char`\"{}size\char`\"{} is referenced. The cursor referenced by the type of size is the typedef for size\+\_\+type. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Template\+Ref@{C\+X\+Cursor\+\_\+\+Template\+Ref}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Template\+Ref@{C\+X\+Cursor\+\_\+\+Template\+Ref}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013aa175ea592545f4203927db3ecf9930b5}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013aa175ea592545f4203927db3ecf9930b5}} 
+C\+X\+Cursor\+\_\+\+Template\+Ref&A reference to a class template, function template, template template parameter, or class template partial specialization. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Namespace\+Ref@{C\+X\+Cursor\+\_\+\+Namespace\+Ref}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Namespace\+Ref@{C\+X\+Cursor\+\_\+\+Namespace\+Ref}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a8d7a69f91345139c2d48d078448d1d9a}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a8d7a69f91345139c2d48d078448d1d9a}} 
+C\+X\+Cursor\+\_\+\+Namespace\+Ref&A reference to a namespace or namespace alias. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Member\+Ref@{C\+X\+Cursor\+\_\+\+Member\+Ref}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Member\+Ref@{C\+X\+Cursor\+\_\+\+Member\+Ref}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ad4ef54b32cb900dfe32c4f582bf3cd61}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ad4ef54b32cb900dfe32c4f582bf3cd61}} 
+C\+X\+Cursor\+\_\+\+Member\+Ref&A reference to a member of a struct, union, or class that occurs in some non-\/expression context, e.\+g., a designated initializer. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Label\+Ref@{C\+X\+Cursor\+\_\+\+Label\+Ref}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Label\+Ref@{C\+X\+Cursor\+\_\+\+Label\+Ref}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a2b9b4f16f40168caa64cfe2fc5555584}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a2b9b4f16f40168caa64cfe2fc5555584}} 
+C\+X\+Cursor\+\_\+\+Label\+Ref&A reference to a labeled statement. This cursor kind is used to describe the jump to \char`\"{}start\+\_\+over\char`\"{} in the goto statement in the following example\+:
+
+
+\begin{DoxyCode}
+start\_over:
+  ++counter;
+
+  goto start\_over;
+\end{DoxyCode}
+
+
+A label reference cursor refers to a label statement. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Overloaded\+Decl\+Ref@{C\+X\+Cursor\+\_\+\+Overloaded\+Decl\+Ref}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Overloaded\+Decl\+Ref@{C\+X\+Cursor\+\_\+\+Overloaded\+Decl\+Ref}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013adac756905dfd01f29f10732ec475e5df}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013adac756905dfd01f29f10732ec475e5df}} 
+C\+X\+Cursor\+\_\+\+Overloaded\+Decl\+Ref&A reference to a set of overloaded functions or function templates that has not yet been resolved to a specific function or function template. An overloaded declaration reference cursor occurs in C++ templates where a dependent name refers to a function. For example\+:
+
+
+\begin{DoxyCode}
+template<typename T> void swap(T&, T&);
+
+struct X \{ ... \};
+void swap(X&, X&);
+
+template<typename T>
+void reverse(T* first, T* last) \{
+  while (first < last - 1) \{
+    swap(*first, *--last);
+    ++first;
+  \}
+\}
+
+struct Y \{ \};
+void swap(Y&, Y&);
+\end{DoxyCode}
+
+
+Here, the identifier \char`\"{}swap\char`\"{} is associated with an overloaded declaration reference. In the template definition, \char`\"{}swap\char`\"{} refers to either of the two \char`\"{}swap\char`\"{} functions declared above, so both results will be available. At instantiation time, \char`\"{}swap\char`\"{} may also refer to other functions found via argument-\/dependent lookup (e.\+g., the \char`\"{}swap\char`\"{} function at the end of the example).
+
+The functions {\ttfamily \mbox{\hyperlink{group__CINDEX__TYPES_ga6fd1dfa66abaf18574c74a98e12856bc}{clang\+\_\+get\+Num\+Overloaded\+Decls()}}} and {\ttfamily \mbox{\hyperlink{group__CINDEX__TYPES_gab1c718b939700a6c23adfb9729c9c28f}{clang\+\_\+get\+Overloaded\+Decl()}}} can be used to retrieve the definitions referenced by this cursor. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Variable\+Ref@{C\+X\+Cursor\+\_\+\+Variable\+Ref}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Variable\+Ref@{C\+X\+Cursor\+\_\+\+Variable\+Ref}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a486b3ed7778e45331bbc3d32a62ee0da}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a486b3ed7778e45331bbc3d32a62ee0da}} 
+C\+X\+Cursor\+\_\+\+Variable\+Ref&A reference to a variable that occurs in some non-\/expression context, e.\+g., a C++ lambda capture list. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Unexposed\+Expr@{C\+X\+Cursor\+\_\+\+Unexposed\+Expr}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Unexposed\+Expr@{C\+X\+Cursor\+\_\+\+Unexposed\+Expr}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013aa4cd2c9319493a279d14815173e528a6}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013aa4cd2c9319493a279d14815173e528a6}} 
+C\+X\+Cursor\+\_\+\+Unexposed\+Expr&An expression whose specific kind is not exposed via this interface. Unexposed expressions have the same operations as any other kind of expression; one can extract their location information, spelling, children, etc. However, the specific kind of the expression is not reported. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Decl\+Ref\+Expr@{C\+X\+Cursor\+\_\+\+Decl\+Ref\+Expr}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Decl\+Ref\+Expr@{C\+X\+Cursor\+\_\+\+Decl\+Ref\+Expr}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ab2c157796e346c63591c3f29dcbb1abd}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ab2c157796e346c63591c3f29dcbb1abd}} 
+C\+X\+Cursor\+\_\+\+Decl\+Ref\+Expr&An expression that refers to some value declaration, such as a function, variable, or enumerator. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Member\+Ref\+Expr@{C\+X\+Cursor\+\_\+\+Member\+Ref\+Expr}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Member\+Ref\+Expr@{C\+X\+Cursor\+\_\+\+Member\+Ref\+Expr}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a9bf793c799487494c9fc49bb8c71d0cf}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a9bf793c799487494c9fc49bb8c71d0cf}} 
+C\+X\+Cursor\+\_\+\+Member\+Ref\+Expr&An expression that refers to a member of a struct, union, class, Objective-\/C class, etc. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Call\+Expr@{C\+X\+Cursor\+\_\+\+Call\+Expr}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Call\+Expr@{C\+X\+Cursor\+\_\+\+Call\+Expr}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ab1d69d8b2c22b45ebb9b58422f339215}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ab1d69d8b2c22b45ebb9b58422f339215}} 
+C\+X\+Cursor\+\_\+\+Call\+Expr&An expression that calls a function. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Obj\+C\+Message\+Expr@{C\+X\+Cursor\+\_\+\+Obj\+C\+Message\+Expr}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Obj\+C\+Message\+Expr@{C\+X\+Cursor\+\_\+\+Obj\+C\+Message\+Expr}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a63ddc1d6174c28b14ac76064096f6d5f}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a63ddc1d6174c28b14ac76064096f6d5f}} 
+C\+X\+Cursor\+\_\+\+Obj\+C\+Message\+Expr&An expression that sends a message to an Objective-\/C object or class. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Block\+Expr@{C\+X\+Cursor\+\_\+\+Block\+Expr}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Block\+Expr@{C\+X\+Cursor\+\_\+\+Block\+Expr}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a604b38262a4dbdb038ea369122b78a51}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a604b38262a4dbdb038ea369122b78a51}} 
+C\+X\+Cursor\+\_\+\+Block\+Expr&An expression that represents a block literal. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Integer\+Literal@{C\+X\+Cursor\+\_\+\+Integer\+Literal}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Integer\+Literal@{C\+X\+Cursor\+\_\+\+Integer\+Literal}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a946056f72a0903d9d3884cca061bcd5c}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a946056f72a0903d9d3884cca061bcd5c}} 
+C\+X\+Cursor\+\_\+\+Integer\+Literal&An integer literal. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Floating\+Literal@{C\+X\+Cursor\+\_\+\+Floating\+Literal}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Floating\+Literal@{C\+X\+Cursor\+\_\+\+Floating\+Literal}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a9967b897b1fa310742f3a7a400bf70ce}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a9967b897b1fa310742f3a7a400bf70ce}} 
+C\+X\+Cursor\+\_\+\+Floating\+Literal&A floating point number literal. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Imaginary\+Literal@{C\+X\+Cursor\+\_\+\+Imaginary\+Literal}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Imaginary\+Literal@{C\+X\+Cursor\+\_\+\+Imaginary\+Literal}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013aa5018d5ebeefc852389594d4065fb286}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013aa5018d5ebeefc852389594d4065fb286}} 
+C\+X\+Cursor\+\_\+\+Imaginary\+Literal&An imaginary number literal. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+String\+Literal@{C\+X\+Cursor\+\_\+\+String\+Literal}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+String\+Literal@{C\+X\+Cursor\+\_\+\+String\+Literal}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a43608032aaa335d2e7b73727ddb7f77c}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a43608032aaa335d2e7b73727ddb7f77c}} 
+C\+X\+Cursor\+\_\+\+String\+Literal&A string literal. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Character\+Literal@{C\+X\+Cursor\+\_\+\+Character\+Literal}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Character\+Literal@{C\+X\+Cursor\+\_\+\+Character\+Literal}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013aab532aab780ff63b83c0c5948301416f}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013aab532aab780ff63b83c0c5948301416f}} 
+C\+X\+Cursor\+\_\+\+Character\+Literal&A character literal. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Paren\+Expr@{C\+X\+Cursor\+\_\+\+Paren\+Expr}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Paren\+Expr@{C\+X\+Cursor\+\_\+\+Paren\+Expr}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013aecad70ef7b6c340ff210bdc3174904a3}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013aecad70ef7b6c340ff210bdc3174904a3}} 
+C\+X\+Cursor\+\_\+\+Paren\+Expr&A parenthesized expression, e.\+g. \char`\"{}(1)\char`\"{}. This A\+ST node is only formed if full location information is requested. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Unary\+Operator@{C\+X\+Cursor\+\_\+\+Unary\+Operator}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Unary\+Operator@{C\+X\+Cursor\+\_\+\+Unary\+Operator}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ab3b6ddd34a8e5412455d6d71d3651737}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ab3b6ddd34a8e5412455d6d71d3651737}} 
+C\+X\+Cursor\+\_\+\+Unary\+Operator&This represents the unary-\/expression\textquotesingle{}s (except sizeof and alignof). \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Array\+Subscript\+Expr@{C\+X\+Cursor\+\_\+\+Array\+Subscript\+Expr}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Array\+Subscript\+Expr@{C\+X\+Cursor\+\_\+\+Array\+Subscript\+Expr}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a8495150dd822da8600de122e252c71e5}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a8495150dd822da8600de122e252c71e5}} 
+C\+X\+Cursor\+\_\+\+Array\+Subscript\+Expr&\mbox{[}C99 6.\+5.\+2.\+1\mbox{]} Array Subscripting. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Binary\+Operator@{C\+X\+Cursor\+\_\+\+Binary\+Operator}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Binary\+Operator@{C\+X\+Cursor\+\_\+\+Binary\+Operator}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013aa34dd1dc82c97c7533e15cedbc97887e}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013aa34dd1dc82c97c7533e15cedbc97887e}} 
+C\+X\+Cursor\+\_\+\+Binary\+Operator&A builtin binary operation expression such as \char`\"{}x + y\char`\"{} or \char`\"{}x $<$= y\char`\"{}. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Compound\+Assign\+Operator@{C\+X\+Cursor\+\_\+\+Compound\+Assign\+Operator}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Compound\+Assign\+Operator@{C\+X\+Cursor\+\_\+\+Compound\+Assign\+Operator}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a6c7ac4cb9a31c9f8632ac534a37d3147}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a6c7ac4cb9a31c9f8632ac534a37d3147}} 
+C\+X\+Cursor\+\_\+\+Compound\+Assign\+Operator&Compound assignment such as \char`\"{}+=\char`\"{}. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Conditional\+Operator@{C\+X\+Cursor\+\_\+\+Conditional\+Operator}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Conditional\+Operator@{C\+X\+Cursor\+\_\+\+Conditional\+Operator}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a7a8600b3fc565cf98fc19868ad0e9312}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a7a8600b3fc565cf98fc19868ad0e9312}} 
+C\+X\+Cursor\+\_\+\+Conditional\+Operator&The ?\+: ternary operator. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+C\+Style\+Cast\+Expr@{C\+X\+Cursor\+\_\+\+C\+Style\+Cast\+Expr}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+C\+Style\+Cast\+Expr@{C\+X\+Cursor\+\_\+\+C\+Style\+Cast\+Expr}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a9ed7b3cbaeed7a1f334972734f0d9adc}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a9ed7b3cbaeed7a1f334972734f0d9adc}} 
+C\+X\+Cursor\+\_\+\+C\+Style\+Cast\+Expr&An explicit cast in C (C99 6.\+5.\+4) or a C-\/style cast in C++ (C++ \mbox{[}expr.\+cast\mbox{]}), which uses the syntax (Type)expr. For example\+: (int)f. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Compound\+Literal\+Expr@{C\+X\+Cursor\+\_\+\+Compound\+Literal\+Expr}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Compound\+Literal\+Expr@{C\+X\+Cursor\+\_\+\+Compound\+Literal\+Expr}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013afd4ae3147181f01e58674becb84ba8e4}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013afd4ae3147181f01e58674becb84ba8e4}} 
+C\+X\+Cursor\+\_\+\+Compound\+Literal\+Expr&\mbox{[}C99 6.\+5.\+2.\+5\mbox{]} \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Init\+List\+Expr@{C\+X\+Cursor\+\_\+\+Init\+List\+Expr}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Init\+List\+Expr@{C\+X\+Cursor\+\_\+\+Init\+List\+Expr}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013adc1f459e87f63376f76b586c17d7be3f}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013adc1f459e87f63376f76b586c17d7be3f}} 
+C\+X\+Cursor\+\_\+\+Init\+List\+Expr&Describes an C or C++ initializer list. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Addr\+Label\+Expr@{C\+X\+Cursor\+\_\+\+Addr\+Label\+Expr}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Addr\+Label\+Expr@{C\+X\+Cursor\+\_\+\+Addr\+Label\+Expr}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ac469d4a2b9b27dbacc7d2bb0e42ac279}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ac469d4a2b9b27dbacc7d2bb0e42ac279}} 
+C\+X\+Cursor\+\_\+\+Addr\+Label\+Expr&The G\+NU address of label extension, representing \&\&label. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Stmt\+Expr@{C\+X\+Cursor\+\_\+\+Stmt\+Expr}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Stmt\+Expr@{C\+X\+Cursor\+\_\+\+Stmt\+Expr}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ac0225f62ae94315626eb119b2d46fe93}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ac0225f62ae94315626eb119b2d46fe93}} 
+C\+X\+Cursor\+\_\+\+Stmt\+Expr&This is the G\+NU Statement Expression extension\+: (\{int X=4; X;\}) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Generic\+Selection\+Expr@{C\+X\+Cursor\+\_\+\+Generic\+Selection\+Expr}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Generic\+Selection\+Expr@{C\+X\+Cursor\+\_\+\+Generic\+Selection\+Expr}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a4f464b56e9d72d62260a44e91afe0c2d}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a4f464b56e9d72d62260a44e91afe0c2d}} 
+C\+X\+Cursor\+\_\+\+Generic\+Selection\+Expr&Represents a C11 generic selection. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+G\+N\+U\+Null\+Expr@{C\+X\+Cursor\+\_\+\+G\+N\+U\+Null\+Expr}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+G\+N\+U\+Null\+Expr@{C\+X\+Cursor\+\_\+\+G\+N\+U\+Null\+Expr}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a38c6fac77a4c741b91a94b00a7b079f2}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a38c6fac77a4c741b91a94b00a7b079f2}} 
+C\+X\+Cursor\+\_\+\+G\+N\+U\+Null\+Expr&Implements the G\+NU \+\_\+\+\_\+null extension, which is a name for a null pointer constant that has integral type (e.\+g., int or long) and is the same size and alignment as a pointer. The \+\_\+\+\_\+null extension is typically only used by system headers, which define N\+U\+LL as \+\_\+\+\_\+null in C++ rather than using 0 (which is an integer that may not match the size of a pointer). \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+C\+X\+X\+Static\+Cast\+Expr@{C\+X\+Cursor\+\_\+\+C\+X\+X\+Static\+Cast\+Expr}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+C\+X\+X\+Static\+Cast\+Expr@{C\+X\+Cursor\+\_\+\+C\+X\+X\+Static\+Cast\+Expr}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a51ca467caab02e5243c859b5e13eda89}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a51ca467caab02e5243c859b5e13eda89}} 
+C\+X\+Cursor\+\_\+\+C\+X\+X\+Static\+Cast\+Expr&C++\textquotesingle{}s static\+\_\+cast$<$$>$ expression. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+C\+X\+X\+Dynamic\+Cast\+Expr@{C\+X\+Cursor\+\_\+\+C\+X\+X\+Dynamic\+Cast\+Expr}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+C\+X\+X\+Dynamic\+Cast\+Expr@{C\+X\+Cursor\+\_\+\+C\+X\+X\+Dynamic\+Cast\+Expr}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013acd97fb4396b1623c4c8c756ee2214188}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013acd97fb4396b1623c4c8c756ee2214188}} 
+C\+X\+Cursor\+\_\+\+C\+X\+X\+Dynamic\+Cast\+Expr&C++\textquotesingle{}s dynamic\+\_\+cast$<$$>$ expression. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+C\+X\+X\+Reinterpret\+Cast\+Expr@{C\+X\+Cursor\+\_\+\+C\+X\+X\+Reinterpret\+Cast\+Expr}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+C\+X\+X\+Reinterpret\+Cast\+Expr@{C\+X\+Cursor\+\_\+\+C\+X\+X\+Reinterpret\+Cast\+Expr}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a0b2b3cfb02213da0fe772dde2dcbae96}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a0b2b3cfb02213da0fe772dde2dcbae96}} 
+C\+X\+Cursor\+\_\+\+C\+X\+X\+Reinterpret\+Cast\+Expr&C++\textquotesingle{}s reinterpret\+\_\+cast$<$$>$ expression. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+C\+X\+X\+Const\+Cast\+Expr@{C\+X\+Cursor\+\_\+\+C\+X\+X\+Const\+Cast\+Expr}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+C\+X\+X\+Const\+Cast\+Expr@{C\+X\+Cursor\+\_\+\+C\+X\+X\+Const\+Cast\+Expr}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a6f493001ae96bc89366f2a52c5d02f61}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a6f493001ae96bc89366f2a52c5d02f61}} 
+C\+X\+Cursor\+\_\+\+C\+X\+X\+Const\+Cast\+Expr&C++\textquotesingle{}s const\+\_\+cast$<$$>$ expression. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+C\+X\+X\+Functional\+Cast\+Expr@{C\+X\+Cursor\+\_\+\+C\+X\+X\+Functional\+Cast\+Expr}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+C\+X\+X\+Functional\+Cast\+Expr@{C\+X\+Cursor\+\_\+\+C\+X\+X\+Functional\+Cast\+Expr}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013accf6190684dcc68e69873dc96db2c8f5}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013accf6190684dcc68e69873dc96db2c8f5}} 
+C\+X\+Cursor\+\_\+\+C\+X\+X\+Functional\+Cast\+Expr&Represents an explicit C++ type conversion that uses \char`\"{}functional\char`\"{} notion (C++ \mbox{[}expr.\+type.\+conv\mbox{]}). Example\+: 
+\begin{DoxyCode}
+x = int(0.5);
+\end{DoxyCode}
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+C\+X\+X\+Typeid\+Expr@{C\+X\+Cursor\+\_\+\+C\+X\+X\+Typeid\+Expr}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+C\+X\+X\+Typeid\+Expr@{C\+X\+Cursor\+\_\+\+C\+X\+X\+Typeid\+Expr}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a1407f2d28fe282e70c39a669b1b41c39}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a1407f2d28fe282e70c39a669b1b41c39}} 
+C\+X\+Cursor\+\_\+\+C\+X\+X\+Typeid\+Expr&A C++ typeid expression (C++ \mbox{[}expr.\+typeid\mbox{]}). \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+C\+X\+X\+Bool\+Literal\+Expr@{C\+X\+Cursor\+\_\+\+C\+X\+X\+Bool\+Literal\+Expr}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+C\+X\+X\+Bool\+Literal\+Expr@{C\+X\+Cursor\+\_\+\+C\+X\+X\+Bool\+Literal\+Expr}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ad378ee9b312d762d93fff65c3a9cc0cf}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ad378ee9b312d762d93fff65c3a9cc0cf}} 
+C\+X\+Cursor\+\_\+\+C\+X\+X\+Bool\+Literal\+Expr&\mbox{[}C++ 2.\+13.\+5\mbox{]} C++ Boolean Literal. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+C\+X\+X\+Null\+Ptr\+Literal\+Expr@{C\+X\+Cursor\+\_\+\+C\+X\+X\+Null\+Ptr\+Literal\+Expr}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+C\+X\+X\+Null\+Ptr\+Literal\+Expr@{C\+X\+Cursor\+\_\+\+C\+X\+X\+Null\+Ptr\+Literal\+Expr}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013aa115e984a6f727186f11fd21c587742e}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013aa115e984a6f727186f11fd21c587742e}} 
+C\+X\+Cursor\+\_\+\+C\+X\+X\+Null\+Ptr\+Literal\+Expr&\mbox{[}C++0x 2.\+14.\+7\mbox{]} C++ Pointer Literal. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+C\+X\+X\+This\+Expr@{C\+X\+Cursor\+\_\+\+C\+X\+X\+This\+Expr}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+C\+X\+X\+This\+Expr@{C\+X\+Cursor\+\_\+\+C\+X\+X\+This\+Expr}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013adcc61c629320506d5821160e7b569536}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013adcc61c629320506d5821160e7b569536}} 
+C\+X\+Cursor\+\_\+\+C\+X\+X\+This\+Expr&Represents the \char`\"{}this\char`\"{} expression in C++. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+C\+X\+X\+Throw\+Expr@{C\+X\+Cursor\+\_\+\+C\+X\+X\+Throw\+Expr}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+C\+X\+X\+Throw\+Expr@{C\+X\+Cursor\+\_\+\+C\+X\+X\+Throw\+Expr}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a1aea9bb71640f79f3a4903cceee9a7d2}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a1aea9bb71640f79f3a4903cceee9a7d2}} 
+C\+X\+Cursor\+\_\+\+C\+X\+X\+Throw\+Expr&\mbox{[}C++ 15\mbox{]} C++ Throw Expression. This handles \textquotesingle{}throw\textquotesingle{} and \textquotesingle{}throw\textquotesingle{} assignment-\/expression. When assignment-\/expression isn\textquotesingle{}t present, Op will be null. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+C\+X\+X\+New\+Expr@{C\+X\+Cursor\+\_\+\+C\+X\+X\+New\+Expr}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+C\+X\+X\+New\+Expr@{C\+X\+Cursor\+\_\+\+C\+X\+X\+New\+Expr}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013af56fc0fa2f46039c5952f70332f3847a}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013af56fc0fa2f46039c5952f70332f3847a}} 
+C\+X\+Cursor\+\_\+\+C\+X\+X\+New\+Expr&A new expression for memory allocation and constructor calls, e.\+g\+: \char`\"{}new C\+X\+X\+New\+Expr(foo)\char`\"{}. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+C\+X\+X\+Delete\+Expr@{C\+X\+Cursor\+\_\+\+C\+X\+X\+Delete\+Expr}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+C\+X\+X\+Delete\+Expr@{C\+X\+Cursor\+\_\+\+C\+X\+X\+Delete\+Expr}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013af71c9e64150c98a1f48e47d9e0dd3360}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013af71c9e64150c98a1f48e47d9e0dd3360}} 
+C\+X\+Cursor\+\_\+\+C\+X\+X\+Delete\+Expr&A delete expression for memory deallocation and destructor calls, e.\+g. \char`\"{}delete\mbox{[}$\,$\mbox{]} p\+Array\char`\"{}. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Unary\+Expr@{C\+X\+Cursor\+\_\+\+Unary\+Expr}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Unary\+Expr@{C\+X\+Cursor\+\_\+\+Unary\+Expr}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a2313a35a07ae0fc6b1ba588fd80feb80}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a2313a35a07ae0fc6b1ba588fd80feb80}} 
+C\+X\+Cursor\+\_\+\+Unary\+Expr&A unary expression. (noexcept, sizeof, or other traits) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Obj\+C\+String\+Literal@{C\+X\+Cursor\+\_\+\+Obj\+C\+String\+Literal}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Obj\+C\+String\+Literal@{C\+X\+Cursor\+\_\+\+Obj\+C\+String\+Literal}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ae0487b82734561e91b351d94cab87a07}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ae0487b82734561e91b351d94cab87a07}} 
+C\+X\+Cursor\+\_\+\+Obj\+C\+String\+Literal&An Objective-\/C string literal i.\+e. "foo". \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Obj\+C\+Encode\+Expr@{C\+X\+Cursor\+\_\+\+Obj\+C\+Encode\+Expr}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Obj\+C\+Encode\+Expr@{C\+X\+Cursor\+\_\+\+Obj\+C\+Encode\+Expr}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a0cdd3dd924e390add2d22ebcd093ac60}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a0cdd3dd924e390add2d22ebcd093ac60}} 
+C\+X\+Cursor\+\_\+\+Obj\+C\+Encode\+Expr&An Objective-\/C @encode expression. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Obj\+C\+Selector\+Expr@{C\+X\+Cursor\+\_\+\+Obj\+C\+Selector\+Expr}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Obj\+C\+Selector\+Expr@{C\+X\+Cursor\+\_\+\+Obj\+C\+Selector\+Expr}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a2552090997270e9bcde22fb6caacd6bd}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a2552090997270e9bcde22fb6caacd6bd}} 
+C\+X\+Cursor\+\_\+\+Obj\+C\+Selector\+Expr&An Objective-\/C @selector expression. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Obj\+C\+Protocol\+Expr@{C\+X\+Cursor\+\_\+\+Obj\+C\+Protocol\+Expr}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Obj\+C\+Protocol\+Expr@{C\+X\+Cursor\+\_\+\+Obj\+C\+Protocol\+Expr}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013af784374daedef605e274f9c79c089170}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013af784374daedef605e274f9c79c089170}} 
+C\+X\+Cursor\+\_\+\+Obj\+C\+Protocol\+Expr&An Objective-\/C @protocol expression. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Obj\+C\+Bridged\+Cast\+Expr@{C\+X\+Cursor\+\_\+\+Obj\+C\+Bridged\+Cast\+Expr}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Obj\+C\+Bridged\+Cast\+Expr@{C\+X\+Cursor\+\_\+\+Obj\+C\+Bridged\+Cast\+Expr}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a264832cf042add519760f607ca109284}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a264832cf042add519760f607ca109284}} 
+C\+X\+Cursor\+\_\+\+Obj\+C\+Bridged\+Cast\+Expr&An Objective-\/C \char`\"{}bridged\char`\"{} cast expression, which casts between Objective-\/C pointers and C pointers, transferring ownership in the process. 
+\begin{DoxyCode}
+NSString *str = (\_\_bridge\_transfer NSString *)CFCreateString();
+\end{DoxyCode}
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Pack\+Expansion\+Expr@{C\+X\+Cursor\+\_\+\+Pack\+Expansion\+Expr}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Pack\+Expansion\+Expr@{C\+X\+Cursor\+\_\+\+Pack\+Expansion\+Expr}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a324ba319efcc36f15f46270e997f4768}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a324ba319efcc36f15f46270e997f4768}} 
+C\+X\+Cursor\+\_\+\+Pack\+Expansion\+Expr&Represents a C++0x pack expansion that produces a sequence of expressions. A pack expansion expression contains a pattern (which itself is an expression) followed by an ellipsis. For example\+:
+
+
+\begin{DoxyCode}
+template<typename F, typename ...Types>
+void forward(F f, Types &&...args) \{
+ f(static\_cast<Types&&>(args)...);
+\}
+\end{DoxyCode}
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Size\+Of\+Pack\+Expr@{C\+X\+Cursor\+\_\+\+Size\+Of\+Pack\+Expr}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Size\+Of\+Pack\+Expr@{C\+X\+Cursor\+\_\+\+Size\+Of\+Pack\+Expr}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a4daabb1bf31be952b27220b3b1dde42d}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a4daabb1bf31be952b27220b3b1dde42d}} 
+C\+X\+Cursor\+\_\+\+Size\+Of\+Pack\+Expr&Represents an expression that computes the length of a parameter pack. 
+\begin{DoxyCode}
+template<typename ...Types>
+struct count \{
+  static const unsigned value = sizeof...(Types);
+\};
+\end{DoxyCode}
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Obj\+C\+Bool\+Literal\+Expr@{C\+X\+Cursor\+\_\+\+Obj\+C\+Bool\+Literal\+Expr}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Obj\+C\+Bool\+Literal\+Expr@{C\+X\+Cursor\+\_\+\+Obj\+C\+Bool\+Literal\+Expr}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a4204fc2996d75629916b2a2ac27e5141}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a4204fc2996d75629916b2a2ac27e5141}} 
+C\+X\+Cursor\+\_\+\+Obj\+C\+Bool\+Literal\+Expr&Objective-\/c Boolean Literal. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Obj\+C\+Self\+Expr@{C\+X\+Cursor\+\_\+\+Obj\+C\+Self\+Expr}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Obj\+C\+Self\+Expr@{C\+X\+Cursor\+\_\+\+Obj\+C\+Self\+Expr}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a5be42075dea704a991f7f53a61aa23f0}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a5be42075dea704a991f7f53a61aa23f0}} 
+C\+X\+Cursor\+\_\+\+Obj\+C\+Self\+Expr&Represents the \char`\"{}self\char`\"{} expression in an Objective-\/C method. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+O\+M\+P\+Array\+Section\+Expr@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Array\+Section\+Expr}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+O\+M\+P\+Array\+Section\+Expr@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Array\+Section\+Expr}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013abfc796d31916b39981a88cec61eef950}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013abfc796d31916b39981a88cec61eef950}} 
+C\+X\+Cursor\+\_\+\+O\+M\+P\+Array\+Section\+Expr&Open\+MP 4.\+0 \mbox{[}2.\+4, Array Section\mbox{]}. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Obj\+C\+Availability\+Check\+Expr@{C\+X\+Cursor\+\_\+\+Obj\+C\+Availability\+Check\+Expr}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Obj\+C\+Availability\+Check\+Expr@{C\+X\+Cursor\+\_\+\+Obj\+C\+Availability\+Check\+Expr}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a46a8ec32db046ae930ae806358be8585}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a46a8ec32db046ae930ae806358be8585}} 
+C\+X\+Cursor\+\_\+\+Obj\+C\+Availability\+Check\+Expr&Represents an (...) check. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Unexposed\+Stmt@{C\+X\+Cursor\+\_\+\+Unexposed\+Stmt}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Unexposed\+Stmt@{C\+X\+Cursor\+\_\+\+Unexposed\+Stmt}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a3cd008e10ab67d7f793e3ecc4ce9953b}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a3cd008e10ab67d7f793e3ecc4ce9953b}} 
+C\+X\+Cursor\+\_\+\+Unexposed\+Stmt&A statement whose specific kind is not exposed via this interface. Unexposed statements have the same operations as any other kind of statement; one can extract their location information, spelling, children, etc. However, the specific kind of the statement is not reported. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Label\+Stmt@{C\+X\+Cursor\+\_\+\+Label\+Stmt}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Label\+Stmt@{C\+X\+Cursor\+\_\+\+Label\+Stmt}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a3cd4b745869f56b1e2ba5c8c6d053347}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a3cd4b745869f56b1e2ba5c8c6d053347}} 
+C\+X\+Cursor\+\_\+\+Label\+Stmt&A labelled statement in a function. This cursor kind is used to describe the \char`\"{}start\+\_\+over\+:\char`\"{} label statement in the following example\+:
+
+
+\begin{DoxyCode}
+start\_over:
+  ++counter;
+\end{DoxyCode}
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Compound\+Stmt@{C\+X\+Cursor\+\_\+\+Compound\+Stmt}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Compound\+Stmt@{C\+X\+Cursor\+\_\+\+Compound\+Stmt}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a99bd08d3c3a46bf0afb8439933e38108}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a99bd08d3c3a46bf0afb8439933e38108}} 
+C\+X\+Cursor\+\_\+\+Compound\+Stmt&A group of statements like \{ stmt stmt \}. This cursor kind is used to describe compound statements, e.\+g. function bodies. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Case\+Stmt@{C\+X\+Cursor\+\_\+\+Case\+Stmt}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Case\+Stmt@{C\+X\+Cursor\+\_\+\+Case\+Stmt}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013aa9891e0fc0c70248f0d2a249199c338d}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013aa9891e0fc0c70248f0d2a249199c338d}} 
+C\+X\+Cursor\+\_\+\+Case\+Stmt&A case statement. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Default\+Stmt@{C\+X\+Cursor\+\_\+\+Default\+Stmt}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Default\+Stmt@{C\+X\+Cursor\+\_\+\+Default\+Stmt}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ad3923e3d334b373faa710c0ca59e3681}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ad3923e3d334b373faa710c0ca59e3681}} 
+C\+X\+Cursor\+\_\+\+Default\+Stmt&A default statement. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+If\+Stmt@{C\+X\+Cursor\+\_\+\+If\+Stmt}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+If\+Stmt@{C\+X\+Cursor\+\_\+\+If\+Stmt}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a1997bdc80aebe5013ccda2b3626fdcd2}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a1997bdc80aebe5013ccda2b3626fdcd2}} 
+C\+X\+Cursor\+\_\+\+If\+Stmt&An if statement. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Switch\+Stmt@{C\+X\+Cursor\+\_\+\+Switch\+Stmt}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Switch\+Stmt@{C\+X\+Cursor\+\_\+\+Switch\+Stmt}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a52e999781cbb23503e43e669e7a0bf96}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a52e999781cbb23503e43e669e7a0bf96}} 
+C\+X\+Cursor\+\_\+\+Switch\+Stmt&A switch statement. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+While\+Stmt@{C\+X\+Cursor\+\_\+\+While\+Stmt}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+While\+Stmt@{C\+X\+Cursor\+\_\+\+While\+Stmt}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013addcf5bf1f783219842a70bf6e6501281}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013addcf5bf1f783219842a70bf6e6501281}} 
+C\+X\+Cursor\+\_\+\+While\+Stmt&A while statement. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Do\+Stmt@{C\+X\+Cursor\+\_\+\+Do\+Stmt}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Do\+Stmt@{C\+X\+Cursor\+\_\+\+Do\+Stmt}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a8d7b6c4ae06fccc6e1511a6613602e87}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a8d7b6c4ae06fccc6e1511a6613602e87}} 
+C\+X\+Cursor\+\_\+\+Do\+Stmt&A do statement. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+For\+Stmt@{C\+X\+Cursor\+\_\+\+For\+Stmt}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+For\+Stmt@{C\+X\+Cursor\+\_\+\+For\+Stmt}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a7a71e1975f72cd289ef187873bf5dd74}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a7a71e1975f72cd289ef187873bf5dd74}} 
+C\+X\+Cursor\+\_\+\+For\+Stmt&A for statement. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Goto\+Stmt@{C\+X\+Cursor\+\_\+\+Goto\+Stmt}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Goto\+Stmt@{C\+X\+Cursor\+\_\+\+Goto\+Stmt}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a23d622875628fd57c9144297acfcdac0}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a23d622875628fd57c9144297acfcdac0}} 
+C\+X\+Cursor\+\_\+\+Goto\+Stmt&A goto statement. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Indirect\+Goto\+Stmt@{C\+X\+Cursor\+\_\+\+Indirect\+Goto\+Stmt}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Indirect\+Goto\+Stmt@{C\+X\+Cursor\+\_\+\+Indirect\+Goto\+Stmt}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a7affcfe7c86e14cc95e7cbb989a91d02}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a7affcfe7c86e14cc95e7cbb989a91d02}} 
+C\+X\+Cursor\+\_\+\+Indirect\+Goto\+Stmt&An indirect goto statement. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Continue\+Stmt@{C\+X\+Cursor\+\_\+\+Continue\+Stmt}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Continue\+Stmt@{C\+X\+Cursor\+\_\+\+Continue\+Stmt}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a96d8bc12eeda39658b0bc85607608f12}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a96d8bc12eeda39658b0bc85607608f12}} 
+C\+X\+Cursor\+\_\+\+Continue\+Stmt&A continue statement. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Break\+Stmt@{C\+X\+Cursor\+\_\+\+Break\+Stmt}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Break\+Stmt@{C\+X\+Cursor\+\_\+\+Break\+Stmt}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ae4f696f3bf5a184ee4bfbf264c45168b}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ae4f696f3bf5a184ee4bfbf264c45168b}} 
+C\+X\+Cursor\+\_\+\+Break\+Stmt&A break statement. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Return\+Stmt@{C\+X\+Cursor\+\_\+\+Return\+Stmt}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Return\+Stmt@{C\+X\+Cursor\+\_\+\+Return\+Stmt}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ad3dae6463eadb68c9cabadd4d07747a1}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ad3dae6463eadb68c9cabadd4d07747a1}} 
+C\+X\+Cursor\+\_\+\+Return\+Stmt&A return statement. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+G\+C\+C\+Asm\+Stmt@{C\+X\+Cursor\+\_\+\+G\+C\+C\+Asm\+Stmt}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+G\+C\+C\+Asm\+Stmt@{C\+X\+Cursor\+\_\+\+G\+C\+C\+Asm\+Stmt}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a44d904fb3a49e0ef796d37da3ccba856}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a44d904fb3a49e0ef796d37da3ccba856}} 
+C\+X\+Cursor\+\_\+\+G\+C\+C\+Asm\+Stmt&A G\+CC inline assembly statement extension. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Obj\+C\+At\+Try\+Stmt@{C\+X\+Cursor\+\_\+\+Obj\+C\+At\+Try\+Stmt}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Obj\+C\+At\+Try\+Stmt@{C\+X\+Cursor\+\_\+\+Obj\+C\+At\+Try\+Stmt}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013aff57a3d1546a888930695f1246961caa}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013aff57a3d1546a888930695f1246961caa}} 
+C\+X\+Cursor\+\_\+\+Obj\+C\+At\+Try\+Stmt&Objective-\/C\textquotesingle{}s overall @try-\/@catch-\/@finally statement. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Obj\+C\+At\+Catch\+Stmt@{C\+X\+Cursor\+\_\+\+Obj\+C\+At\+Catch\+Stmt}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Obj\+C\+At\+Catch\+Stmt@{C\+X\+Cursor\+\_\+\+Obj\+C\+At\+Catch\+Stmt}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013affd93272a86359e5ba278c028127c840}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013affd93272a86359e5ba278c028127c840}} 
+C\+X\+Cursor\+\_\+\+Obj\+C\+At\+Catch\+Stmt&Objective-\/C\textquotesingle{}s @catch statement. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Obj\+C\+At\+Finally\+Stmt@{C\+X\+Cursor\+\_\+\+Obj\+C\+At\+Finally\+Stmt}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Obj\+C\+At\+Finally\+Stmt@{C\+X\+Cursor\+\_\+\+Obj\+C\+At\+Finally\+Stmt}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a322e75d2cad1d6b31c1487e90cdc0092}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a322e75d2cad1d6b31c1487e90cdc0092}} 
+C\+X\+Cursor\+\_\+\+Obj\+C\+At\+Finally\+Stmt&Objective-\/C\textquotesingle{}s @finally statement. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Obj\+C\+At\+Throw\+Stmt@{C\+X\+Cursor\+\_\+\+Obj\+C\+At\+Throw\+Stmt}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Obj\+C\+At\+Throw\+Stmt@{C\+X\+Cursor\+\_\+\+Obj\+C\+At\+Throw\+Stmt}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a8f7db99081659953ff2b02fdd3b23d56}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a8f7db99081659953ff2b02fdd3b23d56}} 
+C\+X\+Cursor\+\_\+\+Obj\+C\+At\+Throw\+Stmt&Objective-\/C\textquotesingle{}s @throw statement. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Obj\+C\+At\+Synchronized\+Stmt@{C\+X\+Cursor\+\_\+\+Obj\+C\+At\+Synchronized\+Stmt}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Obj\+C\+At\+Synchronized\+Stmt@{C\+X\+Cursor\+\_\+\+Obj\+C\+At\+Synchronized\+Stmt}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a56ca7aeb87bd0472d0f02279aa2b650f}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a56ca7aeb87bd0472d0f02279aa2b650f}} 
+C\+X\+Cursor\+\_\+\+Obj\+C\+At\+Synchronized\+Stmt&Objective-\/C\textquotesingle{}s @synchronized statement. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Obj\+C\+Autorelease\+Pool\+Stmt@{C\+X\+Cursor\+\_\+\+Obj\+C\+Autorelease\+Pool\+Stmt}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Obj\+C\+Autorelease\+Pool\+Stmt@{C\+X\+Cursor\+\_\+\+Obj\+C\+Autorelease\+Pool\+Stmt}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a6b41fdd415d066d7aada475721a321ad}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a6b41fdd415d066d7aada475721a321ad}} 
+C\+X\+Cursor\+\_\+\+Obj\+C\+Autorelease\+Pool\+Stmt&Objective-\/C\textquotesingle{}s autorelease pool statement. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Obj\+C\+For\+Collection\+Stmt@{C\+X\+Cursor\+\_\+\+Obj\+C\+For\+Collection\+Stmt}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Obj\+C\+For\+Collection\+Stmt@{C\+X\+Cursor\+\_\+\+Obj\+C\+For\+Collection\+Stmt}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013aecde640b75cea8a9b87400e5a185d1c0}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013aecde640b75cea8a9b87400e5a185d1c0}} 
+C\+X\+Cursor\+\_\+\+Obj\+C\+For\+Collection\+Stmt&Objective-\/C\textquotesingle{}s collection statement. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+C\+X\+X\+Catch\+Stmt@{C\+X\+Cursor\+\_\+\+C\+X\+X\+Catch\+Stmt}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+C\+X\+X\+Catch\+Stmt@{C\+X\+Cursor\+\_\+\+C\+X\+X\+Catch\+Stmt}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ad6b3b71b6da4cb7400dbae4257b21fdb}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ad6b3b71b6da4cb7400dbae4257b21fdb}} 
+C\+X\+Cursor\+\_\+\+C\+X\+X\+Catch\+Stmt&C++\textquotesingle{}s catch statement. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+C\+X\+X\+Try\+Stmt@{C\+X\+Cursor\+\_\+\+C\+X\+X\+Try\+Stmt}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+C\+X\+X\+Try\+Stmt@{C\+X\+Cursor\+\_\+\+C\+X\+X\+Try\+Stmt}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ac257ca1c3a83503309e27906ec98fa63}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ac257ca1c3a83503309e27906ec98fa63}} 
+C\+X\+Cursor\+\_\+\+C\+X\+X\+Try\+Stmt&C++\textquotesingle{}s try statement. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+C\+X\+X\+For\+Range\+Stmt@{C\+X\+Cursor\+\_\+\+C\+X\+X\+For\+Range\+Stmt}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+C\+X\+X\+For\+Range\+Stmt@{C\+X\+Cursor\+\_\+\+C\+X\+X\+For\+Range\+Stmt}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a68343b6c9f58bac81176426233e0ee44}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a68343b6c9f58bac81176426233e0ee44}} 
+C\+X\+Cursor\+\_\+\+C\+X\+X\+For\+Range\+Stmt&C++\textquotesingle{}s for ($\ast$ \+: $\ast$) statement. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+S\+E\+H\+Try\+Stmt@{C\+X\+Cursor\+\_\+\+S\+E\+H\+Try\+Stmt}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+S\+E\+H\+Try\+Stmt@{C\+X\+Cursor\+\_\+\+S\+E\+H\+Try\+Stmt}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ac856f9135a37c301e18cdf991df0dbc4}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ac856f9135a37c301e18cdf991df0dbc4}} 
+C\+X\+Cursor\+\_\+\+S\+E\+H\+Try\+Stmt&Windows Structured Exception Handling\textquotesingle{}s try statement. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+S\+E\+H\+Except\+Stmt@{C\+X\+Cursor\+\_\+\+S\+E\+H\+Except\+Stmt}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+S\+E\+H\+Except\+Stmt@{C\+X\+Cursor\+\_\+\+S\+E\+H\+Except\+Stmt}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013abe402198c171461aac89931b4cdc9b26}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013abe402198c171461aac89931b4cdc9b26}} 
+C\+X\+Cursor\+\_\+\+S\+E\+H\+Except\+Stmt&Windows Structured Exception Handling\textquotesingle{}s except statement. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+S\+E\+H\+Finally\+Stmt@{C\+X\+Cursor\+\_\+\+S\+E\+H\+Finally\+Stmt}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+S\+E\+H\+Finally\+Stmt@{C\+X\+Cursor\+\_\+\+S\+E\+H\+Finally\+Stmt}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a21887723b6c14a71c13835d1343bf15d}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a21887723b6c14a71c13835d1343bf15d}} 
+C\+X\+Cursor\+\_\+\+S\+E\+H\+Finally\+Stmt&Windows Structured Exception Handling\textquotesingle{}s finally statement. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+M\+S\+Asm\+Stmt@{C\+X\+Cursor\+\_\+\+M\+S\+Asm\+Stmt}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+M\+S\+Asm\+Stmt@{C\+X\+Cursor\+\_\+\+M\+S\+Asm\+Stmt}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a94e1399541d4818e292a357c59d9dfe9}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a94e1399541d4818e292a357c59d9dfe9}} 
+C\+X\+Cursor\+\_\+\+M\+S\+Asm\+Stmt&A MS inline assembly statement extension. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Null\+Stmt@{C\+X\+Cursor\+\_\+\+Null\+Stmt}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Null\+Stmt@{C\+X\+Cursor\+\_\+\+Null\+Stmt}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a8579a2a2d62771ebce1dcf84c85bf15d}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a8579a2a2d62771ebce1dcf84c85bf15d}} 
+C\+X\+Cursor\+\_\+\+Null\+Stmt&The null statement \char`\"{};\char`\"{}\+: C99 6.\+8.\+3p3. This cursor kind is used to describe the null statement. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Decl\+Stmt@{C\+X\+Cursor\+\_\+\+Decl\+Stmt}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Decl\+Stmt@{C\+X\+Cursor\+\_\+\+Decl\+Stmt}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a6598b74e6f047dcdd1adb9becb52545b}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a6598b74e6f047dcdd1adb9becb52545b}} 
+C\+X\+Cursor\+\_\+\+Decl\+Stmt&Adaptor class for mixing declarations with statements and expressions. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+O\+M\+P\+Parallel\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Parallel\+Directive}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+O\+M\+P\+Parallel\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Parallel\+Directive}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a15c9cad35ab676ad9d34c1d6858b8216}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a15c9cad35ab676ad9d34c1d6858b8216}} 
+C\+X\+Cursor\+\_\+\+O\+M\+P\+Parallel\+Directive&Open\+MP parallel directive. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+O\+M\+P\+Simd\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Simd\+Directive}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+O\+M\+P\+Simd\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Simd\+Directive}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a26cc7e8cf7fc0acebd696b2791780424}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a26cc7e8cf7fc0acebd696b2791780424}} 
+C\+X\+Cursor\+\_\+\+O\+M\+P\+Simd\+Directive&Open\+MP S\+I\+MD directive. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+O\+M\+P\+For\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+For\+Directive}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+O\+M\+P\+For\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+For\+Directive}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013abb0ca2763f52ea1c3f0375ea79aca6d6}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013abb0ca2763f52ea1c3f0375ea79aca6d6}} 
+C\+X\+Cursor\+\_\+\+O\+M\+P\+For\+Directive&Open\+MP for directive. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+O\+M\+P\+Sections\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Sections\+Directive}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+O\+M\+P\+Sections\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Sections\+Directive}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a12436a697bd159df276ca2888e884669}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a12436a697bd159df276ca2888e884669}} 
+C\+X\+Cursor\+\_\+\+O\+M\+P\+Sections\+Directive&Open\+MP sections directive. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+O\+M\+P\+Section\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Section\+Directive}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+O\+M\+P\+Section\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Section\+Directive}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a51a65e49d807365b879d3577aaa2f0d2}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a51a65e49d807365b879d3577aaa2f0d2}} 
+C\+X\+Cursor\+\_\+\+O\+M\+P\+Section\+Directive&Open\+MP section directive. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+O\+M\+P\+Single\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Single\+Directive}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+O\+M\+P\+Single\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Single\+Directive}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a9761822bd34a77959e3016e5ad05adee}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a9761822bd34a77959e3016e5ad05adee}} 
+C\+X\+Cursor\+\_\+\+O\+M\+P\+Single\+Directive&Open\+MP single directive. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+O\+M\+P\+Parallel\+For\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Parallel\+For\+Directive}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+O\+M\+P\+Parallel\+For\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Parallel\+For\+Directive}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a4986ed95e5aa3e4de8ec4789030effca}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a4986ed95e5aa3e4de8ec4789030effca}} 
+C\+X\+Cursor\+\_\+\+O\+M\+P\+Parallel\+For\+Directive&Open\+MP parallel for directive. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+O\+M\+P\+Parallel\+Sections\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Parallel\+Sections\+Directive}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+O\+M\+P\+Parallel\+Sections\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Parallel\+Sections\+Directive}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a9ec977a91a67342c3d6855bdd591737c}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a9ec977a91a67342c3d6855bdd591737c}} 
+C\+X\+Cursor\+\_\+\+O\+M\+P\+Parallel\+Sections\+Directive&Open\+MP parallel sections directive. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+O\+M\+P\+Task\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Task\+Directive}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+O\+M\+P\+Task\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Task\+Directive}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013aa30c9569303ad8dcae2845b600436044}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013aa30c9569303ad8dcae2845b600436044}} 
+C\+X\+Cursor\+\_\+\+O\+M\+P\+Task\+Directive&Open\+MP task directive. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+O\+M\+P\+Master\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Master\+Directive}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+O\+M\+P\+Master\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Master\+Directive}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a0e8110c885d0200e28e2c8c33df0ab11}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a0e8110c885d0200e28e2c8c33df0ab11}} 
+C\+X\+Cursor\+\_\+\+O\+M\+P\+Master\+Directive&Open\+MP master directive. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+O\+M\+P\+Critical\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Critical\+Directive}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+O\+M\+P\+Critical\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Critical\+Directive}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a00111fe6b015b1c257004bb79a525c50}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a00111fe6b015b1c257004bb79a525c50}} 
+C\+X\+Cursor\+\_\+\+O\+M\+P\+Critical\+Directive&Open\+MP critical directive. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+O\+M\+P\+Taskyield\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Taskyield\+Directive}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+O\+M\+P\+Taskyield\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Taskyield\+Directive}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a78e8f07dd5058bf7afca444a1962c6a2}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a78e8f07dd5058bf7afca444a1962c6a2}} 
+C\+X\+Cursor\+\_\+\+O\+M\+P\+Taskyield\+Directive&Open\+MP taskyield directive. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+O\+M\+P\+Barrier\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Barrier\+Directive}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+O\+M\+P\+Barrier\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Barrier\+Directive}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a9675ac34b8aa677c2a3cba6a887cabf7}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a9675ac34b8aa677c2a3cba6a887cabf7}} 
+C\+X\+Cursor\+\_\+\+O\+M\+P\+Barrier\+Directive&Open\+MP barrier directive. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+O\+M\+P\+Taskwait\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Taskwait\+Directive}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+O\+M\+P\+Taskwait\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Taskwait\+Directive}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a6a9f14975c75cb1d65b5a58b3552dfd4}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a6a9f14975c75cb1d65b5a58b3552dfd4}} 
+C\+X\+Cursor\+\_\+\+O\+M\+P\+Taskwait\+Directive&Open\+MP taskwait directive. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+O\+M\+P\+Flush\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Flush\+Directive}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+O\+M\+P\+Flush\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Flush\+Directive}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a139928c2a8f18982bed05d161f030c6a}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a139928c2a8f18982bed05d161f030c6a}} 
+C\+X\+Cursor\+\_\+\+O\+M\+P\+Flush\+Directive&Open\+MP flush directive. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+S\+E\+H\+Leave\+Stmt@{C\+X\+Cursor\+\_\+\+S\+E\+H\+Leave\+Stmt}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+S\+E\+H\+Leave\+Stmt@{C\+X\+Cursor\+\_\+\+S\+E\+H\+Leave\+Stmt}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013adb7c9e1caf311b36d3e0582f58bb8d9f}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013adb7c9e1caf311b36d3e0582f58bb8d9f}} 
+C\+X\+Cursor\+\_\+\+S\+E\+H\+Leave\+Stmt&Windows Structured Exception Handling\textquotesingle{}s leave statement. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+O\+M\+P\+Ordered\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Ordered\+Directive}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+O\+M\+P\+Ordered\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Ordered\+Directive}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a39814fc9795d7d0032de6a5bcccb7afe}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a39814fc9795d7d0032de6a5bcccb7afe}} 
+C\+X\+Cursor\+\_\+\+O\+M\+P\+Ordered\+Directive&Open\+MP ordered directive. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+O\+M\+P\+Atomic\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Atomic\+Directive}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+O\+M\+P\+Atomic\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Atomic\+Directive}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a79ba2952971e186ebe85d7974f775af2}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a79ba2952971e186ebe85d7974f775af2}} 
+C\+X\+Cursor\+\_\+\+O\+M\+P\+Atomic\+Directive&Open\+MP atomic directive. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+O\+M\+P\+For\+Simd\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+For\+Simd\+Directive}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+O\+M\+P\+For\+Simd\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+For\+Simd\+Directive}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a9ec1ff379092821572c42d82536dddc8}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a9ec1ff379092821572c42d82536dddc8}} 
+C\+X\+Cursor\+\_\+\+O\+M\+P\+For\+Simd\+Directive&Open\+MP for S\+I\+MD directive. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+O\+M\+P\+Parallel\+For\+Simd\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Parallel\+For\+Simd\+Directive}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+O\+M\+P\+Parallel\+For\+Simd\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Parallel\+For\+Simd\+Directive}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ab9931ac737ce94ff9dd38a24942a15c8}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ab9931ac737ce94ff9dd38a24942a15c8}} 
+C\+X\+Cursor\+\_\+\+O\+M\+P\+Parallel\+For\+Simd\+Directive&Open\+MP parallel for S\+I\+MD directive. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Directive}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Directive}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013aab347e544298e6a7ad7e78b07791fc9d}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013aab347e544298e6a7ad7e78b07791fc9d}} 
+C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Directive&Open\+MP target directive. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+O\+M\+P\+Teams\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Teams\+Directive}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+O\+M\+P\+Teams\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Teams\+Directive}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ada64e23dfff9ee56942eaf73ea6e5465}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ada64e23dfff9ee56942eaf73ea6e5465}} 
+C\+X\+Cursor\+\_\+\+O\+M\+P\+Teams\+Directive&Open\+MP teams directive. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+O\+M\+P\+Taskgroup\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Taskgroup\+Directive}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+O\+M\+P\+Taskgroup\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Taskgroup\+Directive}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013af07d58e74dbf248cac02369d9f6b1935}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013af07d58e74dbf248cac02369d9f6b1935}} 
+C\+X\+Cursor\+\_\+\+O\+M\+P\+Taskgroup\+Directive&Open\+MP taskgroup directive. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+O\+M\+P\+Cancellation\+Point\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Cancellation\+Point\+Directive}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+O\+M\+P\+Cancellation\+Point\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Cancellation\+Point\+Directive}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a43551d6104fb8bd6e548ac05e3328363}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a43551d6104fb8bd6e548ac05e3328363}} 
+C\+X\+Cursor\+\_\+\+O\+M\+P\+Cancellation\+Point\+Directive&Open\+MP cancellation point directive. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+O\+M\+P\+Cancel\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Cancel\+Directive}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+O\+M\+P\+Cancel\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Cancel\+Directive}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a3cb3ecc4291d07f9013c2f051b885e8b}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a3cb3ecc4291d07f9013c2f051b885e8b}} 
+C\+X\+Cursor\+\_\+\+O\+M\+P\+Cancel\+Directive&Open\+MP cancel directive. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Data\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Data\+Directive}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Data\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Data\+Directive}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013aba9f40a74db71dad705701d98e92c760}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013aba9f40a74db71dad705701d98e92c760}} 
+C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Data\+Directive&Open\+MP target data directive. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+O\+M\+P\+Task\+Loop\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Task\+Loop\+Directive}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+O\+M\+P\+Task\+Loop\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Task\+Loop\+Directive}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a4f48d2ae4bf7a94c5ed7b63597d928cd}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a4f48d2ae4bf7a94c5ed7b63597d928cd}} 
+C\+X\+Cursor\+\_\+\+O\+M\+P\+Task\+Loop\+Directive&Open\+MP taskloop directive. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+O\+M\+P\+Task\+Loop\+Simd\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Task\+Loop\+Simd\+Directive}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+O\+M\+P\+Task\+Loop\+Simd\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Task\+Loop\+Simd\+Directive}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a617d304589bfd3ce2ff3e68c3072e726}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a617d304589bfd3ce2ff3e68c3072e726}} 
+C\+X\+Cursor\+\_\+\+O\+M\+P\+Task\+Loop\+Simd\+Directive&Open\+MP taskloop simd directive. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+O\+M\+P\+Distribute\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Distribute\+Directive}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+O\+M\+P\+Distribute\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Distribute\+Directive}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a37d7946794504de65cec9fb8eb2dd8ff}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a37d7946794504de65cec9fb8eb2dd8ff}} 
+C\+X\+Cursor\+\_\+\+O\+M\+P\+Distribute\+Directive&Open\+MP distribute directive. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Enter\+Data\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Enter\+Data\+Directive}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Enter\+Data\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Enter\+Data\+Directive}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a149e7d403796d144dc5bd3e203810f3c}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a149e7d403796d144dc5bd3e203810f3c}} 
+C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Enter\+Data\+Directive&Open\+MP target enter data directive. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Exit\+Data\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Exit\+Data\+Directive}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Exit\+Data\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Exit\+Data\+Directive}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a63441bd563d6e1a5d2a14174a0a8faa4}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a63441bd563d6e1a5d2a14174a0a8faa4}} 
+C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Exit\+Data\+Directive&Open\+MP target exit data directive. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Parallel\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Parallel\+Directive}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Parallel\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Parallel\+Directive}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ae955731bfa5030699c6db4cf84b4cf3c}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ae955731bfa5030699c6db4cf84b4cf3c}} 
+C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Parallel\+Directive&Open\+MP target parallel directive. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Parallel\+For\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Parallel\+For\+Directive}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Parallel\+For\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Parallel\+For\+Directive}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013aaa76d8a8d66d33f2e685a2559abc6329}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013aaa76d8a8d66d33f2e685a2559abc6329}} 
+C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Parallel\+For\+Directive&Open\+MP target parallel for directive. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Update\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Update\+Directive}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Update\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Update\+Directive}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013aea43eee9c4e76120f21652998e9cb0b4}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013aea43eee9c4e76120f21652998e9cb0b4}} 
+C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Update\+Directive&Open\+MP target update directive. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+O\+M\+P\+Distribute\+Parallel\+For\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Distribute\+Parallel\+For\+Directive}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+O\+M\+P\+Distribute\+Parallel\+For\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Distribute\+Parallel\+For\+Directive}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a5a3d4be5273be2aa9cdc4c0f032eabf8}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a5a3d4be5273be2aa9cdc4c0f032eabf8}} 
+C\+X\+Cursor\+\_\+\+O\+M\+P\+Distribute\+Parallel\+For\+Directive&Open\+MP distribute parallel for directive. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+O\+M\+P\+Distribute\+Parallel\+For\+Simd\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Distribute\+Parallel\+For\+Simd\+Directive}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+O\+M\+P\+Distribute\+Parallel\+For\+Simd\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Distribute\+Parallel\+For\+Simd\+Directive}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a3d36e365eccd6b5d20e7bf4efc30e8ab}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a3d36e365eccd6b5d20e7bf4efc30e8ab}} 
+C\+X\+Cursor\+\_\+\+O\+M\+P\+Distribute\+Parallel\+For\+Simd\+Directive&Open\+MP distribute parallel for simd directive. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+O\+M\+P\+Distribute\+Simd\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Distribute\+Simd\+Directive}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+O\+M\+P\+Distribute\+Simd\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Distribute\+Simd\+Directive}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ae5df040bf2d9a2a0dfc9bbaab6c6a8fe}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ae5df040bf2d9a2a0dfc9bbaab6c6a8fe}} 
+C\+X\+Cursor\+\_\+\+O\+M\+P\+Distribute\+Simd\+Directive&Open\+MP distribute simd directive. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Parallel\+For\+Simd\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Parallel\+For\+Simd\+Directive}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Parallel\+For\+Simd\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Parallel\+For\+Simd\+Directive}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a2fd50625c4b1d5134e9236326ae129ac}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a2fd50625c4b1d5134e9236326ae129ac}} 
+C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Parallel\+For\+Simd\+Directive&Open\+MP target parallel for simd directive. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Simd\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Simd\+Directive}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Simd\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Simd\+Directive}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a3111605e87d2c0efd607c59ee3a62e60}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a3111605e87d2c0efd607c59ee3a62e60}} 
+C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Simd\+Directive&Open\+MP target simd directive. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+O\+M\+P\+Teams\+Distribute\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Teams\+Distribute\+Directive}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+O\+M\+P\+Teams\+Distribute\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Teams\+Distribute\+Directive}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a282658567d279956b63957f942fc4d50}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a282658567d279956b63957f942fc4d50}} 
+C\+X\+Cursor\+\_\+\+O\+M\+P\+Teams\+Distribute\+Directive&Open\+MP teams distribute directive. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+O\+M\+P\+Teams\+Distribute\+Simd\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Teams\+Distribute\+Simd\+Directive}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+O\+M\+P\+Teams\+Distribute\+Simd\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Teams\+Distribute\+Simd\+Directive}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a44d228ef5c0dbe5d97c41938ec00fba5}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a44d228ef5c0dbe5d97c41938ec00fba5}} 
+C\+X\+Cursor\+\_\+\+O\+M\+P\+Teams\+Distribute\+Simd\+Directive&Open\+MP teams distribute simd directive. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+O\+M\+P\+Teams\+Distribute\+Parallel\+For\+Simd\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Teams\+Distribute\+Parallel\+For\+Simd\+Directive}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+O\+M\+P\+Teams\+Distribute\+Parallel\+For\+Simd\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Teams\+Distribute\+Parallel\+For\+Simd\+Directive}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a3869e8f3e994c8cce00f66c440c5e220}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a3869e8f3e994c8cce00f66c440c5e220}} 
+C\+X\+Cursor\+\_\+\+O\+M\+P\+Teams\+Distribute\+Parallel\+For\+Simd\+Directive&Open\+MP teams distribute parallel for simd directive. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+O\+M\+P\+Teams\+Distribute\+Parallel\+For\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Teams\+Distribute\+Parallel\+For\+Directive}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+O\+M\+P\+Teams\+Distribute\+Parallel\+For\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Teams\+Distribute\+Parallel\+For\+Directive}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a5b9a6e448ef56398fa32733b8d044d1c}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a5b9a6e448ef56398fa32733b8d044d1c}} 
+C\+X\+Cursor\+\_\+\+O\+M\+P\+Teams\+Distribute\+Parallel\+For\+Directive&Open\+MP teams distribute parallel for directive. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Teams\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Teams\+Directive}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Teams\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Teams\+Directive}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a79d875e2226f195bcd9054bdb00531a7}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a79d875e2226f195bcd9054bdb00531a7}} 
+C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Teams\+Directive&Open\+MP target teams directive. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Teams\+Distribute\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Teams\+Distribute\+Directive}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Teams\+Distribute\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Teams\+Distribute\+Directive}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a440c353a2ae2c6b9473ffce853e42960}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a440c353a2ae2c6b9473ffce853e42960}} 
+C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Teams\+Distribute\+Directive&Open\+MP target teams distribute directive. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Teams\+Distribute\+Parallel\+For\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Teams\+Distribute\+Parallel\+For\+Directive}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Teams\+Distribute\+Parallel\+For\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Teams\+Distribute\+Parallel\+For\+Directive}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ace298c5819d3f70bb479c347a7f9fbd3}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ace298c5819d3f70bb479c347a7f9fbd3}} 
+C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Teams\+Distribute\+Parallel\+For\+Directive&Open\+MP target teams distribute parallel for directive. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Teams\+Distribute\+Parallel\+For\+Simd\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Teams\+Distribute\+Parallel\+For\+Simd\+Directive}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Teams\+Distribute\+Parallel\+For\+Simd\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Teams\+Distribute\+Parallel\+For\+Simd\+Directive}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013aff552b0c2bb6bc16b8c1414e35a714f7}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013aff552b0c2bb6bc16b8c1414e35a714f7}} 
+C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Teams\+Distribute\+Parallel\+For\+Simd\+Directive&Open\+MP target teams distribute parallel for simd directive. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Teams\+Distribute\+Simd\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Teams\+Distribute\+Simd\+Directive}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Teams\+Distribute\+Simd\+Directive@{C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Teams\+Distribute\+Simd\+Directive}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a1f1a5157898609387a7b5c1085bfb202}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a1f1a5157898609387a7b5c1085bfb202}} 
+C\+X\+Cursor\+\_\+\+O\+M\+P\+Target\+Teams\+Distribute\+Simd\+Directive&Open\+MP target teams distribute simd directive. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Translation\+Unit@{C\+X\+Cursor\+\_\+\+Translation\+Unit}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Translation\+Unit@{C\+X\+Cursor\+\_\+\+Translation\+Unit}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a7b14cc488d53714c4a6ecaa58b0af066}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a7b14cc488d53714c4a6ecaa58b0af066}} 
+C\+X\+Cursor\+\_\+\+Translation\+Unit&Cursor that represents the translation unit itself. The translation unit cursor exists primarily to act as the root cursor for traversing the contents of a translation unit. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Unexposed\+Attr@{C\+X\+Cursor\+\_\+\+Unexposed\+Attr}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Unexposed\+Attr@{C\+X\+Cursor\+\_\+\+Unexposed\+Attr}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a56b1a578c3f15052f83d0c316ed1d4bf}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013a56b1a578c3f15052f83d0c316ed1d4bf}} 
+C\+X\+Cursor\+\_\+\+Unexposed\+Attr&An attribute whose specific kind is not exposed via this interface. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Module\+Import\+Decl@{C\+X\+Cursor\+\_\+\+Module\+Import\+Decl}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Module\+Import\+Decl@{C\+X\+Cursor\+\_\+\+Module\+Import\+Decl}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013acf846838dc1c12e560c9dbf43fa97928}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013acf846838dc1c12e560c9dbf43fa97928}} 
+C\+X\+Cursor\+\_\+\+Module\+Import\+Decl&A module import declaration. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Static\+Assert@{C\+X\+Cursor\+\_\+\+Static\+Assert}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Static\+Assert@{C\+X\+Cursor\+\_\+\+Static\+Assert}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013acf4aa9fce47b10d5d3ff015c671dda45}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013acf4aa9fce47b10d5d3ff015c671dda45}} 
+C\+X\+Cursor\+\_\+\+Static\+Assert&A static\+\_\+assert or \+\_\+\+Static\+\_\+assert node. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Friend\+Decl@{C\+X\+Cursor\+\_\+\+Friend\+Decl}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Friend\+Decl@{C\+X\+Cursor\+\_\+\+Friend\+Decl}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ae0a01a4768fab70eadb25c755d5d36a6}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013ae0a01a4768fab70eadb25c755d5d36a6}} 
+C\+X\+Cursor\+\_\+\+Friend\+Decl&a friend declaration. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Cursor\+\_\+\+Overload\+Candidate@{C\+X\+Cursor\+\_\+\+Overload\+Candidate}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Cursor\+\_\+\+Overload\+Candidate@{C\+X\+Cursor\+\_\+\+Overload\+Candidate}}}\mbox{\Hypertarget{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013adf315bb7bfe68757ae933a8b95b40357}\label{group__CINDEX_ggaaccc432245b4cd9f2d470913f9ef0013adf315bb7bfe68757ae933a8b95b40357}} 
+C\+X\+Cursor\+\_\+\+Overload\+Candidate&A code completion overload candidate. \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{group__CINDEX_ga1b451634928d6bcc961bf72a40e4d035}\label{group__CINDEX_ga1b451634928d6bcc961bf72a40e4d035}} 
+\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Global\+Opt\+Flags@{C\+X\+Global\+Opt\+Flags}}
+\index{C\+X\+Global\+Opt\+Flags@{C\+X\+Global\+Opt\+Flags}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}
+\subsubsection{\texorpdfstring{C\+X\+Global\+Opt\+Flags}{CXGlobalOptFlags}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group__CINDEX_ga1b451634928d6bcc961bf72a40e4d035}{C\+X\+Global\+Opt\+Flags}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Global\+Opt\+\_\+\+None@{C\+X\+Global\+Opt\+\_\+\+None}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Global\+Opt\+\_\+\+None@{C\+X\+Global\+Opt\+\_\+\+None}}}\mbox{\Hypertarget{group__CINDEX_gga1b451634928d6bcc961bf72a40e4d035a869efb651da9e6d3da10a0fb43941d0d}\label{group__CINDEX_gga1b451634928d6bcc961bf72a40e4d035a869efb651da9e6d3da10a0fb43941d0d}} 
+C\+X\+Global\+Opt\+\_\+\+None&Used to indicate that no special C\+X\+Index options are needed. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Global\+Opt\+\_\+\+Thread\+Background\+Priority\+For\+Indexing@{C\+X\+Global\+Opt\+\_\+\+Thread\+Background\+Priority\+For\+Indexing}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Global\+Opt\+\_\+\+Thread\+Background\+Priority\+For\+Indexing@{C\+X\+Global\+Opt\+\_\+\+Thread\+Background\+Priority\+For\+Indexing}}}\mbox{\Hypertarget{group__CINDEX_gga1b451634928d6bcc961bf72a40e4d035aba7b16ae973f035cd4156eeae579e47a}\label{group__CINDEX_gga1b451634928d6bcc961bf72a40e4d035aba7b16ae973f035cd4156eeae579e47a}} 
+C\+X\+Global\+Opt\+\_\+\+Thread\+Background\+Priority\+For\+Indexing&Used to indicate that threads that libclang creates for indexing purposes should use background priority. Affects \mbox{\hyperlink{group__CINDEX__HIGH_gaa5c2ad8979779c401b91110d444e2be6}{clang\+\_\+index\+Source\+File}}, \mbox{\hyperlink{group__CINDEX__HIGH_gab12a0795c7d7be6e7ec85679faf3f8e9}{clang\+\_\+index\+Translation\+Unit}}, \mbox{\hyperlink{group__CINDEX__TRANSLATION__UNIT_ga2baf83f8c3299788234c8bce55e4472e}{clang\+\_\+parse\+Translation\+Unit}}, \mbox{\hyperlink{group__CINDEX__TRANSLATION__UNIT_ga3abe9df81f9fef269d737d82720c1d33}{clang\+\_\+save\+Translation\+Unit}}. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Global\+Opt\+\_\+\+Thread\+Background\+Priority\+For\+Editing@{C\+X\+Global\+Opt\+\_\+\+Thread\+Background\+Priority\+For\+Editing}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Global\+Opt\+\_\+\+Thread\+Background\+Priority\+For\+Editing@{C\+X\+Global\+Opt\+\_\+\+Thread\+Background\+Priority\+For\+Editing}}}\mbox{\Hypertarget{group__CINDEX_gga1b451634928d6bcc961bf72a40e4d035a0da291ff18cccf9fcce2e75d46337a63}\label{group__CINDEX_gga1b451634928d6bcc961bf72a40e4d035a0da291ff18cccf9fcce2e75d46337a63}} 
+C\+X\+Global\+Opt\+\_\+\+Thread\+Background\+Priority\+For\+Editing&Used to indicate that threads that libclang creates for editing purposes should use background priority. Affects \mbox{\hyperlink{group__CINDEX__TRANSLATION__UNIT_ga524e76bf2a809d037934d4be51ea448a}{clang\+\_\+reparse\+Translation\+Unit}}, \mbox{\hyperlink{group__CINDEX__CODE__COMPLET_ga50fedfa85d8d1517363952f2e10aa3bf}{clang\+\_\+code\+Complete\+At}}, \mbox{\hyperlink{group__CINDEX__LEX_gadc0c15904e61902b73e02700af0863a0}{clang\+\_\+annotate\+Tokens}} \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Global\+Opt\+\_\+\+Thread\+Background\+Priority\+For\+All@{C\+X\+Global\+Opt\+\_\+\+Thread\+Background\+Priority\+For\+All}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!C\+X\+Global\+Opt\+\_\+\+Thread\+Background\+Priority\+For\+All@{C\+X\+Global\+Opt\+\_\+\+Thread\+Background\+Priority\+For\+All}}}\mbox{\Hypertarget{group__CINDEX_gga1b451634928d6bcc961bf72a40e4d035ad38031ffee9be191b92869bdf0fe82e2}\label{group__CINDEX_gga1b451634928d6bcc961bf72a40e4d035ad38031ffee9be191b92869bdf0fe82e2}} 
+C\+X\+Global\+Opt\+\_\+\+Thread\+Background\+Priority\+For\+All&Used to indicate that all threads that libclang creates should use background priority. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{group__CINDEX_ga51eb9b38c18743bf2d824c6230e61f93}\label{group__CINDEX_ga51eb9b38c18743bf2d824c6230e61f93}} 
+\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!clang\+\_\+create\+Index@{clang\+\_\+create\+Index}}
+\index{clang\+\_\+create\+Index@{clang\+\_\+create\+Index}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}
+\subsubsection{\texorpdfstring{clang\+\_\+create\+Index()}{clang\_createIndex()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{group__CINDEX_gae039c2574bfd75774ca7a9a3e55910cb}{C\+X\+Index}} clang\+\_\+create\+Index (\begin{DoxyParamCaption}\item[{int}]{exclude\+Declarations\+From\+P\+CH,  }\item[{int}]{display\+Diagnostics }\end{DoxyParamCaption})}
+
+
+
+Provides a shared context for creating translation units. 
+
+It provides two options\+:
+
+
+\begin{DoxyItemize}
+\item exclude\+Declarations\+From\+P\+CH\+: When non-\/zero, allows enumeration of \char`\"{}local\char`\"{} declarations (when loading any new translation units). A \char`\"{}local\char`\"{} declaration is one that belongs in the translation unit itself and not in a precompiled header that was used by the translation unit. If zero, all declarations will be enumerated.
+\end{DoxyItemize}
+
+Here is an example\+:
+
+
+\begin{DoxyCode}
+\textcolor{comment}{// excludeDeclsFromPCH = 1, displayDiagnostics=1}
+Idx = \mbox{\hyperlink{group__CINDEX_ga51eb9b38c18743bf2d824c6230e61f93}{clang\_createIndex}}(1, 1);
+
+\textcolor{comment}{// IndexTest.pch was produced with the following command:}
+\textcolor{comment}{// "clang -x c IndexTest.h -emit-ast -o IndexTest.pch"}
+TU = \mbox{\hyperlink{group__CINDEX__TRANSLATION__UNIT_ga0659baf7f04381286ec54b439760c8f3}{clang\_createTranslationUnit}}(Idx, \textcolor{stringliteral}{"IndexTest.pch"});
+
+\textcolor{comment}{// This will load all the symbols from 'IndexTest.pch'}
+\mbox{\hyperlink{group__CINDEX__CURSOR__TRAVERSAL_ga5d0a813d937e1a7dcc35f206ad1f7a91}{clang\_visitChildren}}(\mbox{\hyperlink{group__CINDEX__CURSOR__MANIP_gaec6e69127920785e74e4a517423f4391}{clang\_getTranslationUnitCursor}}(TU),
+                    TranslationUnitVisitor, 0);
+\mbox{\hyperlink{group__CINDEX__TRANSLATION__UNIT_gaee753cb0036ca4ab59e48e3dff5f530a}{clang\_disposeTranslationUnit}}(TU);
+
+\textcolor{comment}{// This will load all the symbols from 'IndexTest.c', excluding symbols}
+\textcolor{comment}{// from 'IndexTest.pch'.}
+\textcolor{keywordtype}{char} *args[] = \{ \textcolor{stringliteral}{"-Xclang"}, \textcolor{stringliteral}{"-include-pch=IndexTest.pch"} \};
+TU = \mbox{\hyperlink{group__CINDEX__TRANSLATION__UNIT_gaf45dfbcd2e4d8e9eeab4778f994a74c3}{clang\_createTranslationUnitFromSourceFile}}(Idx, \textcolor{stringliteral}{"IndexTest.c"},
+       2, args,
+                                               0, 0);
+\mbox{\hyperlink{group__CINDEX__CURSOR__TRAVERSAL_ga5d0a813d937e1a7dcc35f206ad1f7a91}{clang\_visitChildren}}(\mbox{\hyperlink{group__CINDEX__CURSOR__MANIP_gaec6e69127920785e74e4a517423f4391}{clang\_getTranslationUnitCursor}}(TU),
+                    TranslationUnitVisitor, 0);
+\mbox{\hyperlink{group__CINDEX__TRANSLATION__UNIT_gaee753cb0036ca4ab59e48e3dff5f530a}{clang\_disposeTranslationUnit}}(TU);
+\end{DoxyCode}
+
+
+This process of creating the \textquotesingle{}pch\textquotesingle{}, loading it separately, and using it (via -\/include-\/pch) allows \textquotesingle{}exclude\+Decls\+From\+P\+CH\textquotesingle{} to remove redundant callbacks (which gives the indexer the same performance benefit as the compiler). \mbox{\Hypertarget{group__CINDEX_ga21e96379358f2aedc56890f9a35d4125}\label{group__CINDEX_ga21e96379358f2aedc56890f9a35d4125}} 
+\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!clang\+\_\+\+C\+X\+Index\+\_\+get\+Global\+Options@{clang\+\_\+\+C\+X\+Index\+\_\+get\+Global\+Options}}
+\index{clang\+\_\+\+C\+X\+Index\+\_\+get\+Global\+Options@{clang\+\_\+\+C\+X\+Index\+\_\+get\+Global\+Options}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}
+\subsubsection{\texorpdfstring{clang\+\_\+\+C\+X\+Index\+\_\+get\+Global\+Options()}{clang\_CXIndex\_getGlobalOptions()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE unsigned clang\+\_\+\+C\+X\+Index\+\_\+get\+Global\+Options (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__CINDEX_gae039c2574bfd75774ca7a9a3e55910cb}{C\+X\+Index}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Gets the general options associated with a C\+X\+Index. 
+
+\begin{DoxyReturn}{Returns}
+A bitmask of options, a bitwise OR of C\+X\+Global\+Opt\+\_\+\+X\+XX flags that are associated with the given C\+X\+Index object. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__CINDEX_ga82c320cc4c21dfd64650b3995cb5e7a6}\label{group__CINDEX_ga82c320cc4c21dfd64650b3995cb5e7a6}} 
+\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!clang\+\_\+\+C\+X\+Index\+\_\+set\+Global\+Options@{clang\+\_\+\+C\+X\+Index\+\_\+set\+Global\+Options}}
+\index{clang\+\_\+\+C\+X\+Index\+\_\+set\+Global\+Options@{clang\+\_\+\+C\+X\+Index\+\_\+set\+Global\+Options}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}
+\subsubsection{\texorpdfstring{clang\+\_\+\+C\+X\+Index\+\_\+set\+Global\+Options()}{clang\_CXIndex\_setGlobalOptions()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE void clang\+\_\+\+C\+X\+Index\+\_\+set\+Global\+Options (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__CINDEX_gae039c2574bfd75774ca7a9a3e55910cb}{C\+X\+Index}}}]{,  }\item[{unsigned}]{options }\end{DoxyParamCaption})}
+
+
+
+Sets general options associated with a C\+X\+Index. 
+
+For example\+: 
+\begin{DoxyCode}
+\mbox{\hyperlink{group__CINDEX_gae039c2574bfd75774ca7a9a3e55910cb}{CXIndex}} idx = ...;
+\mbox{\hyperlink{group__CINDEX_ga82c320cc4c21dfd64650b3995cb5e7a6}{clang\_CXIndex\_setGlobalOptions}}(idx,
+    \mbox{\hyperlink{group__CINDEX_ga21e96379358f2aedc56890f9a35d4125}{clang\_CXIndex\_getGlobalOptions}}(idx) |
+    \mbox{\hyperlink{group__CINDEX_gga1b451634928d6bcc961bf72a40e4d035aba7b16ae973f035cd4156eeae579e47a}{CXGlobalOpt\_ThreadBackgroundPriorityForIndexing}});
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em options} & A bitmask of options, a bitwise OR of C\+X\+Global\+Opt\+\_\+\+X\+XX flags. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__CINDEX_ga166ab73b14be73cbdcae14d62dbab22a}\label{group__CINDEX_ga166ab73b14be73cbdcae14d62dbab22a}} 
+\index{libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}!clang\+\_\+dispose\+Index@{clang\+\_\+dispose\+Index}}
+\index{clang\+\_\+dispose\+Index@{clang\+\_\+dispose\+Index}!libclang\+: C Interface to Clang@{libclang\+: C Interface to Clang}}
+\subsubsection{\texorpdfstring{clang\+\_\+dispose\+Index()}{clang\_disposeIndex()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE void clang\+\_\+dispose\+Index (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__CINDEX_gae039c2574bfd75774ca7a9a3e55910cb}{C\+X\+Index}}}]{index }\end{DoxyParamCaption})}
+
+
+
+Destroy the given index. 
+
+The index must not be destroyed until all of the translation units created within that index have been destroyed. 

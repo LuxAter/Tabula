@@ -1,0 +1,451 @@
+\hypertarget{group__CINDEX__DIAG}{}\section{Diagnostic reporting}
+\label{group__CINDEX__DIAG}\index{Diagnostic reporting@{Diagnostic reporting}}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__CINDEX__DIAG_ga44bb8aba7c40590ad25d1763c4fbff7f}\label{group__CINDEX__DIAG_ga44bb8aba7c40590ad25d1763c4fbff7f}} 
+typedef void $\ast$ \mbox{\hyperlink{group__CINDEX__DIAG_ga44bb8aba7c40590ad25d1763c4fbff7f}{C\+X\+Diagnostic}}
+\begin{DoxyCompactList}\small\item\em A single diagnostic, containing the diagnostic\textquotesingle{}s severity, location, text, source ranges, and fix-\/it hints. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX__DIAG_ga38dfc0ae45b55bf7fd577eed9148e244}\label{group__CINDEX__DIAG_ga38dfc0ae45b55bf7fd577eed9148e244}} 
+typedef void $\ast$ \mbox{\hyperlink{group__CINDEX__DIAG_ga38dfc0ae45b55bf7fd577eed9148e244}{C\+X\+Diagnostic\+Set}}
+\begin{DoxyCompactList}\small\item\em A group of C\+X\+Diagnostics. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{group__CINDEX__DIAG_gabff210a02d448bf64e8aee79b2241370}{C\+X\+Diagnostic\+Severity}} \{ \newline
+\mbox{\hyperlink{group__CINDEX__DIAG_ggabff210a02d448bf64e8aee79b2241370a6bc5575700fec4fcde75bb88ab85eb21}{C\+X\+Diagnostic\+\_\+\+Ignored}} = 0, 
+\mbox{\hyperlink{group__CINDEX__DIAG_ggabff210a02d448bf64e8aee79b2241370abd868cb73ea129d1f77476211fea4494}{C\+X\+Diagnostic\+\_\+\+Note}} = 1, 
+\mbox{\hyperlink{group__CINDEX__DIAG_ggabff210a02d448bf64e8aee79b2241370af4384404f204c3bbb614e5ee2654426e}{C\+X\+Diagnostic\+\_\+\+Warning}} = 2, 
+\mbox{\hyperlink{group__CINDEX__DIAG_ggabff210a02d448bf64e8aee79b2241370ae896fe295133ecfe92587bf4dffcd994}{C\+X\+Diagnostic\+\_\+\+Error}} = 3, 
+\newline
+\mbox{\hyperlink{group__CINDEX__DIAG_ggabff210a02d448bf64e8aee79b2241370a5df88ea55245aedf53ab0f4ce3a6737c}{C\+X\+Diagnostic\+\_\+\+Fatal}} = 4
+ \}
+\begin{DoxyCompactList}\small\item\em Describes the severity of a particular diagnostic. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{group__CINDEX__DIAG_gafccf4d49329805ac24e6dc005aafc848}{C\+X\+Load\+Diag\+\_\+\+Error}} \{ \mbox{\hyperlink{group__CINDEX__DIAG_ggafccf4d49329805ac24e6dc005aafc848a2aeb81c1571c99b95cdce1b6b5b9b3d5}{C\+X\+Load\+Diag\+\_\+\+None}} = 0, 
+\mbox{\hyperlink{group__CINDEX__DIAG_ggafccf4d49329805ac24e6dc005aafc848a3b56c96ea13c1d67e23297924674ce1b}{C\+X\+Load\+Diag\+\_\+\+Unknown}} = 1, 
+\mbox{\hyperlink{group__CINDEX__DIAG_ggafccf4d49329805ac24e6dc005aafc848ac08b95e9ba65ec7436038554d74f795e}{C\+X\+Load\+Diag\+\_\+\+Cannot\+Load}} = 2, 
+\mbox{\hyperlink{group__CINDEX__DIAG_ggafccf4d49329805ac24e6dc005aafc848ad06582a09b2adbbded48bde1106214d6}{C\+X\+Load\+Diag\+\_\+\+Invalid\+File}} = 3
+ \}
+\begin{DoxyCompactList}\small\item\em Describes the kind of error that occurred (if any) in a call to {\ttfamily clang\+\_\+load\+Diagnostics}. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{group__CINDEX__DIAG_ga0545c7c3ef36a397c44d142b0385b8d1}{C\+X\+Diagnostic\+Display\+Options}} \{ \newline
+\mbox{\hyperlink{group__CINDEX__DIAG_gga0545c7c3ef36a397c44d142b0385b8d1a76bde2a9967db9f7338d407bad83700e}{C\+X\+Diagnostic\+\_\+\+Display\+Source\+Location}} = 0x01, 
+\mbox{\hyperlink{group__CINDEX__DIAG_gga0545c7c3ef36a397c44d142b0385b8d1a6a94e17efbf896be95d99a1dc6708fc7}{C\+X\+Diagnostic\+\_\+\+Display\+Column}} = 0x02, 
+\mbox{\hyperlink{group__CINDEX__DIAG_gga0545c7c3ef36a397c44d142b0385b8d1af46dbea10e55ecdc6a99d55f30813dcc}{C\+X\+Diagnostic\+\_\+\+Display\+Source\+Ranges}} = 0x04, 
+\mbox{\hyperlink{group__CINDEX__DIAG_gga0545c7c3ef36a397c44d142b0385b8d1a79859f540b8fba954e0332ebd5eb3fdb}{C\+X\+Diagnostic\+\_\+\+Display\+Option}} = 0x08, 
+\newline
+\mbox{\hyperlink{group__CINDEX__DIAG_gga0545c7c3ef36a397c44d142b0385b8d1ab27a36f7c273ff376a52b71673eb404e}{C\+X\+Diagnostic\+\_\+\+Display\+Category\+Id}} = 0x10, 
+\mbox{\hyperlink{group__CINDEX__DIAG_gga0545c7c3ef36a397c44d142b0385b8d1af0a8c2b64bc9a26a1cc336a2fa532056}{C\+X\+Diagnostic\+\_\+\+Display\+Category\+Name}} = 0x20
+ \}
+\begin{DoxyCompactList}\small\item\em Options to control the display of diagnostics. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__CINDEX__DIAG_ga44e87e54125e501de0d3bd29161fe26b}\label{group__CINDEX__DIAG_ga44e87e54125e501de0d3bd29161fe26b}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE unsigned \mbox{\hyperlink{group__CINDEX__DIAG_ga44e87e54125e501de0d3bd29161fe26b}{clang\+\_\+get\+Num\+Diagnostics\+In\+Set}} (\mbox{\hyperlink{group__CINDEX__DIAG_ga38dfc0ae45b55bf7fd577eed9148e244}{C\+X\+Diagnostic\+Set}} Diags)
+\begin{DoxyCompactList}\small\item\em Determine the number of diagnostics in a C\+X\+Diagnostic\+Set. \end{DoxyCompactList}\item 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{group__CINDEX__DIAG_ga44bb8aba7c40590ad25d1763c4fbff7f}{C\+X\+Diagnostic}} \mbox{\hyperlink{group__CINDEX__DIAG_ga997e07d587e02eea7d29874c33c94249}{clang\+\_\+get\+Diagnostic\+In\+Set}} (\mbox{\hyperlink{group__CINDEX__DIAG_ga38dfc0ae45b55bf7fd577eed9148e244}{C\+X\+Diagnostic\+Set}} Diags, unsigned Index)
+\begin{DoxyCompactList}\small\item\em Retrieve a diagnostic associated with the given C\+X\+Diagnostic\+Set. \end{DoxyCompactList}\item 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{group__CINDEX__DIAG_ga38dfc0ae45b55bf7fd577eed9148e244}{C\+X\+Diagnostic\+Set}} \mbox{\hyperlink{group__CINDEX__DIAG_gaa1e3aff15dc2eb97330533f0c68bd28f}{clang\+\_\+load\+Diagnostics}} (const char $\ast$file, enum \mbox{\hyperlink{group__CINDEX__DIAG_gafccf4d49329805ac24e6dc005aafc848}{C\+X\+Load\+Diag\+\_\+\+Error}} $\ast$error, \mbox{\hyperlink{structCXString}{C\+X\+String}} $\ast$error\+String)
+\begin{DoxyCompactList}\small\item\em Deserialize a set of diagnostics from a Clang diagnostics bitcode file. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX__DIAG_ga1a1126b07e4dc0b45b0617f3cc848d57}\label{group__CINDEX__DIAG_ga1a1126b07e4dc0b45b0617f3cc848d57}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE void \mbox{\hyperlink{group__CINDEX__DIAG_ga1a1126b07e4dc0b45b0617f3cc848d57}{clang\+\_\+dispose\+Diagnostic\+Set}} (\mbox{\hyperlink{group__CINDEX__DIAG_ga38dfc0ae45b55bf7fd577eed9148e244}{C\+X\+Diagnostic\+Set}} Diags)
+\begin{DoxyCompactList}\small\item\em Release a C\+X\+Diagnostic\+Set and all of its contained diagnostics. \end{DoxyCompactList}\item 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{group__CINDEX__DIAG_ga38dfc0ae45b55bf7fd577eed9148e244}{C\+X\+Diagnostic\+Set}} \mbox{\hyperlink{group__CINDEX__DIAG_ga1aa24f925b34bb988dc3ea06ec27dcda}{clang\+\_\+get\+Child\+Diagnostics}} (\mbox{\hyperlink{group__CINDEX__DIAG_ga44bb8aba7c40590ad25d1763c4fbff7f}{C\+X\+Diagnostic}} D)
+\begin{DoxyCompactList}\small\item\em Retrieve the child diagnostics of a C\+X\+Diagnostic. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX__DIAG_gae9f047b4bbbbb01161478d549b7aab25}\label{group__CINDEX__DIAG_gae9f047b4bbbbb01161478d549b7aab25}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE unsigned \mbox{\hyperlink{group__CINDEX__DIAG_gae9f047b4bbbbb01161478d549b7aab25}{clang\+\_\+get\+Num\+Diagnostics}} (\mbox{\hyperlink{group__CINDEX_gacdb7815736ca709ce9a5e1ec2b7e16ac}{C\+X\+Translation\+Unit}} Unit)
+\begin{DoxyCompactList}\small\item\em Determine the number of diagnostics produced for the given translation unit. \end{DoxyCompactList}\item 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{group__CINDEX__DIAG_ga44bb8aba7c40590ad25d1763c4fbff7f}{C\+X\+Diagnostic}} \mbox{\hyperlink{group__CINDEX__DIAG_ga3f54a79e820c2ac9388611e98029afe5}{clang\+\_\+get\+Diagnostic}} (\mbox{\hyperlink{group__CINDEX_gacdb7815736ca709ce9a5e1ec2b7e16ac}{C\+X\+Translation\+Unit}} Unit, unsigned Index)
+\begin{DoxyCompactList}\small\item\em Retrieve a diagnostic associated with the given translation unit. \end{DoxyCompactList}\item 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{group__CINDEX__DIAG_ga38dfc0ae45b55bf7fd577eed9148e244}{C\+X\+Diagnostic\+Set}} \mbox{\hyperlink{group__CINDEX__DIAG_gaf786e9688b9a685958e486cb81910924}{clang\+\_\+get\+Diagnostic\+Set\+From\+TU}} (\mbox{\hyperlink{group__CINDEX_gacdb7815736ca709ce9a5e1ec2b7e16ac}{C\+X\+Translation\+Unit}} Unit)
+\begin{DoxyCompactList}\small\item\em Retrieve the complete set of diagnostics associated with a translation unit. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX__DIAG_ga07061e0ad7665b7c5ee7253cd1bf4a5c}\label{group__CINDEX__DIAG_ga07061e0ad7665b7c5ee7253cd1bf4a5c}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE void \mbox{\hyperlink{group__CINDEX__DIAG_ga07061e0ad7665b7c5ee7253cd1bf4a5c}{clang\+\_\+dispose\+Diagnostic}} (\mbox{\hyperlink{group__CINDEX__DIAG_ga44bb8aba7c40590ad25d1763c4fbff7f}{C\+X\+Diagnostic}} Diagnostic)
+\begin{DoxyCompactList}\small\item\em Destroy a diagnostic. \end{DoxyCompactList}\item 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{structCXString}{C\+X\+String}} \mbox{\hyperlink{group__CINDEX__DIAG_ga455234ab6de0ca12c9ea36f8874060e8}{clang\+\_\+format\+Diagnostic}} (\mbox{\hyperlink{group__CINDEX__DIAG_ga44bb8aba7c40590ad25d1763c4fbff7f}{C\+X\+Diagnostic}} Diagnostic, unsigned Options)
+\begin{DoxyCompactList}\small\item\em Format the given diagnostic in a manner that is suitable for display. \end{DoxyCompactList}\item 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE unsigned \mbox{\hyperlink{group__CINDEX__DIAG_ga5fcf910792541399efd63c62042ce353}{clang\+\_\+default\+Diagnostic\+Display\+Options}} (void)
+\begin{DoxyCompactList}\small\item\em Retrieve the set of display options most similar to the default behavior of the clang compiler. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX__DIAG_gaff14261578eb9a2b02084f0cc6b95f9a}\label{group__CINDEX__DIAG_gaff14261578eb9a2b02084f0cc6b95f9a}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE enum \mbox{\hyperlink{group__CINDEX__DIAG_gabff210a02d448bf64e8aee79b2241370}{C\+X\+Diagnostic\+Severity}} \mbox{\hyperlink{group__CINDEX__DIAG_gaff14261578eb9a2b02084f0cc6b95f9a}{clang\+\_\+get\+Diagnostic\+Severity}} (\mbox{\hyperlink{group__CINDEX__DIAG_ga44bb8aba7c40590ad25d1763c4fbff7f}{C\+X\+Diagnostic}})
+\begin{DoxyCompactList}\small\item\em Determine the severity of the given diagnostic. \end{DoxyCompactList}\item 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{structCXSourceLocation}{C\+X\+Source\+Location}} \mbox{\hyperlink{group__CINDEX__DIAG_gabfcf70ac15bb3e5ae39ef2c5e07c7428}{clang\+\_\+get\+Diagnostic\+Location}} (\mbox{\hyperlink{group__CINDEX__DIAG_ga44bb8aba7c40590ad25d1763c4fbff7f}{C\+X\+Diagnostic}})
+\begin{DoxyCompactList}\small\item\em Retrieve the source location of the given diagnostic. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX__DIAG_ga34a875e6d06ed4f8d2fc032f850ebbe1}\label{group__CINDEX__DIAG_ga34a875e6d06ed4f8d2fc032f850ebbe1}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{structCXString}{C\+X\+String}} \mbox{\hyperlink{group__CINDEX__DIAG_ga34a875e6d06ed4f8d2fc032f850ebbe1}{clang\+\_\+get\+Diagnostic\+Spelling}} (\mbox{\hyperlink{group__CINDEX__DIAG_ga44bb8aba7c40590ad25d1763c4fbff7f}{C\+X\+Diagnostic}})
+\begin{DoxyCompactList}\small\item\em Retrieve the text of the given diagnostic. \end{DoxyCompactList}\item 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{structCXString}{C\+X\+String}} \mbox{\hyperlink{group__CINDEX__DIAG_ga69b094e2cca1cd6f452327dc9204a168}{clang\+\_\+get\+Diagnostic\+Option}} (\mbox{\hyperlink{group__CINDEX__DIAG_ga44bb8aba7c40590ad25d1763c4fbff7f}{C\+X\+Diagnostic}} Diag, \mbox{\hyperlink{structCXString}{C\+X\+String}} $\ast$Disable)
+\begin{DoxyCompactList}\small\item\em Retrieve the name of the command-\/line option that enabled this diagnostic. \end{DoxyCompactList}\item 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE unsigned \mbox{\hyperlink{group__CINDEX__DIAG_ga0ec085bd59b8b6c935eab0e53a1f348f}{clang\+\_\+get\+Diagnostic\+Category}} (\mbox{\hyperlink{group__CINDEX__DIAG_ga44bb8aba7c40590ad25d1763c4fbff7f}{C\+X\+Diagnostic}})
+\begin{DoxyCompactList}\small\item\em Retrieve the category number for this diagnostic. \end{DoxyCompactList}\item 
+C\+I\+N\+D\+E\+X\+\_\+\+D\+E\+P\+R\+E\+C\+A\+T\+ED C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{structCXString}{C\+X\+String}} \mbox{\hyperlink{group__CINDEX__DIAG_gaf3d608c7860a57ce6571a3b03b4ead33}{clang\+\_\+get\+Diagnostic\+Category\+Name}} (unsigned Category)
+\begin{DoxyCompactList}\small\item\em Retrieve the name of a particular diagnostic category. This is now deprecated. Use \mbox{\hyperlink{group__CINDEX__DIAG_ga6950702b6122f1cd74e1a369605a9f54}{clang\+\_\+get\+Diagnostic\+Category\+Text()}} instead. \end{DoxyCompactList}\item 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{structCXString}{C\+X\+String}} \mbox{\hyperlink{group__CINDEX__DIAG_ga6950702b6122f1cd74e1a369605a9f54}{clang\+\_\+get\+Diagnostic\+Category\+Text}} (\mbox{\hyperlink{group__CINDEX__DIAG_ga44bb8aba7c40590ad25d1763c4fbff7f}{C\+X\+Diagnostic}})
+\begin{DoxyCompactList}\small\item\em Retrieve the diagnostic category text for a given diagnostic. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX__DIAG_ga7acbd761f1113ea657022e5708694924}\label{group__CINDEX__DIAG_ga7acbd761f1113ea657022e5708694924}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE unsigned \mbox{\hyperlink{group__CINDEX__DIAG_ga7acbd761f1113ea657022e5708694924}{clang\+\_\+get\+Diagnostic\+Num\+Ranges}} (\mbox{\hyperlink{group__CINDEX__DIAG_ga44bb8aba7c40590ad25d1763c4fbff7f}{C\+X\+Diagnostic}})
+\begin{DoxyCompactList}\small\item\em Determine the number of source ranges associated with the given diagnostic. \end{DoxyCompactList}\item 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{structCXSourceRange}{C\+X\+Source\+Range}} \mbox{\hyperlink{group__CINDEX__DIAG_gabd440f1577374289ffebe73d9f65b294}{clang\+\_\+get\+Diagnostic\+Range}} (\mbox{\hyperlink{group__CINDEX__DIAG_ga44bb8aba7c40590ad25d1763c4fbff7f}{C\+X\+Diagnostic}} Diagnostic, unsigned Range)
+\begin{DoxyCompactList}\small\item\em Retrieve a source range associated with the diagnostic. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX__DIAG_gafe38dfd661f6ba59df956dfeabece2a2}\label{group__CINDEX__DIAG_gafe38dfd661f6ba59df956dfeabece2a2}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE unsigned \mbox{\hyperlink{group__CINDEX__DIAG_gafe38dfd661f6ba59df956dfeabece2a2}{clang\+\_\+get\+Diagnostic\+Num\+Fix\+Its}} (\mbox{\hyperlink{group__CINDEX__DIAG_ga44bb8aba7c40590ad25d1763c4fbff7f}{C\+X\+Diagnostic}} Diagnostic)
+\begin{DoxyCompactList}\small\item\em Determine the number of fix-\/it hints associated with the given diagnostic. \end{DoxyCompactList}\item 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{structCXString}{C\+X\+String}} \mbox{\hyperlink{group__CINDEX__DIAG_gadf990bd68112475c5c07b19c1fe3938a}{clang\+\_\+get\+Diagnostic\+Fix\+It}} (\mbox{\hyperlink{group__CINDEX__DIAG_ga44bb8aba7c40590ad25d1763c4fbff7f}{C\+X\+Diagnostic}} Diagnostic, unsigned Fix\+It, \mbox{\hyperlink{structCXSourceRange}{C\+X\+Source\+Range}} $\ast$Replacement\+Range)
+\begin{DoxyCompactList}\small\item\em Retrieve the replacement information for a given fix-\/it. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+\subsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{group__CINDEX__DIAG_ga0545c7c3ef36a397c44d142b0385b8d1}\label{group__CINDEX__DIAG_ga0545c7c3ef36a397c44d142b0385b8d1}} 
+\index{Diagnostic reporting@{Diagnostic reporting}!C\+X\+Diagnostic\+Display\+Options@{C\+X\+Diagnostic\+Display\+Options}}
+\index{C\+X\+Diagnostic\+Display\+Options@{C\+X\+Diagnostic\+Display\+Options}!Diagnostic reporting@{Diagnostic reporting}}
+\subsubsection{\texorpdfstring{C\+X\+Diagnostic\+Display\+Options}{CXDiagnosticDisplayOptions}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group__CINDEX__DIAG_ga0545c7c3ef36a397c44d142b0385b8d1}{C\+X\+Diagnostic\+Display\+Options}}}
+
+
+
+Options to control the display of diagnostics. 
+
+The values in this enum are meant to be combined to customize the behavior of {\ttfamily \mbox{\hyperlink{group__CINDEX__DIAG_ga455234ab6de0ca12c9ea36f8874060e8}{clang\+\_\+format\+Diagnostic()}}}. \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Diagnostic\+\_\+\+Display\+Source\+Location@{C\+X\+Diagnostic\+\_\+\+Display\+Source\+Location}!Diagnostic reporting@{Diagnostic reporting}}\index{Diagnostic reporting@{Diagnostic reporting}!C\+X\+Diagnostic\+\_\+\+Display\+Source\+Location@{C\+X\+Diagnostic\+\_\+\+Display\+Source\+Location}}}\mbox{\Hypertarget{group__CINDEX__DIAG_gga0545c7c3ef36a397c44d142b0385b8d1a76bde2a9967db9f7338d407bad83700e}\label{group__CINDEX__DIAG_gga0545c7c3ef36a397c44d142b0385b8d1a76bde2a9967db9f7338d407bad83700e}} 
+C\+X\+Diagnostic\+\_\+\+Display\+Source\+Location&Display the source-\/location information where the diagnostic was located. When set, diagnostics will be prefixed by the file, line, and (optionally) column to which the diagnostic refers. For example,
+
+
+\begin{DoxyCode}
+test.c:28: warning: extra tokens at end of #endif directive
+\end{DoxyCode}
+
+
+This option corresponds to the clang flag {\ttfamily -\/fshow-\/source-\/location}. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Diagnostic\+\_\+\+Display\+Column@{C\+X\+Diagnostic\+\_\+\+Display\+Column}!Diagnostic reporting@{Diagnostic reporting}}\index{Diagnostic reporting@{Diagnostic reporting}!C\+X\+Diagnostic\+\_\+\+Display\+Column@{C\+X\+Diagnostic\+\_\+\+Display\+Column}}}\mbox{\Hypertarget{group__CINDEX__DIAG_gga0545c7c3ef36a397c44d142b0385b8d1a6a94e17efbf896be95d99a1dc6708fc7}\label{group__CINDEX__DIAG_gga0545c7c3ef36a397c44d142b0385b8d1a6a94e17efbf896be95d99a1dc6708fc7}} 
+C\+X\+Diagnostic\+\_\+\+Display\+Column&If displaying the source-\/location information of the diagnostic, also include the column number. This option corresponds to the clang flag {\ttfamily -\/fshow-\/column}. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Diagnostic\+\_\+\+Display\+Source\+Ranges@{C\+X\+Diagnostic\+\_\+\+Display\+Source\+Ranges}!Diagnostic reporting@{Diagnostic reporting}}\index{Diagnostic reporting@{Diagnostic reporting}!C\+X\+Diagnostic\+\_\+\+Display\+Source\+Ranges@{C\+X\+Diagnostic\+\_\+\+Display\+Source\+Ranges}}}\mbox{\Hypertarget{group__CINDEX__DIAG_gga0545c7c3ef36a397c44d142b0385b8d1af46dbea10e55ecdc6a99d55f30813dcc}\label{group__CINDEX__DIAG_gga0545c7c3ef36a397c44d142b0385b8d1af46dbea10e55ecdc6a99d55f30813dcc}} 
+C\+X\+Diagnostic\+\_\+\+Display\+Source\+Ranges&If displaying the source-\/location information of the diagnostic, also include information about source ranges in a machine-\/parsable format. This option corresponds to the clang flag {\ttfamily -\/fdiagnostics-\/print-\/source-\/range-\/info}. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Diagnostic\+\_\+\+Display\+Option@{C\+X\+Diagnostic\+\_\+\+Display\+Option}!Diagnostic reporting@{Diagnostic reporting}}\index{Diagnostic reporting@{Diagnostic reporting}!C\+X\+Diagnostic\+\_\+\+Display\+Option@{C\+X\+Diagnostic\+\_\+\+Display\+Option}}}\mbox{\Hypertarget{group__CINDEX__DIAG_gga0545c7c3ef36a397c44d142b0385b8d1a79859f540b8fba954e0332ebd5eb3fdb}\label{group__CINDEX__DIAG_gga0545c7c3ef36a397c44d142b0385b8d1a79859f540b8fba954e0332ebd5eb3fdb}} 
+C\+X\+Diagnostic\+\_\+\+Display\+Option&Display the option name associated with this diagnostic, if any. The option name displayed (e.\+g., -\/\+Wconversion) will be placed in brackets after the diagnostic text. This option corresponds to the clang flag {\ttfamily -\/fdiagnostics-\/show-\/option}. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Diagnostic\+\_\+\+Display\+Category\+Id@{C\+X\+Diagnostic\+\_\+\+Display\+Category\+Id}!Diagnostic reporting@{Diagnostic reporting}}\index{Diagnostic reporting@{Diagnostic reporting}!C\+X\+Diagnostic\+\_\+\+Display\+Category\+Id@{C\+X\+Diagnostic\+\_\+\+Display\+Category\+Id}}}\mbox{\Hypertarget{group__CINDEX__DIAG_gga0545c7c3ef36a397c44d142b0385b8d1ab27a36f7c273ff376a52b71673eb404e}\label{group__CINDEX__DIAG_gga0545c7c3ef36a397c44d142b0385b8d1ab27a36f7c273ff376a52b71673eb404e}} 
+C\+X\+Diagnostic\+\_\+\+Display\+Category\+Id&Display the category number associated with this diagnostic, if any. The category number is displayed within brackets after the diagnostic text. This option corresponds to the clang flag {\ttfamily -\/fdiagnostics-\/show-\/category=id}. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Diagnostic\+\_\+\+Display\+Category\+Name@{C\+X\+Diagnostic\+\_\+\+Display\+Category\+Name}!Diagnostic reporting@{Diagnostic reporting}}\index{Diagnostic reporting@{Diagnostic reporting}!C\+X\+Diagnostic\+\_\+\+Display\+Category\+Name@{C\+X\+Diagnostic\+\_\+\+Display\+Category\+Name}}}\mbox{\Hypertarget{group__CINDEX__DIAG_gga0545c7c3ef36a397c44d142b0385b8d1af0a8c2b64bc9a26a1cc336a2fa532056}\label{group__CINDEX__DIAG_gga0545c7c3ef36a397c44d142b0385b8d1af0a8c2b64bc9a26a1cc336a2fa532056}} 
+C\+X\+Diagnostic\+\_\+\+Display\+Category\+Name&Display the category name associated with this diagnostic, if any. The category name is displayed within brackets after the diagnostic text. This option corresponds to the clang flag {\ttfamily -\/fdiagnostics-\/show-\/category=name}. \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{group__CINDEX__DIAG_gabff210a02d448bf64e8aee79b2241370}\label{group__CINDEX__DIAG_gabff210a02d448bf64e8aee79b2241370}} 
+\index{Diagnostic reporting@{Diagnostic reporting}!C\+X\+Diagnostic\+Severity@{C\+X\+Diagnostic\+Severity}}
+\index{C\+X\+Diagnostic\+Severity@{C\+X\+Diagnostic\+Severity}!Diagnostic reporting@{Diagnostic reporting}}
+\subsubsection{\texorpdfstring{C\+X\+Diagnostic\+Severity}{CXDiagnosticSeverity}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group__CINDEX__DIAG_gabff210a02d448bf64e8aee79b2241370}{C\+X\+Diagnostic\+Severity}}}
+
+
+
+Describes the severity of a particular diagnostic. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Diagnostic\+\_\+\+Ignored@{C\+X\+Diagnostic\+\_\+\+Ignored}!Diagnostic reporting@{Diagnostic reporting}}\index{Diagnostic reporting@{Diagnostic reporting}!C\+X\+Diagnostic\+\_\+\+Ignored@{C\+X\+Diagnostic\+\_\+\+Ignored}}}\mbox{\Hypertarget{group__CINDEX__DIAG_ggabff210a02d448bf64e8aee79b2241370a6bc5575700fec4fcde75bb88ab85eb21}\label{group__CINDEX__DIAG_ggabff210a02d448bf64e8aee79b2241370a6bc5575700fec4fcde75bb88ab85eb21}} 
+C\+X\+Diagnostic\+\_\+\+Ignored&A diagnostic that has been suppressed, e.\+g., by a command-\/line option. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Diagnostic\+\_\+\+Note@{C\+X\+Diagnostic\+\_\+\+Note}!Diagnostic reporting@{Diagnostic reporting}}\index{Diagnostic reporting@{Diagnostic reporting}!C\+X\+Diagnostic\+\_\+\+Note@{C\+X\+Diagnostic\+\_\+\+Note}}}\mbox{\Hypertarget{group__CINDEX__DIAG_ggabff210a02d448bf64e8aee79b2241370abd868cb73ea129d1f77476211fea4494}\label{group__CINDEX__DIAG_ggabff210a02d448bf64e8aee79b2241370abd868cb73ea129d1f77476211fea4494}} 
+C\+X\+Diagnostic\+\_\+\+Note&This diagnostic is a note that should be attached to the previous (non-\/note) diagnostic. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Diagnostic\+\_\+\+Warning@{C\+X\+Diagnostic\+\_\+\+Warning}!Diagnostic reporting@{Diagnostic reporting}}\index{Diagnostic reporting@{Diagnostic reporting}!C\+X\+Diagnostic\+\_\+\+Warning@{C\+X\+Diagnostic\+\_\+\+Warning}}}\mbox{\Hypertarget{group__CINDEX__DIAG_ggabff210a02d448bf64e8aee79b2241370af4384404f204c3bbb614e5ee2654426e}\label{group__CINDEX__DIAG_ggabff210a02d448bf64e8aee79b2241370af4384404f204c3bbb614e5ee2654426e}} 
+C\+X\+Diagnostic\+\_\+\+Warning&This diagnostic indicates suspicious code that may not be wrong. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Diagnostic\+\_\+\+Error@{C\+X\+Diagnostic\+\_\+\+Error}!Diagnostic reporting@{Diagnostic reporting}}\index{Diagnostic reporting@{Diagnostic reporting}!C\+X\+Diagnostic\+\_\+\+Error@{C\+X\+Diagnostic\+\_\+\+Error}}}\mbox{\Hypertarget{group__CINDEX__DIAG_ggabff210a02d448bf64e8aee79b2241370ae896fe295133ecfe92587bf4dffcd994}\label{group__CINDEX__DIAG_ggabff210a02d448bf64e8aee79b2241370ae896fe295133ecfe92587bf4dffcd994}} 
+C\+X\+Diagnostic\+\_\+\+Error&This diagnostic indicates that the code is ill-\/formed. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Diagnostic\+\_\+\+Fatal@{C\+X\+Diagnostic\+\_\+\+Fatal}!Diagnostic reporting@{Diagnostic reporting}}\index{Diagnostic reporting@{Diagnostic reporting}!C\+X\+Diagnostic\+\_\+\+Fatal@{C\+X\+Diagnostic\+\_\+\+Fatal}}}\mbox{\Hypertarget{group__CINDEX__DIAG_ggabff210a02d448bf64e8aee79b2241370a5df88ea55245aedf53ab0f4ce3a6737c}\label{group__CINDEX__DIAG_ggabff210a02d448bf64e8aee79b2241370a5df88ea55245aedf53ab0f4ce3a6737c}} 
+C\+X\+Diagnostic\+\_\+\+Fatal&This diagnostic indicates that the code is ill-\/formed such that future parser recovery is unlikely to produce useful results. \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{group__CINDEX__DIAG_gafccf4d49329805ac24e6dc005aafc848}\label{group__CINDEX__DIAG_gafccf4d49329805ac24e6dc005aafc848}} 
+\index{Diagnostic reporting@{Diagnostic reporting}!C\+X\+Load\+Diag\+\_\+\+Error@{C\+X\+Load\+Diag\+\_\+\+Error}}
+\index{C\+X\+Load\+Diag\+\_\+\+Error@{C\+X\+Load\+Diag\+\_\+\+Error}!Diagnostic reporting@{Diagnostic reporting}}
+\subsubsection{\texorpdfstring{C\+X\+Load\+Diag\+\_\+\+Error}{CXLoadDiag\_Error}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group__CINDEX__DIAG_gafccf4d49329805ac24e6dc005aafc848}{C\+X\+Load\+Diag\+\_\+\+Error}}}
+
+
+
+Describes the kind of error that occurred (if any) in a call to {\ttfamily clang\+\_\+load\+Diagnostics}. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Load\+Diag\+\_\+\+None@{C\+X\+Load\+Diag\+\_\+\+None}!Diagnostic reporting@{Diagnostic reporting}}\index{Diagnostic reporting@{Diagnostic reporting}!C\+X\+Load\+Diag\+\_\+\+None@{C\+X\+Load\+Diag\+\_\+\+None}}}\mbox{\Hypertarget{group__CINDEX__DIAG_ggafccf4d49329805ac24e6dc005aafc848a2aeb81c1571c99b95cdce1b6b5b9b3d5}\label{group__CINDEX__DIAG_ggafccf4d49329805ac24e6dc005aafc848a2aeb81c1571c99b95cdce1b6b5b9b3d5}} 
+C\+X\+Load\+Diag\+\_\+\+None&Indicates that no error occurred. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Load\+Diag\+\_\+\+Unknown@{C\+X\+Load\+Diag\+\_\+\+Unknown}!Diagnostic reporting@{Diagnostic reporting}}\index{Diagnostic reporting@{Diagnostic reporting}!C\+X\+Load\+Diag\+\_\+\+Unknown@{C\+X\+Load\+Diag\+\_\+\+Unknown}}}\mbox{\Hypertarget{group__CINDEX__DIAG_ggafccf4d49329805ac24e6dc005aafc848a3b56c96ea13c1d67e23297924674ce1b}\label{group__CINDEX__DIAG_ggafccf4d49329805ac24e6dc005aafc848a3b56c96ea13c1d67e23297924674ce1b}} 
+C\+X\+Load\+Diag\+\_\+\+Unknown&Indicates that an unknown error occurred while attempting to deserialize diagnostics. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Load\+Diag\+\_\+\+Cannot\+Load@{C\+X\+Load\+Diag\+\_\+\+Cannot\+Load}!Diagnostic reporting@{Diagnostic reporting}}\index{Diagnostic reporting@{Diagnostic reporting}!C\+X\+Load\+Diag\+\_\+\+Cannot\+Load@{C\+X\+Load\+Diag\+\_\+\+Cannot\+Load}}}\mbox{\Hypertarget{group__CINDEX__DIAG_ggafccf4d49329805ac24e6dc005aafc848ac08b95e9ba65ec7436038554d74f795e}\label{group__CINDEX__DIAG_ggafccf4d49329805ac24e6dc005aafc848ac08b95e9ba65ec7436038554d74f795e}} 
+C\+X\+Load\+Diag\+\_\+\+Cannot\+Load&Indicates that the file containing the serialized diagnostics could not be opened. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Load\+Diag\+\_\+\+Invalid\+File@{C\+X\+Load\+Diag\+\_\+\+Invalid\+File}!Diagnostic reporting@{Diagnostic reporting}}\index{Diagnostic reporting@{Diagnostic reporting}!C\+X\+Load\+Diag\+\_\+\+Invalid\+File@{C\+X\+Load\+Diag\+\_\+\+Invalid\+File}}}\mbox{\Hypertarget{group__CINDEX__DIAG_ggafccf4d49329805ac24e6dc005aafc848ad06582a09b2adbbded48bde1106214d6}\label{group__CINDEX__DIAG_ggafccf4d49329805ac24e6dc005aafc848ad06582a09b2adbbded48bde1106214d6}} 
+C\+X\+Load\+Diag\+\_\+\+Invalid\+File&Indicates that the serialized diagnostics file is invalid or corrupt. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{group__CINDEX__DIAG_ga5fcf910792541399efd63c62042ce353}\label{group__CINDEX__DIAG_ga5fcf910792541399efd63c62042ce353}} 
+\index{Diagnostic reporting@{Diagnostic reporting}!clang\+\_\+default\+Diagnostic\+Display\+Options@{clang\+\_\+default\+Diagnostic\+Display\+Options}}
+\index{clang\+\_\+default\+Diagnostic\+Display\+Options@{clang\+\_\+default\+Diagnostic\+Display\+Options}!Diagnostic reporting@{Diagnostic reporting}}
+\subsubsection{\texorpdfstring{clang\+\_\+default\+Diagnostic\+Display\+Options()}{clang\_defaultDiagnosticDisplayOptions()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE unsigned clang\+\_\+default\+Diagnostic\+Display\+Options (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Retrieve the set of display options most similar to the default behavior of the clang compiler. 
+
+\begin{DoxyReturn}{Returns}
+A set of display options suitable for use with {\ttfamily \mbox{\hyperlink{group__CINDEX__DIAG_ga455234ab6de0ca12c9ea36f8874060e8}{clang\+\_\+format\+Diagnostic()}}}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__CINDEX__DIAG_ga455234ab6de0ca12c9ea36f8874060e8}\label{group__CINDEX__DIAG_ga455234ab6de0ca12c9ea36f8874060e8}} 
+\index{Diagnostic reporting@{Diagnostic reporting}!clang\+\_\+format\+Diagnostic@{clang\+\_\+format\+Diagnostic}}
+\index{clang\+\_\+format\+Diagnostic@{clang\+\_\+format\+Diagnostic}!Diagnostic reporting@{Diagnostic reporting}}
+\subsubsection{\texorpdfstring{clang\+\_\+format\+Diagnostic()}{clang\_formatDiagnostic()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{structCXString}{C\+X\+String}} clang\+\_\+format\+Diagnostic (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__CINDEX__DIAG_ga44bb8aba7c40590ad25d1763c4fbff7f}{C\+X\+Diagnostic}}}]{Diagnostic,  }\item[{unsigned}]{Options }\end{DoxyParamCaption})}
+
+
+
+Format the given diagnostic in a manner that is suitable for display. 
+
+This routine will format the given diagnostic to a string, rendering the diagnostic according to the various options given. The {\ttfamily \mbox{\hyperlink{group__CINDEX__DIAG_ga5fcf910792541399efd63c62042ce353}{clang\+\_\+default\+Diagnostic\+Display\+Options()}}} function returns the set of options that most closely mimics the behavior of the clang compiler.
+
+
+\begin{DoxyParams}{Parameters}
+{\em Diagnostic} & The diagnostic to print.\\
+\hline
+{\em Options} & A set of options that control the diagnostic display, created by combining {\ttfamily C\+X\+Diagnostic\+Display\+Options} values.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A new string containing for formatted diagnostic. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__CINDEX__DIAG_ga1aa24f925b34bb988dc3ea06ec27dcda}\label{group__CINDEX__DIAG_ga1aa24f925b34bb988dc3ea06ec27dcda}} 
+\index{Diagnostic reporting@{Diagnostic reporting}!clang\+\_\+get\+Child\+Diagnostics@{clang\+\_\+get\+Child\+Diagnostics}}
+\index{clang\+\_\+get\+Child\+Diagnostics@{clang\+\_\+get\+Child\+Diagnostics}!Diagnostic reporting@{Diagnostic reporting}}
+\subsubsection{\texorpdfstring{clang\+\_\+get\+Child\+Diagnostics()}{clang\_getChildDiagnostics()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{group__CINDEX__DIAG_ga38dfc0ae45b55bf7fd577eed9148e244}{C\+X\+Diagnostic\+Set}} clang\+\_\+get\+Child\+Diagnostics (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__CINDEX__DIAG_ga44bb8aba7c40590ad25d1763c4fbff7f}{C\+X\+Diagnostic}}}]{D }\end{DoxyParamCaption})}
+
+
+
+Retrieve the child diagnostics of a C\+X\+Diagnostic. 
+
+This C\+X\+Diagnostic\+Set does not need to be released by clang\+\_\+dispose\+Diagnostic\+Set. \mbox{\Hypertarget{group__CINDEX__DIAG_ga3f54a79e820c2ac9388611e98029afe5}\label{group__CINDEX__DIAG_ga3f54a79e820c2ac9388611e98029afe5}} 
+\index{Diagnostic reporting@{Diagnostic reporting}!clang\+\_\+get\+Diagnostic@{clang\+\_\+get\+Diagnostic}}
+\index{clang\+\_\+get\+Diagnostic@{clang\+\_\+get\+Diagnostic}!Diagnostic reporting@{Diagnostic reporting}}
+\subsubsection{\texorpdfstring{clang\+\_\+get\+Diagnostic()}{clang\_getDiagnostic()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{group__CINDEX__DIAG_ga44bb8aba7c40590ad25d1763c4fbff7f}{C\+X\+Diagnostic}} clang\+\_\+get\+Diagnostic (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__CINDEX_gacdb7815736ca709ce9a5e1ec2b7e16ac}{C\+X\+Translation\+Unit}}}]{Unit,  }\item[{unsigned}]{Index }\end{DoxyParamCaption})}
+
+
+
+Retrieve a diagnostic associated with the given translation unit. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Unit} & the translation unit to query. \\
+\hline
+{\em Index} & the zero-\/based diagnostic number to retrieve.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the requested diagnostic. This diagnostic must be freed via a call to {\ttfamily \mbox{\hyperlink{group__CINDEX__DIAG_ga07061e0ad7665b7c5ee7253cd1bf4a5c}{clang\+\_\+dispose\+Diagnostic()}}}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__CINDEX__DIAG_ga0ec085bd59b8b6c935eab0e53a1f348f}\label{group__CINDEX__DIAG_ga0ec085bd59b8b6c935eab0e53a1f348f}} 
+\index{Diagnostic reporting@{Diagnostic reporting}!clang\+\_\+get\+Diagnostic\+Category@{clang\+\_\+get\+Diagnostic\+Category}}
+\index{clang\+\_\+get\+Diagnostic\+Category@{clang\+\_\+get\+Diagnostic\+Category}!Diagnostic reporting@{Diagnostic reporting}}
+\subsubsection{\texorpdfstring{clang\+\_\+get\+Diagnostic\+Category()}{clang\_getDiagnosticCategory()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE unsigned clang\+\_\+get\+Diagnostic\+Category (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__CINDEX__DIAG_ga44bb8aba7c40590ad25d1763c4fbff7f}{C\+X\+Diagnostic}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Retrieve the category number for this diagnostic. 
+
+Diagnostics can be categorized into groups along with other, related diagnostics (e.\+g., diagnostics under the same warning flag). This routine retrieves the category number for the given diagnostic.
+
+\begin{DoxyReturn}{Returns}
+The number of the category that contains this diagnostic, or zero if this diagnostic is uncategorized. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__CINDEX__DIAG_gaf3d608c7860a57ce6571a3b03b4ead33}\label{group__CINDEX__DIAG_gaf3d608c7860a57ce6571a3b03b4ead33}} 
+\index{Diagnostic reporting@{Diagnostic reporting}!clang\+\_\+get\+Diagnostic\+Category\+Name@{clang\+\_\+get\+Diagnostic\+Category\+Name}}
+\index{clang\+\_\+get\+Diagnostic\+Category\+Name@{clang\+\_\+get\+Diagnostic\+Category\+Name}!Diagnostic reporting@{Diagnostic reporting}}
+\subsubsection{\texorpdfstring{clang\+\_\+get\+Diagnostic\+Category\+Name()}{clang\_getDiagnosticCategoryName()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+D\+E\+P\+R\+E\+C\+A\+T\+ED C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{structCXString}{C\+X\+String}} clang\+\_\+get\+Diagnostic\+Category\+Name (\begin{DoxyParamCaption}\item[{unsigned}]{Category }\end{DoxyParamCaption})}
+
+
+
+Retrieve the name of a particular diagnostic category. This is now deprecated. Use \mbox{\hyperlink{group__CINDEX__DIAG_ga6950702b6122f1cd74e1a369605a9f54}{clang\+\_\+get\+Diagnostic\+Category\+Text()}} instead. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Category} & A diagnostic category number, as returned by {\ttfamily \mbox{\hyperlink{group__CINDEX__DIAG_ga0ec085bd59b8b6c935eab0e53a1f348f}{clang\+\_\+get\+Diagnostic\+Category()}}}.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The name of the given diagnostic category. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__CINDEX__DIAG_ga6950702b6122f1cd74e1a369605a9f54}\label{group__CINDEX__DIAG_ga6950702b6122f1cd74e1a369605a9f54}} 
+\index{Diagnostic reporting@{Diagnostic reporting}!clang\+\_\+get\+Diagnostic\+Category\+Text@{clang\+\_\+get\+Diagnostic\+Category\+Text}}
+\index{clang\+\_\+get\+Diagnostic\+Category\+Text@{clang\+\_\+get\+Diagnostic\+Category\+Text}!Diagnostic reporting@{Diagnostic reporting}}
+\subsubsection{\texorpdfstring{clang\+\_\+get\+Diagnostic\+Category\+Text()}{clang\_getDiagnosticCategoryText()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{structCXString}{C\+X\+String}} clang\+\_\+get\+Diagnostic\+Category\+Text (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__CINDEX__DIAG_ga44bb8aba7c40590ad25d1763c4fbff7f}{C\+X\+Diagnostic}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Retrieve the diagnostic category text for a given diagnostic. 
+
+\begin{DoxyReturn}{Returns}
+The text of the given diagnostic category. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__CINDEX__DIAG_gadf990bd68112475c5c07b19c1fe3938a}\label{group__CINDEX__DIAG_gadf990bd68112475c5c07b19c1fe3938a}} 
+\index{Diagnostic reporting@{Diagnostic reporting}!clang\+\_\+get\+Diagnostic\+Fix\+It@{clang\+\_\+get\+Diagnostic\+Fix\+It}}
+\index{clang\+\_\+get\+Diagnostic\+Fix\+It@{clang\+\_\+get\+Diagnostic\+Fix\+It}!Diagnostic reporting@{Diagnostic reporting}}
+\subsubsection{\texorpdfstring{clang\+\_\+get\+Diagnostic\+Fix\+It()}{clang\_getDiagnosticFixIt()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{structCXString}{C\+X\+String}} clang\+\_\+get\+Diagnostic\+Fix\+It (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__CINDEX__DIAG_ga44bb8aba7c40590ad25d1763c4fbff7f}{C\+X\+Diagnostic}}}]{Diagnostic,  }\item[{unsigned}]{Fix\+It,  }\item[{\mbox{\hyperlink{structCXSourceRange}{C\+X\+Source\+Range}} $\ast$}]{Replacement\+Range }\end{DoxyParamCaption})}
+
+
+
+Retrieve the replacement information for a given fix-\/it. 
+
+Fix-\/its are described in terms of a source range whose contents should be replaced by a string. This approach generalizes over three kinds of operations\+: removal of source code (the range covers the code to be removed and the replacement string is empty), replacement of source code (the range covers the code to be replaced and the replacement string provides the new code), and insertion (both the start and end of the range point at the insertion location, and the replacement string provides the text to insert).
+
+
+\begin{DoxyParams}{Parameters}
+{\em Diagnostic} & The diagnostic whose fix-\/its are being queried.\\
+\hline
+{\em Fix\+It} & The zero-\/based index of the fix-\/it.\\
+\hline
+{\em Replacement\+Range} & The source range whose contents will be replaced with the returned replacement string. Note that source ranges are half-\/open ranges \mbox{[}a, b), so the source code should be replaced from a and up to (but not including) b.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A string containing text that should be replace the source code indicated by the {\ttfamily Replacement\+Range}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__CINDEX__DIAG_ga997e07d587e02eea7d29874c33c94249}\label{group__CINDEX__DIAG_ga997e07d587e02eea7d29874c33c94249}} 
+\index{Diagnostic reporting@{Diagnostic reporting}!clang\+\_\+get\+Diagnostic\+In\+Set@{clang\+\_\+get\+Diagnostic\+In\+Set}}
+\index{clang\+\_\+get\+Diagnostic\+In\+Set@{clang\+\_\+get\+Diagnostic\+In\+Set}!Diagnostic reporting@{Diagnostic reporting}}
+\subsubsection{\texorpdfstring{clang\+\_\+get\+Diagnostic\+In\+Set()}{clang\_getDiagnosticInSet()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{group__CINDEX__DIAG_ga44bb8aba7c40590ad25d1763c4fbff7f}{C\+X\+Diagnostic}} clang\+\_\+get\+Diagnostic\+In\+Set (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__CINDEX__DIAG_ga38dfc0ae45b55bf7fd577eed9148e244}{C\+X\+Diagnostic\+Set}}}]{Diags,  }\item[{unsigned}]{Index }\end{DoxyParamCaption})}
+
+
+
+Retrieve a diagnostic associated with the given C\+X\+Diagnostic\+Set. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Diags} & the C\+X\+Diagnostic\+Set to query. \\
+\hline
+{\em Index} & the zero-\/based diagnostic number to retrieve.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the requested diagnostic. This diagnostic must be freed via a call to {\ttfamily \mbox{\hyperlink{group__CINDEX__DIAG_ga07061e0ad7665b7c5ee7253cd1bf4a5c}{clang\+\_\+dispose\+Diagnostic()}}}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__CINDEX__DIAG_gabfcf70ac15bb3e5ae39ef2c5e07c7428}\label{group__CINDEX__DIAG_gabfcf70ac15bb3e5ae39ef2c5e07c7428}} 
+\index{Diagnostic reporting@{Diagnostic reporting}!clang\+\_\+get\+Diagnostic\+Location@{clang\+\_\+get\+Diagnostic\+Location}}
+\index{clang\+\_\+get\+Diagnostic\+Location@{clang\+\_\+get\+Diagnostic\+Location}!Diagnostic reporting@{Diagnostic reporting}}
+\subsubsection{\texorpdfstring{clang\+\_\+get\+Diagnostic\+Location()}{clang\_getDiagnosticLocation()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{structCXSourceLocation}{C\+X\+Source\+Location}} clang\+\_\+get\+Diagnostic\+Location (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__CINDEX__DIAG_ga44bb8aba7c40590ad25d1763c4fbff7f}{C\+X\+Diagnostic}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Retrieve the source location of the given diagnostic. 
+
+This location is where Clang would print the caret (\textquotesingle{}$^\wedge$\textquotesingle{}) when displaying the diagnostic on the command line. \mbox{\Hypertarget{group__CINDEX__DIAG_ga69b094e2cca1cd6f452327dc9204a168}\label{group__CINDEX__DIAG_ga69b094e2cca1cd6f452327dc9204a168}} 
+\index{Diagnostic reporting@{Diagnostic reporting}!clang\+\_\+get\+Diagnostic\+Option@{clang\+\_\+get\+Diagnostic\+Option}}
+\index{clang\+\_\+get\+Diagnostic\+Option@{clang\+\_\+get\+Diagnostic\+Option}!Diagnostic reporting@{Diagnostic reporting}}
+\subsubsection{\texorpdfstring{clang\+\_\+get\+Diagnostic\+Option()}{clang\_getDiagnosticOption()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{structCXString}{C\+X\+String}} clang\+\_\+get\+Diagnostic\+Option (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__CINDEX__DIAG_ga44bb8aba7c40590ad25d1763c4fbff7f}{C\+X\+Diagnostic}}}]{Diag,  }\item[{\mbox{\hyperlink{structCXString}{C\+X\+String}} $\ast$}]{Disable }\end{DoxyParamCaption})}
+
+
+
+Retrieve the name of the command-\/line option that enabled this diagnostic. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Diag} & The diagnostic to be queried.\\
+\hline
+{\em Disable} & If non-\/\+N\+U\+LL, will be set to the option that disables this diagnostic (if any).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A string that contains the command-\/line option used to enable this warning, such as \char`\"{}-\/\+Wconversion\char`\"{} or \char`\"{}-\/pedantic\char`\"{}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__CINDEX__DIAG_gabd440f1577374289ffebe73d9f65b294}\label{group__CINDEX__DIAG_gabd440f1577374289ffebe73d9f65b294}} 
+\index{Diagnostic reporting@{Diagnostic reporting}!clang\+\_\+get\+Diagnostic\+Range@{clang\+\_\+get\+Diagnostic\+Range}}
+\index{clang\+\_\+get\+Diagnostic\+Range@{clang\+\_\+get\+Diagnostic\+Range}!Diagnostic reporting@{Diagnostic reporting}}
+\subsubsection{\texorpdfstring{clang\+\_\+get\+Diagnostic\+Range()}{clang\_getDiagnosticRange()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{structCXSourceRange}{C\+X\+Source\+Range}} clang\+\_\+get\+Diagnostic\+Range (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__CINDEX__DIAG_ga44bb8aba7c40590ad25d1763c4fbff7f}{C\+X\+Diagnostic}}}]{Diagnostic,  }\item[{unsigned}]{Range }\end{DoxyParamCaption})}
+
+
+
+Retrieve a source range associated with the diagnostic. 
+
+A diagnostic\textquotesingle{}s source ranges highlight important elements in the source code. On the command line, Clang displays source ranges by underlining them with \textquotesingle{}$\sim$\textquotesingle{} characters.
+
+
+\begin{DoxyParams}{Parameters}
+{\em Diagnostic} & the diagnostic whose range is being extracted.\\
+\hline
+{\em Range} & the zero-\/based index specifying which range to\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the requested source range. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__CINDEX__DIAG_gaf786e9688b9a685958e486cb81910924}\label{group__CINDEX__DIAG_gaf786e9688b9a685958e486cb81910924}} 
+\index{Diagnostic reporting@{Diagnostic reporting}!clang\+\_\+get\+Diagnostic\+Set\+From\+TU@{clang\+\_\+get\+Diagnostic\+Set\+From\+TU}}
+\index{clang\+\_\+get\+Diagnostic\+Set\+From\+TU@{clang\+\_\+get\+Diagnostic\+Set\+From\+TU}!Diagnostic reporting@{Diagnostic reporting}}
+\subsubsection{\texorpdfstring{clang\+\_\+get\+Diagnostic\+Set\+From\+T\+U()}{clang\_getDiagnosticSetFromTU()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{group__CINDEX__DIAG_ga38dfc0ae45b55bf7fd577eed9148e244}{C\+X\+Diagnostic\+Set}} clang\+\_\+get\+Diagnostic\+Set\+From\+TU (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__CINDEX_gacdb7815736ca709ce9a5e1ec2b7e16ac}{C\+X\+Translation\+Unit}}}]{Unit }\end{DoxyParamCaption})}
+
+
+
+Retrieve the complete set of diagnostics associated with a translation unit. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Unit} & the translation unit to query. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__CINDEX__DIAG_gaa1e3aff15dc2eb97330533f0c68bd28f}\label{group__CINDEX__DIAG_gaa1e3aff15dc2eb97330533f0c68bd28f}} 
+\index{Diagnostic reporting@{Diagnostic reporting}!clang\+\_\+load\+Diagnostics@{clang\+\_\+load\+Diagnostics}}
+\index{clang\+\_\+load\+Diagnostics@{clang\+\_\+load\+Diagnostics}!Diagnostic reporting@{Diagnostic reporting}}
+\subsubsection{\texorpdfstring{clang\+\_\+load\+Diagnostics()}{clang\_loadDiagnostics()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{group__CINDEX__DIAG_ga38dfc0ae45b55bf7fd577eed9148e244}{C\+X\+Diagnostic\+Set}} clang\+\_\+load\+Diagnostics (\begin{DoxyParamCaption}\item[{const char $\ast$}]{file,  }\item[{enum \mbox{\hyperlink{group__CINDEX__DIAG_gafccf4d49329805ac24e6dc005aafc848}{C\+X\+Load\+Diag\+\_\+\+Error}} $\ast$}]{error,  }\item[{\mbox{\hyperlink{structCXString}{C\+X\+String}} $\ast$}]{error\+String }\end{DoxyParamCaption})}
+
+
+
+Deserialize a set of diagnostics from a Clang diagnostics bitcode file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file} & The name of the file to deserialize. \\
+\hline
+{\em error} & A pointer to a enum value recording if there was a problem deserializing the diagnostics. \\
+\hline
+{\em error\+String} & A pointer to a \mbox{\hyperlink{structCXString}{C\+X\+String}} for recording the error string if the file was not successfully loaded.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A loaded C\+X\+Diagnostic\+Set if successful, and N\+U\+LL otherwise. These diagnostics should be released using \mbox{\hyperlink{group__CINDEX__DIAG_ga1a1126b07e4dc0b45b0617f3cc848d57}{clang\+\_\+dispose\+Diagnostic\+Set()}}. 
+\end{DoxyReturn}

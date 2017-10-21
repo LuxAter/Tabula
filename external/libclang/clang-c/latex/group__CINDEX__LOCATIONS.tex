@@ -1,0 +1,244 @@
+\hypertarget{group__CINDEX__LOCATIONS}{}\section{Physical source locations}
+\label{group__CINDEX__LOCATIONS}\index{Physical source locations@{Physical source locations}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structCXSourceLocation}{C\+X\+Source\+Location}}
+\begin{DoxyCompactList}\small\item\em Identifies a specific source location within a translation unit. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structCXSourceRange}{C\+X\+Source\+Range}}
+\begin{DoxyCompactList}\small\item\em Identifies a half-\/open character range in the source code. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structCXSourceRangeList}{C\+X\+Source\+Range\+List}}
+\begin{DoxyCompactList}\small\item\em Identifies an array of ranges. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__CINDEX__LOCATIONS_ga79db06b88e567b1da41620fd96c51787}\label{group__CINDEX__LOCATIONS_ga79db06b88e567b1da41620fd96c51787}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{structCXSourceLocation}{C\+X\+Source\+Location}} \mbox{\hyperlink{group__CINDEX__LOCATIONS_ga79db06b88e567b1da41620fd96c51787}{clang\+\_\+get\+Null\+Location}} (void)
+\begin{DoxyCompactList}\small\item\em Retrieve a N\+U\+LL (invalid) source location. \end{DoxyCompactList}\item 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE unsigned \mbox{\hyperlink{group__CINDEX__LOCATIONS_gabb1ee8108ded5d3eafa6d059eb473ef8}{clang\+\_\+equal\+Locations}} (\mbox{\hyperlink{structCXSourceLocation}{C\+X\+Source\+Location}} loc1, \mbox{\hyperlink{structCXSourceLocation}{C\+X\+Source\+Location}} loc2)
+\begin{DoxyCompactList}\small\item\em Determine whether two source locations, which must refer into the same translation unit, refer to exactly the same point in the source code. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX__LOCATIONS_ga86d822034407d60d9e1f36e07cbc0f67}\label{group__CINDEX__LOCATIONS_ga86d822034407d60d9e1f36e07cbc0f67}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{structCXSourceLocation}{C\+X\+Source\+Location}} \mbox{\hyperlink{group__CINDEX__LOCATIONS_ga86d822034407d60d9e1f36e07cbc0f67}{clang\+\_\+get\+Location}} (\mbox{\hyperlink{group__CINDEX_gacdb7815736ca709ce9a5e1ec2b7e16ac}{C\+X\+Translation\+Unit}} tu, \mbox{\hyperlink{group__CINDEX__FILES_gacfcea9c1239c916597e2e5b3e109215a}{C\+X\+File}} file, unsigned line, unsigned column)
+\begin{DoxyCompactList}\small\item\em Retrieves the source location associated with a given file/line/column in a particular translation unit. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX__LOCATIONS_gab6f5b1cc0761131ccfd1dc8cdca1f6d8}\label{group__CINDEX__LOCATIONS_gab6f5b1cc0761131ccfd1dc8cdca1f6d8}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{structCXSourceLocation}{C\+X\+Source\+Location}} \mbox{\hyperlink{group__CINDEX__LOCATIONS_gab6f5b1cc0761131ccfd1dc8cdca1f6d8}{clang\+\_\+get\+Location\+For\+Offset}} (\mbox{\hyperlink{group__CINDEX_gacdb7815736ca709ce9a5e1ec2b7e16ac}{C\+X\+Translation\+Unit}} tu, \mbox{\hyperlink{group__CINDEX__FILES_gacfcea9c1239c916597e2e5b3e109215a}{C\+X\+File}} file, unsigned offset)
+\begin{DoxyCompactList}\small\item\em Retrieves the source location associated with a given character offset in a particular translation unit. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX__LOCATIONS_ga6bff8dbc149f24f388d8b960e99222a1}\label{group__CINDEX__LOCATIONS_ga6bff8dbc149f24f388d8b960e99222a1}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE int \mbox{\hyperlink{group__CINDEX__LOCATIONS_ga6bff8dbc149f24f388d8b960e99222a1}{clang\+\_\+\+Location\+\_\+is\+In\+System\+Header}} (\mbox{\hyperlink{structCXSourceLocation}{C\+X\+Source\+Location}} location)
+\begin{DoxyCompactList}\small\item\em Returns non-\/zero if the given source location is in a system header. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX__LOCATIONS_gacb4ca7b858d66f0205797ae84cc4e8f2}\label{group__CINDEX__LOCATIONS_gacb4ca7b858d66f0205797ae84cc4e8f2}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE int \mbox{\hyperlink{group__CINDEX__LOCATIONS_gacb4ca7b858d66f0205797ae84cc4e8f2}{clang\+\_\+\+Location\+\_\+is\+From\+Main\+File}} (\mbox{\hyperlink{structCXSourceLocation}{C\+X\+Source\+Location}} location)
+\begin{DoxyCompactList}\small\item\em Returns non-\/zero if the given source location is in the main file of the corresponding translation unit. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX__LOCATIONS_gafcb849f2f038466f46397d552e736da3}\label{group__CINDEX__LOCATIONS_gafcb849f2f038466f46397d552e736da3}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{structCXSourceRange}{C\+X\+Source\+Range}} \mbox{\hyperlink{group__CINDEX__LOCATIONS_gafcb849f2f038466f46397d552e736da3}{clang\+\_\+get\+Null\+Range}} (void)
+\begin{DoxyCompactList}\small\item\em Retrieve a N\+U\+LL (invalid) source range. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX__LOCATIONS_ga4e2b6d439f72fdee12c2e4dcf4ff1e2f}\label{group__CINDEX__LOCATIONS_ga4e2b6d439f72fdee12c2e4dcf4ff1e2f}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{structCXSourceRange}{C\+X\+Source\+Range}} \mbox{\hyperlink{group__CINDEX__LOCATIONS_ga4e2b6d439f72fdee12c2e4dcf4ff1e2f}{clang\+\_\+get\+Range}} (\mbox{\hyperlink{structCXSourceLocation}{C\+X\+Source\+Location}} begin, \mbox{\hyperlink{structCXSourceLocation}{C\+X\+Source\+Location}} end)
+\begin{DoxyCompactList}\small\item\em Retrieve a source range given the beginning and ending source locations. \end{DoxyCompactList}\item 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE unsigned \mbox{\hyperlink{group__CINDEX__LOCATIONS_ga07e10740b1e867fe4329c6a2df3f9be7}{clang\+\_\+equal\+Ranges}} (\mbox{\hyperlink{structCXSourceRange}{C\+X\+Source\+Range}} range1, \mbox{\hyperlink{structCXSourceRange}{C\+X\+Source\+Range}} range2)
+\begin{DoxyCompactList}\small\item\em Determine whether two ranges are equivalent. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX__LOCATIONS_ga39213a93703e84c0accdba1f618d7fbb}\label{group__CINDEX__LOCATIONS_ga39213a93703e84c0accdba1f618d7fbb}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE int \mbox{\hyperlink{group__CINDEX__LOCATIONS_ga39213a93703e84c0accdba1f618d7fbb}{clang\+\_\+\+Range\+\_\+is\+Null}} (\mbox{\hyperlink{structCXSourceRange}{C\+X\+Source\+Range}} range)
+\begin{DoxyCompactList}\small\item\em Returns non-\/zero if {\ttfamily range} is null. \end{DoxyCompactList}\item 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE void \mbox{\hyperlink{group__CINDEX__LOCATIONS_gadee4bea0fa34550663e869f48550eb1f}{clang\+\_\+get\+Expansion\+Location}} (\mbox{\hyperlink{structCXSourceLocation}{C\+X\+Source\+Location}} location, \mbox{\hyperlink{group__CINDEX__FILES_gacfcea9c1239c916597e2e5b3e109215a}{C\+X\+File}} $\ast$file, unsigned $\ast$line, unsigned $\ast$column, unsigned $\ast$offset)
+\begin{DoxyCompactList}\small\item\em Retrieve the file, line, column, and offset represented by the given source location. \end{DoxyCompactList}\item 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE void \mbox{\hyperlink{group__CINDEX__LOCATIONS_ga03508d9c944feeb3877515a1b08d36f9}{clang\+\_\+get\+Presumed\+Location}} (\mbox{\hyperlink{structCXSourceLocation}{C\+X\+Source\+Location}} location, \mbox{\hyperlink{structCXString}{C\+X\+String}} $\ast$filename, unsigned $\ast$line, unsigned $\ast$column)
+\begin{DoxyCompactList}\small\item\em Retrieve the file, line, column, and offset represented by the given source location, as specified in a \# line directive. \end{DoxyCompactList}\item 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE void \mbox{\hyperlink{group__CINDEX__LOCATIONS_ga112e657eb04c281ca12c6975d489b633}{clang\+\_\+get\+Instantiation\+Location}} (\mbox{\hyperlink{structCXSourceLocation}{C\+X\+Source\+Location}} location, \mbox{\hyperlink{group__CINDEX__FILES_gacfcea9c1239c916597e2e5b3e109215a}{C\+X\+File}} $\ast$file, unsigned $\ast$line, unsigned $\ast$column, unsigned $\ast$offset)
+\begin{DoxyCompactList}\small\item\em Legacy A\+PI to retrieve the file, line, column, and offset represented by the given source location. \end{DoxyCompactList}\item 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE void \mbox{\hyperlink{group__CINDEX__LOCATIONS_ga01f1a342f7807ea742aedd2c61c46fa0}{clang\+\_\+get\+Spelling\+Location}} (\mbox{\hyperlink{structCXSourceLocation}{C\+X\+Source\+Location}} location, \mbox{\hyperlink{group__CINDEX__FILES_gacfcea9c1239c916597e2e5b3e109215a}{C\+X\+File}} $\ast$file, unsigned $\ast$line, unsigned $\ast$column, unsigned $\ast$offset)
+\begin{DoxyCompactList}\small\item\em Retrieve the file, line, column, and offset represented by the given source location. \end{DoxyCompactList}\item 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE void \mbox{\hyperlink{group__CINDEX__LOCATIONS_gae0ee9ff0ea04f2446832fc12a7fd2ac8}{clang\+\_\+get\+File\+Location}} (\mbox{\hyperlink{structCXSourceLocation}{C\+X\+Source\+Location}} location, \mbox{\hyperlink{group__CINDEX__FILES_gacfcea9c1239c916597e2e5b3e109215a}{C\+X\+File}} $\ast$file, unsigned $\ast$line, unsigned $\ast$column, unsigned $\ast$offset)
+\begin{DoxyCompactList}\small\item\em Retrieve the file, line, column, and offset represented by the given source location. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX__LOCATIONS_gac2cc034e3965739c41662f6ada7ff248}\label{group__CINDEX__LOCATIONS_gac2cc034e3965739c41662f6ada7ff248}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{structCXSourceLocation}{C\+X\+Source\+Location}} \mbox{\hyperlink{group__CINDEX__LOCATIONS_gac2cc034e3965739c41662f6ada7ff248}{clang\+\_\+get\+Range\+Start}} (\mbox{\hyperlink{structCXSourceRange}{C\+X\+Source\+Range}} range)
+\begin{DoxyCompactList}\small\item\em Retrieve a source location representing the first character within a source range. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX__LOCATIONS_gacdb7d3c2b77a06bcc2e83bde3e14c3c0}\label{group__CINDEX__LOCATIONS_gacdb7d3c2b77a06bcc2e83bde3e14c3c0}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{structCXSourceLocation}{C\+X\+Source\+Location}} \mbox{\hyperlink{group__CINDEX__LOCATIONS_gacdb7d3c2b77a06bcc2e83bde3e14c3c0}{clang\+\_\+get\+Range\+End}} (\mbox{\hyperlink{structCXSourceRange}{C\+X\+Source\+Range}} range)
+\begin{DoxyCompactList}\small\item\em Retrieve a source location representing the last character within a source range. \end{DoxyCompactList}\item 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{structCXSourceRangeList}{C\+X\+Source\+Range\+List}} $\ast$ \mbox{\hyperlink{group__CINDEX__LOCATIONS_gae27bc89151459aeb94e0fb7aa0552d35}{clang\+\_\+get\+Skipped\+Ranges}} (\mbox{\hyperlink{group__CINDEX_gacdb7815736ca709ce9a5e1ec2b7e16ac}{C\+X\+Translation\+Unit}} tu, \mbox{\hyperlink{group__CINDEX__FILES_gacfcea9c1239c916597e2e5b3e109215a}{C\+X\+File}} file)
+\begin{DoxyCompactList}\small\item\em Retrieve all ranges that were skipped by the preprocessor. \end{DoxyCompactList}\item 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{structCXSourceRangeList}{C\+X\+Source\+Range\+List}} $\ast$ \mbox{\hyperlink{group__CINDEX__LOCATIONS_ga06a114b020fda470476ff5293a66e5e1}{clang\+\_\+get\+All\+Skipped\+Ranges}} (\mbox{\hyperlink{group__CINDEX_gacdb7815736ca709ce9a5e1ec2b7e16ac}{C\+X\+Translation\+Unit}} tu)
+\begin{DoxyCompactList}\small\item\em Retrieve all ranges from all files that were skipped by the preprocessor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX__LOCATIONS_ga6305dd3e01bbfa8a999f47bd2cae2506}\label{group__CINDEX__LOCATIONS_ga6305dd3e01bbfa8a999f47bd2cae2506}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE void \mbox{\hyperlink{group__CINDEX__LOCATIONS_ga6305dd3e01bbfa8a999f47bd2cae2506}{clang\+\_\+dispose\+Source\+Range\+List}} (\mbox{\hyperlink{structCXSourceRangeList}{C\+X\+Source\+Range\+List}} $\ast$ranges)
+\begin{DoxyCompactList}\small\item\em Destroy the given {\ttfamily \mbox{\hyperlink{structCXSourceRangeList}{C\+X\+Source\+Range\+List}}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Clang represents physical source locations in its abstract syntax tree in great detail, with file, line, and column information for the majority of the tokens parsed in the source code. These data types and functions are used to represent source location information, either for a particular point in the program or for a range of points in the program, and extract specific location information from those data types. 
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{group__CINDEX__LOCATIONS_gabb1ee8108ded5d3eafa6d059eb473ef8}\label{group__CINDEX__LOCATIONS_gabb1ee8108ded5d3eafa6d059eb473ef8}} 
+\index{Physical source locations@{Physical source locations}!clang\+\_\+equal\+Locations@{clang\+\_\+equal\+Locations}}
+\index{clang\+\_\+equal\+Locations@{clang\+\_\+equal\+Locations}!Physical source locations@{Physical source locations}}
+\subsubsection{\texorpdfstring{clang\+\_\+equal\+Locations()}{clang\_equalLocations()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE unsigned clang\+\_\+equal\+Locations (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCXSourceLocation}{C\+X\+Source\+Location}}}]{loc1,  }\item[{\mbox{\hyperlink{structCXSourceLocation}{C\+X\+Source\+Location}}}]{loc2 }\end{DoxyParamCaption})}
+
+
+
+Determine whether two source locations, which must refer into the same translation unit, refer to exactly the same point in the source code. 
+
+\begin{DoxyReturn}{Returns}
+non-\/zero if the source locations refer to the same location, zero if they refer to different locations. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__CINDEX__LOCATIONS_ga07e10740b1e867fe4329c6a2df3f9be7}\label{group__CINDEX__LOCATIONS_ga07e10740b1e867fe4329c6a2df3f9be7}} 
+\index{Physical source locations@{Physical source locations}!clang\+\_\+equal\+Ranges@{clang\+\_\+equal\+Ranges}}
+\index{clang\+\_\+equal\+Ranges@{clang\+\_\+equal\+Ranges}!Physical source locations@{Physical source locations}}
+\subsubsection{\texorpdfstring{clang\+\_\+equal\+Ranges()}{clang\_equalRanges()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE unsigned clang\+\_\+equal\+Ranges (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCXSourceRange}{C\+X\+Source\+Range}}}]{range1,  }\item[{\mbox{\hyperlink{structCXSourceRange}{C\+X\+Source\+Range}}}]{range2 }\end{DoxyParamCaption})}
+
+
+
+Determine whether two ranges are equivalent. 
+
+\begin{DoxyReturn}{Returns}
+non-\/zero if the ranges are the same, zero if they differ. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__CINDEX__LOCATIONS_ga06a114b020fda470476ff5293a66e5e1}\label{group__CINDEX__LOCATIONS_ga06a114b020fda470476ff5293a66e5e1}} 
+\index{Physical source locations@{Physical source locations}!clang\+\_\+get\+All\+Skipped\+Ranges@{clang\+\_\+get\+All\+Skipped\+Ranges}}
+\index{clang\+\_\+get\+All\+Skipped\+Ranges@{clang\+\_\+get\+All\+Skipped\+Ranges}!Physical source locations@{Physical source locations}}
+\subsubsection{\texorpdfstring{clang\+\_\+get\+All\+Skipped\+Ranges()}{clang\_getAllSkippedRanges()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{structCXSourceRangeList}{C\+X\+Source\+Range\+List}}$\ast$ clang\+\_\+get\+All\+Skipped\+Ranges (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__CINDEX_gacdb7815736ca709ce9a5e1ec2b7e16ac}{C\+X\+Translation\+Unit}}}]{tu }\end{DoxyParamCaption})}
+
+
+
+Retrieve all ranges from all files that were skipped by the preprocessor. 
+
+The preprocessor will skip lines when they are surrounded by an if/ifdef/ifndef directive whose condition does not evaluate to true. \mbox{\Hypertarget{group__CINDEX__LOCATIONS_gadee4bea0fa34550663e869f48550eb1f}\label{group__CINDEX__LOCATIONS_gadee4bea0fa34550663e869f48550eb1f}} 
+\index{Physical source locations@{Physical source locations}!clang\+\_\+get\+Expansion\+Location@{clang\+\_\+get\+Expansion\+Location}}
+\index{clang\+\_\+get\+Expansion\+Location@{clang\+\_\+get\+Expansion\+Location}!Physical source locations@{Physical source locations}}
+\subsubsection{\texorpdfstring{clang\+\_\+get\+Expansion\+Location()}{clang\_getExpansionLocation()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE void clang\+\_\+get\+Expansion\+Location (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCXSourceLocation}{C\+X\+Source\+Location}}}]{location,  }\item[{\mbox{\hyperlink{group__CINDEX__FILES_gacfcea9c1239c916597e2e5b3e109215a}{C\+X\+File}} $\ast$}]{file,  }\item[{unsigned $\ast$}]{line,  }\item[{unsigned $\ast$}]{column,  }\item[{unsigned $\ast$}]{offset }\end{DoxyParamCaption})}
+
+
+
+Retrieve the file, line, column, and offset represented by the given source location. 
+
+If the location refers into a macro expansion, retrieves the location of the macro expansion.
+
+
+\begin{DoxyParams}{Parameters}
+{\em location} & the location within a source file that will be decomposed into its parts.\\
+\hline
+{\em file} & \mbox{[}out\mbox{]} if non-\/\+N\+U\+LL, will be set to the file to which the given source location points.\\
+\hline
+{\em line} & \mbox{[}out\mbox{]} if non-\/\+N\+U\+LL, will be set to the line to which the given source location points.\\
+\hline
+{\em column} & \mbox{[}out\mbox{]} if non-\/\+N\+U\+LL, will be set to the column to which the given source location points.\\
+\hline
+{\em offset} & \mbox{[}out\mbox{]} if non-\/\+N\+U\+LL, will be set to the offset into the buffer to which the given source location points. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__CINDEX__LOCATIONS_gae0ee9ff0ea04f2446832fc12a7fd2ac8}\label{group__CINDEX__LOCATIONS_gae0ee9ff0ea04f2446832fc12a7fd2ac8}} 
+\index{Physical source locations@{Physical source locations}!clang\+\_\+get\+File\+Location@{clang\+\_\+get\+File\+Location}}
+\index{clang\+\_\+get\+File\+Location@{clang\+\_\+get\+File\+Location}!Physical source locations@{Physical source locations}}
+\subsubsection{\texorpdfstring{clang\+\_\+get\+File\+Location()}{clang\_getFileLocation()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE void clang\+\_\+get\+File\+Location (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCXSourceLocation}{C\+X\+Source\+Location}}}]{location,  }\item[{\mbox{\hyperlink{group__CINDEX__FILES_gacfcea9c1239c916597e2e5b3e109215a}{C\+X\+File}} $\ast$}]{file,  }\item[{unsigned $\ast$}]{line,  }\item[{unsigned $\ast$}]{column,  }\item[{unsigned $\ast$}]{offset }\end{DoxyParamCaption})}
+
+
+
+Retrieve the file, line, column, and offset represented by the given source location. 
+
+If the location refers into a macro expansion, return where the macro was expanded or where the macro argument was written, if the location points at a macro argument.
+
+
+\begin{DoxyParams}{Parameters}
+{\em location} & the location within a source file that will be decomposed into its parts.\\
+\hline
+{\em file} & \mbox{[}out\mbox{]} if non-\/\+N\+U\+LL, will be set to the file to which the given source location points.\\
+\hline
+{\em line} & \mbox{[}out\mbox{]} if non-\/\+N\+U\+LL, will be set to the line to which the given source location points.\\
+\hline
+{\em column} & \mbox{[}out\mbox{]} if non-\/\+N\+U\+LL, will be set to the column to which the given source location points.\\
+\hline
+{\em offset} & \mbox{[}out\mbox{]} if non-\/\+N\+U\+LL, will be set to the offset into the buffer to which the given source location points. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__CINDEX__LOCATIONS_ga112e657eb04c281ca12c6975d489b633}\label{group__CINDEX__LOCATIONS_ga112e657eb04c281ca12c6975d489b633}} 
+\index{Physical source locations@{Physical source locations}!clang\+\_\+get\+Instantiation\+Location@{clang\+\_\+get\+Instantiation\+Location}}
+\index{clang\+\_\+get\+Instantiation\+Location@{clang\+\_\+get\+Instantiation\+Location}!Physical source locations@{Physical source locations}}
+\subsubsection{\texorpdfstring{clang\+\_\+get\+Instantiation\+Location()}{clang\_getInstantiationLocation()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE void clang\+\_\+get\+Instantiation\+Location (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCXSourceLocation}{C\+X\+Source\+Location}}}]{location,  }\item[{\mbox{\hyperlink{group__CINDEX__FILES_gacfcea9c1239c916597e2e5b3e109215a}{C\+X\+File}} $\ast$}]{file,  }\item[{unsigned $\ast$}]{line,  }\item[{unsigned $\ast$}]{column,  }\item[{unsigned $\ast$}]{offset }\end{DoxyParamCaption})}
+
+
+
+Legacy A\+PI to retrieve the file, line, column, and offset represented by the given source location. 
+
+This interface has been replaced by the newer interface \mbox{\hyperlink{group__CINDEX__LOCATIONS_gadee4bea0fa34550663e869f48550eb1f}{clang\+\_\+get\+Expansion\+Location()}}. See that interface\textquotesingle{}s documentation for details. \mbox{\Hypertarget{group__CINDEX__LOCATIONS_ga03508d9c944feeb3877515a1b08d36f9}\label{group__CINDEX__LOCATIONS_ga03508d9c944feeb3877515a1b08d36f9}} 
+\index{Physical source locations@{Physical source locations}!clang\+\_\+get\+Presumed\+Location@{clang\+\_\+get\+Presumed\+Location}}
+\index{clang\+\_\+get\+Presumed\+Location@{clang\+\_\+get\+Presumed\+Location}!Physical source locations@{Physical source locations}}
+\subsubsection{\texorpdfstring{clang\+\_\+get\+Presumed\+Location()}{clang\_getPresumedLocation()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE void clang\+\_\+get\+Presumed\+Location (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCXSourceLocation}{C\+X\+Source\+Location}}}]{location,  }\item[{\mbox{\hyperlink{structCXString}{C\+X\+String}} $\ast$}]{filename,  }\item[{unsigned $\ast$}]{line,  }\item[{unsigned $\ast$}]{column }\end{DoxyParamCaption})}
+
+
+
+Retrieve the file, line, column, and offset represented by the given source location, as specified in a \# line directive. 
+
+Example\+: given the following source code in a file somefile.\+c
+
+
+\begin{DoxyCode}
+\textcolor{preprocessor}{#123 "dummy.c" 1}
+
+\textcolor{keyword}{static} \textcolor{keywordtype}{int} func(\textcolor{keywordtype}{void})
+\{
+    \textcolor{keywordflow}{return} 0;
+\}
+\end{DoxyCode}
+
+
+the location information returned by this function would be
+
+File\+: dummy.\+c Line\+: 124 Column\+: 12
+
+whereas clang\+\_\+get\+Expansion\+Location would have returned
+
+File\+: somefile.\+c Line\+: 3 Column\+: 12
+
+
+\begin{DoxyParams}{Parameters}
+{\em location} & the location within a source file that will be decomposed into its parts.\\
+\hline
+{\em filename} & \mbox{[}out\mbox{]} if non-\/\+N\+U\+LL, will be set to the filename of the source location. Note that filenames returned will be for \char`\"{}virtual\char`\"{} files, which don\textquotesingle{}t necessarily exist on the machine running clang -\/ e.\+g. when parsing preprocessed output obtained from a different environment. If a non-\/\+N\+U\+LL value is passed in, remember to dispose of the returned value using {\ttfamily \mbox{\hyperlink{group__CINDEX__STRING_gaeff715b329ded18188959fab3066048f}{clang\+\_\+dispose\+String()}}} once you\textquotesingle{}ve finished with it. For an invalid source location, an empty string is returned.\\
+\hline
+{\em line} & \mbox{[}out\mbox{]} if non-\/\+N\+U\+LL, will be set to the line number of the source location. For an invalid source location, zero is returned.\\
+\hline
+{\em column} & \mbox{[}out\mbox{]} if non-\/\+N\+U\+LL, will be set to the column number of the source location. For an invalid source location, zero is returned. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__CINDEX__LOCATIONS_gae27bc89151459aeb94e0fb7aa0552d35}\label{group__CINDEX__LOCATIONS_gae27bc89151459aeb94e0fb7aa0552d35}} 
+\index{Physical source locations@{Physical source locations}!clang\+\_\+get\+Skipped\+Ranges@{clang\+\_\+get\+Skipped\+Ranges}}
+\index{clang\+\_\+get\+Skipped\+Ranges@{clang\+\_\+get\+Skipped\+Ranges}!Physical source locations@{Physical source locations}}
+\subsubsection{\texorpdfstring{clang\+\_\+get\+Skipped\+Ranges()}{clang\_getSkippedRanges()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{structCXSourceRangeList}{C\+X\+Source\+Range\+List}}$\ast$ clang\+\_\+get\+Skipped\+Ranges (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__CINDEX_gacdb7815736ca709ce9a5e1ec2b7e16ac}{C\+X\+Translation\+Unit}}}]{tu,  }\item[{\mbox{\hyperlink{group__CINDEX__FILES_gacfcea9c1239c916597e2e5b3e109215a}{C\+X\+File}}}]{file }\end{DoxyParamCaption})}
+
+
+
+Retrieve all ranges that were skipped by the preprocessor. 
+
+The preprocessor will skip lines when they are surrounded by an if/ifdef/ifndef directive whose condition does not evaluate to true. \mbox{\Hypertarget{group__CINDEX__LOCATIONS_ga01f1a342f7807ea742aedd2c61c46fa0}\label{group__CINDEX__LOCATIONS_ga01f1a342f7807ea742aedd2c61c46fa0}} 
+\index{Physical source locations@{Physical source locations}!clang\+\_\+get\+Spelling\+Location@{clang\+\_\+get\+Spelling\+Location}}
+\index{clang\+\_\+get\+Spelling\+Location@{clang\+\_\+get\+Spelling\+Location}!Physical source locations@{Physical source locations}}
+\subsubsection{\texorpdfstring{clang\+\_\+get\+Spelling\+Location()}{clang\_getSpellingLocation()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE void clang\+\_\+get\+Spelling\+Location (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCXSourceLocation}{C\+X\+Source\+Location}}}]{location,  }\item[{\mbox{\hyperlink{group__CINDEX__FILES_gacfcea9c1239c916597e2e5b3e109215a}{C\+X\+File}} $\ast$}]{file,  }\item[{unsigned $\ast$}]{line,  }\item[{unsigned $\ast$}]{column,  }\item[{unsigned $\ast$}]{offset }\end{DoxyParamCaption})}
+
+
+
+Retrieve the file, line, column, and offset represented by the given source location. 
+
+If the location refers into a macro instantiation, return where the location was originally spelled in the source file.
+
+
+\begin{DoxyParams}{Parameters}
+{\em location} & the location within a source file that will be decomposed into its parts.\\
+\hline
+{\em file} & \mbox{[}out\mbox{]} if non-\/\+N\+U\+LL, will be set to the file to which the given source location points.\\
+\hline
+{\em line} & \mbox{[}out\mbox{]} if non-\/\+N\+U\+LL, will be set to the line to which the given source location points.\\
+\hline
+{\em column} & \mbox{[}out\mbox{]} if non-\/\+N\+U\+LL, will be set to the column to which the given source location points.\\
+\hline
+{\em offset} & \mbox{[}out\mbox{]} if non-\/\+N\+U\+LL, will be set to the offset into the buffer to which the given source location points. \\
+\hline
+\end{DoxyParams}

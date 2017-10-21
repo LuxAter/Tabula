@@ -1,0 +1,395 @@
+\hypertarget{group__CINDEX__CURSOR__MANIP}{}\section{Cursor manipulations}
+\label{group__CINDEX__CURSOR__MANIP}\index{Cursor manipulations@{Cursor manipulations}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structCXPlatformAvailability}{C\+X\+Platform\+Availability}}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structCXPlatformAvailability}{C\+X\+Platform\+Availability}} \mbox{\hyperlink{group__CINDEX__CURSOR__MANIP_ga0b3c1f89b3a9bf57c567884e7ebe41c4}{C\+X\+Platform\+Availability}}
+\item 
+\mbox{\Hypertarget{group__CINDEX__CURSOR__MANIP_gacca741976831fc313f80970cbf88307d}\label{group__CINDEX__CURSOR__MANIP_gacca741976831fc313f80970cbf88307d}} 
+typedef struct C\+X\+Cursor\+Set\+Impl $\ast$ \mbox{\hyperlink{group__CINDEX__CURSOR__MANIP_gacca741976831fc313f80970cbf88307d}{C\+X\+Cursor\+Set}}
+\begin{DoxyCompactList}\small\item\em A fast container representing a set of C\+X\+Cursors. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{group__CINDEX__CURSOR__MANIP_gace57c68a7a11b0967b184a7ef9fbeb9e}{C\+X\+Linkage\+Kind}} \{ \newline
+\mbox{\hyperlink{group__CINDEX__CURSOR__MANIP_ggace57c68a7a11b0967b184a7ef9fbeb9ea1c74a361e26875b381058ab768bc3f37}{C\+X\+Linkage\+\_\+\+Invalid}}, 
+\mbox{\hyperlink{group__CINDEX__CURSOR__MANIP_ggace57c68a7a11b0967b184a7ef9fbeb9ea101d38b657f24fca614f7b2586eab0c9}{C\+X\+Linkage\+\_\+\+No\+Linkage}}, 
+\mbox{\hyperlink{group__CINDEX__CURSOR__MANIP_ggace57c68a7a11b0967b184a7ef9fbeb9ea38be5867a179378b8262355e2f0b9685}{C\+X\+Linkage\+\_\+\+Internal}}, 
+\mbox{\hyperlink{group__CINDEX__CURSOR__MANIP_ggace57c68a7a11b0967b184a7ef9fbeb9ea6f53727f7dc5b57c4ae19f73bad12ef9}{C\+X\+Linkage\+\_\+\+Unique\+External}}, 
+\newline
+\mbox{\hyperlink{group__CINDEX__CURSOR__MANIP_ggace57c68a7a11b0967b184a7ef9fbeb9ea391eb2ceea056e376acbb9031a4f1722}{C\+X\+Linkage\+\_\+\+External}}
+ \}
+\begin{DoxyCompactList}\small\item\em Describe the linkage of the entity referred to by a cursor. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{group__CINDEX__CURSOR__MANIP_gaf92fafb489ab66529aceab51818994cb}{C\+X\+Visibility\+Kind}} \{ \mbox{\hyperlink{group__CINDEX__CURSOR__MANIP_ggaf92fafb489ab66529aceab51818994cbad1ed3fb95497edcf52350079fca2d40e}{C\+X\+Visibility\+\_\+\+Invalid}}, 
+\mbox{\hyperlink{group__CINDEX__CURSOR__MANIP_ggaf92fafb489ab66529aceab51818994cba3f73acbdefbcec3e281e16141e8fb105}{C\+X\+Visibility\+\_\+\+Hidden}}, 
+\mbox{\hyperlink{group__CINDEX__CURSOR__MANIP_ggaf92fafb489ab66529aceab51818994cba16a29f348585b873fdf5d84f0875bb95}{C\+X\+Visibility\+\_\+\+Protected}}, 
+\mbox{\hyperlink{group__CINDEX__CURSOR__MANIP_ggaf92fafb489ab66529aceab51818994cba9ddb2c356afa2f2ac72ef0e2cf71575b}{C\+X\+Visibility\+\_\+\+Default}}
+ \}
+\item 
+\mbox{\Hypertarget{group__CINDEX__CURSOR__MANIP_ga3abfddcec8a46e7156f37de661af3c14}\label{group__CINDEX__CURSOR__MANIP_ga3abfddcec8a46e7156f37de661af3c14}} 
+enum \mbox{\hyperlink{group__CINDEX__CURSOR__MANIP_ga3abfddcec8a46e7156f37de661af3c14}{C\+X\+Language\+Kind}} \{ {\bfseries C\+X\+Language\+\_\+\+Invalid} = 0, 
+{\bfseries C\+X\+Language\+\_\+C}, 
+{\bfseries C\+X\+Language\+\_\+\+ObjC}, 
+{\bfseries C\+X\+Language\+\_\+\+C\+Plus\+Plus}
+ \}
+\begin{DoxyCompactList}\small\item\em Describe the \char`\"{}language\char`\"{} of the entity referred to by a cursor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__CINDEX__CURSOR__MANIP_ga94d81bbf40dff4ac843458d018f3138e}\label{group__CINDEX__CURSOR__MANIP_ga94d81bbf40dff4ac843458d018f3138e}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}} \mbox{\hyperlink{group__CINDEX__CURSOR__MANIP_ga94d81bbf40dff4ac843458d018f3138e}{clang\+\_\+get\+Null\+Cursor}} (void)
+\begin{DoxyCompactList}\small\item\em Retrieve the N\+U\+LL cursor, which represents no entity. \end{DoxyCompactList}\item 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}} \mbox{\hyperlink{group__CINDEX__CURSOR__MANIP_gaec6e69127920785e74e4a517423f4391}{clang\+\_\+get\+Translation\+Unit\+Cursor}} (\mbox{\hyperlink{group__CINDEX_gacdb7815736ca709ce9a5e1ec2b7e16ac}{C\+X\+Translation\+Unit}})
+\begin{DoxyCompactList}\small\item\em Retrieve the cursor that represents the given translation unit. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX__CURSOR__MANIP_ga98df58f09878710b983b6f3f60f0cba3}\label{group__CINDEX__CURSOR__MANIP_ga98df58f09878710b983b6f3f60f0cba3}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE unsigned \mbox{\hyperlink{group__CINDEX__CURSOR__MANIP_ga98df58f09878710b983b6f3f60f0cba3}{clang\+\_\+equal\+Cursors}} (\mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}}, \mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}})
+\begin{DoxyCompactList}\small\item\em Determine whether two cursors are equivalent. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX__CURSOR__MANIP_ga91f2a167caa704ee921e94e9397b99d9}\label{group__CINDEX__CURSOR__MANIP_ga91f2a167caa704ee921e94e9397b99d9}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE int \mbox{\hyperlink{group__CINDEX__CURSOR__MANIP_ga91f2a167caa704ee921e94e9397b99d9}{clang\+\_\+\+Cursor\+\_\+is\+Null}} (\mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}} cursor)
+\begin{DoxyCompactList}\small\item\em Returns non-\/zero if {\ttfamily cursor} is null. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX__CURSOR__MANIP_gabf27e0eaee38ae9e7453f55754d4929b}\label{group__CINDEX__CURSOR__MANIP_gabf27e0eaee38ae9e7453f55754d4929b}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE unsigned \mbox{\hyperlink{group__CINDEX__CURSOR__MANIP_gabf27e0eaee38ae9e7453f55754d4929b}{clang\+\_\+hash\+Cursor}} (\mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}})
+\begin{DoxyCompactList}\small\item\em Compute a hash value for the given cursor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX__CURSOR__MANIP_ga018aaf60362cb751e517d9f8620d490c}\label{group__CINDEX__CURSOR__MANIP_ga018aaf60362cb751e517d9f8620d490c}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE enum \mbox{\hyperlink{group__CINDEX_gaaccc432245b4cd9f2d470913f9ef0013}{C\+X\+Cursor\+Kind}} \mbox{\hyperlink{group__CINDEX__CURSOR__MANIP_ga018aaf60362cb751e517d9f8620d490c}{clang\+\_\+get\+Cursor\+Kind}} (\mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}})
+\begin{DoxyCompactList}\small\item\em Retrieve the kind of the given cursor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX__CURSOR__MANIP_ga660aa4846fce0a54e20073ab6a5465a0}\label{group__CINDEX__CURSOR__MANIP_ga660aa4846fce0a54e20073ab6a5465a0}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE unsigned \mbox{\hyperlink{group__CINDEX__CURSOR__MANIP_ga660aa4846fce0a54e20073ab6a5465a0}{clang\+\_\+is\+Declaration}} (enum \mbox{\hyperlink{group__CINDEX_gaaccc432245b4cd9f2d470913f9ef0013}{C\+X\+Cursor\+Kind}})
+\begin{DoxyCompactList}\small\item\em Determine whether the given cursor kind represents a declaration. \end{DoxyCompactList}\item 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE unsigned \mbox{\hyperlink{group__CINDEX__CURSOR__MANIP_gaf1bf500b9ada62671b53831d023387ba}{clang\+\_\+is\+Reference}} (enum \mbox{\hyperlink{group__CINDEX_gaaccc432245b4cd9f2d470913f9ef0013}{C\+X\+Cursor\+Kind}})
+\begin{DoxyCompactList}\small\item\em Determine whether the given cursor kind represents a simple reference. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX__CURSOR__MANIP_ga8e537f2f251a92a799d6cc8459614d42}\label{group__CINDEX__CURSOR__MANIP_ga8e537f2f251a92a799d6cc8459614d42}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE unsigned \mbox{\hyperlink{group__CINDEX__CURSOR__MANIP_ga8e537f2f251a92a799d6cc8459614d42}{clang\+\_\+is\+Expression}} (enum \mbox{\hyperlink{group__CINDEX_gaaccc432245b4cd9f2d470913f9ef0013}{C\+X\+Cursor\+Kind}})
+\begin{DoxyCompactList}\small\item\em Determine whether the given cursor kind represents an expression. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX__CURSOR__MANIP_ga33c9d1d9cf46a316160f68356608773a}\label{group__CINDEX__CURSOR__MANIP_ga33c9d1d9cf46a316160f68356608773a}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE unsigned \mbox{\hyperlink{group__CINDEX__CURSOR__MANIP_ga33c9d1d9cf46a316160f68356608773a}{clang\+\_\+is\+Statement}} (enum \mbox{\hyperlink{group__CINDEX_gaaccc432245b4cd9f2d470913f9ef0013}{C\+X\+Cursor\+Kind}})
+\begin{DoxyCompactList}\small\item\em Determine whether the given cursor kind represents a statement. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX__CURSOR__MANIP_ga204227c8c254c568ef6d577ffcf8d3e5}\label{group__CINDEX__CURSOR__MANIP_ga204227c8c254c568ef6d577ffcf8d3e5}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE unsigned \mbox{\hyperlink{group__CINDEX__CURSOR__MANIP_ga204227c8c254c568ef6d577ffcf8d3e5}{clang\+\_\+is\+Attribute}} (enum \mbox{\hyperlink{group__CINDEX_gaaccc432245b4cd9f2d470913f9ef0013}{C\+X\+Cursor\+Kind}})
+\begin{DoxyCompactList}\small\item\em Determine whether the given cursor kind represents an attribute. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX__CURSOR__MANIP_ga2bcf84ce3d5158457451e051afbdc8dd}\label{group__CINDEX__CURSOR__MANIP_ga2bcf84ce3d5158457451e051afbdc8dd}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE unsigned \mbox{\hyperlink{group__CINDEX__CURSOR__MANIP_ga2bcf84ce3d5158457451e051afbdc8dd}{clang\+\_\+\+Cursor\+\_\+has\+Attrs}} (\mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}} C)
+\begin{DoxyCompactList}\small\item\em Determine whether the given cursor has any attributes. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX__CURSOR__MANIP_ga86d525c70189f9d04caf5aa59121c384}\label{group__CINDEX__CURSOR__MANIP_ga86d525c70189f9d04caf5aa59121c384}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE unsigned \mbox{\hyperlink{group__CINDEX__CURSOR__MANIP_ga86d525c70189f9d04caf5aa59121c384}{clang\+\_\+is\+Invalid}} (enum \mbox{\hyperlink{group__CINDEX_gaaccc432245b4cd9f2d470913f9ef0013}{C\+X\+Cursor\+Kind}})
+\begin{DoxyCompactList}\small\item\em Determine whether the given cursor kind represents an invalid cursor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX__CURSOR__MANIP_gaa25633b28eb4799da0952e9beb03799b}\label{group__CINDEX__CURSOR__MANIP_gaa25633b28eb4799da0952e9beb03799b}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE unsigned \mbox{\hyperlink{group__CINDEX__CURSOR__MANIP_gaa25633b28eb4799da0952e9beb03799b}{clang\+\_\+is\+Translation\+Unit}} (enum \mbox{\hyperlink{group__CINDEX_gaaccc432245b4cd9f2d470913f9ef0013}{C\+X\+Cursor\+Kind}})
+\begin{DoxyCompactList}\small\item\em Determine whether the given cursor kind represents a translation unit. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX__CURSOR__MANIP_gab2c617ece02f6e3f41e403b8c7d85bce}\label{group__CINDEX__CURSOR__MANIP_gab2c617ece02f6e3f41e403b8c7d85bce}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE unsigned {\bfseries clang\+\_\+is\+Preprocessing} (enum \mbox{\hyperlink{group__CINDEX_gaaccc432245b4cd9f2d470913f9ef0013}{C\+X\+Cursor\+Kind}})
+\item 
+\mbox{\Hypertarget{group__CINDEX__CURSOR__MANIP_ga838c465c6d1e681d2469eaa5adffcceb}\label{group__CINDEX__CURSOR__MANIP_ga838c465c6d1e681d2469eaa5adffcceb}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE unsigned {\bfseries clang\+\_\+is\+Unexposed} (enum \mbox{\hyperlink{group__CINDEX_gaaccc432245b4cd9f2d470913f9ef0013}{C\+X\+Cursor\+Kind}})
+\item 
+\mbox{\Hypertarget{group__CINDEX__CURSOR__MANIP_ga359dae25aa1a71176a5e33f3c7ee1740}\label{group__CINDEX__CURSOR__MANIP_ga359dae25aa1a71176a5e33f3c7ee1740}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE enum \mbox{\hyperlink{group__CINDEX__CURSOR__MANIP_gace57c68a7a11b0967b184a7ef9fbeb9e}{C\+X\+Linkage\+Kind}} \mbox{\hyperlink{group__CINDEX__CURSOR__MANIP_ga359dae25aa1a71176a5e33f3c7ee1740}{clang\+\_\+get\+Cursor\+Linkage}} (\mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}} cursor)
+\begin{DoxyCompactList}\small\item\em Determine the linkage of the entity referred to by a given cursor. \end{DoxyCompactList}\item 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE enum \mbox{\hyperlink{group__CINDEX__CURSOR__MANIP_gaf92fafb489ab66529aceab51818994cb}{C\+X\+Visibility\+Kind}} \mbox{\hyperlink{group__CINDEX__CURSOR__MANIP_ga935b442bd6bde168cf354b7629b471d8}{clang\+\_\+get\+Cursor\+Visibility}} (\mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}} cursor)
+\begin{DoxyCompactList}\small\item\em Describe the visibility of the entity referred to by a cursor. \end{DoxyCompactList}\item 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE enum \mbox{\hyperlink{group__CINDEX_gada331ea0195e952c8f181ecf15e83d71}{C\+X\+Availability\+Kind}} \mbox{\hyperlink{group__CINDEX__CURSOR__MANIP_gab44e2a565fa40a0e0fc0f130f618a9b5}{clang\+\_\+get\+Cursor\+Availability}} (\mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}} cursor)
+\begin{DoxyCompactList}\small\item\em Determine the availability of the entity that this cursor refers to, taking the current target platform into account. \end{DoxyCompactList}\item 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE int \mbox{\hyperlink{group__CINDEX__CURSOR__MANIP_gaab07659398c4538771d62c81ca5dea69}{clang\+\_\+get\+Cursor\+Platform\+Availability}} (\mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}} cursor, int $\ast$always\+\_\+deprecated, \mbox{\hyperlink{structCXString}{C\+X\+String}} $\ast$deprecated\+\_\+message, int $\ast$always\+\_\+unavailable, \mbox{\hyperlink{structCXString}{C\+X\+String}} $\ast$unavailable\+\_\+message, \mbox{\hyperlink{structCXPlatformAvailability}{C\+X\+Platform\+Availability}} $\ast$availability, int availability\+\_\+size)
+\begin{DoxyCompactList}\small\item\em Determine the availability of the entity that this cursor refers to on any platforms for which availability information is known. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX__CURSOR__MANIP_ga1acfac399add40f7240e02f9f5f1a6d9}\label{group__CINDEX__CURSOR__MANIP_ga1acfac399add40f7240e02f9f5f1a6d9}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE void \mbox{\hyperlink{group__CINDEX__CURSOR__MANIP_ga1acfac399add40f7240e02f9f5f1a6d9}{clang\+\_\+dispose\+C\+X\+Platform\+Availability}} (\mbox{\hyperlink{structCXPlatformAvailability}{C\+X\+Platform\+Availability}} $\ast$availability)
+\begin{DoxyCompactList}\small\item\em Free the memory associated with a {\ttfamily \mbox{\hyperlink{structCXPlatformAvailability}{C\+X\+Platform\+Availability}}} structure. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX__CURSOR__MANIP_ga3729a27620b08e32e331a6c168e707b3}\label{group__CINDEX__CURSOR__MANIP_ga3729a27620b08e32e331a6c168e707b3}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE enum \mbox{\hyperlink{group__CINDEX__CURSOR__MANIP_ga3abfddcec8a46e7156f37de661af3c14}{C\+X\+Language\+Kind}} \mbox{\hyperlink{group__CINDEX__CURSOR__MANIP_ga3729a27620b08e32e331a6c168e707b3}{clang\+\_\+get\+Cursor\+Language}} (\mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}} cursor)
+\begin{DoxyCompactList}\small\item\em Determine the \char`\"{}language\char`\"{} of the entity referred to by a given cursor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX__CURSOR__MANIP_ga529f1504710a41ce358d4e8c3161848d}\label{group__CINDEX__CURSOR__MANIP_ga529f1504710a41ce358d4e8c3161848d}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{group__CINDEX_gacdb7815736ca709ce9a5e1ec2b7e16ac}{C\+X\+Translation\+Unit}} \mbox{\hyperlink{group__CINDEX__CURSOR__MANIP_ga529f1504710a41ce358d4e8c3161848d}{clang\+\_\+\+Cursor\+\_\+get\+Translation\+Unit}} (\mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}})
+\begin{DoxyCompactList}\small\item\em Returns the translation unit that a cursor originated from. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX__CURSOR__MANIP_gaf77146bb2008dee2d9a74d56e669945f}\label{group__CINDEX__CURSOR__MANIP_gaf77146bb2008dee2d9a74d56e669945f}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{group__CINDEX__CURSOR__MANIP_gacca741976831fc313f80970cbf88307d}{C\+X\+Cursor\+Set}} \mbox{\hyperlink{group__CINDEX__CURSOR__MANIP_gaf77146bb2008dee2d9a74d56e669945f}{clang\+\_\+create\+C\+X\+Cursor\+Set}} (void)
+\begin{DoxyCompactList}\small\item\em Creates an empty C\+X\+Cursor\+Set. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX__CURSOR__MANIP_gaf4178bd9a28549b94c83863a973f5e05}\label{group__CINDEX__CURSOR__MANIP_gaf4178bd9a28549b94c83863a973f5e05}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE void \mbox{\hyperlink{group__CINDEX__CURSOR__MANIP_gaf4178bd9a28549b94c83863a973f5e05}{clang\+\_\+dispose\+C\+X\+Cursor\+Set}} (\mbox{\hyperlink{group__CINDEX__CURSOR__MANIP_gacca741976831fc313f80970cbf88307d}{C\+X\+Cursor\+Set}} cset)
+\begin{DoxyCompactList}\small\item\em Disposes a C\+X\+Cursor\+Set and releases its associated memory. \end{DoxyCompactList}\item 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE unsigned \mbox{\hyperlink{group__CINDEX__CURSOR__MANIP_ga518db5daf2ca251e4ff983d9f4f7d75d}{clang\+\_\+\+C\+X\+Cursor\+Set\+\_\+contains}} (\mbox{\hyperlink{group__CINDEX__CURSOR__MANIP_gacca741976831fc313f80970cbf88307d}{C\+X\+Cursor\+Set}} cset, \mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}} cursor)
+\begin{DoxyCompactList}\small\item\em Queries a C\+X\+Cursor\+Set to see if it contains a specific \mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}}. \end{DoxyCompactList}\item 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE unsigned \mbox{\hyperlink{group__CINDEX__CURSOR__MANIP_ga172e5a92c77da9609ad80baf08751dd1}{clang\+\_\+\+C\+X\+Cursor\+Set\+\_\+insert}} (\mbox{\hyperlink{group__CINDEX__CURSOR__MANIP_gacca741976831fc313f80970cbf88307d}{C\+X\+Cursor\+Set}} cset, \mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}} cursor)
+\begin{DoxyCompactList}\small\item\em Inserts a \mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}} into a C\+X\+Cursor\+Set. \end{DoxyCompactList}\item 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}} \mbox{\hyperlink{group__CINDEX__CURSOR__MANIP_gabc327b200d46781cf30cb84d4af3c877}{clang\+\_\+get\+Cursor\+Semantic\+Parent}} (\mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}} cursor)
+\begin{DoxyCompactList}\small\item\em Determine the semantic parent of the given cursor. \end{DoxyCompactList}\item 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}} \mbox{\hyperlink{group__CINDEX__CURSOR__MANIP_gace7a423874d72b3fdc71d6b0f31830dd}{clang\+\_\+get\+Cursor\+Lexical\+Parent}} (\mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}} cursor)
+\begin{DoxyCompactList}\small\item\em Determine the lexical parent of the given cursor. \end{DoxyCompactList}\item 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE void \mbox{\hyperlink{group__CINDEX__CURSOR__MANIP_gac308b03420c550e00c61153dc63deac8}{clang\+\_\+get\+Overridden\+Cursors}} (\mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}} cursor, \mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}} $\ast$$\ast$overridden, unsigned $\ast$num\+\_\+overridden)
+\begin{DoxyCompactList}\small\item\em Determine the set of methods that are overridden by the given method. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX__CURSOR__MANIP_gac8f259af871b3f34ca7150703f8aaaa8}\label{group__CINDEX__CURSOR__MANIP_gac8f259af871b3f34ca7150703f8aaaa8}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE void \mbox{\hyperlink{group__CINDEX__CURSOR__MANIP_gac8f259af871b3f34ca7150703f8aaaa8}{clang\+\_\+dispose\+Overridden\+Cursors}} (\mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}} $\ast$overridden)
+\begin{DoxyCompactList}\small\item\em Free the set of overridden cursors returned by {\ttfamily \mbox{\hyperlink{group__CINDEX__CURSOR__MANIP_gac308b03420c550e00c61153dc63deac8}{clang\+\_\+get\+Overridden\+Cursors()}}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX__CURSOR__MANIP_gaf61979977343e39f21d6ea0b22167514}\label{group__CINDEX__CURSOR__MANIP_gaf61979977343e39f21d6ea0b22167514}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{group__CINDEX__FILES_gacfcea9c1239c916597e2e5b3e109215a}{C\+X\+File}} \mbox{\hyperlink{group__CINDEX__CURSOR__MANIP_gaf61979977343e39f21d6ea0b22167514}{clang\+\_\+get\+Included\+File}} (\mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}} cursor)
+\begin{DoxyCompactList}\small\item\em Retrieve the file that is included by the given inclusion directive cursor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+\subsection{Typedef Documentation}
+\mbox{\Hypertarget{group__CINDEX__CURSOR__MANIP_ga0b3c1f89b3a9bf57c567884e7ebe41c4}\label{group__CINDEX__CURSOR__MANIP_ga0b3c1f89b3a9bf57c567884e7ebe41c4}} 
+\index{Cursor manipulations@{Cursor manipulations}!C\+X\+Platform\+Availability@{C\+X\+Platform\+Availability}}
+\index{C\+X\+Platform\+Availability@{C\+X\+Platform\+Availability}!Cursor manipulations@{Cursor manipulations}}
+\subsubsection{\texorpdfstring{C\+X\+Platform\+Availability}{CXPlatformAvailability}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structCXPlatformAvailability}{C\+X\+Platform\+Availability}}  \mbox{\hyperlink{structCXPlatformAvailability}{C\+X\+Platform\+Availability}}}
+
+Describes the availability of a given entity on a particular platform, e.\+g., a particular class might only be available on Mac OS 10.\+7 or newer. 
+
+\subsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{group__CINDEX__CURSOR__MANIP_gace57c68a7a11b0967b184a7ef9fbeb9e}\label{group__CINDEX__CURSOR__MANIP_gace57c68a7a11b0967b184a7ef9fbeb9e}} 
+\index{Cursor manipulations@{Cursor manipulations}!C\+X\+Linkage\+Kind@{C\+X\+Linkage\+Kind}}
+\index{C\+X\+Linkage\+Kind@{C\+X\+Linkage\+Kind}!Cursor manipulations@{Cursor manipulations}}
+\subsubsection{\texorpdfstring{C\+X\+Linkage\+Kind}{CXLinkageKind}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group__CINDEX__CURSOR__MANIP_gace57c68a7a11b0967b184a7ef9fbeb9e}{C\+X\+Linkage\+Kind}}}
+
+
+
+Describe the linkage of the entity referred to by a cursor. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Linkage\+\_\+\+Invalid@{C\+X\+Linkage\+\_\+\+Invalid}!Cursor manipulations@{Cursor manipulations}}\index{Cursor manipulations@{Cursor manipulations}!C\+X\+Linkage\+\_\+\+Invalid@{C\+X\+Linkage\+\_\+\+Invalid}}}\mbox{\Hypertarget{group__CINDEX__CURSOR__MANIP_ggace57c68a7a11b0967b184a7ef9fbeb9ea1c74a361e26875b381058ab768bc3f37}\label{group__CINDEX__CURSOR__MANIP_ggace57c68a7a11b0967b184a7ef9fbeb9ea1c74a361e26875b381058ab768bc3f37}} 
+C\+X\+Linkage\+\_\+\+Invalid&This value indicates that no linkage information is available for a provided \mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}}. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Linkage\+\_\+\+No\+Linkage@{C\+X\+Linkage\+\_\+\+No\+Linkage}!Cursor manipulations@{Cursor manipulations}}\index{Cursor manipulations@{Cursor manipulations}!C\+X\+Linkage\+\_\+\+No\+Linkage@{C\+X\+Linkage\+\_\+\+No\+Linkage}}}\mbox{\Hypertarget{group__CINDEX__CURSOR__MANIP_ggace57c68a7a11b0967b184a7ef9fbeb9ea101d38b657f24fca614f7b2586eab0c9}\label{group__CINDEX__CURSOR__MANIP_ggace57c68a7a11b0967b184a7ef9fbeb9ea101d38b657f24fca614f7b2586eab0c9}} 
+C\+X\+Linkage\+\_\+\+No\+Linkage&This is the linkage for variables, parameters, and so on that have automatic storage. This covers normal (non-\/extern) local variables. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Linkage\+\_\+\+Internal@{C\+X\+Linkage\+\_\+\+Internal}!Cursor manipulations@{Cursor manipulations}}\index{Cursor manipulations@{Cursor manipulations}!C\+X\+Linkage\+\_\+\+Internal@{C\+X\+Linkage\+\_\+\+Internal}}}\mbox{\Hypertarget{group__CINDEX__CURSOR__MANIP_ggace57c68a7a11b0967b184a7ef9fbeb9ea38be5867a179378b8262355e2f0b9685}\label{group__CINDEX__CURSOR__MANIP_ggace57c68a7a11b0967b184a7ef9fbeb9ea38be5867a179378b8262355e2f0b9685}} 
+C\+X\+Linkage\+\_\+\+Internal&This is the linkage for static variables and static functions. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Linkage\+\_\+\+Unique\+External@{C\+X\+Linkage\+\_\+\+Unique\+External}!Cursor manipulations@{Cursor manipulations}}\index{Cursor manipulations@{Cursor manipulations}!C\+X\+Linkage\+\_\+\+Unique\+External@{C\+X\+Linkage\+\_\+\+Unique\+External}}}\mbox{\Hypertarget{group__CINDEX__CURSOR__MANIP_ggace57c68a7a11b0967b184a7ef9fbeb9ea6f53727f7dc5b57c4ae19f73bad12ef9}\label{group__CINDEX__CURSOR__MANIP_ggace57c68a7a11b0967b184a7ef9fbeb9ea6f53727f7dc5b57c4ae19f73bad12ef9}} 
+C\+X\+Linkage\+\_\+\+Unique\+External&This is the linkage for entities with external linkage that live in C++ anonymous namespaces. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Linkage\+\_\+\+External@{C\+X\+Linkage\+\_\+\+External}!Cursor manipulations@{Cursor manipulations}}\index{Cursor manipulations@{Cursor manipulations}!C\+X\+Linkage\+\_\+\+External@{C\+X\+Linkage\+\_\+\+External}}}\mbox{\Hypertarget{group__CINDEX__CURSOR__MANIP_ggace57c68a7a11b0967b184a7ef9fbeb9ea391eb2ceea056e376acbb9031a4f1722}\label{group__CINDEX__CURSOR__MANIP_ggace57c68a7a11b0967b184a7ef9fbeb9ea391eb2ceea056e376acbb9031a4f1722}} 
+C\+X\+Linkage\+\_\+\+External&This is the linkage for entities with true, external linkage. \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{group__CINDEX__CURSOR__MANIP_gaf92fafb489ab66529aceab51818994cb}\label{group__CINDEX__CURSOR__MANIP_gaf92fafb489ab66529aceab51818994cb}} 
+\index{Cursor manipulations@{Cursor manipulations}!C\+X\+Visibility\+Kind@{C\+X\+Visibility\+Kind}}
+\index{C\+X\+Visibility\+Kind@{C\+X\+Visibility\+Kind}!Cursor manipulations@{Cursor manipulations}}
+\subsubsection{\texorpdfstring{C\+X\+Visibility\+Kind}{CXVisibilityKind}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group__CINDEX__CURSOR__MANIP_gaf92fafb489ab66529aceab51818994cb}{C\+X\+Visibility\+Kind}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Visibility\+\_\+\+Invalid@{C\+X\+Visibility\+\_\+\+Invalid}!Cursor manipulations@{Cursor manipulations}}\index{Cursor manipulations@{Cursor manipulations}!C\+X\+Visibility\+\_\+\+Invalid@{C\+X\+Visibility\+\_\+\+Invalid}}}\mbox{\Hypertarget{group__CINDEX__CURSOR__MANIP_ggaf92fafb489ab66529aceab51818994cbad1ed3fb95497edcf52350079fca2d40e}\label{group__CINDEX__CURSOR__MANIP_ggaf92fafb489ab66529aceab51818994cbad1ed3fb95497edcf52350079fca2d40e}} 
+C\+X\+Visibility\+\_\+\+Invalid&This value indicates that no visibility information is available for a provided \mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}}. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Visibility\+\_\+\+Hidden@{C\+X\+Visibility\+\_\+\+Hidden}!Cursor manipulations@{Cursor manipulations}}\index{Cursor manipulations@{Cursor manipulations}!C\+X\+Visibility\+\_\+\+Hidden@{C\+X\+Visibility\+\_\+\+Hidden}}}\mbox{\Hypertarget{group__CINDEX__CURSOR__MANIP_ggaf92fafb489ab66529aceab51818994cba3f73acbdefbcec3e281e16141e8fb105}\label{group__CINDEX__CURSOR__MANIP_ggaf92fafb489ab66529aceab51818994cba3f73acbdefbcec3e281e16141e8fb105}} 
+C\+X\+Visibility\+\_\+\+Hidden&Symbol not seen by the linker. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Visibility\+\_\+\+Protected@{C\+X\+Visibility\+\_\+\+Protected}!Cursor manipulations@{Cursor manipulations}}\index{Cursor manipulations@{Cursor manipulations}!C\+X\+Visibility\+\_\+\+Protected@{C\+X\+Visibility\+\_\+\+Protected}}}\mbox{\Hypertarget{group__CINDEX__CURSOR__MANIP_ggaf92fafb489ab66529aceab51818994cba16a29f348585b873fdf5d84f0875bb95}\label{group__CINDEX__CURSOR__MANIP_ggaf92fafb489ab66529aceab51818994cba16a29f348585b873fdf5d84f0875bb95}} 
+C\+X\+Visibility\+\_\+\+Protected&Symbol seen by the linker but resolves to a symbol inside this object. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Visibility\+\_\+\+Default@{C\+X\+Visibility\+\_\+\+Default}!Cursor manipulations@{Cursor manipulations}}\index{Cursor manipulations@{Cursor manipulations}!C\+X\+Visibility\+\_\+\+Default@{C\+X\+Visibility\+\_\+\+Default}}}\mbox{\Hypertarget{group__CINDEX__CURSOR__MANIP_ggaf92fafb489ab66529aceab51818994cba9ddb2c356afa2f2ac72ef0e2cf71575b}\label{group__CINDEX__CURSOR__MANIP_ggaf92fafb489ab66529aceab51818994cba9ddb2c356afa2f2ac72ef0e2cf71575b}} 
+C\+X\+Visibility\+\_\+\+Default&Symbol seen by the linker and acts like a normal symbol. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{group__CINDEX__CURSOR__MANIP_ga518db5daf2ca251e4ff983d9f4f7d75d}\label{group__CINDEX__CURSOR__MANIP_ga518db5daf2ca251e4ff983d9f4f7d75d}} 
+\index{Cursor manipulations@{Cursor manipulations}!clang\+\_\+\+C\+X\+Cursor\+Set\+\_\+contains@{clang\+\_\+\+C\+X\+Cursor\+Set\+\_\+contains}}
+\index{clang\+\_\+\+C\+X\+Cursor\+Set\+\_\+contains@{clang\+\_\+\+C\+X\+Cursor\+Set\+\_\+contains}!Cursor manipulations@{Cursor manipulations}}
+\subsubsection{\texorpdfstring{clang\+\_\+\+C\+X\+Cursor\+Set\+\_\+contains()}{clang\_CXCursorSet\_contains()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE unsigned clang\+\_\+\+C\+X\+Cursor\+Set\+\_\+contains (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__CINDEX__CURSOR__MANIP_gacca741976831fc313f80970cbf88307d}{C\+X\+Cursor\+Set}}}]{cset,  }\item[{\mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}}}]{cursor }\end{DoxyParamCaption})}
+
+
+
+Queries a C\+X\+Cursor\+Set to see if it contains a specific \mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}}. 
+
+\begin{DoxyReturn}{Returns}
+non-\/zero if the set contains the specified cursor. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__CINDEX__CURSOR__MANIP_ga172e5a92c77da9609ad80baf08751dd1}\label{group__CINDEX__CURSOR__MANIP_ga172e5a92c77da9609ad80baf08751dd1}} 
+\index{Cursor manipulations@{Cursor manipulations}!clang\+\_\+\+C\+X\+Cursor\+Set\+\_\+insert@{clang\+\_\+\+C\+X\+Cursor\+Set\+\_\+insert}}
+\index{clang\+\_\+\+C\+X\+Cursor\+Set\+\_\+insert@{clang\+\_\+\+C\+X\+Cursor\+Set\+\_\+insert}!Cursor manipulations@{Cursor manipulations}}
+\subsubsection{\texorpdfstring{clang\+\_\+\+C\+X\+Cursor\+Set\+\_\+insert()}{clang\_CXCursorSet\_insert()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE unsigned clang\+\_\+\+C\+X\+Cursor\+Set\+\_\+insert (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__CINDEX__CURSOR__MANIP_gacca741976831fc313f80970cbf88307d}{C\+X\+Cursor\+Set}}}]{cset,  }\item[{\mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}}}]{cursor }\end{DoxyParamCaption})}
+
+
+
+Inserts a \mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}} into a C\+X\+Cursor\+Set. 
+
+\begin{DoxyReturn}{Returns}
+zero if the \mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}} was already in the set, and non-\/zero otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__CINDEX__CURSOR__MANIP_gab44e2a565fa40a0e0fc0f130f618a9b5}\label{group__CINDEX__CURSOR__MANIP_gab44e2a565fa40a0e0fc0f130f618a9b5}} 
+\index{Cursor manipulations@{Cursor manipulations}!clang\+\_\+get\+Cursor\+Availability@{clang\+\_\+get\+Cursor\+Availability}}
+\index{clang\+\_\+get\+Cursor\+Availability@{clang\+\_\+get\+Cursor\+Availability}!Cursor manipulations@{Cursor manipulations}}
+\subsubsection{\texorpdfstring{clang\+\_\+get\+Cursor\+Availability()}{clang\_getCursorAvailability()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE enum \mbox{\hyperlink{group__CINDEX_gada331ea0195e952c8f181ecf15e83d71}{C\+X\+Availability\+Kind}} clang\+\_\+get\+Cursor\+Availability (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}}}]{cursor }\end{DoxyParamCaption})}
+
+
+
+Determine the availability of the entity that this cursor refers to, taking the current target platform into account. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cursor} & The cursor to query.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The availability of the cursor. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__CINDEX__CURSOR__MANIP_gace7a423874d72b3fdc71d6b0f31830dd}\label{group__CINDEX__CURSOR__MANIP_gace7a423874d72b3fdc71d6b0f31830dd}} 
+\index{Cursor manipulations@{Cursor manipulations}!clang\+\_\+get\+Cursor\+Lexical\+Parent@{clang\+\_\+get\+Cursor\+Lexical\+Parent}}
+\index{clang\+\_\+get\+Cursor\+Lexical\+Parent@{clang\+\_\+get\+Cursor\+Lexical\+Parent}!Cursor manipulations@{Cursor manipulations}}
+\subsubsection{\texorpdfstring{clang\+\_\+get\+Cursor\+Lexical\+Parent()}{clang\_getCursorLexicalParent()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}} clang\+\_\+get\+Cursor\+Lexical\+Parent (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}}}]{cursor }\end{DoxyParamCaption})}
+
+
+
+Determine the lexical parent of the given cursor. 
+
+The lexical parent of a cursor is the cursor in which the given {\ttfamily cursor} was actually written. For many declarations, the lexical and semantic parents are equivalent (the semantic parent is returned by {\ttfamily \mbox{\hyperlink{group__CINDEX__CURSOR__MANIP_gabc327b200d46781cf30cb84d4af3c877}{clang\+\_\+get\+Cursor\+Semantic\+Parent()}}}). They diverge when declarations or definitions are provided out-\/of-\/line. For example\+:
+
+
+\begin{DoxyCode}
+\textcolor{keyword}{class }C \{
+ \textcolor{keywordtype}{void} f();
+\};
+
+\textcolor{keywordtype}{void} C::f() \{ \}
+\end{DoxyCode}
+
+
+In the out-\/of-\/line definition of {\ttfamily C\+::f}, the semantic parent is the class {\ttfamily C}, of which this function is a member. The lexical parent is the place where the declaration actually occurs in the source code; in this case, the definition occurs in the translation unit. In general, the lexical parent for a given entity can change without affecting the semantics of the program, and the lexical parent of different declarations of the same entity may be different. Changing the semantic parent of a declaration, on the other hand, can have a major impact on semantics, and redeclarations of a particular entity should all have the same semantic context.
+
+In the example above, both declarations of {\ttfamily C\+::f} have {\ttfamily C} as their semantic context, while the lexical context of the first {\ttfamily C\+::f} is {\ttfamily C} and the lexical context of the second {\ttfamily C\+::f} is the translation unit.
+
+For declarations written in the global scope, the lexical parent is the translation unit. \mbox{\Hypertarget{group__CINDEX__CURSOR__MANIP_gaab07659398c4538771d62c81ca5dea69}\label{group__CINDEX__CURSOR__MANIP_gaab07659398c4538771d62c81ca5dea69}} 
+\index{Cursor manipulations@{Cursor manipulations}!clang\+\_\+get\+Cursor\+Platform\+Availability@{clang\+\_\+get\+Cursor\+Platform\+Availability}}
+\index{clang\+\_\+get\+Cursor\+Platform\+Availability@{clang\+\_\+get\+Cursor\+Platform\+Availability}!Cursor manipulations@{Cursor manipulations}}
+\subsubsection{\texorpdfstring{clang\+\_\+get\+Cursor\+Platform\+Availability()}{clang\_getCursorPlatformAvailability()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE int clang\+\_\+get\+Cursor\+Platform\+Availability (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}}}]{cursor,  }\item[{int $\ast$}]{always\+\_\+deprecated,  }\item[{\mbox{\hyperlink{structCXString}{C\+X\+String}} $\ast$}]{deprecated\+\_\+message,  }\item[{int $\ast$}]{always\+\_\+unavailable,  }\item[{\mbox{\hyperlink{structCXString}{C\+X\+String}} $\ast$}]{unavailable\+\_\+message,  }\item[{\mbox{\hyperlink{structCXPlatformAvailability}{C\+X\+Platform\+Availability}} $\ast$}]{availability,  }\item[{int}]{availability\+\_\+size }\end{DoxyParamCaption})}
+
+
+
+Determine the availability of the entity that this cursor refers to on any platforms for which availability information is known. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cursor} & The cursor to query.\\
+\hline
+{\em always\+\_\+deprecated} & If non-\/\+N\+U\+LL, will be set to indicate whether the entity is deprecated on all platforms.\\
+\hline
+{\em deprecated\+\_\+message} & If non-\/\+N\+U\+LL, will be set to the message text provided along with the unconditional deprecation of this entity. The client is responsible for deallocating this string.\\
+\hline
+{\em always\+\_\+unavailable} & If non-\/\+N\+U\+LL, will be set to indicate whether the entity is unavailable on all platforms.\\
+\hline
+{\em unavailable\+\_\+message} & If non-\/\+N\+U\+LL, will be set to the message text provided along with the unconditional unavailability of this entity. The client is responsible for deallocating this string.\\
+\hline
+{\em availability} & If non-\/\+N\+U\+LL, an array of \mbox{\hyperlink{structCXPlatformAvailability}{C\+X\+Platform\+Availability}} instances that will be populated with platform availability information, up to either the number of platforms for which availability information is available (as returned by this function) or {\ttfamily availability\+\_\+size}, whichever is smaller.\\
+\hline
+{\em availability\+\_\+size} & The number of elements available in the {\ttfamily availability} array.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of platforms (N) for which availability information is available (which is unrelated to {\ttfamily availability\+\_\+size}).
+\end{DoxyReturn}
+Note that the client is responsible for calling {\ttfamily clang\+\_\+dispose\+C\+X\+Platform\+Availability} to free each of the platform-\/availability structures returned. There are {\ttfamily min(\+N, availability\+\_\+size)} such structures. \mbox{\Hypertarget{group__CINDEX__CURSOR__MANIP_gabc327b200d46781cf30cb84d4af3c877}\label{group__CINDEX__CURSOR__MANIP_gabc327b200d46781cf30cb84d4af3c877}} 
+\index{Cursor manipulations@{Cursor manipulations}!clang\+\_\+get\+Cursor\+Semantic\+Parent@{clang\+\_\+get\+Cursor\+Semantic\+Parent}}
+\index{clang\+\_\+get\+Cursor\+Semantic\+Parent@{clang\+\_\+get\+Cursor\+Semantic\+Parent}!Cursor manipulations@{Cursor manipulations}}
+\subsubsection{\texorpdfstring{clang\+\_\+get\+Cursor\+Semantic\+Parent()}{clang\_getCursorSemanticParent()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}} clang\+\_\+get\+Cursor\+Semantic\+Parent (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}}}]{cursor }\end{DoxyParamCaption})}
+
+
+
+Determine the semantic parent of the given cursor. 
+
+The semantic parent of a cursor is the cursor that semantically contains the given {\ttfamily cursor}. For many declarations, the lexical and semantic parents are equivalent (the lexical parent is returned by {\ttfamily \mbox{\hyperlink{group__CINDEX__CURSOR__MANIP_gace7a423874d72b3fdc71d6b0f31830dd}{clang\+\_\+get\+Cursor\+Lexical\+Parent()}}}). They diverge when declarations or definitions are provided out-\/of-\/line. For example\+:
+
+
+\begin{DoxyCode}
+\textcolor{keyword}{class }C \{
+ \textcolor{keywordtype}{void} f();
+\};
+
+\textcolor{keywordtype}{void} C::f() \{ \}
+\end{DoxyCode}
+
+
+In the out-\/of-\/line definition of {\ttfamily C\+::f}, the semantic parent is the class {\ttfamily C}, of which this function is a member. The lexical parent is the place where the declaration actually occurs in the source code; in this case, the definition occurs in the translation unit. In general, the lexical parent for a given entity can change without affecting the semantics of the program, and the lexical parent of different declarations of the same entity may be different. Changing the semantic parent of a declaration, on the other hand, can have a major impact on semantics, and redeclarations of a particular entity should all have the same semantic context.
+
+In the example above, both declarations of {\ttfamily C\+::f} have {\ttfamily C} as their semantic context, while the lexical context of the first {\ttfamily C\+::f} is {\ttfamily C} and the lexical context of the second {\ttfamily C\+::f} is the translation unit.
+
+For global declarations, the semantic parent is the translation unit. \mbox{\Hypertarget{group__CINDEX__CURSOR__MANIP_ga935b442bd6bde168cf354b7629b471d8}\label{group__CINDEX__CURSOR__MANIP_ga935b442bd6bde168cf354b7629b471d8}} 
+\index{Cursor manipulations@{Cursor manipulations}!clang\+\_\+get\+Cursor\+Visibility@{clang\+\_\+get\+Cursor\+Visibility}}
+\index{clang\+\_\+get\+Cursor\+Visibility@{clang\+\_\+get\+Cursor\+Visibility}!Cursor manipulations@{Cursor manipulations}}
+\subsubsection{\texorpdfstring{clang\+\_\+get\+Cursor\+Visibility()}{clang\_getCursorVisibility()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE enum \mbox{\hyperlink{group__CINDEX__CURSOR__MANIP_gaf92fafb489ab66529aceab51818994cb}{C\+X\+Visibility\+Kind}} clang\+\_\+get\+Cursor\+Visibility (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}}}]{cursor }\end{DoxyParamCaption})}
+
+
+
+Describe the visibility of the entity referred to by a cursor. 
+
+This returns the default visibility if not explicitly specified by a visibility attribute. The default visibility may be changed by commandline arguments.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cursor} & The cursor to query.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The visibility of the cursor. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__CINDEX__CURSOR__MANIP_gac308b03420c550e00c61153dc63deac8}\label{group__CINDEX__CURSOR__MANIP_gac308b03420c550e00c61153dc63deac8}} 
+\index{Cursor manipulations@{Cursor manipulations}!clang\+\_\+get\+Overridden\+Cursors@{clang\+\_\+get\+Overridden\+Cursors}}
+\index{clang\+\_\+get\+Overridden\+Cursors@{clang\+\_\+get\+Overridden\+Cursors}!Cursor manipulations@{Cursor manipulations}}
+\subsubsection{\texorpdfstring{clang\+\_\+get\+Overridden\+Cursors()}{clang\_getOverriddenCursors()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE void clang\+\_\+get\+Overridden\+Cursors (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}}}]{cursor,  }\item[{\mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}} $\ast$$\ast$}]{overridden,  }\item[{unsigned $\ast$}]{num\+\_\+overridden }\end{DoxyParamCaption})}
+
+
+
+Determine the set of methods that are overridden by the given method. 
+
+In both Objective-\/C and C++, a method (aka virtual member function, in C++) can override a virtual method in a base class. For Objective-\/C, a method is said to override any method in the class\textquotesingle{}s base class, its protocols, or its categories\textquotesingle{} protocols, that has the same selector and is of the same kind (class or instance). If no such method exists, the search continues to the class\textquotesingle{}s superclass, its protocols, and its categories, and so on. A method from an Objective-\/C implementation is considered to override the same methods as its corresponding method in the interface.
+
+For C++, a virtual member function overrides any virtual member function with the same signature that occurs in its base classes. With multiple inheritance, a virtual member function can override several virtual member functions coming from different base classes.
+
+In all cases, this function determines the immediate overridden method, rather than all of the overridden methods. For example, if a method is originally declared in a class A, then overridden in B (which in inherits from A) and also in C (which inherited from B), then the only overridden method returned from this function when invoked on C\textquotesingle{}s method will be B\textquotesingle{}s method. The client may then invoke this function again, given the previously-\/found overridden methods, to map out the complete method-\/override set.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cursor} & A cursor representing an Objective-\/C or C++ method. This routine will compute the set of methods that this method overrides.\\
+\hline
+{\em overridden} & A pointer whose pointee will be replaced with a pointer to an array of cursors, representing the set of overridden methods. If there are no overridden methods, the pointee will be set to N\+U\+LL. The pointee must be freed via a call to {\ttfamily \mbox{\hyperlink{group__CINDEX__CURSOR__MANIP_gac8f259af871b3f34ca7150703f8aaaa8}{clang\+\_\+dispose\+Overridden\+Cursors()}}}.\\
+\hline
+{\em num\+\_\+overridden} & A pointer to the number of overridden functions, will be set to the number of overridden functions in the array pointed to by {\ttfamily overridden}. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__CINDEX__CURSOR__MANIP_gaec6e69127920785e74e4a517423f4391}\label{group__CINDEX__CURSOR__MANIP_gaec6e69127920785e74e4a517423f4391}} 
+\index{Cursor manipulations@{Cursor manipulations}!clang\+\_\+get\+Translation\+Unit\+Cursor@{clang\+\_\+get\+Translation\+Unit\+Cursor}}
+\index{clang\+\_\+get\+Translation\+Unit\+Cursor@{clang\+\_\+get\+Translation\+Unit\+Cursor}!Cursor manipulations@{Cursor manipulations}}
+\subsubsection{\texorpdfstring{clang\+\_\+get\+Translation\+Unit\+Cursor()}{clang\_getTranslationUnitCursor()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \mbox{\hyperlink{structCXCursor}{C\+X\+Cursor}} clang\+\_\+get\+Translation\+Unit\+Cursor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__CINDEX_gacdb7815736ca709ce9a5e1ec2b7e16ac}{C\+X\+Translation\+Unit}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Retrieve the cursor that represents the given translation unit. 
+
+The translation unit cursor can be used to start traversing the various declarations within the given translation unit. \mbox{\Hypertarget{group__CINDEX__CURSOR__MANIP_gaf1bf500b9ada62671b53831d023387ba}\label{group__CINDEX__CURSOR__MANIP_gaf1bf500b9ada62671b53831d023387ba}} 
+\index{Cursor manipulations@{Cursor manipulations}!clang\+\_\+is\+Reference@{clang\+\_\+is\+Reference}}
+\index{clang\+\_\+is\+Reference@{clang\+\_\+is\+Reference}!Cursor manipulations@{Cursor manipulations}}
+\subsubsection{\texorpdfstring{clang\+\_\+is\+Reference()}{clang\_isReference()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE unsigned clang\+\_\+is\+Reference (\begin{DoxyParamCaption}\item[{enum}]{C\+X\+Cursor\+Kind }\end{DoxyParamCaption})}
+
+
+
+Determine whether the given cursor kind represents a simple reference. 
+
+Note that other kinds of cursors (such as expressions) can also refer to other cursors. Use \mbox{\hyperlink{group__CINDEX__CURSOR__XREF_gabf059155921552e19fc2abed5b4ff73a}{clang\+\_\+get\+Cursor\+Referenced()}} to determine whether a particular cursor refers to another entity. 

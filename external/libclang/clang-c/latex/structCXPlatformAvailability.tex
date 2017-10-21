@@ -1,0 +1,47 @@
+\hypertarget{structCXPlatformAvailability}{}\section{C\+X\+Platform\+Availability Struct Reference}
+\label{structCXPlatformAvailability}\index{C\+X\+Platform\+Availability@{C\+X\+Platform\+Availability}}
+
+
+{\ttfamily \#include $<$Index.\+h$>$}
+
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structCXString}{C\+X\+String}} \mbox{\hyperlink{structCXPlatformAvailability_a4ae9c3ed26d1701f0cd42d6743f3e901}{Platform}}
+\begin{DoxyCompactList}\small\item\em A string that describes the platform for which this structure provides availability information. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structCXPlatformAvailability_ac3dcb0445f895215db556beadd6d0c91}\label{structCXPlatformAvailability_ac3dcb0445f895215db556beadd6d0c91}} 
+\mbox{\hyperlink{structCXVersion}{C\+X\+Version}} \mbox{\hyperlink{structCXPlatformAvailability_ac3dcb0445f895215db556beadd6d0c91}{Introduced}}
+\begin{DoxyCompactList}\small\item\em The version number in which this entity was introduced. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structCXPlatformAvailability_ab97c416a610961bbe0e3f316bc726b09}\label{structCXPlatformAvailability_ab97c416a610961bbe0e3f316bc726b09}} 
+\mbox{\hyperlink{structCXVersion}{C\+X\+Version}} \mbox{\hyperlink{structCXPlatformAvailability_ab97c416a610961bbe0e3f316bc726b09}{Deprecated}}
+\begin{DoxyCompactList}\small\item\em The version number in which this entity was deprecated (but is still available). \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structCXPlatformAvailability_a55e178964401575e70088e6ff20ed5da}\label{structCXPlatformAvailability_a55e178964401575e70088e6ff20ed5da}} 
+\mbox{\hyperlink{structCXVersion}{C\+X\+Version}} \mbox{\hyperlink{structCXPlatformAvailability_a55e178964401575e70088e6ff20ed5da}{Obsoleted}}
+\begin{DoxyCompactList}\small\item\em The version number in which this entity was obsoleted, and therefore is no longer available. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structCXPlatformAvailability_aab40800840259fe995c03fbd1560b6d8}\label{structCXPlatformAvailability_aab40800840259fe995c03fbd1560b6d8}} 
+int \mbox{\hyperlink{structCXPlatformAvailability_aab40800840259fe995c03fbd1560b6d8}{Unavailable}}
+\begin{DoxyCompactList}\small\item\em Whether the entity is unconditionally unavailable on this platform. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structCXPlatformAvailability_a73de247ef29d6384a44742d45d02b915}\label{structCXPlatformAvailability_a73de247ef29d6384a44742d45d02b915}} 
+\mbox{\hyperlink{structCXString}{C\+X\+String}} \mbox{\hyperlink{structCXPlatformAvailability_a73de247ef29d6384a44742d45d02b915}{Message}}
+\begin{DoxyCompactList}\small\item\em An optional message to provide to a user of this A\+PI, e.\+g., to suggest replacement A\+P\+Is. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Describes the availability of a given entity on a particular platform, e.\+g., a particular class might only be available on Mac OS 10.\+7 or newer. 
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{structCXPlatformAvailability_a4ae9c3ed26d1701f0cd42d6743f3e901}\label{structCXPlatformAvailability_a4ae9c3ed26d1701f0cd42d6743f3e901}} 
+\index{C\+X\+Platform\+Availability@{C\+X\+Platform\+Availability}!Platform@{Platform}}
+\index{Platform@{Platform}!C\+X\+Platform\+Availability@{C\+X\+Platform\+Availability}}
+\subsubsection{\texorpdfstring{Platform}{Platform}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structCXString}{C\+X\+String}} C\+X\+Platform\+Availability\+::\+Platform}
+
+
+
+A string that describes the platform for which this structure provides availability information. 
+
+Possible values are \char`\"{}ios\char`\"{} or \char`\"{}macos\char`\"{}. 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Index.\+h\end{DoxyCompactItemize}
