@@ -1,12 +1,63 @@
-#ifndef TEMPLATE_HPP
-#define TEMPLATE_HPP
+/* Copyright (C)
+ * 2017 - Arden Rasmussen
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 2
+ * of the License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+ *
+ */
 
-namespace test {
+/**
+ * @file template.hpp
+ * @brief This is a test file for C++ parsing
+ * @author Arden Rasmussen
+ * @version 0.0
+ * @date 2017-10-22
+ */
+
+#ifndef EXAMPLES_TEMPLATE_HPP_
+#define EXAMPLES_TEMPLATE_HPP_
+
+/**
+ * @brief Test namespace
+ */
+namespace laboris::test {
+
+/**
+ * @enum TestEnum
+ *
+ * This will do things
+ */
+enum TestEnum { TEST_A = 0, TEST_B = 1 };
+
+/**
+ * @brief Will return false
+ *
+ * @tparam _A First type
+ * @tparam _B Second Type
+ * @param lhs first value of `_A`
+ * @param rhs second value of `_B`
+ *
+ * @return `false`
+ */
 template <typename _A, typename _B>
-bool same(_A lhs, _B rhs)
-{
+bool same(_A lhs, _B rhs) {
   return false;
 }
-} // namespace test
 
-#endif /* ifndef TEMPLATE_HPP */
+int add(int a, int b);
+
+}  // namespace test
+
+int sum(int a, int b) { return a + b; }
+
+#endif  // EXAMPLES_TEMPLATE_HPP_

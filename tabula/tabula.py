@@ -1,11 +1,11 @@
-import sys
-import clang.cindex
+#!/usr/bin/python3
+
+from parsers.cpp.parser import CppParser
 
 
 def main():
-    sys.path.append('/usr/lib/llvm-4.0/lib/libclang-4.0.0.so')
-    index = clang.cindex.Index.create()
-    pass
+    parser = CppParser()
+    parser.read("../examples/template.hpp")
 
 
 if __name__ == "__main__":
