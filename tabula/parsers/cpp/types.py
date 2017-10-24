@@ -11,6 +11,7 @@ class Typenames(Enum):
     STRUCT = 3
     FUNCTION = 4
     ENUM = 5
+    FILE = 6
 
     @staticmethod
     def get_type(line):

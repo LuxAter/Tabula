@@ -30,12 +30,10 @@
 /**
  * @brief Test namespace
  */
-namespace laboris::test {
+namespace test {
 
 /**
- * @enum TestEnum
- *
- * This will do things
+ * @brief This is a test enum
  */
 enum TestEnum { TEST_A = 0, TEST_B = 1 };
 
@@ -45,7 +43,8 @@ enum TestEnum { TEST_A = 0, TEST_B = 1 };
  * @tparam _A First type
  * @tparam _B Second Type
  * @param lhs first value of `_A`
- * @param rhs second value of `_B`
+ * @param rhs second value of `_B` This is an especially long comment block.
+ *        Lets see if it will work.
  *
  * @return `false`
  */
@@ -55,6 +54,21 @@ bool same(_A lhs, _B rhs) {
 }
 
 int add(int a, int b);
+
+/**
+ * @brief Template class for scope testing
+ */
+class Template {
+  int val;
+  /**
+   * @brief test function in tempalte class
+   *
+   * @param b var b
+   *
+   * @return returns b
+   */
+  double testing(int b) { return b; }
+};
 
 }  // namespace test
 

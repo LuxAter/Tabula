@@ -1,6 +1,7 @@
 """C++ Parser"""
 
 from parsers.cpp.types import Typenames
+from data.entity import Entity
 from pprint import pprint
 import re
 
@@ -45,18 +46,10 @@ class CppParser:
                                           self.clean(line), scope[:],
                                           Typenames.get_type(line)])
                 if line.strip().endswith("{"):
-                    scope.append(self.clean(line))
+                    scope.append(self.clean_scope(line))
                 if line.strip().startswith("}"):
                     scope.pop()
         pprint(self.data)
-
-    def read_function(self, line):
-        line = line.strip()
-        if re.compile("([^\s]*)\s?([^\s()]+)\((.*)\)(;|(\s*{))").match(
-                line) is not None:
-            return True
-        else:
-            return False
 
     def clean(self, line):
         newline = False
@@ -82,3 +75,29 @@ class CppParser:
         if line == str():
             return None
         return line
+
+    def clean_scope(self, line):
+        line = self.clean(line).strip()
+        if line.startswith("namespace"):
+            line = line[10:]
+        elif line.startswith("class"):
+            line = line[6:]
+        return line
+
+    def generate_entity(self):
+        entities = list()
+        file_entity = Entity(Typenames.FILE)
+        entities.append(file_entity)
+        for comment in self.data:
+            if comment[3] == Typenames.NONE and comment[2] == list():
+                file_entity.comments.append(comment)
+            else:
+                entities.append(self.generate_sub_entity(comment))
+        return entities
+
+    def generate_sub_entity(self, entry):
+        entity = Entity(entry[3])
+        entity.parse_comment(entry[0])
+        entity.parse_code(entry[1])
+        entity.parse_scope(entry[2])
+        return entity
