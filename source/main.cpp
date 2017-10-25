@@ -27,6 +27,9 @@ int main(int argc, char const* argv[]) {
         // CXString com = clang_Cursor_getRawCommentText(c);
         // std::cout << "Comment: \"" << com << "\"\n";
         // std::cout << "Comment: \"" << clang_FullComment_getAsHTML(com);
+        if (clang_Location_isInSystemHeader(clang_getCursorLocation(c)) != 0) {
+          return CXChildVisit_Continue;
+        }
         return CXChildVisit_Recurse;
       },
       nullptr);
