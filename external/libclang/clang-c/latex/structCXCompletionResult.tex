@@ -1,0 +1,44 @@
+\hypertarget{structCXCompletionResult}{}\section{C\+X\+Completion\+Result Struct Reference}
+\label{structCXCompletionResult}\index{C\+X\+Completion\+Result@{C\+X\+Completion\+Result}}
+
+
+A single result of code completion.  
+
+
+
+
+{\ttfamily \#include $<$Index.\+h$>$}
+
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{group__CINDEX_gaaccc432245b4cd9f2d470913f9ef0013}{C\+X\+Cursor\+Kind} \hyperlink{structCXCompletionResult_adfd21960b683399da375ff0ed10527b7}{Cursor\+Kind}
+\begin{DoxyCompactList}\small\item\em The kind of entity that this completion refers to. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structCXCompletionResult_a4576d7df8f0782b9dc6493a68e605c80}\label{structCXCompletionResult_a4576d7df8f0782b9dc6493a68e605c80}} 
+\hyperlink{group__CINDEX__CODE__COMPLET_gafea23a43a60ec3b4f3bedccfbb76883a}{C\+X\+Completion\+String} \hyperlink{structCXCompletionResult_a4576d7df8f0782b9dc6493a68e605c80}{Completion\+String}
+\begin{DoxyCompactList}\small\item\em The code-\/completion string that describes how to insert this code-\/completion result into the editing buffer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A single result of code completion. 
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{structCXCompletionResult_adfd21960b683399da375ff0ed10527b7}\label{structCXCompletionResult_adfd21960b683399da375ff0ed10527b7}} 
+\index{C\+X\+Completion\+Result@{C\+X\+Completion\+Result}!Cursor\+Kind@{Cursor\+Kind}}
+\index{Cursor\+Kind@{Cursor\+Kind}!C\+X\+Completion\+Result@{C\+X\+Completion\+Result}}
+\subsubsection{\texorpdfstring{Cursor\+Kind}{CursorKind}}
+{\footnotesize\ttfamily enum \hyperlink{group__CINDEX_gaaccc432245b4cd9f2d470913f9ef0013}{C\+X\+Cursor\+Kind} C\+X\+Completion\+Result\+::\+Cursor\+Kind}
+
+
+
+The kind of entity that this completion refers to. 
+
+The cursor kind will be a macro, keyword, or a declaration (one of the $\ast$\+Decl cursor kinds), describing the entity that the completion is referring to.
+
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000001}{Todo}]In the future, we would like to provide a full cursor, to allow the client to extract additional information from declaration. \end{DoxyRefDesc}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Index.\+h\end{DoxyCompactItemize}

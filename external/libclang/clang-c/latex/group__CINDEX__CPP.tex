@@ -1,0 +1,149 @@
+\hypertarget{group__CINDEX__CPP}{}\section{C++ A\+ST introspection}
+\label{group__CINDEX__CPP}\index{C++ A\+S\+T introspection@{C++ A\+S\+T introspection}}
+Collaboration diagram for C++ A\+ST introspection\+:
+% FIG 0
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{group__CINDEX__CPP_gab9c36c971a7241dccf6a54741b66a5ee}{C\+X\+Name\+Ref\+Flags} \{ \hyperlink{group__CINDEX__CPP_ggab9c36c971a7241dccf6a54741b66a5eea9f7f2c26ed147d0c85b475f66d5213e3}{C\+X\+Name\+Range\+\_\+\+Want\+Qualifier} = 0x1, 
+\hyperlink{group__CINDEX__CPP_ggab9c36c971a7241dccf6a54741b66a5eea286e77db7ed354a06309770f1a8e6efd}{C\+X\+Name\+Range\+\_\+\+Want\+Template\+Args} = 0x2, 
+\hyperlink{group__CINDEX__CPP_ggab9c36c971a7241dccf6a54741b66a5eea4a5d0e263577af7d7a0ba46ad0dcf8d8}{C\+X\+Name\+Range\+\_\+\+Want\+Single\+Piece} = 0x4
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__CINDEX__CPP_ga64f60658013fe2cc9f568fe5a5f55d4f}\label{group__CINDEX__CPP_ga64f60658013fe2cc9f568fe5a5f55d4f}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE unsigned \hyperlink{group__CINDEX__CPP_ga64f60658013fe2cc9f568fe5a5f55d4f}{clang\+\_\+\+C\+X\+X\+Constructor\+\_\+is\+Converting\+Constructor} (\hyperlink{structCXCursor}{C\+X\+Cursor} C)
+\begin{DoxyCompactList}\small\item\em Determine if a C++ constructor is a converting constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX__CPP_ga0c6580828662fd27cb7152e47c1b3e4e}\label{group__CINDEX__CPP_ga0c6580828662fd27cb7152e47c1b3e4e}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE unsigned \hyperlink{group__CINDEX__CPP_ga0c6580828662fd27cb7152e47c1b3e4e}{clang\+\_\+\+C\+X\+X\+Constructor\+\_\+is\+Copy\+Constructor} (\hyperlink{structCXCursor}{C\+X\+Cursor} C)
+\begin{DoxyCompactList}\small\item\em Determine if a C++ constructor is a copy constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX__CPP_ga4c15c2e3e4dd6258cbf26547dd76229b}\label{group__CINDEX__CPP_ga4c15c2e3e4dd6258cbf26547dd76229b}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE unsigned \hyperlink{group__CINDEX__CPP_ga4c15c2e3e4dd6258cbf26547dd76229b}{clang\+\_\+\+C\+X\+X\+Constructor\+\_\+is\+Default\+Constructor} (\hyperlink{structCXCursor}{C\+X\+Cursor} C)
+\begin{DoxyCompactList}\small\item\em Determine if a C++ constructor is the default constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX__CPP_gaa1cb77ef71cca950b8ec7d1e6666a8a2}\label{group__CINDEX__CPP_gaa1cb77ef71cca950b8ec7d1e6666a8a2}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE unsigned \hyperlink{group__CINDEX__CPP_gaa1cb77ef71cca950b8ec7d1e6666a8a2}{clang\+\_\+\+C\+X\+X\+Constructor\+\_\+is\+Move\+Constructor} (\hyperlink{structCXCursor}{C\+X\+Cursor} C)
+\begin{DoxyCompactList}\small\item\em Determine if a C++ constructor is a move constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX__CPP_ga139bb12b60cd1ee472c6617f84691463}\label{group__CINDEX__CPP_ga139bb12b60cd1ee472c6617f84691463}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE unsigned \hyperlink{group__CINDEX__CPP_ga139bb12b60cd1ee472c6617f84691463}{clang\+\_\+\+C\+X\+X\+Field\+\_\+is\+Mutable} (\hyperlink{structCXCursor}{C\+X\+Cursor} C)
+\begin{DoxyCompactList}\small\item\em Determine if a C++ field is declared \textquotesingle{}mutable\textquotesingle{}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX__CPP_gaa9a2e7ae6d70db44f385ef1a0e49b4e5}\label{group__CINDEX__CPP_gaa9a2e7ae6d70db44f385ef1a0e49b4e5}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE unsigned \hyperlink{group__CINDEX__CPP_gaa9a2e7ae6d70db44f385ef1a0e49b4e5}{clang\+\_\+\+C\+X\+X\+Method\+\_\+is\+Defaulted} (\hyperlink{structCXCursor}{C\+X\+Cursor} C)
+\begin{DoxyCompactList}\small\item\em Determine if a C++ method is declared \textquotesingle{}= default\textquotesingle{}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX__CPP_ga27e62c66c6dde438a114c4d6f93b5d9d}\label{group__CINDEX__CPP_ga27e62c66c6dde438a114c4d6f93b5d9d}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE unsigned \hyperlink{group__CINDEX__CPP_ga27e62c66c6dde438a114c4d6f93b5d9d}{clang\+\_\+\+C\+X\+X\+Method\+\_\+is\+Pure\+Virtual} (\hyperlink{structCXCursor}{C\+X\+Cursor} C)
+\begin{DoxyCompactList}\small\item\em Determine if a C++ member function or member function template is pure virtual. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX__CPP_ga0362e1cf8957f59cc2803456ac2cbc45}\label{group__CINDEX__CPP_ga0362e1cf8957f59cc2803456ac2cbc45}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE unsigned \hyperlink{group__CINDEX__CPP_ga0362e1cf8957f59cc2803456ac2cbc45}{clang\+\_\+\+C\+X\+X\+Method\+\_\+is\+Static} (\hyperlink{structCXCursor}{C\+X\+Cursor} C)
+\begin{DoxyCompactList}\small\item\em Determine if a C++ member function or member function template is declared \textquotesingle{}static\textquotesingle{}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX__CPP_gacd412f761b0622d6ea873f2ab21812e3}\label{group__CINDEX__CPP_gacd412f761b0622d6ea873f2ab21812e3}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE unsigned \hyperlink{group__CINDEX__CPP_gacd412f761b0622d6ea873f2ab21812e3}{clang\+\_\+\+C\+X\+X\+Method\+\_\+is\+Virtual} (\hyperlink{structCXCursor}{C\+X\+Cursor} C)
+\begin{DoxyCompactList}\small\item\em Determine if a C++ member function or member function template is explicitly declared \textquotesingle{}virtual\textquotesingle{} or if it overrides a virtual method from one of the base classes. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__CINDEX__CPP_ga89a96f6eaae57508edc968611ac8969e}\label{group__CINDEX__CPP_ga89a96f6eaae57508edc968611ac8969e}} 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE unsigned \hyperlink{group__CINDEX__CPP_ga89a96f6eaae57508edc968611ac8969e}{clang\+\_\+\+C\+X\+X\+Method\+\_\+is\+Const} (\hyperlink{structCXCursor}{C\+X\+Cursor} C)
+\begin{DoxyCompactList}\small\item\em Determine if a C++ member function or member function template is declared \textquotesingle{}const\textquotesingle{}. \end{DoxyCompactList}\item 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE enum \hyperlink{group__CINDEX_gaaccc432245b4cd9f2d470913f9ef0013}{C\+X\+Cursor\+Kind} \hyperlink{group__CINDEX__CPP_gafe1f32ddd935c20f0f455d47c05ec5ab}{clang\+\_\+get\+Template\+Cursor\+Kind} (\hyperlink{structCXCursor}{C\+X\+Cursor} C)
+\begin{DoxyCompactList}\small\item\em Given a cursor that represents a template, determine the cursor kind of the specializations would be generated by instantiating the template. \end{DoxyCompactList}\item 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \hyperlink{structCXCursor}{C\+X\+Cursor} \hyperlink{group__CINDEX__CPP_gad3f78435e7ee316b3d9e704c9d42ec4b}{clang\+\_\+get\+Specialized\+Cursor\+Template} (\hyperlink{structCXCursor}{C\+X\+Cursor} C)
+\begin{DoxyCompactList}\small\item\em Given a cursor that may represent a specialization or instantiation of a template, retrieve the cursor that represents the template that it specializes or from which it was instantiated. \end{DoxyCompactList}\item 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \hyperlink{structCXSourceRange}{C\+X\+Source\+Range} \hyperlink{group__CINDEX__CPP_ga8a31e7fc22e41643629394caebf4f04c}{clang\+\_\+get\+Cursor\+Reference\+Name\+Range} (\hyperlink{structCXCursor}{C\+X\+Cursor} C, unsigned Name\+Flags, unsigned Piece\+Index)
+\begin{DoxyCompactList}\small\item\em Given a cursor that references something else, return the source range covering that reference. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The routines in this group provide access information in the A\+S\+Ts specific to C++ language features. 
+
+\subsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{group__CINDEX__CPP_gab9c36c971a7241dccf6a54741b66a5ee}\label{group__CINDEX__CPP_gab9c36c971a7241dccf6a54741b66a5ee}} 
+\index{C++ A\+S\+T introspection@{C++ A\+S\+T introspection}!C\+X\+Name\+Ref\+Flags@{C\+X\+Name\+Ref\+Flags}}
+\index{C\+X\+Name\+Ref\+Flags@{C\+X\+Name\+Ref\+Flags}!C++ A\+S\+T introspection@{C++ A\+S\+T introspection}}
+\subsubsection{\texorpdfstring{C\+X\+Name\+Ref\+Flags}{CXNameRefFlags}}
+{\footnotesize\ttfamily enum \hyperlink{group__CINDEX__CPP_gab9c36c971a7241dccf6a54741b66a5ee}{C\+X\+Name\+Ref\+Flags}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Name\+Range\+\_\+\+Want\+Qualifier@{C\+X\+Name\+Range\+\_\+\+Want\+Qualifier}!C++ A\+S\+T introspection@{C++ A\+S\+T introspection}}\index{C++ A\+S\+T introspection@{C++ A\+S\+T introspection}!C\+X\+Name\+Range\+\_\+\+Want\+Qualifier@{C\+X\+Name\+Range\+\_\+\+Want\+Qualifier}}}\mbox{\Hypertarget{group__CINDEX__CPP_ggab9c36c971a7241dccf6a54741b66a5eea9f7f2c26ed147d0c85b475f66d5213e3}\label{group__CINDEX__CPP_ggab9c36c971a7241dccf6a54741b66a5eea9f7f2c26ed147d0c85b475f66d5213e3}} 
+C\+X\+Name\+Range\+\_\+\+Want\+Qualifier&Include the nested-\/name-\/specifier, e.\+g. Foo\+:\+: in x.\+Foo\+::y, in the range. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Name\+Range\+\_\+\+Want\+Template\+Args@{C\+X\+Name\+Range\+\_\+\+Want\+Template\+Args}!C++ A\+S\+T introspection@{C++ A\+S\+T introspection}}\index{C++ A\+S\+T introspection@{C++ A\+S\+T introspection}!C\+X\+Name\+Range\+\_\+\+Want\+Template\+Args@{C\+X\+Name\+Range\+\_\+\+Want\+Template\+Args}}}\mbox{\Hypertarget{group__CINDEX__CPP_ggab9c36c971a7241dccf6a54741b66a5eea286e77db7ed354a06309770f1a8e6efd}\label{group__CINDEX__CPP_ggab9c36c971a7241dccf6a54741b66a5eea286e77db7ed354a06309770f1a8e6efd}} 
+C\+X\+Name\+Range\+\_\+\+Want\+Template\+Args&Include the explicit template arguments, e.\+g. $<$int$>$ in x.\+f$<$int$>$, in the range. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Name\+Range\+\_\+\+Want\+Single\+Piece@{C\+X\+Name\+Range\+\_\+\+Want\+Single\+Piece}!C++ A\+S\+T introspection@{C++ A\+S\+T introspection}}\index{C++ A\+S\+T introspection@{C++ A\+S\+T introspection}!C\+X\+Name\+Range\+\_\+\+Want\+Single\+Piece@{C\+X\+Name\+Range\+\_\+\+Want\+Single\+Piece}}}\mbox{\Hypertarget{group__CINDEX__CPP_ggab9c36c971a7241dccf6a54741b66a5eea4a5d0e263577af7d7a0ba46ad0dcf8d8}\label{group__CINDEX__CPP_ggab9c36c971a7241dccf6a54741b66a5eea4a5d0e263577af7d7a0ba46ad0dcf8d8}} 
+C\+X\+Name\+Range\+\_\+\+Want\+Single\+Piece&If the name is non-\/contiguous, return the full spanning range. Non-\/contiguous names occur in Objective-\/C when a selector with two or more parameters is used, or in C++ when using an operator\+: 
+\begin{DoxyCode}
+[object doSomething:here withValue:there]; // Objective-C
+return some\_vector[1]; // C++
+\end{DoxyCode}
+ \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{group__CINDEX__CPP_ga8a31e7fc22e41643629394caebf4f04c}\label{group__CINDEX__CPP_ga8a31e7fc22e41643629394caebf4f04c}} 
+\index{C++ A\+S\+T introspection@{C++ A\+S\+T introspection}!clang\+\_\+get\+Cursor\+Reference\+Name\+Range@{clang\+\_\+get\+Cursor\+Reference\+Name\+Range}}
+\index{clang\+\_\+get\+Cursor\+Reference\+Name\+Range@{clang\+\_\+get\+Cursor\+Reference\+Name\+Range}!C++ A\+S\+T introspection@{C++ A\+S\+T introspection}}
+\subsubsection{\texorpdfstring{clang\+\_\+get\+Cursor\+Reference\+Name\+Range()}{clang\_getCursorReferenceNameRange()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \hyperlink{structCXSourceRange}{C\+X\+Source\+Range} clang\+\_\+get\+Cursor\+Reference\+Name\+Range (\begin{DoxyParamCaption}\item[{\hyperlink{structCXCursor}{C\+X\+Cursor}}]{C,  }\item[{unsigned}]{Name\+Flags,  }\item[{unsigned}]{Piece\+Index }\end{DoxyParamCaption})}
+
+
+
+Given a cursor that references something else, return the source range covering that reference. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em C} & A cursor pointing to a member reference, a declaration reference, or an operator call. \\
+\hline
+{\em Name\+Flags} & A bitset with three independent flags\+: C\+X\+Name\+Range\+\_\+\+Want\+Qualifier, C\+X\+Name\+Range\+\_\+\+Want\+Template\+Args, and C\+X\+Name\+Range\+\_\+\+Want\+Single\+Piece. \\
+\hline
+{\em Piece\+Index} & For contiguous names or when passing the flag C\+X\+Name\+Range\+\_\+\+Want\+Single\+Piece, only one piece with index 0 is available. When the C\+X\+Name\+Range\+\_\+\+Want\+Single\+Piece flag is not passed for a non-\/contiguous names, this index can be used to retrieve the individual pieces of the name. See also C\+X\+Name\+Range\+\_\+\+Want\+Single\+Piece.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The piece of the name pointed to by the given cursor. If there is no name, or if the Piece\+Index is out-\/of-\/range, a null-\/cursor will be returned. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__CINDEX__CPP_gad3f78435e7ee316b3d9e704c9d42ec4b}\label{group__CINDEX__CPP_gad3f78435e7ee316b3d9e704c9d42ec4b}} 
+\index{C++ A\+S\+T introspection@{C++ A\+S\+T introspection}!clang\+\_\+get\+Specialized\+Cursor\+Template@{clang\+\_\+get\+Specialized\+Cursor\+Template}}
+\index{clang\+\_\+get\+Specialized\+Cursor\+Template@{clang\+\_\+get\+Specialized\+Cursor\+Template}!C++ A\+S\+T introspection@{C++ A\+S\+T introspection}}
+\subsubsection{\texorpdfstring{clang\+\_\+get\+Specialized\+Cursor\+Template()}{clang\_getSpecializedCursorTemplate()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE \hyperlink{structCXCursor}{C\+X\+Cursor} clang\+\_\+get\+Specialized\+Cursor\+Template (\begin{DoxyParamCaption}\item[{\hyperlink{structCXCursor}{C\+X\+Cursor}}]{C }\end{DoxyParamCaption})}
+
+
+
+Given a cursor that may represent a specialization or instantiation of a template, retrieve the cursor that represents the template that it specializes or from which it was instantiated. 
+
+This routine determines the template involved both for explicit specializations of templates and for implicit instantiations of the template, both of which are referred to as \char`\"{}specializations\char`\"{}. For a class template specialization (e.\+g., {\ttfamily std\+::vector$<$bool$>$}), this routine will return either the primary template ({\ttfamily std\+::vector}) or, if the specialization was instantiated from a class template partial specialization, the class template partial specialization. For a class template partial specialization and a function template specialization (including instantiations), this this routine will return the specialized template.
+
+For members of a class template (e.\+g., member functions, member classes, or static data members), returns the specialized or instantiated member. Although not strictly \char`\"{}templates\char`\"{} in the C++ language, members of class templates have the same notions of specializations and instantiations that templates do, so this routine treats them similarly.
+
+
+\begin{DoxyParams}{Parameters}
+{\em C} & A cursor that may be a specialization of a template or a member of a template.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+If the given cursor is a specialization or instantiation of a template or a member thereof, the template or member that it specializes or from which it was instantiated. Otherwise, returns a N\+U\+LL cursor. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__CINDEX__CPP_gafe1f32ddd935c20f0f455d47c05ec5ab}\label{group__CINDEX__CPP_gafe1f32ddd935c20f0f455d47c05ec5ab}} 
+\index{C++ A\+S\+T introspection@{C++ A\+S\+T introspection}!clang\+\_\+get\+Template\+Cursor\+Kind@{clang\+\_\+get\+Template\+Cursor\+Kind}}
+\index{clang\+\_\+get\+Template\+Cursor\+Kind@{clang\+\_\+get\+Template\+Cursor\+Kind}!C++ A\+S\+T introspection@{C++ A\+S\+T introspection}}
+\subsubsection{\texorpdfstring{clang\+\_\+get\+Template\+Cursor\+Kind()}{clang\_getTemplateCursorKind()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE enum \hyperlink{group__CINDEX_gaaccc432245b4cd9f2d470913f9ef0013}{C\+X\+Cursor\+Kind} clang\+\_\+get\+Template\+Cursor\+Kind (\begin{DoxyParamCaption}\item[{\hyperlink{structCXCursor}{C\+X\+Cursor}}]{C }\end{DoxyParamCaption})}
+
+
+
+Given a cursor that represents a template, determine the cursor kind of the specializations would be generated by instantiating the template. 
+
+This routine can be used to determine what flavor of function template, class template, or class template partial specialization is stored in the cursor. For example, it can describe whether a class template cursor is declared with \char`\"{}struct\char`\"{}, \char`\"{}class\char`\"{} or \char`\"{}union\char`\"{}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em C} & The cursor to query. This cursor should represent a template declaration.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The cursor kind of the specializations that would be generated by instantiating the template {\ttfamily C}. If {\ttfamily C} is not a template, returns {\ttfamily C\+X\+Cursor\+\_\+\+No\+Decl\+Found}. 
+\end{DoxyReturn}

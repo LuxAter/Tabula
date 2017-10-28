@@ -1,0 +1,28 @@
+digraph "CXIdxCXXClassDeclInfo"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="CXIdxCXXClassDeclInfo",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node2 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" bases" ];
+  Node2 [label="CXIdxBaseClassInfo",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structCXIdxBaseClassInfo.html"];
+  Node3 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" cursor" ];
+  Node3 [label="CXCursor",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structCXCursor.html",tooltip="A cursor representing some element in the abstract syntax tree for a translation unit. "];
+  Node4 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" loc" ];
+  Node4 [label="CXIdxLoc",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structCXIdxLoc.html",tooltip="Source location passed to index callbacks. "];
+  Node5 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" base" ];
+  Node5 [label="CXIdxEntityInfo",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structCXIdxEntityInfo.html"];
+  Node6 -> Node5 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" attributes" ];
+  Node6 [label="CXIdxAttrInfo",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structCXIdxAttrInfo.html"];
+  Node3 -> Node6 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" cursor" ];
+  Node4 -> Node6 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" loc" ];
+  Node3 -> Node5 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" cursor" ];
+  Node7 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" declInfo" ];
+  Node7 [label="CXIdxDeclInfo",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structCXIdxDeclInfo.html"];
+  Node6 -> Node7 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" attributes" ];
+  Node3 -> Node7 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" cursor" ];
+  Node4 -> Node7 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" loc" ];
+  Node8 -> Node7 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" lexicalContainer\ndeclAsContainer\nsemanticContainer" ];
+  Node8 [label="CXIdxContainerInfo",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structCXIdxContainerInfo.html"];
+  Node3 -> Node8 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" cursor" ];
+  Node5 -> Node7 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" entityInfo" ];
+}

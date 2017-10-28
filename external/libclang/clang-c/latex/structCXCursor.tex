@@ -1,0 +1,35 @@
+\hypertarget{structCXCursor}{}\section{C\+X\+Cursor Struct Reference}
+\label{structCXCursor}\index{C\+X\+Cursor@{C\+X\+Cursor}}
+
+
+A cursor representing some element in the abstract syntax tree for a translation unit.  
+
+
+
+
+{\ttfamily \#include $<$Index.\+h$>$}
+
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structCXCursor_af888eaf0e8a90bd6c72c0f40a6a54230}\label{structCXCursor_af888eaf0e8a90bd6c72c0f40a6a54230}} 
+enum \hyperlink{group__CINDEX_gaaccc432245b4cd9f2d470913f9ef0013}{C\+X\+Cursor\+Kind} {\bfseries kind}
+\item 
+\mbox{\Hypertarget{structCXCursor_a6d8d6834224ca47d8e64a12696fe904d}\label{structCXCursor_a6d8d6834224ca47d8e64a12696fe904d}} 
+int {\bfseries xdata}
+\item 
+\mbox{\Hypertarget{structCXCursor_a31e495c1b7ed42d2c093e6d9a09c59a3}\label{structCXCursor_a31e495c1b7ed42d2c093e6d9a09c59a3}} 
+const void $\ast$ {\bfseries data} \mbox{[}3\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A cursor representing some element in the abstract syntax tree for a translation unit. 
+
+The cursor abstraction unifies the different kinds of entities in a program--declaration, statements, expressions, references to declarations, etc.--under a single \char`\"{}cursor\char`\"{} abstraction with a common set of operations. Common operation for a cursor include\+: getting the physical location in a source file where the cursor points, getting the name associated with a cursor, and retrieving cursors for any child nodes of a particular cursor.
+
+Cursors can be produced in two specific ways. \hyperlink{group__CINDEX__CURSOR__MANIP_gaec6e69127920785e74e4a517423f4391}{clang\+\_\+get\+Translation\+Unit\+Cursor()} produces a cursor for a translation unit, from which one can use \hyperlink{group__CINDEX__CURSOR__TRAVERSAL_ga5d0a813d937e1a7dcc35f206ad1f7a91}{clang\+\_\+visit\+Children()} to explore the rest of the translation unit. \hyperlink{group__CINDEX__CURSOR__SOURCE_ga30a9972c7e099ab2735fa6c45e247ec8}{clang\+\_\+get\+Cursor()} maps from a physical source location to the entity that resides at that location, allowing one to map from the source code into the A\+ST. 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Index.\+h\end{DoxyCompactItemize}

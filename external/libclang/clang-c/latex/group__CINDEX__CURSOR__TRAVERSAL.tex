@@ -1,0 +1,94 @@
+\hypertarget{group__CINDEX__CURSOR__TRAVERSAL}{}\section{Traversing the A\+ST with cursors}
+\label{group__CINDEX__CURSOR__TRAVERSAL}\index{Traversing the A\+S\+T with cursors@{Traversing the A\+S\+T with cursors}}
+Collaboration diagram for Traversing the A\+ST with cursors\+:
+% FIG 0
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \hyperlink{group__CINDEX__CURSOR__TRAVERSAL_ga99a9058656e696b622fbefaf5207d715}{C\+X\+Child\+Visit\+Result}($\ast$ \hyperlink{group__CINDEX__CURSOR__TRAVERSAL_gabf842c9ee20048b596eb9dfe94bb1570}{C\+X\+Cursor\+Visitor}) (\hyperlink{structCXCursor}{C\+X\+Cursor} cursor, \hyperlink{structCXCursor}{C\+X\+Cursor} parent, \hyperlink{group__CINDEX_gacfa40c3de26d228c0d898403c2c21612}{C\+X\+Client\+Data} client\+\_\+data)
+\begin{DoxyCompactList}\small\item\em Visitor invoked for each cursor found by a traversal. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{group__CINDEX__CURSOR__TRAVERSAL_ga99a9058656e696b622fbefaf5207d715}{C\+X\+Child\+Visit\+Result} \{ \hyperlink{group__CINDEX__CURSOR__TRAVERSAL_gga99a9058656e696b622fbefaf5207d715a0c5350aa7e393b623b93338d0c6c037b}{C\+X\+Child\+Visit\+\_\+\+Break}, 
+\hyperlink{group__CINDEX__CURSOR__TRAVERSAL_gga99a9058656e696b622fbefaf5207d715a80e20ce8a41365f0a73c6dd3177488da}{C\+X\+Child\+Visit\+\_\+\+Continue}, 
+\hyperlink{group__CINDEX__CURSOR__TRAVERSAL_gga99a9058656e696b622fbefaf5207d715a61a23204a2aa9670ceabb7b2b17c5100}{C\+X\+Child\+Visit\+\_\+\+Recurse}
+ \}\begin{DoxyCompactList}\small\item\em Describes how the traversal of the children of a particular cursor should proceed after visiting a particular child cursor. \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE unsigned \hyperlink{group__CINDEX__CURSOR__TRAVERSAL_ga5d0a813d937e1a7dcc35f206ad1f7a91}{clang\+\_\+visit\+Children} (\hyperlink{structCXCursor}{C\+X\+Cursor} parent, \hyperlink{group__CINDEX__CURSOR__TRAVERSAL_gabf842c9ee20048b596eb9dfe94bb1570}{C\+X\+Cursor\+Visitor} visitor, \hyperlink{group__CINDEX_gacfa40c3de26d228c0d898403c2c21612}{C\+X\+Client\+Data} client\+\_\+data)
+\begin{DoxyCompactList}\small\item\em Visit the children of a particular cursor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+These routines provide the ability to traverse the abstract syntax tree using cursors. 
+
+\subsection{Typedef Documentation}
+\mbox{\Hypertarget{group__CINDEX__CURSOR__TRAVERSAL_gabf842c9ee20048b596eb9dfe94bb1570}\label{group__CINDEX__CURSOR__TRAVERSAL_gabf842c9ee20048b596eb9dfe94bb1570}} 
+\index{Traversing the A\+S\+T with cursors@{Traversing the A\+S\+T with cursors}!C\+X\+Cursor\+Visitor@{C\+X\+Cursor\+Visitor}}
+\index{C\+X\+Cursor\+Visitor@{C\+X\+Cursor\+Visitor}!Traversing the A\+S\+T with cursors@{Traversing the A\+S\+T with cursors}}
+\subsubsection{\texorpdfstring{C\+X\+Cursor\+Visitor}{CXCursorVisitor}}
+{\footnotesize\ttfamily typedef enum \hyperlink{group__CINDEX__CURSOR__TRAVERSAL_ga99a9058656e696b622fbefaf5207d715}{C\+X\+Child\+Visit\+Result}($\ast$ C\+X\+Cursor\+Visitor) (\hyperlink{structCXCursor}{C\+X\+Cursor} cursor, \hyperlink{structCXCursor}{C\+X\+Cursor} parent, \hyperlink{group__CINDEX_gacfa40c3de26d228c0d898403c2c21612}{C\+X\+Client\+Data} client\+\_\+data)}
+
+
+
+Visitor invoked for each cursor found by a traversal. 
+
+This visitor function will be invoked for each cursor found by clang\+\_\+visit\+Cursor\+Children(). Its first argument is the cursor being visited, its second argument is the parent visitor for that cursor, and its third argument is the client data provided to clang\+\_\+visit\+Cursor\+Children().
+
+The visitor should return one of the {\ttfamily C\+X\+Child\+Visit\+Result} values to direct clang\+\_\+visit\+Cursor\+Children(). 
+
+\subsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{group__CINDEX__CURSOR__TRAVERSAL_ga99a9058656e696b622fbefaf5207d715}\label{group__CINDEX__CURSOR__TRAVERSAL_ga99a9058656e696b622fbefaf5207d715}} 
+\index{Traversing the A\+S\+T with cursors@{Traversing the A\+S\+T with cursors}!C\+X\+Child\+Visit\+Result@{C\+X\+Child\+Visit\+Result}}
+\index{C\+X\+Child\+Visit\+Result@{C\+X\+Child\+Visit\+Result}!Traversing the A\+S\+T with cursors@{Traversing the A\+S\+T with cursors}}
+\subsubsection{\texorpdfstring{C\+X\+Child\+Visit\+Result}{CXChildVisitResult}}
+{\footnotesize\ttfamily enum \hyperlink{group__CINDEX__CURSOR__TRAVERSAL_ga99a9058656e696b622fbefaf5207d715}{C\+X\+Child\+Visit\+Result}}
+
+
+
+Describes how the traversal of the children of a particular cursor should proceed after visiting a particular child cursor. 
+
+A value of this enumeration type should be returned by each {\ttfamily C\+X\+Cursor\+Visitor} to indicate how \hyperlink{group__CINDEX__CURSOR__TRAVERSAL_ga5d0a813d937e1a7dcc35f206ad1f7a91}{clang\+\_\+visit\+Children()} proceed. \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Child\+Visit\+\_\+\+Break@{C\+X\+Child\+Visit\+\_\+\+Break}!Traversing the A\+S\+T with cursors@{Traversing the A\+S\+T with cursors}}\index{Traversing the A\+S\+T with cursors@{Traversing the A\+S\+T with cursors}!C\+X\+Child\+Visit\+\_\+\+Break@{C\+X\+Child\+Visit\+\_\+\+Break}}}\mbox{\Hypertarget{group__CINDEX__CURSOR__TRAVERSAL_gga99a9058656e696b622fbefaf5207d715a0c5350aa7e393b623b93338d0c6c037b}\label{group__CINDEX__CURSOR__TRAVERSAL_gga99a9058656e696b622fbefaf5207d715a0c5350aa7e393b623b93338d0c6c037b}} 
+C\+X\+Child\+Visit\+\_\+\+Break&Terminates the cursor traversal. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Child\+Visit\+\_\+\+Continue@{C\+X\+Child\+Visit\+\_\+\+Continue}!Traversing the A\+S\+T with cursors@{Traversing the A\+S\+T with cursors}}\index{Traversing the A\+S\+T with cursors@{Traversing the A\+S\+T with cursors}!C\+X\+Child\+Visit\+\_\+\+Continue@{C\+X\+Child\+Visit\+\_\+\+Continue}}}\mbox{\Hypertarget{group__CINDEX__CURSOR__TRAVERSAL_gga99a9058656e696b622fbefaf5207d715a80e20ce8a41365f0a73c6dd3177488da}\label{group__CINDEX__CURSOR__TRAVERSAL_gga99a9058656e696b622fbefaf5207d715a80e20ce8a41365f0a73c6dd3177488da}} 
+C\+X\+Child\+Visit\+\_\+\+Continue&Continues the cursor traversal with the next sibling of the cursor just visited, without visiting its children. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+X\+Child\+Visit\+\_\+\+Recurse@{C\+X\+Child\+Visit\+\_\+\+Recurse}!Traversing the A\+S\+T with cursors@{Traversing the A\+S\+T with cursors}}\index{Traversing the A\+S\+T with cursors@{Traversing the A\+S\+T with cursors}!C\+X\+Child\+Visit\+\_\+\+Recurse@{C\+X\+Child\+Visit\+\_\+\+Recurse}}}\mbox{\Hypertarget{group__CINDEX__CURSOR__TRAVERSAL_gga99a9058656e696b622fbefaf5207d715a61a23204a2aa9670ceabb7b2b17c5100}\label{group__CINDEX__CURSOR__TRAVERSAL_gga99a9058656e696b622fbefaf5207d715a61a23204a2aa9670ceabb7b2b17c5100}} 
+C\+X\+Child\+Visit\+\_\+\+Recurse&Recursively traverse the children of this cursor, using the same visitor and client data. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{group__CINDEX__CURSOR__TRAVERSAL_ga5d0a813d937e1a7dcc35f206ad1f7a91}\label{group__CINDEX__CURSOR__TRAVERSAL_ga5d0a813d937e1a7dcc35f206ad1f7a91}} 
+\index{Traversing the A\+S\+T with cursors@{Traversing the A\+S\+T with cursors}!clang\+\_\+visit\+Children@{clang\+\_\+visit\+Children}}
+\index{clang\+\_\+visit\+Children@{clang\+\_\+visit\+Children}!Traversing the A\+S\+T with cursors@{Traversing the A\+S\+T with cursors}}
+\subsubsection{\texorpdfstring{clang\+\_\+visit\+Children()}{clang\_visitChildren()}}
+{\footnotesize\ttfamily C\+I\+N\+D\+E\+X\+\_\+\+L\+I\+N\+K\+A\+GE unsigned clang\+\_\+visit\+Children (\begin{DoxyParamCaption}\item[{\hyperlink{structCXCursor}{C\+X\+Cursor}}]{parent,  }\item[{\hyperlink{group__CINDEX__CURSOR__TRAVERSAL_gabf842c9ee20048b596eb9dfe94bb1570}{C\+X\+Cursor\+Visitor}}]{visitor,  }\item[{\hyperlink{group__CINDEX_gacfa40c3de26d228c0d898403c2c21612}{C\+X\+Client\+Data}}]{client\+\_\+data }\end{DoxyParamCaption})}
+
+
+
+Visit the children of a particular cursor. 
+
+This function visits all the direct children of the given cursor, invoking the given {\ttfamily visitor} function with the cursors of each visited child. The traversal may be recursive, if the visitor returns {\ttfamily C\+X\+Child\+Visit\+\_\+\+Recurse}. The traversal may also be ended prematurely, if the visitor returns {\ttfamily C\+X\+Child\+Visit\+\_\+\+Break}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & the cursor whose child may be visited. All kinds of cursors can be visited, including invalid cursors (which, by definition, have no children).\\
+\hline
+{\em visitor} & the visitor function that will be invoked for each child of {\ttfamily parent}.\\
+\hline
+{\em client\+\_\+data} & pointer data supplied by the client, which will be passed to the visitor each time it is invoked.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a non-\/zero value if the traversal was terminated prematurely by the visitor returning {\ttfamily C\+X\+Child\+Visit\+\_\+\+Break}. 
+\end{DoxyReturn}

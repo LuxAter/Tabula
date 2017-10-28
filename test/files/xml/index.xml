@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.13">
+  <compound refid="classtest_1_1Template" kind="class"><name>test::Template</name>
+    <member refid="classtest_1_1Template_1a13e62f2a4ddd5bc97a094f3f4624a135" kind="variable"><name>val</name></member>
+    <member refid="classtest_1_1Template_1a7abc7ee7420cbc4ef69aedfb28288c06" kind="function"><name>testing</name></member>
+  </compound>
+  <compound refid="namespacetest" kind="namespace"><name>test</name>
+    <member refid="namespacetest_1a6ad41d585136896eb5e295a3e2c6dd78" kind="enum"><name>TestEnum</name></member>
+    <member refid="namespacetest_1a6ad41d585136896eb5e295a3e2c6dd78ab6ea2dc6569eee6f2baec5572d632a6c" kind="enumvalue"><name>TEST_A</name></member>
+    <member refid="namespacetest_1a6ad41d585136896eb5e295a3e2c6dd78af733861ad81a68124f892d8a8cd71a7d" kind="enumvalue"><name>TEST_B</name></member>
+    <member refid="namespacetest_1a7d8a0426e601b60981231c1abdba42bd" kind="function"><name>same</name></member>
+    <member refid="namespacetest_1aff542a19eb9453a828af998cff2dbf96" kind="function"><name>add</name></member>
+  </compound>
+  <compound refid="basic__class_8hpp" kind="file"><name>basic_class.hpp</name>
+    <member refid="basic__class_8hpp_1a5ceb2172cbc407c45e7e9f2d22a2b5c1" kind="function"><name>sum</name></member>
+  </compound>
+</doxygenindex>

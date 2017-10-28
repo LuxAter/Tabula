@@ -1,0 +1,127 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="namespacetest" kind="namespace" language="C++">
+    <compoundname>test</compoundname>
+    <innerclass refid="classtest_1_1Template" prot="public">test::Template</innerclass>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="namespacetest_1a6ad41d585136896eb5e295a3e2c6dd78" prot="public" static="no">
+        <name>TestEnum</name>
+        <enumvalue id="namespacetest_1a6ad41d585136896eb5e295a3e2c6dd78ab6ea2dc6569eee6f2baec5572d632a6c" prot="public">
+          <name>TEST_A</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetest_1a6ad41d585136896eb5e295a3e2c6dd78af733861ad81a68124f892d8a8cd71a7d" prot="public">
+          <name>TEST_B</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>This is a test enum. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="basic_class.hpp" line="38" column="1" bodyfile="basic_class.hpp" bodystart="38" bodyend="38"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespacetest_1a7d8a0426e601b60981231c1abdba42bd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename _A</type>
+          </param>
+          <param>
+            <type>typename _B</type>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool test::same</definition>
+        <argsstring>(_A lhs, _B rhs, int mhs)</argsstring>
+        <name>same</name>
+        <param>
+          <type>_A</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type>_B</type>
+          <declname>rhs</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>mhs</declname>
+        </param>
+        <briefdescription>
+<para>Will return false. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>_A</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>First type </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_B</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second Type </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>lhs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>first value of <computeroutput>_A</computeroutput> </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>rhs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>second value of <computeroutput>_B</computeroutput> This is an especially long comment block. Lets see if it will work.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>false</computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="basic_class.hpp" line="52" column="1" bodyfile="basic_class.hpp" bodystart="52" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacetest_1aff542a19eb9453a828af998cff2dbf96" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int test::add</definition>
+        <argsstring>(int a, int b)</argsstring>
+        <name>add</name>
+        <param>
+          <type>int</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="basic_class.hpp" line="56" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Test namespace. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="basic_class.hpp" line="33" column="1"/>
+  </compounddef>
+</doxygen>

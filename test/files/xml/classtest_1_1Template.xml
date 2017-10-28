@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="classtest_1_1Template" kind="class" language="C++" prot="public">
+    <compoundname>test::Template</compoundname>
+    <includes refid="basic__class_8hpp" local="no">basic_class.hpp</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classtest_1_1Template_1a13e62f2a4ddd5bc97a094f3f4624a135" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int test::Template::val</definition>
+        <argsstring></argsstring>
+        <name>val</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="basic_class.hpp" line="62" column="1" bodyfile="basic_class.hpp" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classtest_1_1Template_1a7abc7ee7420cbc4ef69aedfb28288c06" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double test::Template::testing</definition>
+        <argsstring>(int b)</argsstring>
+        <name>testing</name>
+        <param>
+          <type>int</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+<para>test function in tempalte class </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>var b</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>returns b </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="basic_class.hpp" line="70" column="1" bodyfile="basic_class.hpp" bodystart="70" bodyend="70"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para><ref refid="classtest_1_1Template" kindref="compound">Template</ref> class for scope testing. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="basic_class.hpp" line="61" column="1" bodyfile="basic_class.hpp" bodystart="61" bodyend="71"/>
+    <listofallmembers>
+      <member refid="classtest_1_1Template_1a7abc7ee7420cbc4ef69aedfb28288c06" prot="private" virt="non-virtual"><scope>test::Template</scope><name>testing</name></member>
+      <member refid="classtest_1_1Template_1a13e62f2a4ddd5bc97a094f3f4624a135" prot="private" virt="non-virtual"><scope>test::Template</scope><name>val</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

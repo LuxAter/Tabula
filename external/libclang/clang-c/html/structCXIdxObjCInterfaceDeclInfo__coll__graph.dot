@@ -1,0 +1,37 @@
+digraph "CXIdxObjCInterfaceDeclInfo"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="CXIdxObjCInterfaceDeclInfo",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node2 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" containerInfo" ,fontname="Helvetica"];
+  Node2 [label="CXIdxObjCContainerDeclInfo",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structCXIdxObjCContainerDeclInfo.html"];
+  Node3 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" declInfo" ,fontname="Helvetica"];
+  Node3 [label="CXIdxDeclInfo",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structCXIdxDeclInfo.html"];
+  Node4 -> Node3 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" attributes" ,fontname="Helvetica"];
+  Node4 [label="CXIdxAttrInfo",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structCXIdxAttrInfo.html"];
+  Node5 -> Node4 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" cursor" ,fontname="Helvetica"];
+  Node5 [label="CXCursor",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structCXCursor.html",tooltip="A cursor representing some element in the abstract syntax tree for a translation unit. "];
+  Node6 -> Node4 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" loc" ,fontname="Helvetica"];
+  Node6 [label="CXIdxLoc",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structCXIdxLoc.html",tooltip="Source location passed to index callbacks. "];
+  Node5 -> Node3 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" cursor" ,fontname="Helvetica"];
+  Node6 -> Node3 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" loc" ,fontname="Helvetica"];
+  Node7 -> Node3 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" lexicalContainer\ndeclAsContainer\nsemanticContainer" ,fontname="Helvetica"];
+  Node7 [label="CXIdxContainerInfo",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structCXIdxContainerInfo.html"];
+  Node5 -> Node7 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" cursor" ,fontname="Helvetica"];
+  Node8 -> Node3 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" entityInfo" ,fontname="Helvetica"];
+  Node8 [label="CXIdxEntityInfo",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structCXIdxEntityInfo.html"];
+  Node4 -> Node8 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" attributes" ,fontname="Helvetica"];
+  Node5 -> Node8 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" cursor" ,fontname="Helvetica"];
+  Node9 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" superInfo" ,fontname="Helvetica"];
+  Node9 [label="CXIdxBaseClassInfo",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structCXIdxBaseClassInfo.html"];
+  Node5 -> Node9 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" cursor" ,fontname="Helvetica"];
+  Node6 -> Node9 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" loc" ,fontname="Helvetica"];
+  Node8 -> Node9 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" base" ,fontname="Helvetica"];
+  Node10 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" protocols" ,fontname="Helvetica"];
+  Node10 [label="CXIdxObjCProtocolRefListInfo",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structCXIdxObjCProtocolRefListInfo.html"];
+  Node11 -> Node10 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" protocols" ,fontname="Helvetica"];
+  Node11 [label="CXIdxObjCProtocolRefInfo",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structCXIdxObjCProtocolRefInfo.html"];
+  Node5 -> Node11 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" cursor" ,fontname="Helvetica"];
+  Node6 -> Node11 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" loc" ,fontname="Helvetica"];
+  Node8 -> Node11 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" protocol" ,fontname="Helvetica"];
+}
