@@ -14,6 +14,7 @@ int main(int argc, char const* argv[]) {
   for (int i = 0; i < tabula::entries.size(); i++) {
     std::cout << tabula::entries[i].scope_str << "::" << tabula::entries[i].str
               << "\n";
+    std::cout << tabula::entries[i].comment.GetRawComment() << "\n";
   }
   return 0;
 }

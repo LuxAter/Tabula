@@ -27,6 +27,7 @@
 
 #include "clang-c/Index.h"
 #include "code.hpp"
+#include "comment.hpp"
 
 namespace tabula {
 
@@ -36,6 +37,7 @@ namespace tabula {
     CXType type;
     std::array<unsigned, 5> info;
     std::vector<std::pair<unsigned int, std::string> > scope;
+    Comment comment;
   };
 
   extern std::vector<Entity> entries;

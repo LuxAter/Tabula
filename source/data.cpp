@@ -53,7 +53,7 @@ void tabula::Notification(NoteType type, std::string str, bool output,
 void tabula::UncommentedWarning(bool color) {
   for (int i = 0; i < entries.size(); i++) {
     if (entries[i].comment_str == std::string()) {
-      Notification(WARNING, "Entity is uncommented", entries[i], true, color);
+      Notification(WARNING, "Entity is Undocumented", entries[i], true, color);
     }
   }
 }
@@ -62,7 +62,7 @@ void tabula::RemoveUncommented(bool output, bool color) {
   for (std::vector<Entity>::iterator it = entries.begin(); it != entries.end();
        ++it) {
     if (it->comment_str == std::string()) {
-      Notification(INFO, "Removing Uncommented Entry", *it, output, color);
+      Notification(INFO, "Removing Undocumented Entry", *it, output, color);
       entries.erase(it);
       --it;
     }
@@ -72,6 +72,7 @@ void tabula::RemoveUncommented(bool output, bool color) {
 void tabula::ParseComments(bool output, bool color) {
   for (std::vector<Entity>::iterator it = entries.begin(); it != entries.end();
        ++it) {
+    it->comment.ParseComment(it->comment_str);
     // ParseComment(it);
     Notification(SUCCESS, "Parsed Entry Comment", *it, output, color);
   }
@@ -86,8 +87,6 @@ void tabula::ParseFile(std::string file_path, bool output, bool color) {
 
   } else if (ext == "py") {
     Notification(ERROR, "Python Files Are Not Yet Supported", output, color);
-    // Notification(SECTION, "Parsing \"" + file_path + "\" as Pythton File",
-    // output, color);
   } else {
     Notification(FATAL_ERROR, "Unknown File Extension \"" + ext + "\"", output,
                  color);
