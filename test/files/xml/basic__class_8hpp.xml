@@ -1,10 +1,10 @@
-<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="basic__class_8hpp" kind="file" language="C++">
     <compoundname>basic_class.hpp</compoundname>
     <innerclass refid="classtest_1_1Template" prot="public">test::Template</innerclass>
     <innernamespace refid="namespacetest">test</innernamespace>
-      <sectiondef kind="func">
+    <sectiondef kind="func">
       <memberdef kind="function" id="basic__class_8hpp_1a5ceb2172cbc407c45e7e9f2d22a2b5c1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
         <definition>int sum</definition>
@@ -26,55 +26,292 @@
         </inbodydescription>
         <location file="basic_class.hpp" line="75" column="1" bodyfile="basic_class.hpp" bodystart="75" bodyend="75"/>
       </memberdef>
-      </sectiondef>
+    </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
     <programlisting>
-<codeline lineno="1"><highlight class="comment">/*<sp/>Copyright<sp/>(C)</highlight></codeline>
-<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>2017<sp/>-<sp/>Arden<sp/>Rasmussen</highlight></codeline>
-<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>This<sp/>program<sp/>is<sp/>free<sp/>software;<sp/>you<sp/>can<sp/>redistribute<sp/>it<sp/>and/or</highlight></codeline>
-<codeline lineno="4"><highlight class="comment"><sp/>*<sp/>modify<sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License</highlight></codeline>
-<codeline lineno="5"><highlight class="comment"><sp/>*<sp/>as<sp/>published<sp/>by<sp/>the<sp/>Free<sp/>Software<sp/>Foundation;<sp/>either<sp/>version<sp/>2</highlight></codeline>
-<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>of<sp/>the<sp/>License,<sp/>or<sp/>(at<sp/>your<sp/>option)<sp/>any<sp/>later<sp/>version.</highlight></codeline>
-<codeline lineno="7"><highlight class="comment"><sp/>*</highlight></codeline>
-<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>This<sp/>program<sp/>is<sp/>distributed<sp/>in<sp/>the<sp/>hope<sp/>that<sp/>it<sp/>will<sp/>be<sp/>useful,</highlight></codeline>
-<codeline lineno="9"><highlight class="comment"><sp/>*<sp/>but<sp/>WITHOUT<sp/>ANY<sp/>WARRANTY;<sp/>without<sp/>even<sp/>the<sp/>implied<sp/>warranty<sp/>of</highlight></codeline>
-<codeline lineno="10"><highlight class="comment"><sp/>*<sp/>MERCHANTABILITY<sp/>or<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE.<sp/><sp/>See<sp/>the</highlight></codeline>
-<codeline lineno="11"><highlight class="comment"><sp/>*<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>for<sp/>more<sp/>details.</highlight></codeline>
-<codeline lineno="12"><highlight class="comment"><sp/>*</highlight></codeline>
-<codeline lineno="13"><highlight class="comment"><sp/>*<sp/>You<sp/>should<sp/>have<sp/>received<sp/>a<sp/>copy<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License</highlight></codeline>
-<codeline lineno="14"><highlight class="comment"><sp/>*<sp/>along<sp/>with<sp/>this<sp/>program;<sp/>if<sp/>not,<sp/>write<sp/>to<sp/>the<sp/>Free<sp/>Software</highlight></codeline>
-<codeline lineno="15"><highlight class="comment"><sp/>*<sp/>Foundation,<sp/>Inc.,<sp/>59<sp/>Temple<sp/>Place<sp/>-<sp/>Suite<sp/>330,<sp/>Boston,<sp/>MA<sp/><sp/>02111-1307,<sp/>USA.</highlight></codeline>
-<codeline lineno="16"><highlight class="comment"><sp/>*</highlight></codeline>
-<codeline lineno="17"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="18"><highlight class="normal"></highlight></codeline>
-<codeline lineno="27"><highlight class="preprocessor">#ifndef<sp/>EXAMPLES_TEMPLATE_HPP_</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>EXAMPLES_TEMPLATE_HPP_</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="29"><highlight class="normal"></highlight></codeline>
-<codeline lineno="33" refid="namespacetest" refkind="compound"><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacetest" kindref="compound">test</ref><sp/>{</highlight></codeline>
-<codeline lineno="34"><highlight class="normal"></highlight></codeline>
-<codeline lineno="38" refid="namespacetest_1a6ad41d585136896eb5e295a3e2c6dd78" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="namespacetest_1a6ad41d585136896eb5e295a3e2c6dd78" kindref="member">TestEnum</ref><sp/>{<sp/>TEST_A<sp/>=<sp/>0,<sp/>TEST_B<sp/>=<sp/>1<sp/>};</highlight></codeline>
-<codeline lineno="39"><highlight class="normal"></highlight></codeline>
-<codeline lineno="51"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>_A,<sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>_B&gt;</highlight></codeline>
-<codeline lineno="52" refid="namespacetest_1a7d8a0426e601b60981231c1abdba42bd" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="namespacetest_1a7d8a0426e601b60981231c1abdba42bd" kindref="member">same</ref>(_A<sp/>lhs,<sp/>_B<sp/>rhs,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>mhs)<sp/>{</highlight></codeline>
-<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="54"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="55"><highlight class="normal"></highlight></codeline>
-<codeline lineno="56"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>add(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>a,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>b);</highlight></codeline>
-<codeline lineno="57"><highlight class="normal"></highlight></codeline>
-<codeline lineno="61" refid="classtest_1_1Template" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classtest_1_1Template" kindref="compound">Template</ref><sp/>{</highlight></codeline>
-<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>val;</highlight></codeline>
-<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>testing(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>b)<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>b;<sp/>}</highlight></codeline>
-<codeline lineno="71"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
-<codeline lineno="72"><highlight class="normal"></highlight></codeline>
-<codeline lineno="73"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>test</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="74"><highlight class="normal"></highlight></codeline>
-<codeline lineno="75"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>sum(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>a,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>b)<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>a<sp/>+<sp/>b;<sp/>}</highlight></codeline>
-<codeline lineno="76"><highlight class="normal"></highlight></codeline>
-<codeline lineno="77"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/>//<sp/>EXAMPLES_TEMPLATE_HPP_</highlight></codeline>
-    </programlisting>
-    <location file="basic_class.hpp"/>
-  </compounddef>
-</doxygen>
+      <codeline lineno="1">
+        <highlight class="comment">/*<sp/>Copyright<sp/>(C)</highlight>
+      </codeline>
+      <codeline lineno="2">
+        <highlight class="comment">
+          <sp/>*<sp/>2017<sp/>-<sp/>Arden<sp/>Rasmussen</highlight>
+        </codeline>
+        <codeline lineno="3">
+          <highlight class="comment">
+            <sp/>*<sp/>This<sp/>program<sp/>is<sp/>free<sp/>software;<sp/>you<sp/>can<sp/>redistribute<sp/>it<sp/>and/or</highlight>
+          </codeline>
+          <codeline lineno="4">
+            <highlight class="comment">
+              <sp/>*<sp/>modify<sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License</highlight>
+            </codeline>
+            <codeline lineno="5">
+              <highlight class="comment">
+                <sp/>*<sp/>as<sp/>published<sp/>by<sp/>the<sp/>Free<sp/>Software<sp/>Foundation;<sp/>either<sp/>version<sp/>2</highlight>
+              </codeline>
+              <codeline lineno="6">
+                <highlight class="comment">
+                  <sp/>*<sp/>of<sp/>the<sp/>License,<sp/>or<sp/>(at<sp/>your<sp/>option)<sp/>any<sp/>later<sp/>version.</highlight>
+                </codeline>
+                <codeline lineno="7">
+                  <highlight class="comment">
+                    <sp/>*</highlight>
+                  </codeline>
+                  <codeline lineno="8">
+                    <highlight class="comment">
+                      <sp/>*<sp/>This<sp/>program<sp/>is<sp/>distributed<sp/>in<sp/>the<sp/>hope<sp/>that<sp/>it<sp/>will<sp/>be<sp/>useful,</highlight>
+                    </codeline>
+                    <codeline lineno="9">
+                      <highlight class="comment">
+                        <sp/>*<sp/>but<sp/>WITHOUT<sp/>ANY<sp/>WARRANTY;<sp/>without<sp/>even<sp/>the<sp/>implied<sp/>warranty<sp/>of</highlight>
+                      </codeline>
+                      <codeline lineno="10">
+                        <highlight class="comment">
+                          <sp/>*<sp/>MERCHANTABILITY<sp/>or<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE.<sp/>
+                          <sp/>See<sp/>the</highlight>
+                        </codeline>
+                        <codeline lineno="11">
+                          <highlight class="comment">
+                            <sp/>*<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>for<sp/>more<sp/>details.</highlight>
+                          </codeline>
+                          <codeline lineno="12">
+                            <highlight class="comment">
+                              <sp/>*</highlight>
+                            </codeline>
+                            <codeline lineno="13">
+                              <highlight class="comment">
+                                <sp/>*<sp/>You<sp/>should<sp/>have<sp/>received<sp/>a<sp/>copy<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License</highlight>
+                              </codeline>
+                              <codeline lineno="14">
+                                <highlight class="comment">
+                                  <sp/>*<sp/>along<sp/>with<sp/>this<sp/>program;<sp/>if<sp/>not,<sp/>write<sp/>to<sp/>the<sp/>Free<sp/>Software</highlight>
+                                </codeline>
+                                <codeline lineno="15">
+                                  <highlight class="comment">
+                                    <sp/>*<sp/>Foundation,<sp/>Inc.,<sp/>59<sp/>Temple<sp/>Place<sp/>-<sp/>Suite<sp/>330,<sp/>Boston,<sp/>MA<sp/>
+                                    <sp/>02111-1307,<sp/>USA.</highlight>
+                                  </codeline>
+                                  <codeline lineno="16">
+                                    <highlight class="comment">
+                                      <sp/>*</highlight>
+                                    </codeline>
+                                    <codeline lineno="17">
+                                      <highlight class="comment">
+                                        <sp/>*/</highlight>
+                                        <highlight class="normal">
+                                        </highlight>
+                                      </codeline>
+                                      <codeline lineno="18">
+                                        <highlight class="normal">
+                                        </highlight>
+                                      </codeline>
+                                      <codeline lineno="27">
+                                        <highlight class="preprocessor">#ifndef<sp/>EXAMPLES_TEMPLATE_HPP_</highlight>
+                                        <highlight class="normal">
+                                        </highlight>
+                                      </codeline>
+                                      <codeline lineno="28">
+                                        <highlight class="normal">
+                                        </highlight>
+                                        <highlight class="preprocessor">#define<sp/>EXAMPLES_TEMPLATE_HPP_</highlight>
+                                        <highlight class="normal">
+                                        </highlight>
+                                      </codeline>
+                                      <codeline lineno="29">
+                                        <highlight class="normal">
+                                        </highlight>
+                                      </codeline>
+                                      <codeline lineno="33" refid="namespacetest" refkind="compound">
+                                        <highlight class="keyword">namespace<sp/>
+                                      </highlight>
+                                      <highlight class="normal">
+                                        <ref refid="namespacetest" kindref="compound">test</ref>
+                                        <sp/>{</highlight>
+                                      </codeline>
+                                      <codeline lineno="34">
+                                        <highlight class="normal">
+                                        </highlight>
+                                      </codeline>
+                                      <codeline lineno="38" refid="namespacetest_1a6ad41d585136896eb5e295a3e2c6dd78" refkind="member">
+                                        <highlight class="normal">
+                                          <sp/>
+                                          <sp/>
+                                        </highlight>
+                                        <highlight class="keyword">enum</highlight>
+                                        <highlight class="normal">
+                                          <sp/>
+                                          <ref refid="namespacetest_1a6ad41d585136896eb5e295a3e2c6dd78" kindref="member">TestEnum</ref>
+                                          <sp/>{<sp/>TEST_A<sp/>=<sp/>0,<sp/>TEST_B<sp/>=<sp/>1<sp/>};</highlight>
+                                        </codeline>
+                                        <codeline lineno="39">
+                                          <highlight class="normal">
+                                          </highlight>
+                                        </codeline>
+                                        <codeline lineno="51">
+                                          <highlight class="normal">
+                                            <sp/>
+                                            <sp/>
+                                          </highlight>
+                                          <highlight class="keyword">template</highlight>
+                                          <highlight class="normal">
+                                            <sp/>&lt;</highlight>
+                                            <highlight class="keyword">typename</highlight>
+                                            <highlight class="normal">
+                                              <sp/>_A,<sp/>
+                                            </highlight>
+                                            <highlight class="keyword">typename</highlight>
+                                            <highlight class="normal">
+                                              <sp/>_B&gt;</highlight>
+                                            </codeline>
+                                            <codeline lineno="52" refid="namespacetest_1a7d8a0426e601b60981231c1abdba42bd" refkind="member">
+                                              <highlight class="normal">
+                                                <sp/>
+                                                <sp/>
+                                              </highlight>
+                                              <highlight class="keywordtype">bool</highlight>
+                                              <highlight class="normal">
+                                                <sp/>
+                                                <ref refid="namespacetest_1a7d8a0426e601b60981231c1abdba42bd" kindref="member">same</ref>(_A<sp/>lhs,<sp/>_B<sp/>rhs,<sp/>
+                                              </highlight>
+                                              <highlight class="keywordtype">int</highlight>
+                                              <highlight class="normal">
+                                                <sp/>mhs)<sp/>{</highlight>
+                                              </codeline>
+                                              <codeline lineno="53">
+                                                <highlight class="normal">
+                                                  <sp/>
+                                                  <sp/>
+                                                  <sp/>
+                                                  <sp/>
+                                                </highlight>
+                                                <highlight class="keywordflow">return</highlight>
+                                                <highlight class="normal">
+                                                  <sp/>
+                                                </highlight>
+                                                <highlight class="keyword">false</highlight>
+                                                <highlight class="normal">;</highlight>
+                                              </codeline>
+                                              <codeline lineno="54">
+                                                <highlight class="normal">
+                                                  <sp/>
+                                                  <sp/>}</highlight>
+                                                </codeline>
+                                                <codeline lineno="55">
+                                                  <highlight class="normal">
+                                                  </highlight>
+                                                </codeline>
+                                                <codeline lineno="56">
+                                                  <highlight class="normal">
+                                                    <sp/>
+                                                    <sp/>
+                                                  </highlight>
+                                                  <highlight class="keywordtype">int</highlight>
+                                                  <highlight class="normal">
+                                                    <sp/>add(</highlight>
+                                                    <highlight class="keywordtype">int</highlight>
+                                                    <highlight class="normal">
+                                                      <sp/>a,<sp/>
+                                                    </highlight>
+                                                    <highlight class="keywordtype">int</highlight>
+                                                    <highlight class="normal">
+                                                      <sp/>b);</highlight>
+                                                    </codeline>
+                                                    <codeline lineno="57">
+                                                      <highlight class="normal">
+                                                      </highlight>
+                                                    </codeline>
+                                                    <codeline lineno="61" refid="classtest_1_1Template" refkind="compound">
+                                                      <highlight class="normal">
+                                                        <sp/>
+                                                        <sp/>
+                                                      </highlight>
+                                                      <highlight class="keyword">class<sp/>
+                                                    </highlight>
+                                                    <highlight class="normal">
+                                                      <ref refid="classtest_1_1Template" kindref="compound">Template</ref>
+                                                      <sp/>{</highlight>
+                                                    </codeline>
+                                                    <codeline lineno="62">
+                                                      <highlight class="normal">
+                                                        <sp/>
+                                                        <sp/>
+                                                        <sp/>
+                                                        <sp/>
+                                                      </highlight>
+                                                      <highlight class="keywordtype">int</highlight>
+                                                      <highlight class="normal">
+                                                        <sp/>val;</highlight>
+                                                      </codeline>
+                                                      <codeline lineno="70">
+                                                        <highlight class="normal">
+                                                          <sp/>
+                                                          <sp/>
+                                                          <sp/>
+                                                          <sp/>
+                                                        </highlight>
+                                                        <highlight class="keywordtype">double</highlight>
+                                                        <highlight class="normal">
+                                                          <sp/>testing(</highlight>
+                                                          <highlight class="keywordtype">int</highlight>
+                                                          <highlight class="normal">
+                                                            <sp/>b)<sp/>{<sp/>
+                                                          </highlight>
+                                                          <highlight class="keywordflow">return</highlight>
+                                                          <highlight class="normal">
+                                                            <sp/>b;<sp/>}</highlight>
+                                                          </codeline>
+                                                          <codeline lineno="71">
+                                                            <highlight class="normal">
+                                                              <sp/>
+                                                              <sp/>};</highlight>
+                                                            </codeline>
+                                                            <codeline lineno="72">
+                                                              <highlight class="normal">
+                                                              </highlight>
+                                                            </codeline>
+                                                            <codeline lineno="73">
+                                                              <highlight class="normal">}<sp/>
+                                                              <sp/>
+                                                            </highlight>
+                                                            <highlight class="comment">//<sp/>namespace<sp/>test</highlight>
+                                                            <highlight class="normal">
+                                                            </highlight>
+                                                          </codeline>
+                                                          <codeline lineno="74">
+                                                            <highlight class="normal">
+                                                            </highlight>
+                                                          </codeline>
+                                                          <codeline lineno="75">
+                                                            <highlight class="normal">
+                                                            </highlight>
+                                                            <highlight class="keywordtype">int</highlight>
+                                                            <highlight class="normal">
+                                                              <sp/>sum(</highlight>
+                                                              <highlight class="keywordtype">int</highlight>
+                                                              <highlight class="normal">
+                                                                <sp/>a,<sp/>
+                                                              </highlight>
+                                                              <highlight class="keywordtype">int</highlight>
+                                                              <highlight class="normal">
+                                                                <sp/>b)<sp/>{<sp/>
+                                                              </highlight>
+                                                              <highlight class="keywordflow">return</highlight>
+                                                              <highlight class="normal">
+                                                                <sp/>a<sp/>+<sp/>b;<sp/>}</highlight>
+                                                              </codeline>
+                                                              <codeline lineno="76">
+                                                                <highlight class="normal">
+                                                                </highlight>
+                                                              </codeline>
+                                                              <codeline lineno="77">
+                                                                <highlight class="normal">
+                                                                </highlight>
+                                                                <highlight class="preprocessor">#endif<sp/>
+                                                                <sp/>//<sp/>EXAMPLES_TEMPLATE_HPP_</highlight>
+                                                              </codeline>
+                                                            </programlisting>
+                                                            <location file="basic_class.hpp"/>
+                                                          </compounddef>
+                                                        </doxygen>

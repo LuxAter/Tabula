@@ -15,7 +15,7 @@ void tabula::Comment::ParseComment(std::string str) {
       if (tmp.substr(0, 3) == "/**") {
         tmp.erase(tmp.begin(), tmp.begin() + 3);
       } else if (tmp.substr(0, 2) == "* ") {
-        tmp.erase(tmp.begin(), tmp.begin() + 1);
+        tmp.erase(tmp.begin(), tmp.begin() + 2);
       } else if (tmp.substr(0, 1) == "*") {
         tmp.erase(tmp.begin());
       } else if (tmp.substr(0, 2) == "*/") {

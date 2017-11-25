@@ -23,13 +23,18 @@
 #include <vector>
 
 namespace tabula {
+  struct CommentBlock {
+    std::string _str;
+    std::vector<std::string> _attr;
+  };
+
   class Comment {
    public:
     void ParseComment(std::string str);
     std::string GetRawComment();
 
    private:
-    std::string brief;
+    std::vector<CommentBlock> brief;
     std::string ret;
     std::string raw_comment;
   };

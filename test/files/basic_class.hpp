@@ -43,7 +43,8 @@ namespace test {
   };
 
   /**
-   * @brief Will return false
+   * @brief Will return false. And now it is also a test as to what will happen
+   * to a long definition, and paragraph splitting.
    *
    * @tparam _A First type
    * @tparam _B Second Type
