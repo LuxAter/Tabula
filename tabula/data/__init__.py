@@ -1,1 +1,1 @@
-"""Data structures for Tabula"""
+"Data structures"

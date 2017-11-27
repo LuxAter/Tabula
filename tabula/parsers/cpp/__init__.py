@@ -1,1 +1,1 @@
-"""C++ Parser files"""
+"""The entity tree generator for the C++/C languages"""

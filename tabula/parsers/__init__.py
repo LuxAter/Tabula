@@ -1,1 +1,1 @@
-"""Different Parsers for Tabula"""
+"""All the parsers for different languages, to generate and entity tree"""
