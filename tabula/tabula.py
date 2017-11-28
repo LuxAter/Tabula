@@ -14,7 +14,7 @@ def main():
     parser = CppParser()
     tu = parser.get_trans_unit("../examples/template.hpp")
     doc = parser.generate_tree(tu)
-    print(doc)
+    print(doc.string())
 
     #  from clang import cindex
     #  lname = "/usr/lib/llvm-5.0/lib/libclang.so"

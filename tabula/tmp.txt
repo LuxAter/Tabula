@@ -1,0 +1,294 @@
+TEST_A is undocumented!
+ is undocumented!
+ is undocumented!
+TEST_B is undocumented!
+ is undocumented!
+ is undocumented!
+_A is undocumented!
+_B is undocumented!
+lhs is undocumented!
+_A is undocumented!
+rhs is undocumented!
+_B is undocumented!
+ is undocumented!
+ is undocumented!
+ is undocumented!
+add is undocumented!
+a is undocumented!
+b is undocumented!
+val is undocumented!
+b is undocumented!
+ is undocumented!
+ is undocumented!
+b is undocumented!
+b is undocumented!
+b is undocumented!
+sum is undocumented!
+a is undocumented!
+b is undocumented!
+ is undocumented!
+ is undocumented!
+ is undocumented!
+a is undocumented!
+a is undocumented!
+b is undocumented!
+b is undocumented!
+'name': '../examples/template.hpp',
+'source_file': '../examples/template.hpp',
+'source': [],
+'doc': {},
+'raw_comment': '',
+'sub_entires': 
+  'name': 'test',
+  'source_file': '(null)',
+  'source': [],
+  'doc': {'content': '', 'brief': [{'attr': [], 'content': 'Test namespace'}]},
+  'raw_comment': '@brief Test namespace',
+  'sub_entires': 
+    'name': 'TestEnum',
+    'source_file': '(null)',
+    'source': [],
+    'doc': {'content': '', 'brief': [{'attr': [], 'content': 'This is a test enum'}]},
+    'raw_comment': '@brief This is a test enum',
+    'sub_entires': 
+      'name': 'TEST_A',
+      'source_file': '(null)',
+      'source': [],
+      'doc': {'content': '\n'},
+      'raw_comment': '',
+      'sub_entires': 
+        'name': '',
+        'source_file': '(null)',
+        'source': [],
+        'doc': {'content': '\n'},
+        'raw_comment': '',
+        'sub_entires': 
+          'name': '',
+          'source_file': '(null)',
+          'source': [],
+          'doc': {'content': '\n'},
+          'raw_comment': '',
+          'sub_entires': 
+      'name': 'TEST_B',
+      'source_file': '(null)',
+      'source': [],
+      'doc': {'content': '\n'},
+      'raw_comment': '',
+      'sub_entires': 
+        'name': '',
+        'source_file': '(null)',
+        'source': [],
+        'doc': {'content': '\n'},
+        'raw_comment': '',
+        'sub_entires': 
+          'name': '',
+          'source_file': '(null)',
+          'source': [],
+          'doc': {'content': '\n'},
+          'raw_comment': '',
+          'sub_entires': 
+    'name': 'same',
+    'source_file': '(null)',
+    'source': [],
+    'doc': {'content': '', 'brief': [{'attr': [], 'content': 'Will return false *'}], 'tparam': [{'attr': ['_A'], 'content': 'First type'}, {'attr': ['_B'], 'content': 'Second Type'}], 'param': [{'attr': ['lhs'], 'content': 'first value of `_A`'}, {'attr': ['rhs'], 'content': 'second value of `_B` This is an especially long comment block. Lets see if it will work. *'}], 'return': [{'attr': [], 'content': '`false`'}]},
+    'raw_comment': '@brief Will return false
+*
+@tparam _A First type
+@tparam _B Second Type
+@param lhs first value of `_A`
+@param rhs second value of `_B` This is an especially long comment block.
+       Lets see if it will work.
+*
+@return `false`',
+    'sub_entires': 
+      'name': '_A',
+      'source_file': '(null)',
+      'source': [],
+      'doc': {'content': '\n'},
+      'raw_comment': '',
+      'sub_entires': 
+      'name': '_B',
+      'source_file': '(null)',
+      'source': [],
+      'doc': {'content': '\n'},
+      'raw_comment': '',
+      'sub_entires': 
+      'name': 'lhs',
+      'source_file': '(null)',
+      'source': [],
+      'doc': {'content': '\n'},
+      'raw_comment': '',
+      'sub_entires': 
+        'name': '_A',
+        'source_file': '(null)',
+        'source': [],
+        'doc': {'content': '\n'},
+        'raw_comment': '',
+        'sub_entires': 
+      'name': 'rhs',
+      'source_file': '(null)',
+      'source': [],
+      'doc': {'content': '\n'},
+      'raw_comment': '',
+      'sub_entires': 
+        'name': '_B',
+        'source_file': '(null)',
+        'source': [],
+        'doc': {'content': '\n'},
+        'raw_comment': '',
+        'sub_entires': 
+      'name': '',
+      'source_file': '(null)',
+      'source': [],
+      'doc': {'content': '\n'},
+      'raw_comment': '',
+      'sub_entires': 
+        'name': '',
+        'source_file': '(null)',
+        'source': [],
+        'doc': {'content': '\n'},
+        'raw_comment': '',
+        'sub_entires': 
+          'name': '',
+          'source_file': '(null)',
+          'source': [],
+          'doc': {'content': '\n'},
+          'raw_comment': '',
+          'sub_entires': 
+    'name': 'add',
+    'source_file': '(null)',
+    'source': [],
+    'doc': {'content': '\n'},
+    'raw_comment': '',
+    'sub_entires': 
+      'name': 'a',
+      'source_file': '(null)',
+      'source': [],
+      'doc': {'content': '\n'},
+      'raw_comment': '',
+      'sub_entires': 
+      'name': 'b',
+      'source_file': '(null)',
+      'source': [],
+      'doc': {'content': '\n'},
+      'raw_comment': '',
+      'sub_entires': 
+    'name': 'Template',
+    'source_file': '(null)',
+    'source': [],
+    'doc': {'content': '', 'brief': [{'attr': [], 'content': 'Template class for scope testing'}]},
+    'raw_comment': '@brief Template class for scope testing',
+    'sub_entires': 
+      'name': 'val',
+      'source_file': '(null)',
+      'source': [],
+      'doc': {'content': '\n'},
+      'raw_comment': '',
+      'sub_entires': 
+      'name': 'testing',
+      'source_file': '(null)',
+      'source': [],
+      'doc': {'content': '', 'brief': [{'attr': [], 'content': 'test function in tempalte class *'}], 'param': [{'attr': ['b'], 'content': 'var b *'}], 'return': [{'attr': [], 'content': 'returns b'}]},
+      'raw_comment': '@brief test function in tempalte class
+*
+@param b var b
+*
+@return returns b',
+      'sub_entires': 
+        'name': 'b',
+        'source_file': '(null)',
+        'source': [],
+        'doc': {'content': '\n'},
+        'raw_comment': '',
+        'sub_entires': 
+        'name': '',
+        'source_file': '(null)',
+        'source': [],
+        'doc': {'content': '\n'},
+        'raw_comment': '',
+        'sub_entires': 
+          'name': '',
+          'source_file': '(null)',
+          'source': [],
+          'doc': {'content': '\n'},
+          'raw_comment': '',
+          'sub_entires': 
+            'name': 'b',
+            'source_file': '(null)',
+            'source': [],
+            'doc': {'content': '\n'},
+            'raw_comment': '',
+            'sub_entires': 
+              'name': 'b',
+              'source_file': '(null)',
+              'source': [],
+              'doc': {'content': '\n'},
+              'raw_comment': '',
+              'sub_entires': 
+                'name': 'b',
+                'source_file': '(null)',
+                'source': [],
+                'doc': {'content': '\n'},
+                'raw_comment': '',
+                'sub_entires': 
+  'name': 'sum',
+  'source_file': '(null)',
+  'source': [],
+  'doc': {'content': '\n'},
+  'raw_comment': '',
+  'sub_entires': 
+    'name': 'a',
+    'source_file': '(null)',
+    'source': [],
+    'doc': {'content': '\n'},
+    'raw_comment': '',
+    'sub_entires': 
+    'name': 'b',
+    'source_file': '(null)',
+    'source': [],
+    'doc': {'content': '\n'},
+    'raw_comment': '',
+    'sub_entires': 
+    'name': '',
+    'source_file': '(null)',
+    'source': [],
+    'doc': {'content': '\n'},
+    'raw_comment': '',
+    'sub_entires': 
+      'name': '',
+      'source_file': '(null)',
+      'source': [],
+      'doc': {'content': '\n'},
+      'raw_comment': '',
+      'sub_entires': 
+        'name': '',
+        'source_file': '(null)',
+        'source': [],
+        'doc': {'content': '\n'},
+        'raw_comment': '',
+        'sub_entires': 
+          'name': 'a',
+          'source_file': '(null)',
+          'source': [],
+          'doc': {'content': '\n'},
+          'raw_comment': '',
+          'sub_entires': 
+            'name': 'a',
+            'source_file': '(null)',
+            'source': [],
+            'doc': {'content': '\n'},
+            'raw_comment': '',
+            'sub_entires': 
+          'name': 'b',
+          'source_file': '(null)',
+          'source': [],
+          'doc': {'content': '\n'},
+          'raw_comment': '',
+          'sub_entires': 
+            'name': 'b',
+            'source_file': '(null)',
+            'source': [],
+            'doc': {'content': '\n'},
+            'raw_comment': '',
+            'sub_entires': 
+

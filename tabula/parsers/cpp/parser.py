@@ -1,6 +1,17 @@
 from data.entry import Entry
+from clang.cindex import CursorKind
 
 class CppParser:
+
+    def read_doc(self, cursor):
+        if cursor.is_definition() is False:
+            return False
+        elif cursor.kind == CursorKind.TEMPLATE_TYPE_PARAMETER:
+            return False
+        elif cursor.kind == CursorKind.PARM_DECL:
+            return False
+        else:
+            return True
 
     def clean_comment(self, comment):
         lines = comment.split('\n')
@@ -25,13 +36,16 @@ class CppParser:
         doc = Entry()
         doc.name = cursor.spelling
         doc.source_file = "(null)"
+        print(cursor.kind)
+        print(cursor.is_definition())
         if type(cursor.raw_comment) == str:
             doc.raw_comment = self.clean_comment(cursor.raw_comment)
         doc.parse_comment()
         if doc.doc['content'] == '\n':
             print(doc.name, "is undocumented!")
         for child in cursor.get_children():
-            doc.sub_entries.append(self.generate_entry(child))
+            if self.read_doc(child) is True:
+                doc.sub_entries.append(self.generate_entry(child))
         return doc
 
     def generate_tree(self, trans_unit):

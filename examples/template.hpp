@@ -35,7 +35,10 @@ namespace test {
 /**
  * @brief This is a test enum
  */
-enum TestEnum { TEST_A = 0, TEST_B = 1 };
+enum TestEnum {
+  TEST_A = 0,  //!< First value of test enum.
+  TEST_B = 1
+};
 
 /**
  * @brief Will return false

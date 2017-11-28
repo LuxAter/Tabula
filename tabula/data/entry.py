@@ -11,9 +11,24 @@ class Entry:
         self.raw_comment = str()
         self.doc = dict()
         self.source_file = str()
+        self.kind = str()
 
     def __repr__(self):
         return "{{\n 'name': \"{}\",\n 'source_file': \"{}\",\n 'source': {},\n 'doc': {},\n 'raw_comment': \"{}\",\n 'sub_entries': {}\n}}".format(self.name, self.source_file, self.source, self.doc, repr(self.raw_comment), self.sub_entries)
+
+    def string(self, indent=0):
+        i = ' ' * indent
+        string = str()
+        string += i + "'name': \'{}\',\n".format(self.name)
+        string += i + "'source_file': \'{}\',\n".format(self.source_file)
+        string += i + "'source': {},\n".format(self.source)
+        string += i + "'doc': {},\n".format(self.doc)
+        string += i + "'raw_comment': \'{}\',\n".format(self.raw_comment)
+        string += i + "'sub_entires': \n"
+        for sub in self.sub_entries:
+            string += sub.string(indent + 2)
+        return string
+
 
     def parse_command(self, line):
         specific = False
