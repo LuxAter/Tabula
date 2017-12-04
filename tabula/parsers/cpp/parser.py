@@ -1,19 +1,59 @@
+"""
+C++ Documentation Parser
+
+:author: Arden Rasmussen
+"""
+
 from data.entry import Entry
 from clang.cindex import CursorKind
+from clang import cindex
+import linecache
 
-class CppParser:
 
-    def read_doc(self, cursor):
+class CppParser(object):
+    """
+    The main parsing system for C++ files. It utilizes *Clang* to parse the AST.
+    """
+
+    def __init__(self):
+        pass
+
+    @staticmethod
+    def kind_string(cursor_kind):
+        """Gets string representation of the cursor kind value.
+
+        :param cursor_kind: Cursor kind to determine string representation.
+
+        :returns: String representation of cursor.
+        """
+        return repr(cursor_kind)[11:]
+
+    @staticmethod
+    def read_doc(cursor):
+        """Determins if the documentation should be read.
+
+        :param cursor: Cursor to check
+
+        :returns: `True` if documentation should be read, `False` if it shoulden't.
+        """
         if cursor.is_definition() is False:
             return False
         elif cursor.kind == CursorKind.TEMPLATE_TYPE_PARAMETER:
             return False
         elif cursor.kind == CursorKind.PARM_DECL:
             return False
-        else:
-            return True
+        return True
 
-    def clean_comment(self, comment):
+    @staticmethod
+    def clean_comment(comment):
+        """
+        Cleans the comment parsed from the C++ code, removing `/*`, `*`, `*/`, and `//`, from
+        the string.
+
+        :param comment: String representation of comment.
+
+        :returns: Comment without escape characters.
+        """
         lines = comment.split('\n')
         for index, line in enumerate(lines):
             line = line.strip()
@@ -23,6 +63,8 @@ class CppParser:
                 line = line[3:]
             if line.endswith('*/'):
                 line = line[:-2]
+            if line == '*':
+                line = ''
             lines[index] = line
         if lines[0] == str():
             lines = lines[1:]
@@ -31,37 +73,103 @@ class CppParser:
         comment = '\n'.join(lines)
         return comment
 
+    def read_metadata(self, cursor):
+        """
+        Gets the metadata of the provided cursor.
 
-    def generate_entry(self, cursor):
+        :param cursor: Cursor to get metadata for.
+
+        :returns: Metadata of the cursor object.
+        """
+        metadata = dict()
+        metadata["result"] = cursor.result_type.spelling
+        for child in cursor.get_children():
+            if child.kind == CursorKind.TEMPLATE_TYPE_PARAMETER:
+                if "template_param" not in metadata:
+                    metadata["template_param"] = list()
+                metadata["template_param"].append(child.spelling)
+            elif child.kind == CursorKind.PARM_DECL:
+                if "param" not in metadata:
+                    metadata["param"] = list()
+                metadata["param"].append((child.type.spelling, child.spelling))
+        metadata["decl"] = str()
+        if "template_param" in metadata:
+            metadata["decl"] = "template<typename " + ", typename ".join(metadata["template_param"])+ ">\n"
+        metadata["decl"] += metadata["result"] + " "+ cursor.spelling + "("
+        for i, param in enumerate(metadata["param"]):
+            metadata["decl"] += param[0] + " " + param[1]
+            if i != len(metadata["param"]) - 1:
+                metadata["decl"] += ", "
+        metadata["decl"] += ")"
+        return metadata
+
+    def generate_entry(self, cursor, scope=None):
+        """
+        Generates an entry for the current cursor, including name, scope, comment, and any sub
+        declarations.
+
+        :param cursor: Cursor to generate comment for.
+        :param scope: List of different scoping elements.
+
+        :returns: Entry representing the current cursor.
+        """
+        if scope is None:
+            scope = list()
         doc = Entry()
         doc.name = cursor.spelling
         doc.source_file = "(null)"
-        print(cursor.kind)
-        print(cursor.is_definition())
-        if type(cursor.raw_comment) == str:
+        doc.kind = self.kind_string(cursor.kind)
+        doc.usr = scope[:]
+        doc.metadata = self.read_metadata(cursor)
+        #  doc.metadata["return"] = cursor.result_type.spelling
+        if isinstance(cursor.raw_comment, str):
             doc.raw_comment = self.clean_comment(cursor.raw_comment)
         doc.parse_comment()
         if doc.doc['content'] == '\n':
             print(doc.name, "is undocumented!")
+        scope.append(doc.name)
         for child in cursor.get_children():
             if self.read_doc(child) is True:
-                doc.sub_entries.append(self.generate_entry(child))
+                sub_entry = self.generate_entry(child, scope)
+                if sub_entry.kind not in doc.sub_entries:
+                    doc.sub_entries[sub_entry.kind] = [sub_entry]
+                else:
+                    doc.sub_entries[sub_entry.kind].append(sub_entry)
+        scope.pop()
         return doc
 
     def generate_tree(self, trans_unit):
+        """
+        Generates entry tree for given transition unit.
+
+        :param trans_unit: Transition unit to generate entry tree for.
+
+        :returns: Tree containing entries for all elements and sub elements of the transition unit.
+        """
         unit_doc = Entry()
         unit_doc.name = trans_unit.spelling
         unit_doc.source_file = trans_unit.spelling
         for child in trans_unit.cursor.get_children():
-            unit_doc.sub_entries.append(self.generate_entry(child))
+            sub_entry = self.generate_entry(child)
+            if sub_entry.kind not in unit_doc.sub_entries:
+                unit_doc.sub_entries[sub_entry.kind] = [sub_entry]
+            else:
+                unit_doc.sub_entries[sub_entry.kind].append(sub_entry)
         return unit_doc
 
-    def get_trans_unit(self, file):
-        from clang import cindex
+    @staticmethod
+    def get_trans_unit(file_path):
+        """
+        Gets the transition unit associated with provided file.
+
+        :param file: Path to file to determin the transition unit of.
+
+        :returns: Transition unit of given file.
+        """
         lib_name = "/usr/lib/llvm-5.0/lib/libclang.so"
         cindex.Config.set_library_file(lib_name)
         index = cindex.Index.create()
-        trans_unit = index.parse(file)
+        trans_unit = index.parse(file_path)
         if not trans_unit:
-            raise ValueError("Unable to parse input file", file)
+            raise ValueError("Unable to parse input file", file_path)
         return trans_unit

@@ -3,32 +3,45 @@ import data.commands
 import sys
 import markdown
 
+
 class Entry:
+
     def __init__(self):
         self.name = str()
-        self.sub_entries = list()
+        self.sub_entries = dict()
         self.source = list()
         self.raw_comment = str()
         self.doc = dict()
         self.source_file = str()
         self.kind = str()
+        self.usr = str()
+        self.metadata = dict()
 
     def __repr__(self):
-        return "{{\n 'name': \"{}\",\n 'source_file': \"{}\",\n 'source': {},\n 'doc': {},\n 'raw_comment': \"{}\",\n 'sub_entries': {}\n}}".format(self.name, self.source_file, self.source, self.doc, repr(self.raw_comment), self.sub_entries)
+        return "{{\n 'name': \"{}\",\n 'source_file': \"{}\",\n 'source': {},\n 'doc': {},\n 'raw_comment': \"{}\",\n 'sub_entries': {}\n}}".format(
+            self.name, self.source_file, self.source, self.doc,
+            repr(self.raw_comment), self.sub_entries)
 
     def string(self, indent=0):
         i = ' ' * indent
         string = str()
+        string += i + "{\n"
         string += i + "'name': \'{}\',\n".format(self.name)
+        string += i + "'metadata: {},\n".format(self.metadata)
+        string += i + "'kind': \'{}\',\n".format(self.kind)
+        string += i + "'usr': \'{}\',\n".format(self.usr)
         string += i + "'source_file': \'{}\',\n".format(self.source_file)
         string += i + "'source': {},\n".format(self.source)
         string += i + "'doc': {},\n".format(self.doc)
-        string += i + "'raw_comment': \'{}\',\n".format(self.raw_comment)
+        #  string += i + "'raw_comment': \'{}\',\n".format(self.raw_comment)
         string += i + "'sub_entires': \n"
-        for sub in self.sub_entries:
-            string += sub.string(indent + 2)
+        for key, value in self.sub_entries.items():
+            string += i + "  [" + key + "] {\n"
+            for sub in value:
+                string += sub.string(indent + 4)
+            string += i + "  }\n"
+        string += i + "}\n"
         return string
-
 
     def parse_command(self, line):
         specific = False
@@ -55,17 +68,17 @@ class Entry:
         if specific is False:
             ent = dict()
             ent['attr'] = words[1:cmd[0] + 1]
-            ent['content'] = ' '.join(words[cmd[0]+1:])
+            ent['content'] = ' '.join(words[cmd[0] + 1:])
             self.doc[index].append(ent)
         else:
             ent = dict()
             ent['attr'] = list()
             args = 1
             if closed is False:
-                for word in words[1:cmd[2]+1]:
+                for word in words[1:cmd[2] + 1]:
                     args += 1
                     if word.endswith(':'):
-                        ent['attr'] .append(word[:-1])
+                        ent['attr'].append(word[:-1])
                         break
                     else:
                         ent['attr'].append(word)
@@ -92,11 +105,16 @@ class Entry:
                 paragraphs.append(line)
         for par in paragraphs:
             par = par.strip()
-            if len(par.split()) > 0 and data.commands.is_command(par.split()[0]) is True:
+            if len(par.split()) > 0 and data.commands.is_command(
+                    par.split()[0]) is True:
                 self.parse_command(par)
             elif par == str():
                 self.doc['content'] += '\n'
             else:
                 self.doc['content'] += par + '\n'
-        html = markdown.markdown(self.doc['content'], extensions=['markdown.extensions.extra', 'markdown.extensions.admonition', 'markdown.extensions.codehilite'])
-
+        html = markdown.markdown(
+            self.doc['content'],
+            extensions=[
+                'markdown.extensions.extra', 'markdown.extensions.admonition',
+                'markdown.extensions.codehilite'
+            ])

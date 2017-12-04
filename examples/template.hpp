@@ -29,6 +29,22 @@
 
 /**
  * @brief Test namespace
+ *
+ * THis namespace is a testing namespace... Everything should work correctly.
+ * Lets test to see what happens with different markdown things...
+ * 
+ * !!! note "THis is a note"
+ *     This is the *bodyy* of the note. It **should** work correctly.
+ *     
+ * This is inline `code`. And here is a code block:
+ * 
+ * ```cpp
+ * #include <iostream>
+ * 
+ * void main(){
+ *   std::cout << "Hello World\n";
+ * }
+ * ```
  */
 namespace test {
 
@@ -45,8 +61,8 @@ enum TestEnum {
  *
  * @tparam _A First type
  * @tparam _B Second Type
- * @param lhs first value of `_A`
- * @param rhs second value of `_B` This is an especially long comment block.
+ * @param `lhs` first value of `_A`
+ * @param `rhs` second value of `_B` This is an especially long comment block.
  *        Lets see if it will work.
  *
  * @return `false`

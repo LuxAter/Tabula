@@ -1,3 +1,9 @@
-// #include <iostream>
-
-void test() { std::cout << "THIS IS A TEST THING!!!\n"; }
+/**
+ * @brief This is a test function.
+ *
+ * This is the content of the comment.
+ */
+template <typename T, class B>
+B test(B arga, T argb) {
+  return;
+}
