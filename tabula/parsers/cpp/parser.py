@@ -73,6 +73,39 @@ class CppParser(object):
         comment = '\n'.join(lines)
         return comment
 
+    def get_raw_code(self, cursor):
+        """
+        Gets the raw code of the cursors representation.
+
+        :param cursor: Cursor to retreave source code of.
+
+        :returns: Pair of source file, line, and range if applicable.
+        """
+        loc = cursor.location
+        extent = cursor.extent
+        #  print(loc, extent)
+        i = min(extent.start.line, loc.line)
+        line = str()
+        while True and i <= extent.end.line:
+            new_line = linecache.getline(loc.file.name, i)
+            i += 1
+            new_line = new_line.rstrip()
+            if new_line.endswith('{'):
+                new_line = new_line[:-1]
+            new_line = new_line.rstrip()
+            if new_line.endswith(')'):
+                line += new_line
+                break
+            line += new_line + "\n"
+            #  print(new_line.strip(), i)
+        print(line)
+        lines = str()
+        for i in range(extent.start.line, extent.end.line+1):
+            lines += linecache.getline(loc.file.name, i)
+        #  print(line)
+        #  print(lines)
+        return (loc.file.name, line.strip(), lines.strip())
+
     def read_metadata(self, cursor):
         """
         Gets the metadata of the provided cursor.
@@ -82,25 +115,11 @@ class CppParser(object):
         :returns: Metadata of the cursor object.
         """
         metadata = dict()
-        metadata["result"] = cursor.result_type.spelling
-        for child in cursor.get_children():
-            if child.kind == CursorKind.TEMPLATE_TYPE_PARAMETER:
-                if "template_param" not in metadata:
-                    metadata["template_param"] = list()
-                metadata["template_param"].append(child.spelling)
-            elif child.kind == CursorKind.PARM_DECL:
-                if "param" not in metadata:
-                    metadata["param"] = list()
-                metadata["param"].append((child.type.spelling, child.spelling))
-        metadata["decl"] = str()
-        if "template_param" in metadata:
-            metadata["decl"] = "template<typename " + ", typename ".join(metadata["template_param"])+ ">\n"
-        metadata["decl"] += metadata["result"] + " "+ cursor.spelling + "("
-        for i, param in enumerate(metadata["param"]):
-            metadata["decl"] += param[0] + " " + param[1]
-            if i != len(metadata["param"]) - 1:
-                metadata["decl"] += ", "
-        metadata["decl"] += ")"
+        #  metadata["result"] = cursor.result_type.spelling
+        metadata["const"] = cursor.is_const_method()
+        metadata["pure virtual"] = cursor.is_pure_virtual_method()
+        metadata["static"] = cursor.is_static_method()
+        metadata["virtual"] = cursor.is_virtual_method()
         return metadata
 
     def generate_entry(self, cursor, scope=None):
@@ -121,7 +140,7 @@ class CppParser(object):
         doc.kind = self.kind_string(cursor.kind)
         doc.usr = scope[:]
         doc.metadata = self.read_metadata(cursor)
-        #  doc.metadata["return"] = cursor.result_type.spelling
+        doc.source = self.get_raw_code(cursor)
         if isinstance(cursor.raw_comment, str):
             doc.raw_comment = self.clean_comment(cursor.raw_comment)
         doc.parse_comment()
