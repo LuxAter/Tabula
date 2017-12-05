@@ -2,6 +2,9 @@ import markdown
 import collections
 from data.entry import Entry
 from jinja2 import Environment, PackageLoader
+from pygments import highlight
+from pygments.lexers import get_lexer_by_name
+from pygments.formatters import HtmlFormatter
 
 
 class HtmlGenerator:
@@ -24,6 +27,12 @@ class HtmlGenerator:
             text = text[3:-4]
         return text
 
+    def generate_code(self, code, lang):
+        lexer = get_lexer_by_name(lang, stripall=True)
+        formatter = HtmlFormatter(linenos=False, cssclass="source")
+        result = highlight(code, lexer, formatter)
+        return result
+
     def path_to_string(self, entry):
         if isinstance(entry, dict):
             for value in entry.items():
@@ -41,6 +50,8 @@ class HtmlGenerator:
 
     def compile_entry(self, entry):
         self.path_to_string(entry.doc)
+        for i in range(2, len(entry.source)):
+            entry.source[i] = self.generate_code(entry.source[i], entry.source[0])
         for key, value in entry.sub_entries.items():
             for ent in value:
                 self.compile_entry(ent)
@@ -48,5 +59,13 @@ class HtmlGenerator:
     def compile_entry_tree(self):
         self.compile_entry(self.tree)
 
-    def generate_entry_html(self):
-        return ""
+    def generate_entry_html(self, group, ent):
+        template = self.enviormant.get_template("html/" + group.lower() + ".html")
+        return template.render(obj=ent)
+
+    def generate_tree_html(self):
+        result = str()
+        for group, value in self.tree.sub_entries.items():
+            for child in value:
+                result += self.generate_entry_html(group, child)
+        return result

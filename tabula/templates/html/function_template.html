@@ -1,0 +1,12 @@
+
+<dl class="function_template">
+    <dt>{{ obj.source[2] }}</dt>
+    <dd>
+        {% if obj.metadata.virtual %}
+            THis is virtual!
+        {% else %}
+            This Is not virtual!!
+        {% endif %}
+        {{ obj.doc.content }}
+    </dd>
+</dl>

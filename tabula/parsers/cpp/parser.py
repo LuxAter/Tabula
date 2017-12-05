@@ -83,7 +83,6 @@ class CppParser(object):
         """
         loc = cursor.location
         extent = cursor.extent
-        #  print(loc, extent)
         i = min(extent.start.line, loc.line)
         line = str()
         while True and i <= extent.end.line:
@@ -97,14 +96,10 @@ class CppParser(object):
                 line += new_line
                 break
             line += new_line + "\n"
-            #  print(new_line.strip(), i)
-        print(line)
         lines = str()
         for i in range(extent.start.line, extent.end.line+1):
             lines += linecache.getline(loc.file.name, i)
-        #  print(line)
-        #  print(lines)
-        return (loc.file.name, line.strip(), lines.strip())
+        return ["cpp", loc.file.name, line.strip(), lines.strip()]
 
     def read_metadata(self, cursor):
         """
@@ -136,7 +131,6 @@ class CppParser(object):
             scope = list()
         doc = Entry()
         doc.name = cursor.spelling
-        doc.source_file = "(null)"
         doc.kind = self.kind_string(cursor.kind)
         doc.usr = scope[:]
         doc.metadata = self.read_metadata(cursor)

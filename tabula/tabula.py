@@ -39,11 +39,11 @@ def main():
     parser = CppParser()
     tu = parser.get_trans_unit("../examples/test.hpp")
     doc = parser.generate_tree(tu)
-    print(doc.string())
+    #  print(doc.string())
     gen = HtmlGenerator(doc)
     gen.compile_entry_tree()
-    print("=" * 150)
-    print(gen.generate_entry_html())
+    #  print("=" * 150)
+    print(gen.generate_tree_html())
 
     #  from clang import cindex
     #  lname = "/usr/lib/llvm-5.0/lib/libclang.so"

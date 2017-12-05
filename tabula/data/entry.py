@@ -9,7 +9,7 @@ class Entry:
     def __init__(self):
         self.name = str()
         self.sub_entries = dict()
-        self.source = tuple()
+        self.source = list()
         self.raw_comment = str()
         self.doc = dict()
         self.kind = str()
@@ -17,8 +17,8 @@ class Entry:
         self.metadata = dict()
 
     def __repr__(self):
-        return "{{\n 'name': \"{}\",\n 'source_file': \"{}\",\n 'source': {},\n 'doc': {},\n 'raw_comment': \"{}\",\n 'sub_entries': {}\n}}".format(
-            self.name, self.source_file, self.source, self.doc,
+        return "{{\n 'name': \"{}\",\n 'source': {},\n 'doc': {},\n 'raw_comment': \"{}\",\n 'sub_entries': {}\n}}".format(
+            self.name, self.source, self.doc,
             repr(self.raw_comment), self.sub_entries)
 
     def string(self, indent=0):
