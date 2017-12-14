@@ -22,3 +22,8 @@
         -   Throw
         -   Template Param
         -   etc.
+
+## Documentation Generating structure
+
+-   Scoped
+    -   Sub Scopes

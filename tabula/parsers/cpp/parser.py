@@ -26,7 +26,12 @@ class CppParser(object):
 
         :returns: String representation of cursor.
         """
-        return repr(cursor_kind)[11:]
+        string = repr(cursor_kind)[11:]
+        if string.lower().find('class') != -1:
+            string = "CLASS"
+        elif string.lower().find('function') != -1:
+            string = "FUNCTION"
+        return string
 
     @staticmethod
     def read_doc(cursor):
@@ -41,6 +46,8 @@ class CppParser(object):
         elif cursor.kind == CursorKind.TEMPLATE_TYPE_PARAMETER:
             return False
         elif cursor.kind == CursorKind.PARM_DECL:
+            return False
+        elif cursor.kind == CursorKind.TEMPLATE_NON_TYPE_PARAMETER:
             return False
         return True
 
@@ -91,13 +98,16 @@ class CppParser(object):
             new_line = new_line.rstrip()
             if new_line.endswith('{'):
                 new_line = new_line[:-1]
+                if self.kind_string(cursor.kind) == "CLASS":
+                    line += new_line
+                    break
             new_line = new_line.rstrip()
             if new_line.endswith(')'):
                 line += new_line
                 break
             line += new_line + "\n"
         lines = str()
-        for i in range(extent.start.line, extent.end.line+1):
+        for i in range(extent.start.line, extent.end.line + 1):
             lines += linecache.getline(loc.file.name, i)
         return ["cpp", loc.file.name, line.strip(), lines.strip()]
 
@@ -117,7 +127,7 @@ class CppParser(object):
         metadata["virtual"] = cursor.is_virtual_method()
         return metadata
 
-    def generate_entry(self, cursor, scope=None):
+    def generate_entry(self, cursor, scope=None, file_path=None):
         """
         Generates an entry for the current cursor, including name, scope, comment, and any sub
         declarations.
@@ -127,6 +137,10 @@ class CppParser(object):
 
         :returns: Entry representing the current cursor.
         """
+        if file_path is not None and cursor.location.file.name != file_path:
+            return None
+        elif file_path is None:
+            file_path = cursor.location.file
         if scope is None:
             scope = list()
         doc = Entry()
@@ -139,17 +153,27 @@ class CppParser(object):
             doc.raw_comment = self.clean_comment(cursor.raw_comment)
         doc.parse_comment()
         if doc.doc['content'] == '\n':
-            print(doc.name, "is undocumented!")
+            pass
+            #  print(doc.name, "is undocumented!")
+        #  print("  " * len(scope), doc.name)
         scope.append(doc.name)
         for child in cursor.get_children():
+            #  print("  " * len(scope), child.spelling)
             if self.read_doc(child) is True:
-                sub_entry = self.generate_entry(child, scope)
+                sub_entry = self.generate_entry(child, scope, file_path)
                 if sub_entry.kind not in doc.sub_entries:
                     doc.sub_entries[sub_entry.kind] = [sub_entry]
                 else:
                     doc.sub_entries[sub_entry.kind].append(sub_entry)
         scope.pop()
         return doc
+
+    def draw(self, cursor, indent):
+        if cursor.spelling or cursor.displayname is not str():
+            print((" | " * (indent - 1)) + " +-{} ({})".format(cursor.spelling or cursor.displayname, str(cursor.kind).split(".")[1]))
+            for child in cursor.get_children():
+                self.draw(child, indent + 1)
+
 
     def generate_tree(self, trans_unit):
         """
@@ -162,12 +186,14 @@ class CppParser(object):
         unit_doc = Entry()
         unit_doc.name = trans_unit.spelling
         unit_doc.source_file = trans_unit.spelling
+        self.draw(trans_unit.cursor, 0)
         for child in trans_unit.cursor.get_children():
-            sub_entry = self.generate_entry(child)
-            if sub_entry.kind not in unit_doc.sub_entries:
-                unit_doc.sub_entries[sub_entry.kind] = [sub_entry]
-            else:
-                unit_doc.sub_entries[sub_entry.kind].append(sub_entry)
+            sub_entry = self.generate_entry(child, None, trans_unit.spelling)
+            if sub_entry is not None:
+                if sub_entry.kind not in unit_doc.sub_entries:
+                    unit_doc.sub_entries[sub_entry.kind] = [sub_entry]
+                else:
+                    unit_doc.sub_entries[sub_entry.kind].append(sub_entry)
         return unit_doc
 
     @staticmethod

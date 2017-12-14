@@ -1,12 +1,33 @@
 
 <dl class="function_template">
-    <dt>{{ obj.source[2] }}</dt>
+    <dt>{{- obj.source[2] -}}</dt>
     <dd>
-        {% if obj.metadata.virtual %}
-            THis is virtual!
-        {% else %}
-            This Is not virtual!!
-        {% endif %}
-        {{ obj.doc.content }}
+        {%- if obj.doc.brief -%}
+        {%- for val in obj.doc.brief -%}
+        {{ val.content }}
+        {%- endfor -%}
+        {%- endif -%}
+
+        {{- obj.doc.content -}}
+        <table class="field-list">
+        {%- for key, value in obj.doc.items() -%}
+        {%- if key != "brief"  and key != "content" -%}
+        <tr><th class="field-name" colspan="2">{{ key.title() }}</th></tr>
+        <tr>
+            <td class="field-body">
+                <ul>
+                    {%- if value is string -%}
+                    <li>{{ value }}</li>
+                    {%- else -%}
+                    {%- for val in value -%}
+                    <li><strong>{{ val.attr }}</strong> - {{ val.content }}</li>
+                    {%- endfor -%}
+                    {%- endif -%}
+                </ul>
+            </td>
+        </tr>
+        {%- endif -%}
+        {%- endfor -%}
+        </table>
     </dd>
 </dl>

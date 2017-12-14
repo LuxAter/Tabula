@@ -37,13 +37,30 @@ def main():
     #  print(tem.render(function=func))
     #  print(template.render(function=func))
     parser = CppParser()
-    tu = parser.get_trans_unit("../examples/test.hpp")
+    tu = parser.get_trans_unit("../examples/matrix.hpp")
+    #  tu = parser.get_trans_unit("../examples/test.hpp")
     doc = parser.generate_tree(tu)
+    #  print(doc.string())
     #  print(doc.string())
     gen = HtmlGenerator(doc)
     gen.compile_entry_tree()
     #  print("=" * 150)
-    print(gen.generate_tree_html())
+    import sys
+    f = open("tmp.html", "w")
+    f.write("""
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Documentation</title>
+  <link rel="stylesheet" href="code.css">
+  <script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+<body>
+            """)
+    f.write(gen.generate_tree_html())
+    f.write("</body>\n</html>")
 
     #  from clang import cindex
     #  lname = "/usr/lib/llvm-5.0/lib/libclang.so"

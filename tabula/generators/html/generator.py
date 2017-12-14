@@ -1,4 +1,5 @@
 import markdown
+import generators.html.mathjax
 import collections
 from data.entry import Entry
 from jinja2 import Environment, PackageLoader
@@ -21,7 +22,7 @@ class HtmlGenerator:
             text,
             extensions=[
                 'markdown.extensions.extra', 'markdown.extensions.admonition',
-                'markdown.extensions.codehilite'
+                'markdown.extensions.codehilite', 'markdown.extensions.mathjax'
             ])
         if text.count('<p>') == 1:
             text = text[3:-4]
@@ -60,7 +61,14 @@ class HtmlGenerator:
         self.compile_entry(self.tree)
 
     def generate_entry_html(self, group, ent):
+        for sub_group, value in ent.sub_entries.items():
+            ent.sub[sub_group.lower()] = str()
+            for child in value:
+               ent.sub[sub_group.lower()] += self.generate_entry_html(sub_group, child)
         template = self.enviormant.get_template("html/" + group.lower() + ".html")
+        import pprint
+        import sys
+        #  print(ent.name, ent.sub, file=sys.stderr, end="<<<<<<<\n\n\n\n\n")
         return template.render(obj=ent)
 
     def generate_tree_html(self):

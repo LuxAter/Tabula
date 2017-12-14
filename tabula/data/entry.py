@@ -15,6 +15,7 @@ class Entry:
         self.kind = str()
         self.usr = str()
         self.metadata = dict()
+        self.sub = dict()
 
     def __repr__(self):
         return "{{\n 'name': \"{}\",\n 'source': {},\n 'doc': {},\n 'raw_comment': \"{}\",\n 'sub_entries': {}\n}}".format(
@@ -109,6 +110,9 @@ class Entry:
             elif par == str():
                 self.doc['content'] += '\n'
             else:
+                if par.startswith('@'):
+                    par = par.split()
+                    par = "!!! " + par[0][1:] + '\n    ' + ' '.join(par[1:])
                 self.doc['content'] += par + '\n'
         html = markdown.markdown(
             self.doc['content'],
