@@ -1,0 +1,10 @@
+<dl class="enum_decl">
+  <dt>{{- obj.source[2] -}}</dt>
+  <dd>
+      {%- if obj.doc.brief -%}
+      {%- for val in obj.doc.brief -%}
+      {{ val.content }}
+      {%- endfor -%}
+      {%- endif -%}
+  </dd>
+</dl>

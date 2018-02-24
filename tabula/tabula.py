@@ -37,7 +37,7 @@ def main():
     #  print(tem.render(function=func))
     #  print(template.render(function=func))
     parser = CppParser()
-    tu = parser.get_trans_unit("../examples/matrix.hpp")
+    tu = parser.get_trans_unit("../examples/test.c")
     #  tu = parser.get_trans_unit("../examples/test.hpp")
     doc = parser.generate_tree(tu)
     #  print(doc.string())

@@ -61,7 +61,7 @@ namespace estl {
  * @tparam _Al Allocator type, Not necessary in most situations.
  */
 template <typename _Tp, std::size_t _Nr, std::size_t _Nc,
-          typename _Al = std::allocator<_Tp>>
+          typename _Al = std::allocator<_Tp> >
 class matrix {
  public:
   /**
@@ -1482,6 +1482,8 @@ estl::matrix<_Tp, _Nr, _Nc> multiplication(
   }
   return mat;
 }
+
+estl::matrix<double, 5, 5> mat;
 
 /**  @} */
 }  // namespace estl

@@ -168,11 +168,20 @@ class CppParser(object):
         scope.pop()
         return doc
 
-    def draw(self, cursor, indent):
+    def draw(self, cursor, indent, file_path):
         if cursor.spelling or cursor.displayname is not str():
-            print((" | " * (indent - 1)) + " +-{} ({})".format(cursor.spelling or cursor.displayname, str(cursor.kind).split(".")[1]))
+            print(indent[:-3] + " +-{} ({})".format(cursor.spelling or cursor.displayname, str(cursor.kind).split(".")[1]))
+            if cursor.kind == CursorKind.CLASS_TEMPLATE:
+                print(cursor.walk_preorder())
+            nodes = list()
             for child in cursor.get_children():
-                self.draw(child, indent + 1)
+                if child.location.file.name == file_path:
+                    nodes.append(child)
+            for i, child in enumerate(nodes):
+                if i != len(nodes) - 1:
+                    self.draw(child, indent + " | ", file_path)
+                else:
+                    self.draw(child, indent + "   ", file_path)
 
 
     def generate_tree(self, trans_unit):
@@ -186,7 +195,7 @@ class CppParser(object):
         unit_doc = Entry()
         unit_doc.name = trans_unit.spelling
         unit_doc.source_file = trans_unit.spelling
-        self.draw(trans_unit.cursor, 0)
+        self.draw(trans_unit.cursor, "", trans_unit.spelling)
         for child in trans_unit.cursor.get_children():
             sub_entry = self.generate_entry(child, None, trans_unit.spelling)
             if sub_entry is not None:
