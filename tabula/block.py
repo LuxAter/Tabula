@@ -2,11 +2,11 @@ from enum import Enum
 
 class Type(Enum):
     NONE = 0
-    PAGE = 1
-    PARAGRAPH = 2
-    FUNCTION = 3
-    PARAM = 4
-    RETURN = 5
+    PAGE = 2
+    PARAGRAPH = 3
+    FUNCTION = 4
+    PARAM = 5
+    RETURN = 6
 
 class Block(object):
 
@@ -37,7 +37,7 @@ class Block(object):
     def set_meta(self, line):
         self.set_type(line.split()[0][1:])
         if self.type is Type.FUNCTION:
-            self.metadata = [' '.join(line.split()[1:])]
+            self.metadata = [line.split()[1], ' '.join(line.split()[2:])]
         else:
             self.metadata = line.split()[1:]
 

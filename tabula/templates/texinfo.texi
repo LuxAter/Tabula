@@ -1,0 +1,27 @@
+[[text]]
+$?
+[[code]]
+@code{$?}
+[[bold]]
+@b{$?}
+[[italic]]
+@i{$?}
+[[function]]
+@node $1
+@subsection $1
+@findex $1
+
+@code{$2}
+
+@table @var
+$param
+@end table
+
+$?
+
+$return
+[[param]]
+@item $1
+$?
+[[return]]
+@b{Returns}: $?

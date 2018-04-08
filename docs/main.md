@@ -1,11 +1,16 @@
-@func bool Foo(int a)
-  This is a function that calls @ref fun:bar and uses that, by passing `a`. We
-  will try to make it multi line and see what happens? I dont think that it
-  will work very nicly.
+@func Foo bool Foo(int a)
+  This is a **function** that will take an `int` and return a `bool`. It does
+  this through a very fun process.
   @param a int
-    Test parameter. Lets try to have a very long description in the parmeter
-    and see what happens then? Mabey add a parameter to this parameter?
-    @param b void
-      Haha I think that this will work!
+    This is the random parmeter, it does *things*.
+  @param b bool
+    This does not exist. But it dosent realy matter.
   @return bool
-    Randomized boolean value.
+    This function returns a boolean.
+
+@func Bar int Bar(double a)
+  This is a different function, it is called by @ref func:Foo.
+  @param a double
+    This parameter is converted to an integer.
+  @return int
+    Returns an `int` representation of the `double` passed to the function.
