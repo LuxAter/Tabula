@@ -2,6 +2,7 @@ from enum import Enum
 
 class Type(Enum):
     NONE = 0
+    DIR = 1
     PAGE = 2
     PARAGRAPH = 3
     FUNCTION = 4

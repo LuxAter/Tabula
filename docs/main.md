@@ -1,3 +1,7 @@
+This file defines several different functions such as @ref func:foo and @ref
+func:bar. Both of these function do things with the parapmeters that they are
+provied and then return a new value.
+
 @func Foo bool Foo(int a)
   This is a **function** that will take an `int` and return a `bool`. It does
   this through a very fun process.
@@ -9,7 +13,7 @@
     This function returns a boolean.
 
 @func Bar int Bar(double a)
-  This is a different function, it is called by @ref func:Foo.
+  This is a different function, it is called by reference.
   @param a double
     This parameter is converted to an integer.
   @return int

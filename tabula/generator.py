@@ -1,3 +1,5 @@
+import re
+
 from tabula.block import Type, Block
 from tabula.text import Format, Text
 
@@ -33,6 +35,18 @@ class Generator(object):
         if key:
             self.templates[self.convert_key(key)] = value[:-1]
 
+    def generate_for(self, template, data):
+        pat = re.compile(r"{{for (\S+)}}\n(.+){{end for}}", re.DOTALL)
+        res = pat.search(template)
+        print("TEMPLATE:")
+        print(pat.pattern)
+        print(res)
+        if res is not None:
+            print(">>", res.group(1), "<<")
+            print(">>", res.group(2), "<<")
+        print(template)
+        return template
+
     def generate(self, block):
         if block.type in self.templates:
             template = self.templates[block.type]
@@ -50,10 +64,13 @@ class Generator(object):
                     data[entry.type] += '\n' + self.generate(entry)
                 else:
                     data[entry.type] = self.generate(entry)
-        template = template.replace('$?', data[Format.TEXT])
+        self.generate_for(template, None)
+        template = template.replace('{{?}}', data[Format.TEXT])
         for i, meta in enumerate(block.metadata):
-            template = template.replace('$' + repr(i + 1), meta)
+            template = template.replace('{{' + repr(i + 1) + "}}", meta)
+        for i in range(len(block.metadata), 10):
+            template = template.replace('{{' + repr(i + 1) + "}}", '')
         for key in data:
-            template = template.replace('$' + repr(key).split('.')[1].split()[0][:-1].lower(), data[key])
+            template = template.replace('{{' + repr(key).split('.')[1].split()[0][:-1].lower() + "}}", data[key])
         return template
 

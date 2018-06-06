@@ -1,27 +1,84 @@
 [[text]]
-$?
+{{?}}
 [[code]]
-@code{$?}
+@code{{{?}}}
 [[bold]]
-@b{$?}
+@b{{{?}}}
 [[italic]]
-@i{$?}
-[[function]]
-@node $1
-@subsection $1
-@findex $1
+@i{{{?}}}
+[[dir]]
+\input texinfo   @c -*-texinfo-*-
+@c %**start of header
+@setfilename {{1}}.info
+@settitle {{1}} {{4}}
+@c @setchapternewpage odd
+@setcontentsaftertitlepage
+@syncodeindex fn cp
+@syncodeindex vr cp
+@syncodeindex tp cp
+@c %**end of header
+@exampleindent 0
+@ifinfo
 
-@code{$2}
+Copyright @copyright{} {{3}} {{2}}
+
+Permission is granted to distribute freely, or in a distribution of any kind.
+All distributions of this file must be in an unaltered state, except for corrections.
+
+@end ifinfo
+@titlepage
+@sp 10
+@title {{1}}
+
+@subtitle @today{}
+
+@author {{2}}
+@page
+@vskip 0pt plus 1filll
+Copyright @copyright{} {{3}} {{2}}
+
+Permission is granted to distribute freely, or in a distribution of any kind.
+All distributions of this file must be in an unaltered state, except for corrections.
+
+@end titlepage
+@ifinfo
+
+@node Top
+@top {{1}} {{4}}
+
+@menu
+{{for page}}
+* {{1}}:: {{2}}
+{{end for}}
+@end menu
+@end ifinfo
+{{page}}
+
+[[page]]
+@chapter {{1}}
+
+{{?}}
+
+@section Functions
+{{function}}
+[[function]]
+@node {{1}}
+@subsection {{1}}
+@findex {{1}}
+
+@code{{{2}}}
 
 @table @var
-$param
+{{param}}
 @end table
 
-$?
+{{?}}
 
-$return
+{{return}}
 [[param]]
-@item $1
-$?
+@item {{1}}
+{{?}}
 [[return]]
-@b{Returns}: $?
+@b{Returns}: {{?}}
+[[ref]]
+@ref{#1}

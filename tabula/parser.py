@@ -38,25 +38,22 @@ class Parser(object):
             else:
                 return line[index + 1]
 
-        delim_stack = list()
         new = Text()
         new.type = base
         current = str()
         i = 0
         while i < len(line):
-            if line[i] == '@':
-                future = line[i:]
-                if future.startswith('@ref '):
-                    new.append(current)
-                    current = str()
-                    i += 5
-                    ref_id = line[i:].split()[0]
-                    i += len(ref_id)
-                    ref = Text()
-                    ref.type = Format.REF
-                    ref.metadata = [ref_id]
-                    new.append(ref)
-            if in_delim(line[i], get_next(line, i))[0]:
+            if line[i] == '@' and line[i:].startswith('@ref '):
+                new.append(current)
+                current = str()
+                i += 5
+                ref_id = line[i:].split()[0]
+                i += len(ref_id)
+                ref = Text()
+                ref.type = Format.REF
+                ref.metadata = [ref_id]
+                new.append(ref)
+            elif in_delim(line[i], get_next(line, i))[0]:
                 delim = in_delim(line[i], get_next(line, i))[1]
                 new.append(current)
                 current = str()
@@ -106,19 +103,34 @@ class Parser(object):
             os.path.join(d, o) for o in os.listdir(d)
             if os.path.isfile(os.path.join(d, o))
         ]
-        result = []
+        new = Block()
+        new.metadata.append(os.path.basename(d))
+        new.type = Type.DIR
         for file in files:
-            result.append(self.parse_file(file))
-        return result
+            new.data.append(self.parse_file(file))
+        return new 
 
     def parse_file(self, f):
         with open(f, 'r') as file:
             lines = file.read().splitlines()
-        if lines[0].lstrip()[0] == '@' and lines[0].strip().split(
-        )[0][1:] in self.blocks:
-            result, i = self.block(lines)
-            return result
-        return None
+        new = Block()
+        new.metadata.append(os.path.splitext(os.path.basename(f))[0])
+        new.type = Type.PAGE
+        i = 0
+        while i < len(lines):
+            if lines[i] == str():
+                pass
+            elif lines[i][0] == '@' and lines[i].strip().split()[0][1:] in self.blocks:
+                tmp, i = self.block(lines, i)
+                if new.data and isinstance(new.data[-1], str):
+                    new.data[-1] = self.parse_text(new.data[-1])
+                new.append(tmp)
+            else:
+                new.append(lines[i].strip())
+            i += 1
+        if new.data and isinstance(new.data[-1], str):
+            new.data[-1] = self.parse_text(new.data[-1])
+        return new
 
     def parse(self):
         return self.parse_directory(self.directory_path)

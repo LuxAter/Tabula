@@ -5,10 +5,9 @@ def main():
     my_parse = Parser('.')
     my_generator = Generator('../tabula/templates/texinfo.texi')
     data = my_parse.parse()
-    result = my_generator.generate(data[0])
+    result = my_generator.generate(data)
 
-    print(data)
-    print(result)
+    # print(result)
 
 if __name__ == "__main__":
     main()
