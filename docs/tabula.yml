@@ -1,10 +1,4 @@
-site_name: "Style Guides"
-theme: "default"
-pages:
-  - Home: index.md
-  - Help: help.md
-  - C:
-    - C: c/c.md
-    - C++: c/cpp.md
-  - V:
-    - VimScript: v/vimscript.md
+title: Tabula
+source: src
+dest: build
+lang: c
