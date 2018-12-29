@@ -1,0 +1,56 @@
+\documentclass{refdoc}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{csquotes}
+\usepackage{enumitem}
+
+\title{Entis Documentation}
+\author{Arden}
+
+\begin{document}
+\maketitle
+
+\section{Introduciton}%
+\label{sec:introduciton}
+
+This is the introduction section!
+
+\section{Core}%
+\label{sec:core}
+
+Core functions of the Entis library. All initialization and termination of the
+modules can be found here.
+
+\subsection{Enumerations}%
+\label{sub:enumerations}
+
+\begin{enum}{EntisInitFlags}
+  \src{enum EntisInitFlags}
+  \begin{enumerator}
+    \val{ENTIS_XCB}{Initialize XCB connection.}
+    \val{ENTIS_TTF}{Initalize FreeType2 library.}
+  \end{enumerator}
+\end{enum}
+
+\subsection{Structs}%
+\label{sub:structs}
+
+\begin{struct}{entis\_key\_event}
+  \begin{data}
+    \field{uint32_t}{time}{Time of the event}
+  \end{data}
+\end{struct}
+
+\subsection{Functions}%
+\label{sub:functions}
+
+\begin{func}{init\_entis}
+  \src{bool init_entis(uint32_t width, uint32_t height, uint32_t flags);}
+  \begin{params}
+    \param[in]{width}{This is the width of the framebuffer to construct.}
+    \param{height}{Height of the framebuffer to construct.}
+  \end{params}
+  \return{TRUE if true}
+\end{func}
+
+\end{document}
